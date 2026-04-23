@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7we1jnxdpeub"]
+[gd_scene load_steps=5 format=3 uid="uid://c7we1jnxdpeub"]
 
 [ext_resource type="Script" uid="uid://k5lvxw6c0876" path="res://levels/demo/main/main.gd" id="1_7bght"]
-[ext_resource type="Texture2D" uid="uid://ctvoca068pgkm" path="res://icon.svg" id="2_xhiaw"]
+[ext_resource type="FontFile" uid="uid://3oo4xutx04g7" path="res://assets/fonts/monogram.ttf" id="2_xhiaw"]
+[ext_resource type="Script" uid="uid://qqm40ogn6vp2" path="res://commons/ui/text_shadow.gd" id="3_o8o6y"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("x")]
+[sub_resource type="LabelSettings" id="LabelSettings_o8o6y"]
+font = ExtResource("2_xhiaw")
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("lb", "c")]
 position = Vector2(0, 1)
 script = ExtResource("1_7bght")
-x = [NodePath("VBoxContainer/ColorRect"), NodePath("VBoxContainer/ColorRect2"), NodePath("VBoxContainer/ColorRect3"), NodePath("VBoxContainer/ColorRect4"), NodePath("VBoxContainer/ColorRect5"), NodePath("VBoxContainer/ColorRect6")]
+lb = NodePath("Label")
+c = NodePath("Control")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_right = 40.0
@@ -37,8 +42,23 @@ custom_minimum_size = Vector2(32, 4)
 layout_mode = 2
 color = Color(0.658192, 0.0682411, 0.258485, 1)
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(216, 99)
-scale = Vector2(0.351562, 0.359375)
-texture_normal = ExtResource("2_xhiaw")
-action = "ui_down"
+[node name="Label" type="Label" parent="."]
+offset_left = 76.0
+offset_top = 26.0
+offset_right = 116.0
+offset_bottom = 49.0
+text = "anjay anjay"
+label_settings = SubResource("LabelSettings_o8o6y")
+visible_characters = 11
+visible_characters_behavior = 1
+
+[node name="TextShadow" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("3_o8o6y")
+target = NodePath("../Label")
+metadata/_custom_type_script = "uid://qqm40ogn6vp2"
+
+[node name="Control" type="ColorRect" parent="."]
+offset_left = 86.0
+offset_top = 64.0
+offset_right = 126.0
+offset_bottom = 104.0
