@@ -41,7 +41,7 @@ func _trigger_progress(visible_characters):
 func _start_batch(p_dialogue_batch):
     for i: DialogueNormal in p_dialogue_batch:
         _t= Engine.get_main_loop().create_tween()
-        _t.tween_method(_trigger_progress, 0, i.msg.length(), _get_speed(i.msg))
+        _t.tween_method(_trigger_progress, 0, i.msg.length(), _get_time(i.msg))
         _current_dialogue= i
         _is_running_dialogue= true
         _just_changed= true
@@ -52,7 +52,7 @@ func _start_batch(p_dialogue_batch):
     batch_finished.emit()
 
 
-func _get_speed(msg):
+func _get_time(msg):
     return msg.length() / float(speed)
 
 
