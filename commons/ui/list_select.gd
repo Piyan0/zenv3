@@ -56,20 +56,22 @@ func _process_select_item(event: InputEvent):
 func _process_input_vertical(event: InputEvent):
     if event.is_action_pressed("ui_up"):
         _current_idx= _move_index(-1)
-        get_viewport().set_input_as_handled() 
     elif event.is_action_pressed("ui_down"):
         _current_idx= _move_index(1)
-        get_viewport().set_input_as_handled() 
+    else:
+        return
+    get_viewport().set_input_as_handled() 
     _selection_change(_current_idx)
 
 
 func _process_input_horizontal(event: InputEvent):
     if event.is_action_pressed("ui_left"):
         _current_idx= _move_index(-1)
-        get_viewport().set_input_as_handled()
     elif event.is_action_pressed("ui_right"):
         _current_idx= _move_index(1)
-        get_viewport().set_input_as_handled()
+    else:
+        return
+    get_viewport().set_input_as_handled()
     _selection_change(_current_idx)
 
 

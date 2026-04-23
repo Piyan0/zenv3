@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxxlmvxb1njx0"]
+
+[ext_resource type="Texture2D" uid="uid://gld400filib8" path="res://ui/mobile_control/gdb-switch-2.png" id="1_jc4dg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjq75"]
+atlas = ExtResource("1_jc4dg")
+region = Rect2(242, 418, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow6bc"]
+atlas = ExtResource("1_jc4dg")
+region = Rect2(242, 450, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oa1u"]
+atlas = ExtResource("1_jc4dg")
+region = Rect2(242, 466, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kro4v"]
+atlas = ExtResource("1_jc4dg")
+region = Rect2(242, 434, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv87s"]
+atlas = ExtResource("1_jc4dg")
+region = Rect2(290, 418, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eerth"]
+atlas = ExtResource("1_jc4dg")
+region = Rect2(290, 434, 12, 12)
+
+[node name="MobileControl" type="CanvasLayer"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = 10.0
+offset_top = 91.0
+offset_right = 50.0
+offset_bottom = 131.0
+scale = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Control4" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="CenterContainer/VBoxContainer/Control4"]
+texture_normal = SubResource("AtlasTexture_yjq75")
+action = "ui_up"
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+
+[node name="TouchScreenButton6" type="TouchScreenButton" parent="CenterContainer/VBoxContainer/Control"]
+texture_normal = SubResource("AtlasTexture_ow6bc")
+action = "ui_down"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Control3" type="Control" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="CenterContainer/HBoxContainer/Control3"]
+texture_normal = SubResource("AtlasTexture_1oa1u")
+action = "ui_left"
+
+[node name="Control2" type="Control" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="CenterContainer/HBoxContainer/Control2"]
+texture_normal = SubResource("AtlasTexture_kro4v")
+action = "ui_right"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+offset_left = 243.0
+offset_top = 112.0
+offset_right = 271.0
+offset_bottom = 138.0
+scale = Vector2(2, 2)
+
+[node name="Control5" type="Control" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="HBoxContainer2/Control5"]
+texture_normal = SubResource("AtlasTexture_lv87s")
+action = "ui_cancel"
+
+[node name="Control6" type="Control" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer2/Control6"]
+texture_normal = SubResource("AtlasTexture_eerth")
+action = "ui_accept"
