@@ -1,24 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7we1jnxdpeub"]
 
 [ext_resource type="Script" uid="uid://k5lvxw6c0876" path="res://levels/demo/main/main.gd" id="1_7bght"]
-[ext_resource type="Script" uid="uid://b33r1rec7b2nn" path="res://commons/behaviors/grid_movement.gd" id="3_4vt5f"]
+[ext_resource type="PackedScene" uid="uid://dyk86kgdrft2x" path="res://entities/player/player.tscn" id="2_xhiaw"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("spr")]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_7bght")
-spr = NodePath("")
 
-[node name="GridMovement" type="Node2D" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("3_4vt5f")
-target = NodePath("../Node2D2")
-speed = 300
-metadata/_custom_type_script = "uid://b33r1rec7b2nn"
-
-[node name="Node2D2" type="CharacterBody2D" parent="."]
-position = Vector2(1, 27)
-
-[node name="ColorRect" type="ColorRect" parent="Node2D2"]
-custom_minimum_size = Vector2(16, 16)
-offset_left = -1.0
-offset_top = -27.0
-offset_right = 15.0
-offset_bottom = -11.0
+[node name="Player" parent="." instance=ExtResource("2_xhiaw")]
