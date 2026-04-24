@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bi5w5hfp2vfo1" path="res://entities/player/Walk.png" id="1_abrql"]
 [ext_resource type="Script" uid="uid://b1luavvlxm1ak" path="res://entities/player/player.gd" id="1_sglur"]
-[ext_resource type="Script" uid="uid://b33r1rec7b2nn" path="res://commons/behaviors/grid_movement.gd" id="2_sglur"]
+[ext_resource type="Script" uid="uid://b33r1rec7b2nn" path="res://commons/behaviors/input_grid_movement.gd" id="2_sglur"]
 
 [sub_resource type="Animation" id="Animation_fkugw"]
 length = 0.001
@@ -100,10 +100,12 @@ _data = {
 &"w_up": SubResource("Animation_8fjmc")
 }
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("anim", "grid_mov")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("anim", "grid_mov", "ray")]
+z_index = 10
 script = ExtResource("1_sglur")
 anim = NodePath("AnimationPlayer")
 grid_mov = NodePath("GridMovement")
+ray = NodePath("RayCast2D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -119,5 +121,17 @@ vframes = 4
 
 [node name="GridMovement" type="Node2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("2_sglur")
-target = NodePath("../Sprite2D")
+target = NodePath("..")
 metadata/_custom_type_script = "uid://b33r1rec7b2nn"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(8, 10)
+target_position = Vector2(0, 16)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(8, 16)
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

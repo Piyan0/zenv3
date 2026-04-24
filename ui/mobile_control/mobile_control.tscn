@@ -45,6 +45,7 @@ layout_mode = 2
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="CenterContainer/VBoxContainer/Control4"]
 texture_normal = SubResource("AtlasTexture_yjq75")
+passby_press = true
 action = "ui_up"
 
 [node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
@@ -53,6 +54,7 @@ layout_mode = 2
 
 [node name="TouchScreenButton6" type="TouchScreenButton" parent="CenterContainer/VBoxContainer/Control"]
 texture_normal = SubResource("AtlasTexture_ow6bc")
+passby_press = true
 action = "ui_down"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
@@ -65,6 +67,7 @@ layout_mode = 2
 
 [node name="TouchScreenButton4" type="TouchScreenButton" parent="CenterContainer/HBoxContainer/Control3"]
 texture_normal = SubResource("AtlasTexture_1oa1u")
+passby_press = true
 action = "ui_left"
 
 [node name="Control2" type="Control" parent="CenterContainer/HBoxContainer"]
@@ -73,6 +76,7 @@ layout_mode = 2
 
 [node name="TouchScreenButton5" type="TouchScreenButton" parent="CenterContainer/HBoxContainer/Control2"]
 texture_normal = SubResource("AtlasTexture_kro4v")
+passby_press = true
 action = "ui_right"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]

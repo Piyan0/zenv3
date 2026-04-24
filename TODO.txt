@@ -1,0 +1,4 @@
+event movement traits
+cutscene movement
+spawnable animation with offset
+add idle animations
