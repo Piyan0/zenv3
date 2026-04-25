@@ -8,7 +8,6 @@ extends Resource
 @export var frames_index: Array[int]
 @export var tile_size= Vector2(16, 16)
 
-
 func get_texture(idx):
     var col= (frames_index[idx] % columns) * tile_size.x
     var row= floor(frames_index[idx] / columns) * tile_size.y

@@ -28,8 +28,16 @@ func _physics_process(delta):
         
 func set_texture(texture):
     spr.texture= texture
-        
-        
+    
+
+func get_area():
+    return area
+    
+
+func get_collision_space():
+    return active_event_page.placement
+    
+    
 func is_interact(player: Player, input_event: InputEvent= null):
     match active_event_page.placement:
         EventPage.Placement.GROUND:
@@ -66,8 +74,6 @@ func update_active_event(internal_switches, variables, global_switches):
             for j in active_event_page.event_traits:
                 j.enter(self)
             return
-
-    
     
     
 func _update_trigger_touch(player):

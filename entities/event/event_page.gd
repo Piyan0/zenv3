@@ -5,7 +5,7 @@ const EMPTY= "empty"
 
 enum Trigger{ PLAYER_TOUCH, INTERACT_BUTTON, AUTORUN }
 enum InternalSwitch { NONE, A, B, C, D }
-enum Placement { BELOW_GROUND, GROUND, ABOVE_GROUND }
+enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 
 @export var graphic: Texture2D
 
