@@ -33,4 +33,3 @@ func _get_texture(dir):
             return look_left
         Vector2.RIGHT:
             return look_right
-
