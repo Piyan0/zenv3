@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AnimationData" load_steps=3 format=3 uid="uid://jgcmb1xxc6os"]
+
+[ext_resource type="Script" uid="uid://dsnkbelrc631k" path="res://commons/animation_process/animation_data.gd" id="1_fcsts"]
+[ext_resource type="Texture2D" uid="uid://bi5w5hfp2vfo1" path="res://entities/player/Walk.png" id="2_5ykpd"]
+
+[resource]
+script = ExtResource("1_fcsts")
+texture = ExtResource("2_5ykpd")
+columns = 4
+delay_each_frame = 0.2
+is_loop = true
+frames_index = Array[int]([2, 6, 10, 14])
+tile_size = Vector2(16, 16)
+metadata/_custom_type_script = "uid://dsnkbelrc631k"

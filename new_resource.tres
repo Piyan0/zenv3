@@ -1,9 +1,17 @@
-[gd_resource type="Resource" script_class="EventPage" load_steps=6 format=3 uid="uid://dxf7u8jg4tyrj"]
+[gd_resource type="Resource" script_class="EventPage" load_steps=9 format=3 uid="uid://dxf7u8jg4tyrj"]
 
 [ext_resource type="Texture2D" uid="uid://bi5w5hfp2vfo1" path="res://entities/player/Walk.png" id="1_1ivwu"]
 [ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="1_3gp3i"]
 [ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="1_g5ko2"]
-[ext_resource type="Resource" uid="uid://coignxso5e5e0" path="res://new_resource2.tres" id="2_xonew"]
+[ext_resource type="Script" uid="uid://6isaotyq7o11" path="res://entities/event/traits/trait_idle_animation.gd" id="3_xonew"]
+[ext_resource type="Resource" uid="uid://bm4vg2lfjb1iy" path="res://new_resource3.tres" id="3_y3mkl"]
+[ext_resource type="Resource" uid="uid://6cgkwb1ufa2g" path="res://new_resource5.tres" id="4_y3mkl"]
+
+[sub_resource type="Resource" id="Resource_y3mkl"]
+script = ExtResource("3_xonew")
+always_on = false
+animation_data = ExtResource("3_y3mkl")
+metadata/_custom_type_script = "uid://6isaotyq7o11"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uauhc"]
 atlas = ExtResource("1_1ivwu")
@@ -12,7 +20,7 @@ region = Rect2(0, 0, 16, 16)
 [resource]
 script = ExtResource("1_g5ko2")
 graphic = SubResource("AtlasTexture_uauhc")
-trigger = 0
+trigger = 1
 placement = 1
 i_switch = 0
 variable = "empty"
@@ -21,5 +29,5 @@ global_switch_001 = "empty"
 global_switch_001_value = false
 global_switch_002 = "empty"
 global_switch_002_value = false
-event_traits = Array[ExtResource("1_3gp3i")]([ExtResource("2_xonew")])
+event_traits = Array[ExtResource("1_3gp3i")]([SubResource("Resource_y3mkl"), ExtResource("4_y3mkl")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"

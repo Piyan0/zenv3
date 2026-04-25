@@ -1,6 +1,9 @@
 class_name Event
 extends Node2D
 
+signal interact_finished()
+
+
 @export var eventpages: Array[EventPage]
 @export var area: Area2D
 @export var spr: Sprite2D
@@ -43,18 +46,28 @@ func interact(player):
     is_interact_running= true
     var commands= active_event_page.get_commands()
     await commands.execute_commands()
+    interact_finished.emit()
     is_interact_running= false
     
 
 
 func update_active_event(internal_switches, variables, global_switches):
+    if active_event_page:
+        for i in active_event_page.event_traits:
+            i.exit(self)
+
     var reversed_event_pages= eventpages.duplicate()
     reversed_event_pages.reverse()
     for i in reversed_event_pages:
         if i.is_event_active(internal_switches, variables, global_switches):
             active_event_page= i
             _active_event_changed(i)
+
+            for j in active_event_page.event_traits:
+                j.enter(self)
             return
+
+    
     
     
 func _update_trigger_touch(player):
@@ -91,9 +104,10 @@ func _is_interact_ground(player, input_event):
                     return true
             
         EventPage.Trigger.INTERACT_BUTTON:
-            if input_event.is_action_pressed("ui_accept"):
-                if player.get_latest_collider() == area:
-                    return true
+            if !player.is_moving():
+                if input_event.is_action_pressed("ui_accept"):
+                    if player.get_latest_collider() == area:
+                        return true
                     
         EventPage.Trigger.AUTORUN:
             return true

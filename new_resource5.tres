@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="TraitLookAtInteract" load_steps=7 format=3 uid="uid://6cgkwb1ufa2g"]
+
+[ext_resource type="Texture2D" uid="uid://bi5w5hfp2vfo1" path="res://entities/player/Walk.png" id="1_lq73b"]
+[ext_resource type="Script" uid="uid://crp6nufhjoe1n" path="res://entities/event/traits/look_at_interact.gd" id="2_q53sv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxhc3"]
+atlas = ExtResource("1_lq73b")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67yt1"]
+atlas = ExtResource("1_lq73b")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnul2"]
+atlas = ExtResource("1_lq73b")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcmcx"]
+atlas = ExtResource("1_lq73b")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_q53sv")
+look_up = SubResource("AtlasTexture_gcmcx")
+look_down = SubResource("AtlasTexture_jxhc3")
+look_left = SubResource("AtlasTexture_67yt1")
+look_right = SubResource("AtlasTexture_dnul2")
+metadata/_custom_type_script = "uid://crp6nufhjoe1n"

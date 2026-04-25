@@ -8,6 +8,21 @@ extends EventTrait
 @export var look_right: Texture2D
 
 
+var update= true
+func _update(delta, event):
+    if !update: return
+
+    if event.is_interact_running:
+        update= false
+        var direction_texture= _get_texture(event.interact_direction)
+        event.set_texture(direction_texture)
+        await event.interact_finished
+        update= true
+        
+  
+        
+
+
 func _get_texture(dir):
     match dir:
         Vector2.UP:
@@ -19,10 +34,3 @@ func _get_texture(dir):
         Vector2.RIGHT:
             return look_right
 
-
-func _update(delta, event):
-    if event.is_interact_running:
-        event.set_texture(_get_texture(event.interact_direction))
-    else:
-        event.set_texture(event.active_event_page.graphic)
-        

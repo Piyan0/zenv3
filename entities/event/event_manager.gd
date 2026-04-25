@@ -33,5 +33,5 @@ func _delay_after_interact():
     await get_tree().create_timer(0.2).timeout
 
 func _input(event):
-    if event is InputEventAction:
+    if event is InputEventAction || event is InputEventKey:
         _current_input= event

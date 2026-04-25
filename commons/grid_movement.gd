@@ -19,22 +19,21 @@ var _dir_before_stop
 var _is_stop= false
 var _is_moving= false
 
+
+func _init(p_target):
+    target= p_target
+
+
 func update(_delta):
     if !_is_moving: return
-    if !can_move.call(_dir):
-        if !_is_stop:
-            _is_stop= true
-            _t.pause()
-            _dir_before_stop= _dir
-            _invoke_direction_changed(Vector2.ZERO)
-            
-    elif _is_stop:
-        _invoke_direction_changed(_dir_before_stop)
-        _t.play()
-        
+    var move_status= can_move.call(_dir)
+    if move_status:
+        pass
+    else:
+        _t.pause()    
+
 
 func _start_move():
-    _is_moving= true
     _is_moving= true
     _t= target.create_tween()
     var pos= target.position

@@ -1,42 +1,34 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7we1jnxdpeub"]
+[gd_scene load_steps=8 format=3 uid="uid://c7we1jnxdpeub"]
 
 [ext_resource type="Script" uid="uid://k5lvxw6c0876" path="res://levels/demo/main/main.gd" id="1_7bght"]
 [ext_resource type="PackedScene" uid="uid://dyk86kgdrft2x" path="res://entities/player/player.tscn" id="2_xhiaw"]
 [ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="3_u0h8w"]
 [ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="4_5s6t7"]
 [ext_resource type="Resource" uid="uid://dxf7u8jg4tyrj" path="res://new_resource.tres" id="5_btglb"]
-[ext_resource type="Texture2D" uid="uid://bi5w5hfp2vfo1" path="res://entities/player/Walk.png" id="6_5s6t7"]
+[ext_resource type="Texture2D" uid="uid://bi5w5hfp2vfo1" path="res://entities/player/Walk.png" id="6_fgvuo"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_btglb"]
-atlas = ExtResource("6_5s6t7")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k7603"]
-atlas = ExtResource("6_5s6t7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij5t7"]
+atlas = ExtResource("6_fgvuo")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_v4lk3"]
-frames = 2
-frame_0/texture = SubResource("AtlasTexture_btglb")
-frame_0/duration = 0.2
-frame_1/texture = SubResource("AtlasTexture_k7603")
-frame_1/duration = 0.2
-
-[node name="Main" type="Node2D" node_paths=PackedStringArray("color")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("spr", "ray")]
 script = ExtResource("1_7bght")
-color = NodePath("ColorRect")
+spr = NodePath("Sprite2D")
+ray = NodePath("Sprite2D/RayCast2D")
 
 [node name="Player" parent="." instance=ExtResource("2_xhiaw")]
 
 [node name="Event" parent="." instance=ExtResource("3_u0h8w")]
-position = Vector2(80, 32)
+position = Vector2(64, 16)
 eventpages = Array[ExtResource("4_5s6t7")]([ExtResource("5_btglb")])
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_top = -1.08
-offset_right = 40.0
-offset_bottom = 30.92
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(48, 32)
-texture = SubResource("AnimatedTexture_v4lk3")
+position = Vector2(16, 16)
+texture = SubResource("AtlasTexture_ij5t7")
+centered = false
+
+[node name="RayCast2D" type="RayCast2D" parent="Sprite2D"]
+position = Vector2(8, 8)
+target_position = Vector2(0, 16)
+collision_mask = 2
+collide_with_areas = true
