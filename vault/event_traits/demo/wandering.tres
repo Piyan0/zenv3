@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="TraitWandering" load_steps=4 format=3 uid="uid://b6fn7j4nbxmlf"]
+[gd_resource type="Resource" script_class="TraitWandering" load_steps=5 format=3 uid="uid://b6fn7j4nbxmlf"]
 
 [ext_resource type="Script" uid="uid://cghequ0x24ql0" path="res://entities/event/traits/trait_wandering/trait_wandering.gd" id="1_5kist"]
+[ext_resource type="Resource" uid="uid://c0ktlvd3svwu6" path="res://vault/event_traits/demo/idle.tres" id="1_ao43e"]
 [ext_resource type="Resource" uid="uid://fx3fac50tlk4" path="res://vault/animation_data/demo/walk_down.tres" id="7_tv6ai"]
 [ext_resource type="Resource" uid="uid://dts75ykni3efu" path="res://vault/animation_data/demo/walk_right.tres" id="8_ugy0q"]
 
@@ -12,4 +13,5 @@ speed = 10
 delay = 2.0
 tile_size = Vector2(16, 16)
 routes = Array[int]([3, 3, 1])
+trait_idle = ExtResource("1_ao43e")
 metadata/_custom_type_script = "uid://cghequ0x24ql0"

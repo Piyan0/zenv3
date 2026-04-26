@@ -21,6 +21,7 @@ var _is_stop= false
 var _is_moving= false
 var _poll_move_status= false
 var _blocked_tile_region
+var _cb_to_run_after_stop: Callable
 
 func _init(p_target):
     target= p_target
@@ -31,8 +32,8 @@ func update(_delta):
         var move_status= can_move.call(_blocked_tile_region)
         if move_status:
             _poll_move_status= false
-            _invoke_direction_changed(_dir_before_stop)
-            _t.play()
+            _cb_to_run_after_stop.call()
+            
 
 
 func get_direction():
@@ -50,11 +51,18 @@ func _start_move():
             _dir_before_stop= i
             _invoke_direction_changed(Vector2.ZERO)
             await Engine.get_main_loop().create_timer(delay).timeout
-            _invoke_direction_changed(_dir_before_stop)
             _t.play()
+            var tile_region= tile_size * i
+            if !can_move.call(tile_region):
+                _dir_before_stop= i
+                _invoke_direction_changed(Vector2.ZERO)
+                _blocked_tile_region= tile_region
+                _poll_move_status= true
+                _t.pause()
+                _cb_to_run_after_stop= func():
+                    _invoke_direction_changed(_dir_before_stop)
+                    _t.play()
             )
-            
-        pos+= tile_size * i
         _t.tween_callback(func():
             var tile_region= tile_size * i
             on_claim_tile.call(tile_region)
@@ -64,17 +72,17 @@ func _start_move():
                 _blocked_tile_region= tile_region
                 _poll_move_status= true
                 _t.pause()
-            else:
-                pass
-                #_invoke_direction_changed(i)
+                _cb_to_run_after_stop= func():
+                    _invoke_direction_changed(_dir_before_stop)
+                    _t.play()
         )
+        pos+= tile_size * i
         _t.tween_callback(func():
             _invoke_direction_changed(i)
         )
 
         _t.tween_property(target, "position", pos, _get_speed())
         
-    
     await _t.finished
     _invoke_direction_changed(Vector2.ZERO)
     _is_moving= false

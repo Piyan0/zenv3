@@ -53,7 +53,7 @@ func _enter(event):
         if dir == Vector2.ZERO:
             if trait_idle == null:
                 return
-            
+            # print(prev_dir)
             match prev_dir:
                 Vector2.UP:
                     _walk_anim_process.change_animation(trait_idle.idle_up)
@@ -70,14 +70,15 @@ func _enter(event):
             return
         _walk_anim_process.change_animation(walk_animation)
     
-    
     _grid_mov.on_claim_tile= func(tile_reg):
         _wandering_node.cast_claim_tile_to(tile_reg)
     
     _grid_mov.can_move= func(tile_reg):
         # prevent walking while interact is running.
         if event.is_interact_running: return false
-        return !_wandering_node.is_colliding(tile_reg)
+        var is_colliding= _wandering_node.is_colliding(tile_reg)
+        # print(is_colliding)
+        return !is_colliding
     
     # initial idle animation.
     if trait_idle:
@@ -89,7 +90,8 @@ func _enter(event):
             for i in routes:
                 r.push_back(_direction_map[i])
             return r
-            
+        
+        # print(1)
         _grid_mov.routes= parsed_routes.call()
     
     
