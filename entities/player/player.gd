@@ -55,6 +55,7 @@ func _ready():
         return true
         
     grid_mov.on_direction_changed= func(dir, prev):
+        print(dir)
         match dir:
             Vector2.ZERO:
                 match prev:

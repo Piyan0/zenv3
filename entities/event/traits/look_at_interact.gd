@@ -24,10 +24,9 @@ func _update(delta, event):
         var animation_data= _get_texture(event.interact_direction)
         _anim_process.change_animation(animation_data)
         await event.interact_finished
-        _is_on_interact= false
-    else:
         _anim_process.pause= true
-        
+        _is_on_interact= false
+
   
 func _get_texture(dir):
     match dir:

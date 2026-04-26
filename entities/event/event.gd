@@ -3,7 +3,6 @@ extends Node2D
 
 signal interact_finished()
 
-
 @export var eventpages: Array[EventPage]
 @export var area: Area2D
 @export var spr: Sprite2D
@@ -60,7 +59,6 @@ func interact(player):
     interact_finished.emit()
     is_interact_running= false
     
-
 
 func update_active_event(internal_switches, variables, global_switches):
     if active_event_page:

@@ -50,22 +50,21 @@ func _enter(event):
     _grid_mov.tile_size= tile_size
     
     _grid_mov.on_direction_changed= func(dir, prev_dir):
-        print(dir)
         if dir == Vector2.ZERO:
-            if trait_idle== null:
-                _walk_anim_process.pause= true
-            else:
-                match prev_dir:
-                    Vector2.UP:
-                        _walk_anim_process.change_animation(trait_idle.idle_up)
-                    Vector2.DOWN:
-                        _walk_anim_process.change_animation(trait_idle.idle_down)
-                    Vector2.LEFT:
-                        _walk_anim_process.change_animation(trait_idle.idle_left)
-                    Vector2.RIGHT:
-                        _walk_anim_process.change_animation(trait_idle.idle_right)
+            if trait_idle == null:
+                return
+            
+            match prev_dir:
+                Vector2.UP:
+                    _walk_anim_process.change_animation(trait_idle.idle_up)
+                Vector2.DOWN:
+                    _walk_anim_process.change_animation(trait_idle.idle_down)
+                Vector2.LEFT:
+                    _walk_anim_process.change_animation(trait_idle.idle_left)
+                Vector2.RIGHT:
+                    _walk_anim_process.change_animation(trait_idle.idle_right)
             return
-        _walk_anim_process.pause= false
+            
         var walk_animation= _animation_map[dir]
         if !walk_animation:
             return
@@ -101,6 +100,10 @@ func _exit(event):
 
 func _update(delta, event):
     _grid_mov.update(delta)
+    if event.is_interact_running:
+        _walk_anim_process.pause= true
+    else:
+        _walk_anim_process.pause= false
     # prevent interact to be happen when 'event' is currently walking.
     if _grid_mov.get_direction() == Vector2.ZERO:
         event.can_interact= true

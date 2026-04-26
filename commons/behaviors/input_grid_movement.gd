@@ -12,7 +12,7 @@ var lock_input= false:
     set(value):
         lock_input= value
         if value == true:
-            on_direction_changed.call(Vector2.ZERO, _prev_sprint_state)
+            on_direction_changed.call(Vector2.ZERO, _prev_direction)
             _direction= Vector2.ZERO
             _prev_direction= Vector2.ZERO
 

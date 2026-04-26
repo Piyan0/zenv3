@@ -3,6 +3,7 @@ spawnable animation with offset.
 add idle to wandering trait.
 grid movement loop.
 create scene map.
+walking and idle.
 
 ✓ idle and look at relationship.
 ✓ add internal switch.
