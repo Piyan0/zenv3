@@ -2,7 +2,7 @@ extends Node
 
 
 var event_manager
-
+var asset_database
 
 func _enter_tree():
     event_manager= EventManager.new()
@@ -10,10 +10,8 @@ func _enter_tree():
     
     add_canvas()
     MobileControl.new(self, true)
+    asset_database= AssetDatabase.new("res://vault/asset_database")
     
-    await get_tree().process_frame
-    event_manager.refresh_map()
-
 
 func add_canvas():
     var cv= CanvasLayer.new()

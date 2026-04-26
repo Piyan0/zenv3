@@ -11,6 +11,7 @@ signal interact_finished()
 var is_interact_running= false
 var interact_direction= Vector2.ZERO
 var active_event_page: EventPage
+var can_interact= true
 
 var _can_trigger_touch= true
 var _touch_area= Vector2.ZERO
@@ -25,7 +26,7 @@ func _physics_process(delta):
     for i in active_event_page.event_traits:
         i.call_update(delta, self)
         
-        
+    
 func set_texture(texture):
     spr.texture= texture
     
@@ -47,6 +48,8 @@ func is_interact(player: Player, input_event: InputEvent= null):
             
 
 func interact(player):
+    if !can_interact:
+        return
     var direction_from_player= player.position - position
     direction_from_player= direction_from_player.normalized()
     
@@ -84,6 +87,7 @@ func _update_trigger_touch(player):
 func _active_event_changed(event_page: EventPage):
     area.collision_layer= 0
     spr.texture= event_page.graphic
+    spr.offset= event_page.offset
     match event_page.placement:
         EventPage.Placement.BELOW_GROUND:
             area.set_collision_layer_value(1, true)

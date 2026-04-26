@@ -1,14 +1,15 @@
 [gd_resource type="Resource" script_class="AnimationData" load_steps=3 format=3 uid="uid://jgcmb1xxc6os"]
 
 [ext_resource type="Script" uid="uid://dsnkbelrc631k" path="res://commons/animation_process/animation_data.gd" id="1_fcsts"]
-[ext_resource type="Texture2D" uid="uid://bi5w5hfp2vfo1" path="res://entities/player/Walk.png" id="2_5ykpd"]
+[ext_resource type="Texture2D" uid="uid://cs54ervko8epc" path="res://assets/Alex_run_16x16.png" id="2_l1bck"]
 
 [resource]
 script = ExtResource("1_fcsts")
-texture = ExtResource("2_5ykpd")
-columns = 4
-delay_each_frame = 0.2
+texture = ExtResource("2_l1bck")
+columns = 24
+delay_each_frame = 0.1
 is_loop = true
-frames_index = Array[int]([2, 6, 10, 14])
-tile_size = Vector2(16, 16)
+frames_index = Array[int]([12, 13, 14, 15, 16, 17])
+tile_size = Vector2(16, 32)
+offset = Vector2(0, -32)
 metadata/_custom_type_script = "uid://dsnkbelrc631k"

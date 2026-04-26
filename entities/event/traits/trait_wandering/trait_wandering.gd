@@ -39,6 +39,7 @@ func _enter(event):
     event.add_child.call_deferred(_walk_anim_process)
     
     _wandering_node= load("uid://cd8t01ocegbc8").instantiate()
+    _wandering_node.position= event.area.position
     _wandering_node.add_exception(event.get_area())
     _wandering_node.set_collision_space(event.get_collision_space())
     event.add_child.call_deferred(_wandering_node)
@@ -51,10 +52,20 @@ func _enter(event):
     _grid_mov.on_direction_changed= func(dir, prev_dir):
         print(dir)
         if dir == Vector2.ZERO:
-            _walk_anim_process.pause= true
+            if trait_idle== null:
+                _walk_anim_process.pause= true
+            else:
+                match prev_dir:
+                    Vector2.UP:
+                        _walk_anim_process.change_animation(trait_idle.idle_up)
+                    Vector2.DOWN:
+                        _walk_anim_process.change_animation(trait_idle.idle_down)
+                    Vector2.LEFT:
+                        _walk_anim_process.change_animation(trait_idle.idle_left)
+                    Vector2.RIGHT:
+                        _walk_anim_process.change_animation(trait_idle.idle_right)
             return
-        else:
-            _walk_anim_process.pause= false
+        _walk_anim_process.pause= false
         var walk_animation= _animation_map[dir]
         if !walk_animation:
             return
@@ -65,8 +76,14 @@ func _enter(event):
         _wandering_node.cast_claim_tile_to(tile_reg)
     
     _grid_mov.can_move= func(tile_reg):
+        # prevent walking while interact is running.
+        if event.is_interact_running: return false
         return !_wandering_node.is_colliding(tile_reg)
     
+    # initial idle animation.
+    if trait_idle:
+        _walk_anim_process.change_animation(trait_idle.idle_down)
+        
     if routes:
         var parsed_routes= func():
             var r= []
@@ -84,3 +101,9 @@ func _exit(event):
 
 func _update(delta, event):
     _grid_mov.update(delta)
+    # prevent interact to be happen when 'event' is currently walking.
+    if _grid_mov.get_direction() == Vector2.ZERO:
+        event.can_interact= true
+    else:
+        event.can_interact= false
+        

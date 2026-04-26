@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3oow2"]
 size = Vector2(16, 16)
 
-[node name="Event" type="Node2D" node_paths=PackedStringArray("area", "spr")]
+[node name="ev000" type="Node2D" node_paths=PackedStringArray("area", "spr")]
 script = ExtResource("1_1x41k")
 area = NodePath("Area2D")
 spr = NodePath("Sprite2D")
@@ -14,7 +14,7 @@ spr = NodePath("Sprite2D")
 centered = false
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
+position = Vector2(0, -16)
 collision_layer = 2
 collision_mask = 0
 

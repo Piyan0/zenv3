@@ -1,35 +1,41 @@
 class_name TraitLookAtInteract
 extends EventTrait
 
+@export var trait_idle: TraitIdleAnimation
 
-@export var look_up: Texture2D
-@export var look_down: Texture2D
-@export var look_left: Texture2D
-@export var look_right: Texture2D
+var _anim_process: AnimationProcess
+var _is_on_interact= false
+
+func _enter(event):
+    _anim_process= AnimationProcess.new()
+    _anim_process.target= event.spr
+    event.add_child.call_deferred(_anim_process)
+    
+
+func _exit(event):
+    _anim_process.queue_free()
 
 
-var update= true
 func _update(delta, event):
-    if !update: return
-
     if event.is_interact_running:
-        update= false
-        var direction_texture= _get_texture(event.interact_direction)
-        event.set_texture(direction_texture)
+        if _is_on_interact: return
+        _is_on_interact= true
+        _anim_process.pause= false
+        var animation_data= _get_texture(event.interact_direction)
+        _anim_process.change_animation(animation_data)
         await event.interact_finished
-        update= true
+        _is_on_interact= false
+    else:
+        _anim_process.pause= true
         
   
-        
-
-
 func _get_texture(dir):
     match dir:
         Vector2.UP:
-            return look_up
+            return trait_idle.idle_up
         Vector2.DOWN:
-            return look_down
+            return trait_idle.idle_down
         Vector2.LEFT:
-            return look_left
+            return trait_idle.idle_left
         Vector2.RIGHT:
-            return look_right
+            return trait_idle.idle_right

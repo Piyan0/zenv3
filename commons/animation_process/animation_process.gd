@@ -37,3 +37,4 @@ func _initial_frame():
     _elapsed_time= 0
     _current_animation_idx=1
     target.texture= animation_data.get_texture(0)
+    target.offset= animation_data.offset

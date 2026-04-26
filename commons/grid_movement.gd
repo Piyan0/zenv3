@@ -35,6 +35,10 @@ func update(_delta):
             _t.play()
 
 
+func get_direction():
+    return _dir
+    
+    
 func _start_move():
     _is_moving= true
     _t= target.create_tween()
@@ -61,7 +65,11 @@ func _start_move():
                 _poll_move_status= true
                 _t.pause()
             else:
-                _invoke_direction_changed(i)
+                pass
+                #_invoke_direction_changed(i)
+        )
+        _t.tween_callback(func():
+            _invoke_direction_changed(i)
         )
 
         _t.tween_property(target, "position", pos, _get_speed())

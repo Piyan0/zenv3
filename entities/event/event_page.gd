@@ -8,6 +8,7 @@ enum InternalSwitch { NONE, A, B, C, D }
 enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 
 @export var graphic: Texture2D
+@export var offset= Vector2.ZERO
 
 @export var trigger: Trigger= Trigger.INTERACT_BUTTON
 @export var placement: Placement= Placement.GROUND

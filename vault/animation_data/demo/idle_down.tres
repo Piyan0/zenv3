@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AnimationData" load_steps=3 format=3 uid="uid://byhx82ux8bhtf"]
+
+[ext_resource type="Script" uid="uid://dsnkbelrc631k" path="res://commons/animation_process/animation_data.gd" id="1_d7txn"]
+[ext_resource type="Texture2D" uid="uid://b4wxpxxyx34wl" path="res://assets/Alex_idle_anim_16x16.png" id="2_muleo"]
+
+[resource]
+script = ExtResource("1_d7txn")
+texture = ExtResource("2_muleo")
+columns = 24
+delay_each_frame = 0.1
+is_loop = true
+frames_index = Array[int]([18, 19, 20, 21, 22, 23])
+tile_size = Vector2(16, 32)
+offset = Vector2(0, -32)
+metadata/_custom_type_script = "uid://dsnkbelrc631k"

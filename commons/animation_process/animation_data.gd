@@ -7,6 +7,7 @@ extends Resource
 @export var is_loop= false
 @export var frames_index: Array[int]
 @export var tile_size= Vector2(16, 16)
+@export var offset= Vector2.ZERO
 
 func get_texture(idx):
     var col= (frames_index[idx] % columns) * tile_size.x
