@@ -2,6 +2,7 @@ class_name TraitLookAtInteract
 extends EventTrait
 
 @export var trait_idle: TraitIdleAnimation
+@export var back_to_graphic= true
 
 var _anim_process: AnimationProcess
 var _is_on_interact= false
@@ -26,6 +27,8 @@ func _update(delta, event):
         await event.interact_finished
         _anim_process.pause= true
         _is_on_interact= false
+        if back_to_graphic:
+            event.reset_texture()
 
   
 func _get_texture(dir):

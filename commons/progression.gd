@@ -1,0 +1,92 @@
+class_name Progression
+
+signal entries_changed(internal_switches, variables, global_switches)
+
+const KEY_INTERNAL_SWITCHES= "_internal_switches"
+const KEY_GLOBAL_SWITCHES= "_global_switches"
+const KEY_VARIABLES= "_variables"
+
+var variable_source: String
+var global_switch_source: String
+var _variables= {}
+var _global_switches= {}
+var _internal_switches= {}
+# TODO add internal switch here.
+
+func _init(p_var_source, p_switch_source):
+    variable_source= p_var_source
+    global_switch_source= p_switch_source
+    
+    var var_cfg= ConfigFile.new()
+    var_cfg.load(variable_source)
+    var g_switch_cfg= ConfigFile.new()
+    g_switch_cfg.load(global_switch_source)
+    _variables= _cfg_to_json(var_cfg)
+    _global_switches= _cfg_to_json(g_switch_cfg)
+    # print(_global_switches)
+
+
+func set_data(data):
+    assert(KEY_VARIABLES in data && KEY_GLOBAL_SWITCHES in data && KEY_INTERNAL_SWITCHES in data , "param 'data' should contains fields: '_variables', '_global_switches' and '_internal_switches'. 'data' fields: "+ str(data.keys()))
+    _variables= data[KEY_VARIABLES]
+    _global_switches= data[KEY_GLOBAL_SWITCHES]
+    _internal_switches= data[KEY_INTERNAL_SWITCHES]
+    
+    
+func get_data():
+    return {
+        KEY_VARIABLES: _variables,
+        KEY_GLOBAL_SWITCHES: _global_switches,
+        KEY_INTERNAL_SWITCHES: _internal_switches,
+    }
+
+
+func set_switch(key, value):
+    _assert_key_exist(key, _global_switches, "_global_switches")
+    _global_switches[key]= value
+    entries_changed.emit(_internal_switches, _variables, _global_switches)
+    
+
+func get_switch(key):
+    _assert_key_exist(key, _global_switches, "_global_switches")
+    return _global_switches[key]
+
+
+func set_var(key, value):
+    _assert_key_exist(key, _variables, "_variables")
+    _variables[key]= value
+    entries_changed.emit(_internal_switches, _variables, _global_switches)
+
+
+func get_var(key):
+    _assert_key_exist(key, _variables, "_variables")
+    return _variables[key]
+
+
+func set_internal_switch(event_id, internal_switch_id, value):
+    _assert_key_exist(event_id, _internal_switches, "_internal_switches")
+    _internal_switches[event_id][internal_switch_id]= value
+    entries_changed.emit(_internal_switches, _variables, _global_switches)
+
+
+func add_internal_switch(id):
+    if id in _internal_switches: return
+    _internal_switches[id]= {
+        EventPage.InternalSwitch.A: false,
+        EventPage.InternalSwitch.B: false,
+        EventPage.InternalSwitch.C: false,
+        EventPage.InternalSwitch.D: false,
+    }
+    
+    
+func _assert_key_exist(key, dict, dict_name):
+    assert(key in dict, "There is no key of '{0}' in '{1}.'".format([key, dict_name]))
+    
+    
+func _cfg_to_json(cfg):
+    var data= {}
+    for section in cfg.get_sections():
+        for key in cfg.get_section_keys(section):
+            data[key]= cfg.get_value(section, key)
+    
+    return data

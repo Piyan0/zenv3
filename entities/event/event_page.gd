@@ -36,10 +36,11 @@ func get_commands() -> EventCommands:
 
 
 func is_event_active(
-        internal_switches: Dictionary,
-        variables: Dictionary,
-        global_switches: Dictionary,
+        internal_switches,
+        variables,
+        global_switches,
         ):
+    # print(global_switches)
     var conditions= [
         _internal_switch_pass(internal_switches),
         _variable_pass(variables),

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="EventPage" load_steps=5 format=3 uid="uid://bimn5trws3w2u"]
+
+[ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="1_3r4rj"]
+[ext_resource type="Texture2D" uid="uid://c054b3via74hc" path="res://assets/bit.png" id="2_0pcv0"]
+[ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="2_ulqyq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpo83"]
+atlas = ExtResource("2_0pcv0")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_ulqyq")
+graphic = SubResource("AtlasTexture_tpo83")
+offset = Vector2(0, -16)
+trigger = 1
+placement = 2
+i_switch = 0
+variable = "empty"
+variable_value = -1
+global_switch_001 = "my_switch"
+global_switch_001_value = true
+global_switch_002 = "empty"
+global_switch_002_value = false
+event_traits = Array[ExtResource("1_3r4rj")]([])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"

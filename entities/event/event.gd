@@ -29,6 +29,12 @@ func _physics_process(delta):
 func set_texture(texture):
     spr.texture= texture
     
+    
+func reset_texture():
+    assert(active_event_page != null, str(active_event_page))
+    spr.texture= active_event_page.graphic
+    spr.offset= active_event_page.offset
+
 
 func get_area():
     return area
