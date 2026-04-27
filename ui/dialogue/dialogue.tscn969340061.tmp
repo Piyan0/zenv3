@@ -6,10 +6,9 @@
 [ext_resource type="Script" uid="uid://qqm40ogn6vp2" path="res://commons/ui/text_shadow.gd" id="2_h4lfh"]
 [ext_resource type="Script" uid="uid://cimwh7dvhh4av" path="res://commons/ui/animate_offset_loop.gd" id="4_r2qx3"]
 
-[node name="Dialogue" type="CanvasLayer" node_paths=PackedStringArray("bg", "container")]
+[node name="Dialogue" type="CanvasLayer" node_paths=PackedStringArray("bg")]
 script = ExtResource("1_jy5du")
 bg = NodePath("MarginContainer/ColorRect")
-container = NodePath("MarginContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_top = 104.0

@@ -6,10 +6,9 @@
 [ext_resource type="Script" uid="uid://qqm40ogn6vp2" path="res://commons/ui/text_shadow.gd" id="2_h4lfh"]
 [ext_resource type="Script" uid="uid://cimwh7dvhh4av" path="res://commons/ui/animate_offset_loop.gd" id="4_r2qx3"]
 
-[node name="Dialogue" type="CanvasLayer" node_paths=PackedStringArray("bg", "container")]
+[node name="Dialogue" type="CanvasLayer" node_paths=PackedStringArray("bg")]
 script = ExtResource("1_jy5du")
 bg = NodePath("MarginContainer/ColorRect")
-container = NodePath("MarginContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_top = 104.0
@@ -20,10 +19,7 @@ offset_bottom = 168.0
 layout_mode = 2
 color = Color(0, 0, 0, 0.419608)
 
-[node name="Control" type="Control" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ColorRect"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -84,6 +80,6 @@ metadata/_custom_type_script = "uid://qqm40ogn6vp2"
 
 [node name="AnimateOffsetLoop" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("4_r2qx3")
-target = NodePath("../MarginContainer/Control/TextureRect")
+target = NodePath("../MarginContainer/ColorRect/TextureRect")
 offset = Vector2(0, -3)
 metadata/_custom_type_script = "uid://cimwh7dvhh4av"
