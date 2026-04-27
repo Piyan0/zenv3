@@ -1,13 +1,10 @@
 class_name TransitionBlack
 extends Node
 
-signal continue_confirmed()
-
 var fade_duration= 0.5
 var start_from_black= false
 var fade_color= Color.BLACK
 var _overlay= null
-var _t
 
 static func spawn(p_start_from_black= false, p_color= Color.BLACK, p_dur= 0.5):
     var instance= TransitionBlack.new()
@@ -19,20 +16,31 @@ static func spawn(p_start_from_black= false, p_color= Color.BLACK, p_dur= 0.5):
     await instance._start()
     return instance
     
+    
+func confirm():
+    await _fade_out()
+    _overlay.queue_free()
+    queue_free()
+    
 
 func _start():
     _overlay= await _add_overlay()
-    match start_from_black:
-        false:
-            await _start_fade_normal()
-        true:
-            await _start_fade_black()
-    
+    await _fade_in()
 
-func confirm():
-    await _overlay.get_tree().process_frame
-    await _overlay.get_tree().process_frame
-    continue_confirmed.emit()
+
+func _fade_in():
+    if start_from_black:
+        _overlay.modulate= Color.WHITE
+    else:
+        var t= _overlay.create_tween()
+        t.tween_property(_overlay, "modulate", Color.WHITE, fade_duration)
+        await t.finished
+
+
+func _fade_out():
+    var t= create_tween()
+    t.tween_property(_overlay, "modulate", Color.TRANSPARENT, fade_duration)
+    await t.finished
     
     
 func _add_overlay():
@@ -44,36 +52,3 @@ func _add_overlay():
     Bootstrap.canvas.add_child.call_deferred(color_rect)
     await color_rect.ready
     return color_rect
-    
-    
-func _start_fade_normal():
-    _t= _overlay.create_tween()
-    _t.tween_property(_overlay, "modulate", Color.WHITE, fade_duration)
-    await _t.finished
-    _t= _overlay.create_tween()
-    _t.tween_callback(func():
-        _t.pause()
-        await continue_confirmed
-        _t.play()
-    )
-    _t.tween_property(_overlay, "modulate", Color.TRANSPARENT, fade_duration)
-    await _t.finished
-    queue_free()
-    _overlay.queue_free()
-    
-    
-func _start_fade_black():
-    _overlay.modulate= Color.WHITE
-    await _overlay.get_tree().process_frame
-    _t= _overlay.create_tween()
-    _t.tween_callback(func():
-        _t.pause()
-        await continue_confirmed
-        _t.play()
-    )
-    _t.tween_property(_overlay, "modulate", Color.TRANSPARENT, fade_duration)
-    await _t.finished
-    queue_free()
-    _overlay.queue_free()
-    
-    

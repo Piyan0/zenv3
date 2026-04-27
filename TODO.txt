@@ -2,10 +2,10 @@ cutscene movement.
 spawnable animation with offset.
 add idle to wandering trait.
 grid movement loop.
-dialogue.
 display image.
-create scene map.
+dialogue.
 
+✓ create scene map.
 ✓ look at interact is not changing to initial graphic.
 ✓ variable and global switch.
 ✓ walking and idle.

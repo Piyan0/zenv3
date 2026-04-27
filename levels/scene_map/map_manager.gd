@@ -11,8 +11,8 @@ func _init(p_owner, p_player_scene_path):
     name= "MapManager"
     
 
-# TODO add fade of black screen.
 func goto(transfer_data: PlayerTransferData):
+    var fade= await TransitionBlack.spawn()
     var scene= Bootstrap.asset_database.get_asset(AssetDatabase.MAP, transfer_data.map_id)
     await get_tree().process_frame
     get_tree().change_scene_to_packed(scene)
@@ -20,6 +20,7 @@ func goto(transfer_data: PlayerTransferData):
     var player= _instantiate_player(transfer_data.direction, transfer_data.spawn_pos)
     get_tree().current_scene.add_child.call_deferred(player)
     await player.ready
+    fade.confirm()
     
 
 func _instantiate_player(direction: int, pos):

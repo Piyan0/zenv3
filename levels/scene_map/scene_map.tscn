@@ -4,5 +4,6 @@
 
 [node name="SceneMap" type="Node"]
 script = ExtResource("1_jdh4r")
+spawn_pos = Vector2(128, 32)
 map_id = "test"
-direction = 3
+direction = 1
