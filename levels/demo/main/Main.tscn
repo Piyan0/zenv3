@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7we1jnxdpeub"]
+[gd_scene load_steps=6 format=3 uid="uid://c7we1jnxdpeub"]
 
 [ext_resource type="Script" uid="uid://k5lvxw6c0876" path="res://levels/demo/main/main.gd" id="1_7bght"]
-[ext_resource type="PackedScene" uid="uid://dyk86kgdrft2x" path="res://entities/player/player.tscn" id="3_o8o6y"]
 [ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="4_5s6t7"]
 [ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="5_btglb"]
 [ext_resource type="Resource" uid="uid://bimn5trws3w2u" path="res://vault/event_pages/demo/test002.tres" id="6_5s6t7"]
@@ -11,10 +10,6 @@
 y_sort_enabled = true
 script = ExtResource("1_7bght")
 map_id = 2
-
-[node name="Player" parent="." instance=ExtResource("3_o8o6y")]
-position = Vector2(64, 16)
-initial_direction = 1
 
 [node name="ev000" parent="." instance=ExtResource("4_5s6t7")]
 position = Vector2(112, 16)

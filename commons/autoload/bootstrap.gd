@@ -3,17 +3,18 @@ extends Node
 var event_manager
 var asset_database
 var progression
+var map_manager
+var canvas
 
 func _enter_tree():
     MobileControl.new(self, true)
-    _add_canvas()
+    canvas= _add_canvas()
     
-    event_manager= EventManager.new()
-    add_child(event_manager)
+    event_manager= EventManager.new(self)
 
     asset_database= AssetDatabase.new("res://vault/asset_database")
     
-    progression= _load_progression()
+    progression= _boot_progression()
     progression.entries_changed.connect(func(it_switch, vars, gb_switch):
         event_manager.refresh_map(it_switch, vars, gb_switch)
         )
@@ -26,13 +27,22 @@ func _enter_tree():
             for i in events:
                 progression.add_internal_switch(str(map_id)+"-"+i.name)
         )
+    
+    map_manager= _boot_map_manager()
 
 
-func _load_progression():
+func _boot_map_manager():
+    var scene_man= MapManager.new(self, "res://entities/player/player.tscn")
+    return scene_man
+
+
+func _boot_progression():
     var progression= Progression.new("res://vault/progression/variables.cfg", "res://vault/progression/global_switches.cfg")
     return progression
     
     
 func _add_canvas():
     var cv= CanvasLayer.new()
+    cv.name= "GlobalCanvas"
     add_child(cv)
+    return cv

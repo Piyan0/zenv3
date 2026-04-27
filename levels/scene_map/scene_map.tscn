@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ekl6egoo7ssq"]
+
+[ext_resource type="Script" uid="uid://rnfj2bg14875" path="res://levels/scene_map/scene_map.gd" id="1_jdh4r"]
+
+[node name="SceneMap" type="Node"]
+script = ExtResource("1_jdh4r")
+map_id = "test"
+direction = 3

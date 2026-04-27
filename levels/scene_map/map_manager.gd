@@ -1,0 +1,49 @@
+class_name MapManager
+extends Node
+
+enum Direction{ UP, DOWN, LEFT, RIGHT }
+
+var player_scene_path
+
+func _init(p_owner, p_player_scene_path):
+    player_scene_path= p_player_scene_path
+    p_owner.add_child(self)
+    name= "MapManager"
+    
+
+# TODO add fade of black screen.
+func goto(transfer_data: PlayerTransferData):
+    var scene= Bootstrap.asset_database.get_asset(AssetDatabase.MAP, transfer_data.map_id)
+    await get_tree().process_frame
+    get_tree().change_scene_to_packed(scene)
+    await get_tree().process_frame
+    var player= _instantiate_player(transfer_data.direction, transfer_data.spawn_pos)
+    get_tree().current_scene.add_child.call_deferred(player)
+    await player.ready
+    
+
+func _instantiate_player(direction: int, pos):
+    var player= load(player_scene_path).instantiate()
+    player.initial_direction= direction
+    player.position= pos
+    return player
+    
+    
+func _parse_direction(dir_id: int):
+    match dir_id:
+        Direction.UP:
+            return Vector2.UP
+        Direction.DOWN:
+            return Vector2.DOWN
+        Direction.LEFT:
+            return Vector2.LEFT
+        Direction.RIGHT:
+            return Vector2.RIGHT
+
+    
+class PlayerTransferData:
+    var spawn_pos: Vector2
+    var direction: int
+    var map_id: String
+    
+    

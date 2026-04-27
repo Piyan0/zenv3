@@ -6,6 +6,12 @@ signal map_refreshed(events)
 var _current_input: InputEvent= InputEventAction.new()
 var _is_running_event= false
 
+
+func _init(p_owner):
+    p_owner.add_child(self)
+    name= "EventManager"
+    
+    
 func _input(event):
     if event is InputEventAction || event is InputEventKey:
         _current_input= event
@@ -16,6 +22,8 @@ func _process(_delta):
     for i in events_in_area:
         if _is_running_event: break
         var player= Player.instance
+        # Don't process further if player hasn't been instantiated.
+        if !player: return
         if i.is_interact(player, _current_input):
             _is_running_event= true
             player.lock_input= true
