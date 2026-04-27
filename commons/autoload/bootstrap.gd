@@ -7,7 +7,7 @@ var map_manager
 var canvas
 
 func _enter_tree():
-    MobileControl.new(self, true)
+    MobileControl.new(self, !true)
     canvas= _add_canvas()
     
     event_manager= EventManager.new(self)
@@ -43,6 +43,8 @@ func _boot_progression():
     
 func _add_canvas():
     var cv= CanvasLayer.new()
+    # other canvas layer should below this, as global_canvas is considered as high priority draw order.
+    cv.layer= 10
     cv.name= "GlobalCanvas"
     add_child(cv)
     return cv

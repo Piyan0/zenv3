@@ -11,7 +11,6 @@ var _t: Tween
 var _just_changed= false
 var _current_dialogue= ""
 
-
 func input(event: InputEvent):
     if event.is_action_pressed("ui_accept"):
         if _is_running_dialogue:

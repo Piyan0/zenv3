@@ -45,6 +45,8 @@ func _fade_out():
     
 func _add_overlay():
     var color_rect= ColorRect.new()
+    # transition should have highest z-index.
+    color_rect.z_index= 99
     color_rect.name= "Fade overlay"
     color_rect.color= fade_color
     color_rect.modulate= Color.TRANSPARENT
