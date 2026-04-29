@@ -7,7 +7,7 @@ var map_manager
 var canvas
 
 func _enter_tree():
-    MobileControl.new(self, !true)
+    MobileControl.new(self, true)
     canvas= _add_canvas()
     
     event_manager= EventManager.new(self)

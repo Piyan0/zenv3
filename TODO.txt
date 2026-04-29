@@ -1,10 +1,15 @@
+widget.
 cutscene movement.
 spawnable animation with offset.
-add idle to wandering trait.
 grid movement loop.
-display image.
+manage the event commands for event page.
 dialogue.
+prompt with hand pointer.
+inventory and inventory prompt.
 
+
+✓ add idle to wandering trait.
+✓ display image.
 ✓ create scene map.
 ✓ look at interact is not changing to initial graphic.
 ✓ variable and global switch.
