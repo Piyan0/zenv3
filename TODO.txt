@@ -3,7 +3,7 @@ cutscene movement.
 spawnable animation with offset.
 grid movement loop.
 manage the event commands for event page.
-dialogue.
+dialogue portrait and finishing.
 prompt with hand pointer.
 inventory and inventory prompt.
 
