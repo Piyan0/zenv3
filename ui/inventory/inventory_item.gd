@@ -1,3 +1,4 @@
+class_name InventoryItem
 extends Control
 
 
@@ -9,3 +10,11 @@ extends Control
 
 func _ready() -> void:
     _img_icon.texture= icon
+    
+
+func state_active():
+    modulate.a= 1
+
+
+func state_blur():
+    modulate.a= 0.5

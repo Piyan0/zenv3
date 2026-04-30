@@ -2,24 +2,29 @@ class_name ListSelect
 extends Node
 
 var horizontal_item_count= 0
+var effect_active= func(control_node): pass
+var effect_blur= func(control_node): pass
+var on_select_change: Callable= func(selected_node, all_nodes: Array): pass
+var on_select_end: Callable= func(selected_node, all_nodes: Array): pass
 
 var _mode= -1 # default is grid mode
 var _current_idx= 0
-var _node_list: Array[Control]=[]
-
+var _node_list: Array=[]
 var _pause= false
-var on_select_change: Callable= func(selected_node, all_nodes: Array[Control]): pass
-var on_select_end: Callable= func(selected_node, all_nodes: Array[Control]): pass
 
 
 func _init(p_owner: Node, p_nodes, p_start_index= 0, p_mode= -1):
+    _current_idx= clamp(_current_idx, 0, _node_list.size()-1)
+    if p_nodes.is_empty():
+        return
     _mode= p_mode
     _current_idx= p_start_index
     _node_list= p_nodes
     p_owner.add_child.call_deferred(self)
-    await tree_entered
-    var node= _node_list[_current_idx]
-    on_select_change.call(node, _node_list)
+    name= "ListSelect"
+    tree_entered.connect(func():
+        _selection_change(_current_idx)
+    )
 
 
 func _input(event: InputEvent):
@@ -46,6 +51,13 @@ func set_pause(pause):
         _selection_change(_current_idx)
 
 
+var connect_index_field= ""
+var connect_index_obj= null
+func bind_index(obj, field):
+    connect_index_obj= obj
+    connect_index_field= field
+    
+    
 func _process_select_item(event: InputEvent):
     if event.is_action_pressed("ui_accept"):
         var node= _node_list[_current_idx]
@@ -93,7 +105,14 @@ func _process_input_grid(event: InputEvent):
 
 
 func _selection_change(idx):
+    if connect_index_obj != null:
+        connect_index_obj[connect_index_field]= idx
     var node= _node_list[idx]
+    var blur_nodes= _node_list.duplicate()
+    blur_nodes.erase(node)
+    for i in blur_nodes:
+        effect_blur.call(i)
+    effect_active.call(node)
     on_select_change.call(node, _node_list)
 
 

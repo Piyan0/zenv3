@@ -1,6 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1148pqf8xuv8"]
+[gd_scene load_steps=5 format=3 uid="uid://c1148pqf8xuv8"]
 
 [ext_resource type="Script" uid="uid://b70xsiqkf261e" path="res://ui/inventory/inventory.gd" id="1_t68fq"]
+[ext_resource type="PackedScene" uid="uid://ci8j8b57p3nvg" path="res://ui/inventory/inventory_item.tscn" id="2_s83yu"]
+[ext_resource type="LabelSettings" uid="uid://3wboop2jrvep" path="res://assets/styles/default.tres" id="3_qrt2q"]
+[ext_resource type="Script" uid="uid://qqm40ogn6vp2" path="res://commons/ui/text_shadow.gd" id="4_lep46"]
 
-[node name="Inventory" type="CanvasLayer"]
+[node name="Inventory" type="CanvasLayer" node_paths=PackedStringArray("items_container", "lb_name", "lb_desc")]
 script = ExtResource("1_t68fq")
+items_container = NodePath("VBoxContainer")
+item_scene = ExtResource("2_s83yu")
+lb_name = NodePath("Name")
+lb_desc = NodePath("Desc")
+
+[node name="VBoxContainer" type="FlowContainer" parent="."]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+
+[node name="Name" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 16.0
+offset_right = 168.0
+offset_bottom = 39.0
+text = "<name>"
+label_settings = ExtResource("3_qrt2q")
+
+[node name="Desc" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 32.0
+offset_right = 168.0
+offset_bottom = 55.0
+text = "<desc>"
+label_settings = ExtResource("3_qrt2q")
+
+[node name="TextShadow" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_lep46")
+target = NodePath("../Name")
+metadata/_custom_type_script = "uid://qqm40ogn6vp2"
+
+[node name="TextShadow2" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_lep46")
+target = NodePath("../Desc")
+metadata/_custom_type_script = "uid://qqm40ogn6vp2"

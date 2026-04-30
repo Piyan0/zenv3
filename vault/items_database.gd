@@ -7,7 +7,7 @@ func _title():
     
 
 func _base_path():
-    return "res://assets/icon/"
+    return "res://assets/items_icon/"
     
 
 func _target_class():
@@ -22,16 +22,15 @@ func _get_items():
 
 func _get_test_items(items):
     items.push_back({
-        "id": 0,
+        "id": 1,
         "name" : "my_items",
         "description": "so this is en example item.",
-        "icon_path": path("item_placeholder.png"),
+        "icon_path": "res://assets/16px.png",
     })
     
     items.push_back({
-        "id": 1,
-        "name" : "some cool items",
-        "description": "anjay mabar.",
-        "icon_path": path("item_placeholder.png"),
+        "id": 2,
+        "name" : "other_items",
+        "description": "This is a cool item.",
+        "icon_path": "res://assets/16px.png",
     })
-

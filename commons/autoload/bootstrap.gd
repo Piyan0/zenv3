@@ -5,6 +5,7 @@ var asset_database
 var progression
 var map_manager
 var canvas
+var items_database
 
 func _enter_tree():
     MobileControl.new(self, true)
@@ -29,6 +30,8 @@ func _enter_tree():
         )
     
     map_manager= _boot_map_manager()
+    
+    items_database= ItemsDatabase.new()
 
 
 func _boot_map_manager():

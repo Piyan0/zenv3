@@ -7,11 +7,12 @@
 atlas = ExtResource("1_wiepw")
 region = Rect2(0, 0, 16, 16)
 
-[node name="InventoryItem" type="Control"]
+[node name="InventoryItem" type="Control" node_paths=PackedStringArray("_img_icon")]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_vxpmx")
+_img_icon = NodePath("TextureRect")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
