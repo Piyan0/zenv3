@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=3 uid="uid://b07oxy6v8k0vr"]
+
+[ext_resource type="Script" uid="uid://6lwp74nvu5wx" path="res://ui/widgets/widget_options/widget_options.gd" id="1_kcu35"]
+[ext_resource type="PackedScene" uid="uid://bv6ixu8e4crfw" path="res://ui/hand_pointer/hand_pointer.tscn" id="2_1ioif"]
+[ext_resource type="Texture2D" uid="uid://3kv55uyguwad" path="res://assets/icons/arrow_thin_left.png" id="3_msnpt"]
+[ext_resource type="LabelSettings" uid="uid://3wboop2jrvep" path="res://assets/styles/default.tres" id="4_ax84l"]
+[ext_resource type="Texture2D" uid="uid://otgh2luymtjw" path="res://assets/icons/arrow_thin_right.png" id="5_eqhnr"]
+[ext_resource type="Script" uid="uid://cimwh7dvhh4av" path="res://commons/ui/animate_offset_loop.gd" id="6_msnpt"]
+[ext_resource type="Script" uid="uid://qqm40ogn6vp2" path="res://commons/ui/text_shadow.gd" id="7_ax84l"]
+
+[node name="WidgetOptions" type="HBoxContainer" node_paths=PackedStringArray("hand_pointer", "lb_active_option", "arrow_animate", "dot_instance", "dot_container")]
+offset_right = 140.0
+offset_bottom = 16.0
+script = ExtResource("1_kcu35")
+hand_pointer = NodePath("HandPointer")
+lb_active_option = NodePath("VBoxContainer/HBoxContainer/Label")
+arrow_animate = [NodePath("AnimateOffsetLoop"), NodePath("AnimateOffsetLoop2")]
+dot_instance = NodePath("VBoxContainer/MarginContainer/HBoxContainer2/Dot")
+dot_container = NodePath("VBoxContainer/MarginContainer/HBoxContainer2")
+
+[node name="HandPointer" parent="." instance=ExtResource("2_1ioif")]
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -2.5
+offset_right = 3.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("3_msnpt")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Option"
+label_settings = ExtResource("4_ax84l")
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -2.5
+offset_right = 3.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("5_eqhnr")
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Dot" type="ColorRect" parent="VBoxContainer/MarginContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(2, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="AnimateOffsetLoop" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("6_msnpt")
+start_on_ready = false
+target = NodePath("../VBoxContainer/HBoxContainer/Control/TextureRect")
+offset = Vector2(-2, 0)
+metadata/_custom_type_script = "uid://cimwh7dvhh4av"
+
+[node name="AnimateOffsetLoop2" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("6_msnpt")
+start_on_ready = false
+target = NodePath("../VBoxContainer/HBoxContainer/Control2/TextureRect2")
+offset = Vector2(2, 0)
+metadata/_custom_type_script = "uid://cimwh7dvhh4av"
+
+[node name="TextShadow" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("7_ax84l")
+target = NodePath("../VBoxContainer/HBoxContainer/Label")
+metadata/_custom_type_script = "uid://qqm40ogn6vp2"

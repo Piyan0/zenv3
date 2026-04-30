@@ -1,7 +1,6 @@
 class_name RenderableView
 extends Control
 
-
 enum EndAction{ DO_NOTHING, DELETE }
 enum SelectMode{ GRID= -1, HORIZONTAL= 0, VERTICAL= 1 }
 
@@ -48,6 +47,7 @@ func _setup_selection(nodes):
 
 
 func _process_select_end(selected, all_nodes):
+    _select_end(selected, items_id[_select.get_current_index()])
     match end_action:
         EndAction.DO_NOTHING:
             pass
@@ -57,7 +57,6 @@ func _process_select_end(selected, all_nodes):
             items_id= new_ids
             render()
 
-    _select_end.call_deferred(selected, _select_index)
 
 
 # @virtual

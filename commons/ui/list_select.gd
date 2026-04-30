@@ -17,10 +17,11 @@ func _init(p_owner: Node, p_nodes, p_start_index= 0, p_mode= -1):
     if p_nodes.is_empty():
         return
     _mode= p_mode
-    _current_idx= clamp(p_start_index, 0, _node_list.size()-1)
     _node_list= p_nodes
-    p_owner.add_child.call_deferred(self)
     name= "ListSelect"
+    p_owner.add_child.call_deferred(self)
+    _current_idx= clamp(p_start_index, 0, _node_list.size()-1)
+    # printt(clamp(p_start_index,0,_node_list.size()-1))
     tree_entered.connect(func():
         _selection_change(_current_idx)
     )

@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4xqkgqq7mrqv"]
+
+[ext_resource type="Script" uid="uid://bvc57f1y4iko1" path="res://ui/widgets/widget_meter/widget_meter.gd" id="1_b44w4"]
+[ext_resource type="PackedScene" uid="uid://bv6ixu8e4crfw" path="res://ui/hand_pointer/hand_pointer.tscn" id="2_0kfyf"]
+[ext_resource type="Texture2D" uid="uid://rbaq5h4r71ii" path="res://ui/widgets/widget_meter/progress_below.png" id="3_0ckac"]
+[ext_resource type="Texture2D" uid="uid://3kv55uyguwad" path="res://assets/icons/arrow_thin_left.png" id="3_nadfb"]
+[ext_resource type="Texture2D" uid="uid://c13erbroewwwe" path="res://ui/widgets/widget_meter/progress_above.png" id="4_nadfb"]
+[ext_resource type="Texture2D" uid="uid://otgh2luymtjw" path="res://assets/icons/arrow_thin_right.png" id="6_bkdgx"]
+[ext_resource type="Script" uid="uid://cimwh7dvhh4av" path="res://commons/ui/animate_offset_loop.gd" id="7_nadfb"]
+
+[node name="WidgetMeter" type="HBoxContainer" node_paths=PackedStringArray("hand_pointer", "progress_bar")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -218.0
+offset_bottom = 13.0
+grow_horizontal = 2
+script = ExtResource("1_b44w4")
+hand_pointer = NodePath("HandPointer")
+progress_bar = NodePath("HBoxContainer/Control3/TextureProgressBar")
+title = "meter"
+state = 3
+
+[node name="HandPointer" parent="." instance=ExtResource("2_0kfyf")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -2.5
+offset_right = 3.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("3_nadfb")
+stretch_mode = 5
+
+[node name="Control3" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer/Control3"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -2.5
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_under = ExtResource("4_nadfb")
+texture_progress = ExtResource("3_0ckac")
+
+[node name="Control2" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -2.5
+offset_right = 3.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("6_bkdgx")
+stretch_mode = 5
+
+[node name="AnimateOffsetLoop" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("7_nadfb")
+target = NodePath("../HBoxContainer/Control/TextureRect")
+offset = Vector2(-2, 0)
+metadata/_custom_type_script = "uid://cimwh7dvhh4av"
+
+[node name="AnimateOffsetLoop2" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("7_nadfb")
+target = NodePath("../HBoxContainer/Control2/TextureRect2")
+offset = Vector2(2, 0)
+metadata/_custom_type_script = "uid://cimwh7dvhh4av"

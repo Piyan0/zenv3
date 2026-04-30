@@ -1,11 +1,18 @@
 class_name AnimateOffsetLoop
 extends Node
 
+@export var start_on_ready= true
 @export var target: Control
 @export var offset= Vector2.ZERO
 @export var duration= 0.3
 
+
 func _ready():
+    if start_on_ready:
+        setup()
+    
+
+func setup():
     await get_tree().process_frame
     var start_pos= target.global_position
     var anim_pos= start_pos + offset

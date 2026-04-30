@@ -1,13 +1,15 @@
-widget.
 cutscene movement.
 spawnable animation with offset.
 grid movement loop.
-manage the event commands for event page.
 dialogue portrait and finishing.
 prompt with hand pointer.
 inventory and inventory prompt.
+manage the event commands for event page.
+widget list manager.
+widget initial value.
 
-
+✓ hand pointer.
+✓ widget.
 ✓ add idle to wandering trait.
 ✓ display image.
 ✓ create scene map.
