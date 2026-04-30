@@ -25,6 +25,7 @@ func _process(_delta):
         # Don't process further if player hasn't been instantiated.
         if !player: return
         if i.is_interact(player, _current_input):
+            # print(1)
             _is_running_event= true
             player.lock_input= true
             await i.interact(player)

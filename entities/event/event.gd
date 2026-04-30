@@ -3,6 +3,7 @@ extends Node2D
 
 signal interact_finished()
 
+@export var _commands_source : Script
 @export var eventpages: Array[EventPage]
 @export var area: Area2D
 @export var spr: Sprite2D
@@ -14,9 +15,13 @@ var can_interact= true
 
 var _can_trigger_touch= true
 var _touch_area= Vector2.ZERO
-
+var _commands : EventCommands
 
 func _ready():
+    if _commands_source:
+        _commands = _commands_source.new()
+    else:
+        _commands = EventCommands.new()
     add_to_group("events")
 
 
@@ -60,8 +65,7 @@ func interact(player):
     
     interact_direction= direction_from_player
     is_interact_running= true
-    var commands= active_event_page.get_commands()
-    await commands.execute_commands()
+    await active_event_page.exec_commands()
     interact_finished.emit()
     is_interact_running= false
     
@@ -89,7 +93,8 @@ func _update_trigger_touch(player):
         
 
 func _active_event_changed(event_page: EventPage):
-    area.collision_layer= 0
+    event_page.event_commands = _commands.get_event_commands(event_page.event_commands_id)
+    area.collision_layer = 0
     spr.texture= event_page.graphic
     spr.offset= event_page.offset
     match event_page.placement:

@@ -1,14 +1,21 @@
+console auto complete.
+event page action, a class that group all available function to call through event commands.
 migrate to new database system for asset.
 grid movement loop.
 cutscene movement.
 spawnable animation with offset.
 choices prompt.
 dialogue portrait and finishing.
-manage the event commands for event page.
 inventory and inventory prompt.
-multiple widget manager.
+internal switch in console.
+game goto dan player set pos.
 
 
+✓ validator return value, null if failed.
+✓ validate args in console.
+✓ in game console.
+✓ manage the event commands for event page.
+✓ multiple widget manager.
 ✓ widget initial value.
 ✓ hand pointer.
 ✓ widget.

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7we1jnxdpeub"]
+[gd_scene load_steps=7 format=3 uid="uid://c7we1jnxdpeub"]
 
 [ext_resource type="Script" uid="uid://k5lvxw6c0876" path="res://levels/demo/main/main.gd" id="1_7bght"]
+[ext_resource type="Script" uid="uid://dvav6oi166uv0" path="res://vault/event_pages/demo/test_commands.gd" id="3_5s6t7"]
 [ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="4_5s6t7"]
 [ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="5_btglb"]
 [ext_resource type="Resource" uid="uid://bimn5trws3w2u" path="res://vault/event_pages/demo/test002.tres" id="6_5s6t7"]
@@ -13,4 +14,5 @@ map_id = 2
 
 [node name="ev000" parent="." instance=ExtResource("4_5s6t7")]
 position = Vector2(112, 16)
+_commands_source = ExtResource("3_5s6t7")
 eventpages = Array[ExtResource("5_btglb")]([ExtResource("6_k7603"), ExtResource("6_5s6t7")])

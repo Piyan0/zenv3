@@ -41,11 +41,31 @@ func get_data():
     }
 
 
+func has_global_switch(key):
+    return key in _global_switches
+
+
+func has_var(key):
+    return key in _variables
+
+
+func has_internal_switch(key):
+    return key in _internal_switches
+
+
 func set_switch(key, value):
     _assert_key_exist(key, _global_switches, "_global_switches")
     _global_switches[key]= value
     entries_changed.emit(_internal_switches, _variables, _global_switches)
-    
+
+
+func try_set_switch(key, value) -> Error:
+    if !key in _global_switches:
+        return FAILED
+        
+    set_switch(key, value)
+    return OK
+
 
 func get_switch(key):
     _assert_key_exist(key, _global_switches, "_global_switches")
@@ -56,6 +76,14 @@ func set_var(key, value):
     _assert_key_exist(key, _variables, "_variables")
     _variables[key]= value
     entries_changed.emit(_internal_switches, _variables, _global_switches)
+
+
+func try_set_var(key, value) -> Error:
+    if !key in _variables:
+        return FAILED
+        
+    set_var(key, value)
+    return OK
 
 
 func get_var(key):

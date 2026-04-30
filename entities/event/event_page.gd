@@ -3,10 +3,18 @@ extends Resource
 
 const EMPTY= "empty"
 
+enum EventCommandsID{
+    Commands_001 = 1, Commands_002, Commands_003, Commands_004,
+    Commands_005, Commands_007, Commands_008, Commands_009,
+    Commands_010, Commands_011, Commands_012, Commands_013,
+    Commands_014, Commands_015, Commands_016, Commands_017,
+    Commands_018, Commands_019, Commands_020,
+}
 enum Trigger{ PLAYER_TOUCH, INTERACT_BUTTON, AUTORUN }
 enum InternalSwitch { NONE, A, B, C, D }
 enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 
+@export var event_commands_id : EventCommandsID
 @export var graphic: Texture2D
 @export var offset= Vector2.ZERO
 
@@ -25,14 +33,13 @@ enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 @export var global_switch_002: String= EMPTY
 @export var global_switch_002_value: bool
 
-@export var event_commands_source: Script
 @export var event_traits: Array[EventTrait]
 
+var event_commands: Callable
 
-func get_commands() -> EventCommands:
-    if event_commands_source == null:
-        return EventCommands.new()
-    return event_commands_source.new()
+
+func exec_commands() -> void:
+    await event_commands.call()
 
 
 func is_event_active(

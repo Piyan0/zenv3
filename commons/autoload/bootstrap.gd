@@ -32,6 +32,9 @@ func _enter_tree():
     map_manager= _boot_map_manager()
     
     items_database= ItemsDatabase.new()
+    
+    if OS.is_debug_build():
+        _create_dev_console()
 
 
 func _boot_map_manager():
@@ -42,6 +45,15 @@ func _boot_map_manager():
 func _boot_progression():
     var progression= Progression.new("res://vault/progression/variables.cfg", "res://vault/progression/global_switches.cfg")
     return progression
+
+
+func _create_dev_console():
+    var commands = [
+        GameConsoleCommand.new(),
+    ]
+    var console = DevConsole.create(commands)
+    if console:
+        canvas.add_child(console)
     
     
 func _add_canvas():
