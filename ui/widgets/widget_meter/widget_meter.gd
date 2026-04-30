@@ -5,6 +5,7 @@ const PROGRESS_MOVE_DURATION= 0.2
 @export var meter_step= [0, 25, 50, 75, 100]
 @export var hand_pointer: HandPointer
 @export var progress_bar: TextureProgressBar
+@export var arrows : Array[TextureRect]
 
 var _t: Tween
 
@@ -35,7 +36,13 @@ func _move_progress_bar(progress_value):
     
 func _state_active():
     hand_pointer.state_active()
+    arrows.map(func(arrow):
+        arrow.modulate.a = 1
+    )
     
 
 func _state_blur():
     hand_pointer.state_blur()
+    arrows.map(func(arrow):
+        arrow.modulate.a = 0
+    )

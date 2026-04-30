@@ -19,6 +19,6 @@ func state_active():
 
 
 func state_blur():
-    arrow.modulate= 0
+    arrow.modulate.a= 0
     lb_msg.modulate.a= 0.5
     

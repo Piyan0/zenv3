@@ -8,17 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://otgh2luymtjw" path="res://assets/icons/arrow_thin_right.png" id="6_bkdgx"]
 [ext_resource type="Script" uid="uid://cimwh7dvhh4av" path="res://commons/ui/animate_offset_loop.gd" id="7_nadfb"]
 
-[node name="WidgetMeter" type="HBoxContainer" node_paths=PackedStringArray("hand_pointer", "progress_bar")]
+[node name="WidgetMeter" type="HBoxContainer" node_paths=PackedStringArray("hand_pointer", "progress_bar", "arrows")]
 anchors_preset = 10
 anchor_right = 1.0
-offset_right = -218.0
+offset_right = -182.0
 offset_bottom = 13.0
 grow_horizontal = 2
 script = ExtResource("1_b44w4")
 hand_pointer = NodePath("HandPointer")
 progress_bar = NodePath("HBoxContainer/Control3/TextureProgressBar")
+arrows = [NodePath("HBoxContainer/Control/TextureRect"), NodePath("HBoxContainer/Control2/TextureRect2")]
 title = "meter"
-state = 3
 
 [node name="HandPointer" parent="." instance=ExtResource("2_0kfyf")]
 layout_mode = 2
@@ -80,6 +80,7 @@ custom_minimum_size = Vector2(7, 0)
 layout_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer/Control2"]
+custom_minimum_size = Vector2(0, 7)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

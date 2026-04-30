@@ -6,8 +6,13 @@ extends Widget
 @export var arrow_animate: Array[AnimateOffsetLoop]
 @export var dot_instance: Control
 @export var dot_container: HBoxContainer
+@export var arrows: Array[TextureRect]
 
- 
+
+func _enter_tree():
+    hand_pointer.msg = title
+    
+
 func _prepare():
     dot_instance.reparent(self)
     dot_instance.hide()
@@ -49,7 +54,13 @@ func _state_changed(state):
 
 func _state_active():
     hand_pointer.state_active()
+    arrows.map(func(arrow):
+        arrow.modulate.a = 1
+    )
     
 
 func _state_blur():
     hand_pointer.state_blur()
+    arrows.map(func(arrow):
+        arrow.modulate.a = 0
+    )

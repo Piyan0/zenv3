@@ -22,16 +22,17 @@ func _ready():
 func _prepare():
     pass
     
-func _process_state_active():
+    
+func process_state_active():
     set_process_input(true)
     _state_active()
     
     
-func _process_state_blur():
+func process_state_blur():
     set_process_input(false)
     _state_blur()
     
-    
+
 # @virtual
 func _state_changed(state):
     pass

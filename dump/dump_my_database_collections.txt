@@ -1,2 +1,0 @@
-(0) my_items.
-(1) some cool items.

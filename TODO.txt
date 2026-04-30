@@ -1,13 +1,15 @@
+migrate to new database system for asset.
+grid movement loop.
 cutscene movement.
 spawnable animation with offset.
-grid movement loop.
+choices prompt.
 dialogue portrait and finishing.
-prompt with hand pointer.
-inventory and inventory prompt.
 manage the event commands for event page.
-widget list manager.
-widget initial value.
+inventory and inventory prompt.
+multiple widget manager.
 
+
+✓ widget initial value.
 ✓ hand pointer.
 ✓ widget.
 ✓ add idle to wandering trait.

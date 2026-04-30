@@ -6,11 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://b4qdva5r5hi0w" path="res://ui/widgets/widget_toggle/toggle_on.png" id="2_tj5g8"]
 
 [node name="WidgetToggle" type="HBoxContainer" node_paths=PackedStringArray("hand_pointer", "img_state")]
-offset_right = 67.0
+offset_right = 100.0
 offset_bottom = 13.0
 script = ExtResource("1_swwt5")
 hand_pointer = NodePath("HandPointer")
-img_state = NodePath("MarginContainer/TextureRect")
+img_state = NodePath("HBoxContainer/MarginContainer/TextureRect")
 texture_on = ExtResource("2_tj5g8")
 texture_off = ExtResource("2_swwt5")
 title = "Toggleable"
@@ -19,11 +19,19 @@ state = 1
 [node name="HandPointer" parent="." instance=ExtResource("1_if650")]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+[node name="Control" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
