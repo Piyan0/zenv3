@@ -7,23 +7,7 @@ extends Widget
 @export var dot_instance: Control
 @export var dot_container: HBoxContainer
 
-
-func _enter_tree():
-    var longest_text= ""
-    for i in options:
-        if i.length() > longest_text.length():
-            longest_text= i
-    
-    var lb= lb_active_option.duplicate()
-    add_child(lb)
-    lb.hide()
-    lb.text= longest_text
-    await get_tree().process_frame
-    lb_active_option.custom_minimum_size.x= lb.size.x
-    for i in arrow_animate:
-        i.setup()
-    lb.queue_free()
-    
+ 
 func _prepare():
     dot_instance.reparent(self)
     dot_instance.hide()
