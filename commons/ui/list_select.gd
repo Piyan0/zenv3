@@ -14,11 +14,10 @@ var _pause= false
 
 
 func _init(p_owner: Node, p_nodes, p_start_index= 0, p_mode= -1):
-    _current_idx= clamp(_current_idx, 0, _node_list.size()-1)
     if p_nodes.is_empty():
         return
     _mode= p_mode
-    _current_idx= p_start_index
+    _current_idx= clamp(p_start_index, 0, _node_list.size()-1)
     _node_list= p_nodes
     p_owner.add_child.call_deferred(self)
     name= "ListSelect"
@@ -88,7 +87,6 @@ func _process_input_horizontal(event: InputEvent):
 
 
 func _process_input_grid(event: InputEvent):
-
     if event.is_action_pressed("ui_left"):
         _current_idx= _move_index(-1)
         get_viewport().set_input_as_handled()
@@ -105,6 +103,7 @@ func _process_input_grid(event: InputEvent):
 
 
 func _selection_change(idx):
+    # print(idx)
     if connect_index_obj != null:
         connect_index_obj[connect_index_field]= idx
     var node= _node_list[idx]
