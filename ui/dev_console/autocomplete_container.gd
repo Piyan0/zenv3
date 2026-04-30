@@ -1,0 +1,39 @@
+extends MarginContainer
+signal selected(text)
+
+@export var text_container : VBoxContainer
+var _select : ListSelect
+
+func _ready():
+    #hide()
+    selected.connect(func(text): hide(); _select.queue_free())
+
+
+func _before_render():
+    show()
+    if is_instance_valid(_select):
+        _select.queue_free()
+        
+
+func set_autocomplete(text_list = []):
+    _before_render()
+    for i in text_container.get_children():
+        i.queue_free()
+    
+    var instances = []
+    for text in text_list:
+        var instance = load("uid://b010mwqmsnscd").instantiate()
+        instance.lb.text = text
+        instance.text_pressed.connect(func(text): selected.emit(text))
+        text_container.add_child(instance)
+        instances.push_back(instance)
+    
+    _select = ListSelect.new(self, instances, 0, VERTICAL)
+    _select.effect_active = func(node):
+        node.state_active()
+    
+    _select.effect_blur = func(node):
+        node.state_blur()
+    
+    _select.on_select_end = func(node, all_nodes):
+        node.emit_text_pressed()

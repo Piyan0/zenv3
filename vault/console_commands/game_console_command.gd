@@ -14,6 +14,10 @@ func _init():
             ),
     }
     
+    autocomplete["/v"] = func(typed_text):
+        var text_recc = TextReccomendation.new()
+        return text_recc.get_recc(typed_text, ["Salwa", "Manysa", "Hawa"])
+        
     sub_commands["/v"] = func(args):
         var id = args[0]
         var value = int(args[1])

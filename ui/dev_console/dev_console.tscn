@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=4 uid="uid://cplt2xqjilwh4"]
+[gd_scene load_steps=18 format=4 uid="uid://cplt2xqjilwh4"]
 
 [ext_resource type="LabelSettings" uid="uid://3wboop2jrvep" path="res://assets/styles/default.tres" id="1_erjtr"]
 [ext_resource type="Script" uid="uid://do38bw8orsec0" path="res://ui/dev_console/dev_console.gd" id="1_fdgnb"]
 [ext_resource type="FontFile" uid="uid://3oo4xutx04g7" path="res://assets/fonts/monogram.ttf" id="1_tpmiq"]
 [ext_resource type="Texture2D" uid="uid://bprp8o0o6btsj" path="res://assets/icons/icon_console.png" id="4_colmt"]
 [ext_resource type="Script" uid="uid://qqm40ogn6vp2" path="res://commons/ui/text_shadow.gd" id="5_lbav8"]
+[ext_resource type="Script" uid="uid://d2tqmwvmyv6xv" path="res://ui/dev_console/autocomplete_container.gd" id="6_v0s4m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_erjtr"]
 
@@ -1005,7 +1006,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_ojc13")
 Button/styles/normal = SubResource("StyleBoxFlat_sdxqu")
 Button/styles/pressed = SubResource("StyleBoxFlat_gsicx")
 
-[node name="DevConsole" type="Control" node_paths=PackedStringArray("line_edit", "lb_msg", "btn_console", "btn_console_container", "console_container")]
+[node name="DevConsole" type="Control" node_paths=PackedStringArray("line_edit", "lb_msg", "btn_console", "btn_console_container", "console_container", "autocomplete_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1018,6 +1019,7 @@ lb_msg = NodePath("Label")
 btn_console = NodePath("MarginContainer/VBoxContainer/TextureRect/Button")
 btn_console_container = NodePath("MarginContainer")
 console_container = NodePath("Control")
+autocomplete_container = NodePath("AutocompleteContainer")
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(320, 14)
@@ -1062,6 +1064,7 @@ theme_override_fonts/font = ExtResource("1_tpmiq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_erjtr")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_fdgnb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_colmt")
+keep_editing_on_text_submit = true
 virtual_keyboard_type = 1
 flat = true
 caret_blink = true
@@ -1117,3 +1120,19 @@ justification_flags = 131
 script = ExtResource("5_lbav8")
 target = NodePath("../Label")
 metadata/_custom_type_script = "uid://qqm40ogn6vp2"
+
+[node name="AutocompleteContainer" type="MarginContainer" parent="." node_paths=PackedStringArray("text_container")]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 140.0
+offset_bottom = 63.0
+script = ExtResource("6_v0s4m")
+text_container = NodePath("VBoxContainer")
+
+[node name="ColorRect" type="ColorRect" parent="AutocompleteContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.470588)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AutocompleteContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0

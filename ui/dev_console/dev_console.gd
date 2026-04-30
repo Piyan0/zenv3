@@ -6,12 +6,22 @@ extends Control
 @export var btn_console: Button
 @export var btn_console_container: Control
 @export var console_container: Control
+@export var autocomplete_container: Control
 
 
 var commands = [ConsoleCommand.new()]
 var _is_console_visible = false
 
 func _ready():
+    autocomplete_container.selected.connect(
+        func(text):
+            var text_arr = line_edit.text.split(" ")
+            text_arr.remove_at(text_arr.size() - 1)
+            var new_text = " ".join(text_arr)  + " " + text
+            line_edit.text =  new_text
+            line_edit.caret_column = new_text.length()
+    )
+    
     btn_console.pressed.connect(
         func():
             _is_console_visible = !_is_console_visible
@@ -31,7 +41,37 @@ func _ready():
                     return
             _show_msg("Err. Command not exist")
     )
+    
+    line_edit.text_changed.connect(
+        func(text):
+            for i in commands:
+                var autocomplete = i.get_autocomplete(_get_words_before_caret())
+                #print(autocomplete)
+                if autocomplete != null:
+                    _update_autocomplete(autocomplete)
+                    return
+                else:
+                    autocomplete_container.hide()
+    )
 
+
+func _update_autocomplete(text_list):
+    autocomplete_container.set_autocomplete(text_list)
+    
+    var char_width = 6
+    var offset_right = 14
+    var y = 16
+    autocomplete_container.position = clamp(
+        Vector2(offset_right + ( line_edit.text.length() * char_width ), y),
+        Vector2(0, y),
+        Vector2(320 - autocomplete_container.size.x, y)
+        )
+    
+    
+func _get_words_before_caret():
+    var text = line_edit.text.left(line_edit.caret_column)
+    return text.split(" ")
+    
 
 static func create(p_commands: Array):
     var instance = load("uid://cplt2xqjilwh4").instantiate()

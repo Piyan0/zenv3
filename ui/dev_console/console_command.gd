@@ -3,6 +3,10 @@ class_name ConsoleCommand
 var msg = ""
 var prefix = "command"
 var action = func(args): print("this is command.")
+
+
+var autocomplete = {}
+
 var sub_commands : Dictionary[String, Callable] = {
     "/sub" : func(args) -> String:
         print("this is sub command.")
@@ -14,6 +18,17 @@ var args_rules= {
         0 : func(arg): return arg
     }
 }
+
+
+func get_autocomplete(text_arr_s):
+    var text_arr = []
+    text_arr.assign(text_arr_s)
+    #print(text_arr)
+    var currently_typed_text = text_arr.pop_back()
+    if text_arr.back() in autocomplete:
+        return autocomplete[text_arr.back()].call(currently_typed_text)
+    return null
+
 
 func is_valid(text):
     var split_commands = text.split(" ")
