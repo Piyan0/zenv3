@@ -19,7 +19,6 @@ var _can_toggle_console = true
 
 
 func _ready():
-    # print(_remove_word_at_caret("game /v m", 8, "my_var"))
     _console_visible(false)
     lb_msg.text = ""
     autocomplete_container.hide()
@@ -43,18 +42,24 @@ func _ready():
     line_edit.text_submitted.connect(
         func(text):
             for i in commands:
-                var valid = i.is_valid(text)
-                if valid:
-                    _show_msg(i.get_msg())
-                    #line_edit.clear.call_deferred()
+                var command_id = i.is_valid(text)
+                if command_id != null:
+                    var result = i.call_action(text, command_id)
+                    if result ==  ConsoleCommand.CallResult.INVALID_ARGS:
+                        _show_msg("Err. Invalid arguments")
+                    else:
+                        _show_msg("OK")
                     return
+
             _show_msg("Err. Command not exist")
     )
     
     line_edit.text_changed.connect(
         func(text):
             for i in commands:
-                var autocomplete = i.get_autocomplete(_get_text_before_caret())
+                var text_before_carret = _get_text_before_caret()
+                var currently_typed_text = text_before_carret.split(" ")[-1] # equivalent with Array.back()
+                var autocomplete = i.get_autocomplete(text_before_carret, currently_typed_text)
                 if autocomplete != null:
                     _update_autocomplete(autocomplete)
                     return

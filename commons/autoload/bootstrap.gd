@@ -49,7 +49,9 @@ func _boot_progression():
 
 func _create_dev_console():
     var commands = [
+        ConsoleCommand.new(),
         GameConsoleCommand.new(),
+        PlayerConsoleCommand.new(),
     ]
     var console = DevConsole.create(commands)
     if console:

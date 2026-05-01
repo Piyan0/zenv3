@@ -1051,7 +1051,7 @@ theme_override_constants/margin_right = 4
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer"]
-modulate = Color(0, 0.832891, 0.392428, 1)
+modulate = Color(0, 1, 0, 1)
 layout_mode = 2
 text = "$"
 label_settings = ExtResource("1_erjtr")

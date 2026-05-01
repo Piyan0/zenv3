@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7we1jnxdpeub"]
+[gd_scene load_steps=8 format=3 uid="uid://c7we1jnxdpeub"]
 
 [ext_resource type="Script" uid="uid://k5lvxw6c0876" path="res://levels/demo/main/main.gd" id="1_7bght"]
 [ext_resource type="Script" uid="uid://dvav6oi166uv0" path="res://vault/event_pages/demo/test_commands.gd" id="3_5s6t7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="5_btglb"]
 [ext_resource type="Resource" uid="uid://bimn5trws3w2u" path="res://vault/event_pages/demo/test002.tres" id="6_5s6t7"]
 [ext_resource type="Resource" uid="uid://dxf7u8jg4tyrj" path="res://vault/event_pages/demo/test.tres" id="6_k7603"]
+[ext_resource type="Script" uid="uid://t0ori4wcmybj" path="res://commons/marker.gd" id="7_ij5t7"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -16,3 +17,13 @@ map_id = 2
 position = Vector2(112, 16)
 _commands_source = ExtResource("3_5s6t7")
 eventpages = Array[ExtResource("5_btglb")]([ExtResource("6_k7603"), ExtResource("6_5s6t7")])
+
+[node name="marker" type="Marker2D" parent="."]
+position = Vector2(128, 16)
+script = ExtResource("7_ij5t7")
+metadata/_custom_type_script = "uid://t0ori4wcmybj"
+
+[node name="marker2" type="Marker2D" parent="."]
+position = Vector2(112, 0)
+script = ExtResource("7_ij5t7")
+metadata/_custom_type_script = "uid://t0ori4wcmybj"

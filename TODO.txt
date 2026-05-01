@@ -6,11 +6,11 @@ spawnable animation with offset.
 choices prompt.
 dialogue portrait and finishing.
 inventory and inventory prompt.
-add escape key to close the console.
 internal switch in console.
 game goto dan player set pos.
 
 
+✓ add escape key to close the console.
 ✓ player cannot move again when console is opened when character is walking.
 ✓ add keyboard ctrl + ` to toggle in game console.
 ✓ fix text autocomplete when cursor is not in the end of the label.
