@@ -3,6 +3,19 @@ extends ConsoleCommand
 
 func _init():
     prefix = "game"
+    
+    autocomplete["/ss"] = {
+        0 : (func(text):
+            return TextReccomendation.new().get_recc(text, ["ev000", "ev001", "ev002", "ev003", "ev004"])
+            ),
+        1: (func(typed_text):
+            return TextReccomendation.new().get_recc(typed_text, ["A", "B", "C", "D"])
+            ),
+        2: (func(typed_text):
+            return TextReccomendation.new().get_recc(typed_text, ["on", "off"])
+            ),
+    }
+    
     args_rules["/v"] = {
         0 : (func(arg):
             if Bootstrap.progression.has_var(arg):
@@ -40,6 +53,9 @@ func _init():
                 ),
     }
     
+    sub_commands["/ss"] = func(args):
+        return "Nice."
+        
     sub_commands["/v"] = func(args):
         var id = args[0]
         var value = int(args[1])

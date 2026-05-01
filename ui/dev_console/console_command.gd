@@ -5,7 +5,11 @@ var prefix = "command"
 var action = func(args): print("this is command.")
 
 
-var autocomplete = {}
+var autocomplete = {
+    "/sub" : {
+        0 : func(typed_text): return ["auto_01", "auto_02"]
+    }
+}
 
 var sub_commands : Dictionary[String, Callable] = {
     "/sub" : func(args) -> String:
