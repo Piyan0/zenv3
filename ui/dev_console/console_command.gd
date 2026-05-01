@@ -31,14 +31,10 @@ func get_autocomplete(text):
     var words = text.split(" ")
     var currently_typed_text = words[-1]
     var current_arg_index = args.size() - 1
-    #print(current_arg_index)
     var valid = _is_valid(text)
-    #print(valid, prefix)
     if valid:
         if _commands_path in autocomplete:
-            #printt(_commands_path, current_arg_index)
             if current_arg_index in autocomplete[_commands_path]:
-                #print(autocomplete[current_arg_index])
                 var result = autocomplete[_commands_path][current_arg_index].call(currently_typed_text)
                 return result
     return null
@@ -105,7 +101,6 @@ func _validate_args(args, rules):
                 return null
         else:
             validated.push_back(args[i])
-        
     return validated
         
         

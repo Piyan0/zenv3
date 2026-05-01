@@ -1,6 +1,10 @@
 class_name DevConsole
 extends Control
 
+signal console_active()
+signal console_blur()
+
+
 @export var line_edit: LineEdit
 @export var lb_msg: Label
 @export var btn_console: Button
@@ -11,34 +15,31 @@ extends Control
 
 var commands = [ConsoleCommand.new()]
 var _is_console_visible = false
+var _can_toggle_console = true
+
 
 func _ready():
-    #print(_remove_word_at_caret("anjay mabar", 6, "keren."))
+    # print(_remove_word_at_caret("game /v m", 8, "my_var"))
+    _console_visible(false)
+    lb_msg.text = ""
     autocomplete_container.hide()
+
     autocomplete_container.selected.connect(
         func(text):
             var new_text = _remove_word_at_caret(line_edit.text, line_edit.caret_column, text)
+            var prev_caret_index = line_edit.caret_column
             line_edit.text =  new_text
             if OS.get_name() == "Android":
                 line_edit.release_focus()
                 while  DisplayServer.virtual_keyboard_get_height() > 0:
                     await get_tree().process_frame
             
-            line_edit.caret_column = new_text.length()
+            line_edit.caret_column = prev_caret_index + text.length()
             line_edit.grab_focus()
     )
     
-    btn_console.pressed.connect(
-        func():
-            _is_console_visible = !_is_console_visible
-            if !_is_console_visible:
-                autocomplete_container.off()
-            _console_visible(_is_console_visible)
-            await get_tree().create_timer(0.2).timeout
-            btn_console.release_focus()
-    )
-    _console_visible(false)
-    lb_msg.text = ""
+    btn_console.pressed.connect(_toggle_console)
+
     line_edit.text_submitted.connect(
         func(text):
             for i in commands:
@@ -60,6 +61,24 @@ func _ready():
                 else:
                     autocomplete_container.off()
     )
+
+
+func _process(delta: float) -> void:
+    if Input.is_key_pressed(KEY_CTRL) && Input.is_key_pressed(KEY_QUOTELEFT):
+        if _can_toggle_console:
+            _can_toggle_console = false
+            _toggle_console()
+    else:
+        _can_toggle_console = true
+
+
+func _toggle_console():
+    _is_console_visible = !_is_console_visible
+    if !_is_console_visible:
+        autocomplete_container.off()
+    _console_visible(_is_console_visible)
+    await get_tree().create_timer(0.2).timeout
+    btn_console.release_focus()
 
 
 func _update_autocomplete(text_list):
@@ -101,23 +120,40 @@ func _show_msg(text):
 
 func _console_visible(is_visible):
     if is_visible:
+        console_active.emit()
         lb_msg.show()
+        line_edit.grab_focus()
         var animate = AnimateOffset.new(console_container, Vector2.ZERO, 0.2, false)
     else:
+        console_blur.emit()
+        line_edit.release_focus()
         lb_msg.hide()
         var animate = AnimateOffset.new(console_container, Vector2(0, -console_container.size.y), 0.2, false)
         
 
 func _remove_word_at_caret(text, caret_index, replace_with = ""):
-    var words_inside_caret= []
-    var split_text = text.split(" ")
-    var words_len = 0
-    for i in split_text:
-        if words_len > caret_index:
-            break
-            
-        words_len = i.length() + words_len
-        words_inside_caret.push_back(i)
+    var caret_pos = 0
+    var current_word= ""
+    var words_caret_index = {}
+    for i in text:
+        current_word += i
+        if i == " ":
+            words_caret_index[current_word] = caret_pos
+            current_word = ""
+
+        caret_pos += 1
+
+    if !current_word.is_empty():
+        words_caret_index[current_word] = caret_pos
+        current_word = []
     
-    print(text)
-    return text.replace(words_inside_caret.back(), replace_with)
+    var caret_region = 0
+    for i in words_caret_index.keys():
+        if caret_index > words_caret_index[i]:
+            caret_region += 1
+        else:
+            break
+    
+    var split_text = text.split(" ")
+    split_text[caret_region] = replace_with
+    return " ".join(split_text)

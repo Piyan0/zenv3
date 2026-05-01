@@ -53,6 +53,16 @@ func _create_dev_console():
     ]
     var console = DevConsole.create(commands)
     if console:
+        console.console_active.connect(func():
+            if Player.instance:
+                Player.instance.lock_input = true
+        )
+
+        console.console_blur.connect(func():
+            if Player.instance:
+                Player.instance.lock_input = false
+        )
+        
         canvas.add_child(console)
     
     
