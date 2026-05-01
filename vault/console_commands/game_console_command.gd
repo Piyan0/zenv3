@@ -14,10 +14,32 @@ func _init():
             ),
     }
     
-    autocomplete["/v"] = func(typed_text):
-        var text_recc = TextReccomendation.new()
-        return text_recc.get_recc(typed_text, ["Salwa", "Manysa", "Hawa"])
+    autocomplete["/v"] = {
+        0 : (func(typed_text):
+                var text_recc = TextReccomendation.new()
+                var keys = Bootstrap.progression.get_var_keys()
+                return text_recc.get_recc(typed_text, keys, 10)
+                ),
+            
+        1 : (func(typed_text):
+                return ["1", "2", "3"]
+                ),
         
+    }
+    
+    
+    autocomplete["/s"] = {
+        0 : (func(t):
+                var text_recc = TextReccomendation.new()
+                var keys = Bootstrap.progression.get_global_switch_keys()
+                return text_recc.get_recc(t, keys, 10)
+                ),
+                
+        1 : (func(typed_text):
+                return TextReccomendation.new().get_recc(typed_text, ["on", "off"])
+                ),
+    }
+    
     sub_commands["/v"] = func(args):
         var id = args[0]
         var value = int(args[1])

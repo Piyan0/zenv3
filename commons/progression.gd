@@ -41,6 +41,14 @@ func get_data():
     }
 
 
+func get_var_keys():
+    return _variables.keys()
+
+
+func get_global_switch_keys():
+    return _global_switches.keys()
+
+
 func has_global_switch(key):
     return key in _global_switches
 

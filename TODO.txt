@@ -1,4 +1,3 @@
-console auto complete.
 event page action, a class that group all available function to call through event commands.
 migrate to new database system for asset.
 grid movement loop.
@@ -9,8 +8,13 @@ dialogue portrait and finishing.
 inventory and inventory prompt.
 internal switch in console.
 game goto dan player set pos.
+add keyboard ctrl + ` to toggle in game console.
+fix text autocomplete when cursor is not in the end of the label.
 
 
+✓ add limit to autocomplete.
+✓ add outline to autocomplete.
+✓ console auto complete.
 ✓ validator return value, null if failed.
 ✓ validate args in console.
 ✓ in game console.

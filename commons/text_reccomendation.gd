@@ -1,6 +1,7 @@
 class_name TextReccomendation
 
-func get_recc(text, sources = []):
+func get_recc(text, sources = [], limit = -1):
+    #print(text)
     var score_array = []
     var result = []
     var score = _get_score(text, sources)
@@ -17,6 +18,9 @@ func get_recc(text, sources = []):
      #print(score_array)
     for i in score_array:
         result.push_back(i["text"])
+    if limit != -1:
+        if result.size() > limit:
+            result.resize(limit)
     return result
     
     

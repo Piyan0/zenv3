@@ -3,7 +3,7 @@ signal text_pressed(text)
 
 @export var btn: Button
 @export var lb: Label
-@export var highlight: ColorRect
+@export var highlight: Control
 
 var _hovered = false
 func _ready() -> void:

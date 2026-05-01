@@ -19,17 +19,43 @@ var args_rules= {
     }
 }
 
+var _commands_path = ""
 
-func get_autocomplete(text_arr_s):
-    var text_arr = []
-    text_arr.assign(text_arr_s)
-    #print(text_arr)
-    var currently_typed_text = text_arr.pop_back()
-    if text_arr.back() in autocomplete:
-        return autocomplete[text_arr.back()].call(currently_typed_text)
+
+func get_autocomplete(text):
+    var args = _get_arguments(text, false)
+    var words = text.split(" ")
+    var currently_typed_text = words[-1]
+    var current_arg_index = args.size() - 1
+    #print(current_arg_index)
+    var valid = _is_valid(text)
+    #print(valid, prefix)
+    if valid:
+        if _commands_path in autocomplete:
+            #printt(_commands_path, current_arg_index)
+            if current_arg_index in autocomplete[_commands_path]:
+                #print(autocomplete[current_arg_index])
+                var result = autocomplete[_commands_path][current_arg_index].call(currently_typed_text)
+                return result
     return null
 
 
+func _is_valid(text):
+    var split_commands = text.split(" ")
+    if split_commands[0] == prefix:
+        var sub = _get_sub_command(text)
+        if !sub.is_empty():
+            _commands_path = sub
+            return true
+    
+    if prefix in text:
+        _commands_path = prefix
+        return true
+    
+    return false
+    
+    
+# TODO refactor this method.
 func is_valid(text):
     var split_commands = text.split(" ")
     if split_commands[0] == prefix:
@@ -79,7 +105,7 @@ func _validate_args(args, rules):
     return validated
         
         
-func _get_arguments(text):
+func _get_arguments(text, fill = true):
     var split_text = text.split(" ")
     # remove prefix.
     split_text.remove_at(0)
@@ -90,7 +116,8 @@ func _get_arguments(text):
         split_text.remove_at(split_text.find(sub))
     
     #to avoid out of bound error.
-    split_text.resize(8)
+    if fill:
+        split_text.resize(8)
     return split_text
         
         

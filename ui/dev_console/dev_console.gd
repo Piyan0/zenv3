@@ -13,18 +13,30 @@ var commands = [ConsoleCommand.new()]
 var _is_console_visible = false
 
 func _ready():
+    autocomplete_container.hide()
     autocomplete_container.selected.connect(
         func(text):
             var text_arr = line_edit.text.split(" ")
             text_arr.remove_at(text_arr.size() - 1)
             var new_text = " ".join(text_arr)  + " " + text
+            #line_edit.insert_text_at_caret(text)
             line_edit.text =  new_text
+            if OS.get_name() == "Android":
+                line_edit.release_focus()
+                while  DisplayServer.virtual_keyboard_get_height() > 0:
+                    await get_tree().process_frame
+            
+            #line_edit.grab_focus()
             line_edit.caret_column = new_text.length()
+            line_edit.grab_focus()
+            
     )
     
     btn_console.pressed.connect(
         func():
             _is_console_visible = !_is_console_visible
+            if !_is_console_visible:
+                autocomplete_container.off()
             _console_visible(_is_console_visible)
             await get_tree().create_timer(0.2).timeout
             btn_console.release_focus()
@@ -45,19 +57,17 @@ func _ready():
     line_edit.text_changed.connect(
         func(text):
             for i in commands:
-                var autocomplete = i.get_autocomplete(_get_words_before_caret())
-                #print(autocomplete)
+                var autocomplete = i.get_autocomplete(_get_text_before_caret())
                 if autocomplete != null:
                     _update_autocomplete(autocomplete)
                     return
                 else:
-                    autocomplete_container.hide()
+                    autocomplete_container.off()
     )
 
 
 func _update_autocomplete(text_list):
     autocomplete_container.set_autocomplete(text_list)
-    
     var char_width = 6
     var offset_right = 14
     var y = 16
@@ -65,12 +75,12 @@ func _update_autocomplete(text_list):
         Vector2(offset_right + ( line_edit.text.length() * char_width ), y),
         Vector2(0, y),
         Vector2(320 - autocomplete_container.size.x, y)
-        )
+    )
     
     
-func _get_words_before_caret():
+func _get_text_before_caret():
     var text = line_edit.text.left(line_edit.caret_column)
-    return text.split(" ")
+    return text
     
 
 static func create(p_commands: Array):

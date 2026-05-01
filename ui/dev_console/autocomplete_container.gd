@@ -9,6 +9,12 @@ func _ready():
     selected.connect(func(text): hide(); _select.queue_free())
 
 
+func off():
+    hide()
+    if is_instance_valid(_select):
+        _select.queue_free()
+        
+        
 func _before_render():
     show()
     if is_instance_valid(_select):
@@ -28,6 +34,10 @@ func set_autocomplete(text_list = []):
         text_container.add_child(instance)
         instances.push_back(instance)
     
+    #reset the size to it's minimum.
+    await get_tree().process_frame
+    size = Vector2.ZERO
+
     _select = ListSelect.new(self, instances, 0, VERTICAL)
     _select.effect_active = func(node):
         node.state_active()
