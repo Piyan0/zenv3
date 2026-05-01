@@ -13,23 +13,19 @@ var commands = [ConsoleCommand.new()]
 var _is_console_visible = false
 
 func _ready():
+    #print(_remove_word_at_caret("anjay mabar", 6, "keren."))
     autocomplete_container.hide()
     autocomplete_container.selected.connect(
         func(text):
-            var text_arr = line_edit.text.split(" ")
-            text_arr.remove_at(text_arr.size() - 1)
-            var new_text = " ".join(text_arr)  + " " + text
-            #line_edit.insert_text_at_caret(text)
+            var new_text = _remove_word_at_caret(line_edit.text, line_edit.caret_column, text)
             line_edit.text =  new_text
             if OS.get_name() == "Android":
                 line_edit.release_focus()
                 while  DisplayServer.virtual_keyboard_get_height() > 0:
                     await get_tree().process_frame
             
-            #line_edit.grab_focus()
             line_edit.caret_column = new_text.length()
             line_edit.grab_focus()
-            
     )
     
     btn_console.pressed.connect(
@@ -111,3 +107,17 @@ func _console_visible(is_visible):
         lb_msg.hide()
         var animate = AnimateOffset.new(console_container, Vector2(0, -console_container.size.y), 0.2, false)
         
+
+func _remove_word_at_caret(text, caret_index, replace_with = ""):
+    var words_inside_caret= []
+    var split_text = text.split(" ")
+    var words_len = 0
+    for i in split_text:
+        if words_len > caret_index:
+            break
+            
+        words_len = i.length() + words_len
+        words_inside_caret.push_back(i)
+    
+    print(text)
+    return text.replace(words_inside_caret.back(), replace_with)
