@@ -6,7 +6,8 @@ func _init() -> void:
     var text_recc = TextReccomendation.new()
     prefix = "player"
 
-    sub_commands["/pos"] = {
+    sub_commands["/p"] = {
+        dk_DOCS : "move player to specified position. -x,y.",
         dk_ACTION : func(args):
             if Player.instance:
                 Player.instance.position = args[0],
@@ -20,7 +21,8 @@ func _init() -> void:
         },
     }
 
-    sub_commands["/marker"] = {
+    sub_commands["/m"] = {
+        dk_DOCS : "move to marker position. -marker_id.",
         dk_ACTION: func(arg):
             if Player.instance:
                 var pos = arg[0]
@@ -37,3 +39,17 @@ func _init() -> void:
                 return text_recc.get_recc(typed_text, Marker.get_keys(), 10),
         },
     }
+
+    sub_commands["/e"] = {
+        dk_DOCS : "move player to event position. -event_id.",
+        dk_ACTION : func(args):
+            var event = Event.get_by_id(args[0])
+            if Player.instance:
+                Player.instance.position = event.global_position + Vector2(event.get_size().x, 0),
+        dk_AUTOCOMPLETE : {
+            0 : func(typed_text):
+                return text_recc.get_recc(typed_text, Event.get_keys(), 10),
+        },
+    }
+    
+    _dump()

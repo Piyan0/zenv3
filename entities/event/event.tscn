@@ -42,5 +42,5 @@ parent = NodePath("..")
 [node name="TextShadow" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("3_2ntnn")
 target = NodePath("../event_id")
-shadow_color = Color(0.418568, 0.269434, 1.92523e-07, 1)
+shadow_color = Color(0.631373, 0.392157, 0.145098, 1)
 metadata/_custom_type_script = "uid://qqm40ogn6vp2"

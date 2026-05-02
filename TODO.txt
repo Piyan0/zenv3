@@ -1,4 +1,5 @@
 event page action, a class that group all available function to call through event commands.
+internal switch in console.
 migrate to new database system for asset.
 grid movement loop.
 cutscene movement.
@@ -6,11 +7,11 @@ spawnable animation with offset.
 choices prompt.
 dialogue portrait and finishing.
 inventory and inventory prompt.
-internal switch in console.
-add dump for console commands.
-move player related command into player.
+create save and load system with multiple slot.
 
 
+✓ add dump for console commands.
+✓ move player related command into player.
 ✓ game goto dan player set pos.
 ✓ add escape key to close the console.
 ✓ player cannot move again when console is opened when character is walking.

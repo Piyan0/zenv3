@@ -69,18 +69,6 @@ func _init():
                 i.get_meta("toggle_id").call(),
     }
 
-    sub_commands["/to_event"] = {
-        dk_DOCS : "move player to event position. -event_id.",
-        dk_ACTION : func(args):
-            var event = Event.get_by_id(args[0])
-            if Player.instance:
-                Player.instance.position = event.global_position + Vector2(event.get_size().x, 0),
-        dk_AUTOCOMPLETE : {
-            0 : func(typed_text):
-                return tect_recc.get_recc(typed_text, Event.get_keys(), 10),
-        },
-    }
-
     # TODO add autocomplete for map id.
     sub_commands["/goto"] = {
         dk_DOCS : "move to map. -map_id -x,y.",
@@ -94,7 +82,10 @@ func _init():
             Bootstrap.map_manager.goto(transfer_data)
             ,
         dk_ARGS_RULES : {
-            0 : func(arg): return arg,
+            0 : func(arg):
+                if !Bootstrap.asset_database.has_asset(AssetDatabase.MAP, arg):
+                    return null
+                return arg,
             1 : func(arg):
                 var vect_str = "Vector2({0})".format([arg])
                 var vect = str_to_var(vect_str)

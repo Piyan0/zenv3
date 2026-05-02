@@ -4,5 +4,4 @@ $game
 /v: set var. -key -value.
 /s: set global switch. -key -on|off.
 /event_id: toggle event id preview.
-/to_event: move player to event position. -event_id.
 /goto: move to map. -map_id -x,y.

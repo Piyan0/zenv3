@@ -25,6 +25,10 @@ func _init(p_base_dir):
     #print(_data)
 
 
+func has_asset(type = IMAGE, id = ""):
+    return id in _data[str(type)]
+
+
 func get_asset(type= IMAGE, id= ""):
     assert(id in _data[str(type)], id)
     var asset= load(_data[str(type)][id])

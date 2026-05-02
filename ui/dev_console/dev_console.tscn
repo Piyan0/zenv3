@@ -1111,6 +1111,7 @@ flat = true
 [node name="TextShadow" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("5_lbav8")
 target = NodePath("../VBoxContainer/Label")
+shadow_color = Color(0.203922, 0.419608, 1, 1)
 metadata/_custom_type_script = "uid://qqm40ogn6vp2"
 
 [node name="TextShadow2" type="Node" parent="." node_paths=PackedStringArray("target")]
@@ -1126,16 +1127,16 @@ offset_right = 84.0
 offset_bottom = 42.0
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "<info here>"
-label_settings = ExtResource("1_erjtr")
-justification_flags = 131
-
 [node name="CommandInfo" type="Label" parent="VBoxContainer"]
 self_modulate = Color(1, 1, 0, 1)
 layout_mode = 2
 text = "<command info>"
+label_settings = ExtResource("1_erjtr")
+justification_flags = 131
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "<info here>"
 label_settings = ExtResource("1_erjtr")
 justification_flags = 131
 

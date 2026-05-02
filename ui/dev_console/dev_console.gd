@@ -21,12 +21,16 @@ var _can_toggle_console = true
 
 func _ready():
     _console_visible(false)
+    lb_msg.hide()
+    lb_command_info.hide()
     lb_msg.text = ""
     lb_command_info.text = ""
     autocomplete_container.hide()
     autocomplete_container.selected.connect(
         func(text):
-            var new_text = _remove_word_at_caret(line_edit.text, line_edit.caret_column, text)
+            var text_replacement = _remove_word_at_caret(line_edit.text, line_edit.caret_column, text)
+            var new_text = text_replacement[0]
+            var replaced_text = text_replacement[1]
             var prev_caret_index = line_edit.caret_column
             line_edit.text =  new_text
             if OS.get_name() == "Android":
@@ -34,7 +38,7 @@ func _ready():
                 while  DisplayServer.virtual_keyboard_get_height() > 0:
                     await get_tree().process_frame
             
-            line_edit.caret_column = prev_caret_index + text.length()
+            line_edit.caret_column = prev_caret_index + text.length() - replaced_text.length()
             line_edit.grab_focus()
     )
     
@@ -112,7 +116,8 @@ static func create(p_commands: Array):
 
 
 func _show_msg(text):
-    lb_msg.text = ":"+"{0}".format([text])
+    lb_msg.show()
+    lb_msg.text = "(>)"+"{0}".format([text])
     for i in ["err", "error"]:
         if i in text.to_lower():
             lb_msg.modulate= Color.RED
@@ -124,15 +129,14 @@ func _show_msg(text):
     lb_msg.modulate= Color.WHITE
 
 
-
 func _console_visible(is_visible):
-    lb_command_info.visible = is_visible
-    lb_msg.visible = is_visible
     if is_visible:
         console_active.emit()
         line_edit.grab_focus()
         var animate = AnimateOffset.new(console_container, Vector2.ZERO, 0.2, false)
     else:
+        lb_command_info.hide()
+        lb_msg.hide()
         console_blur.emit()
         line_edit.release_focus()
         var animate = AnimateOffset.new(console_container, Vector2(0, -console_container.size.y), 0.2, false)
@@ -162,11 +166,13 @@ func _remove_word_at_caret(text, caret_index, replace_with = ""):
             break
     
     var split_text = text.split(" ")
+    var replaced_text = split_text[caret_region]
     split_text[caret_region] = replace_with
-    return " ".join(split_text)
+    return [" ".join(split_text),  replaced_text]
 
 
 func _update_command_info(text, p_commands):
+    lb_command_info.show()
     for i in p_commands:
         var command = i.is_valid(text)
         if command != null:
