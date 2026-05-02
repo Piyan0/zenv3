@@ -1,45 +1,107 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1148pqf8xuv8"]
+[gd_scene load_steps=6 format=3 uid="uid://c1148pqf8xuv8"]
 
 [ext_resource type="Script" uid="uid://b70xsiqkf261e" path="res://ui/inventory/inventory.gd" id="1_t68fq"]
 [ext_resource type="PackedScene" uid="uid://ci8j8b57p3nvg" path="res://ui/inventory/inventory_item.tscn" id="2_s83yu"]
 [ext_resource type="LabelSettings" uid="uid://3wboop2jrvep" path="res://assets/styles/default.tres" id="3_qrt2q"]
+[ext_resource type="Script" uid="uid://ckxn54sqp5f4b" path="res://ui/inventory/inventory_item_list.gd" id="3_ucnnj"]
 [ext_resource type="Script" uid="uid://qqm40ogn6vp2" path="res://commons/ui/text_shadow.gd" id="4_lep46"]
 
-[node name="Inventory" type="CanvasLayer" node_paths=PackedStringArray("items_container", "lb_name", "lb_desc")]
+[node name="Inventory" type="CanvasLayer" node_paths=PackedStringArray("lb_desc")]
 script = ExtResource("1_t68fq")
-items_container = NodePath("VBoxContainer")
 item_scene = ExtResource("2_s83yu")
-lb_name = NodePath("Name")
-lb_desc = NodePath("Desc")
+lb_desc = NodePath("MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer/Desc")
 
-[node name="VBoxContainer" type="FlowContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 180.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.321)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Items"
+label_settings = ExtResource("3_qrt2q")
+
+[node name="InventoryItemList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
-offset_right = 32.0
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
+layout_mode = 2
+script = ExtResource("3_ucnnj")
 
-[node name="Name" type="Label" parent="."]
-offset_left = 128.0
-offset_top = 16.0
-offset_right = 168.0
-offset_bottom = 39.0
-text = "<name>"
+[node name="InventoryItem" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
+layout_mode = 2
+
+[node name="InventoryItem2" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
+layout_mode = 2
+
+[node name="InventoryItem3" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
+layout_mode = 2
+
+[node name="InventoryItem4" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.321)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="Desc" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer"]
+modulate = Color(0.236698, 0.710179, 0.929597, 1)
+layout_mode = 2
+size_flags_vertical = 0
+text = "desc."
 label_settings = ExtResource("3_qrt2q")
 
-[node name="Desc" type="Label" parent="."]
-offset_left = 128.0
-offset_top = 32.0
-offset_right = 168.0
-offset_bottom = 55.0
-text = "<desc>"
+[node name="Desc2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(169, 29)
+layout_mode = 2
+text = "<description.
+"
 label_settings = ExtResource("3_qrt2q")
-
-[node name="TextShadow" type="Node" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("4_lep46")
-target = NodePath("../Name")
-metadata/_custom_type_script = "uid://qqm40ogn6vp2"
 
 [node name="TextShadow2" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("4_lep46")
-target = NodePath("../Desc")
+target = NodePath("../MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer/Desc")
+metadata/_custom_type_script = "uid://qqm40ogn6vp2"
+
+[node name="TextShadow3" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_lep46")
+target = NodePath("../MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer/Desc2")
 metadata/_custom_type_script = "uid://qqm40ogn6vp2"
