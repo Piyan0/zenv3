@@ -7,9 +7,9 @@ spawnable animation with offset.
 choices prompt.
 dialogue portrait and finishing.
 inventory and inventory prompt.
-create save and load system with multiple slot.
 
 
+✓ create save and load system with multiple slot.
 ✓ add dump for console commands.
 ✓ move player related command into player.
 ✓ game goto dan player set pos.

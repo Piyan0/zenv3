@@ -4,7 +4,7 @@ extends Node
 enum Direction{ UP, DOWN, LEFT, RIGHT }
 
 var player_scene_path
-
+var prev_transfer_data
 func _init(p_owner, p_player_scene_path):
     player_scene_path= p_player_scene_path
     p_owner.add_child(self)
@@ -12,6 +12,7 @@ func _init(p_owner, p_player_scene_path):
     
 
 func goto(transfer_data: PlayerTransferData):
+    prev_transfer_data = transfer_data
     var fade= await TransitionBlack.spawn()
     var scene= Bootstrap.asset_database.get_asset(AssetDatabase.MAP, transfer_data.map_id)
     await get_tree().process_frame

@@ -94,6 +94,48 @@ func _init():
                 return vect,
         },
     }
+    
+    sub_commands["/save"] = {
+        dk_DOCS : "save the data. -slot_id(1-max_save_slot).",
+        dk_ACTION : func(args):
+            Bootstrap.save_system.save(args[0])
+            ,
+        dk_ARGS_RULES : {
+            0 : func(arg):
+            if arg == null: return null
+            var slot = arg.to_int()
+            if slot > Bootstrap.save_system.slot || slot < 1: return null
+            return slot
+            ,       
+        },
+    }
+    
+    sub_commands["/load"] = {
+        dk_DOCS : "load save data. -slot_id(1-max_save_slot).",
+        dk_ACTION : func(args):
+            Bootstrap.save_system.load_data(args[0])
+            ,
+        dk_ARGS_RULES : {
+            0 : func(arg):
+            if arg == null: return null
+            var slot = arg.to_int()
+            if slot > Bootstrap.save_system.slot || slot < 1: return null
+            if !Bootstrap.save_system.is_slot_saved(slot): return null
+            return slot
+            ,       
+        },
+    }
+    
+    sub_commands["/r"] = {
+        dk_DOCS : "refresh the map.",
+        dk_ACTION : func(args):
+            if !Bootstrap.map_manager.prev_transfer_data: return
+            var transfer_data = Bootstrap.map_manager.prev_transfer_data
+            if Player.instance:
+                transfer_data.spawn_pos = Player.instance.global_position
+            Bootstrap.map_manager.goto(Bootstrap.map_manager.prev_transfer_data)
+            ,
+    }
 
     _dump()
     # autocomplete["/ss"] = {
