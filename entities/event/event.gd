@@ -7,7 +7,9 @@ signal interact_finished()
 @export var eventpages: Array[EventPage]
 @export var area: Area2D
 @export var spr: Sprite2D
+@export var colls_shape: CollisionShape2D
 
+var instances = []
 var is_interact_running= false
 var interact_direction= Vector2.ZERO
 var active_event_page: EventPage
@@ -29,8 +31,25 @@ func _physics_process(delta):
     if !active_event_page: return
     for i in active_event_page.event_traits:
         i.call_update(delta, self)
-        
-    
+
+
+static func get_by_id(id):
+    for i in Engine.get_main_loop().get_nodes_in_group("events"):
+        if i.name == id:
+            return i
+
+
+static func get_keys():
+    var keys = []
+    for i in Engine.get_main_loop().get_nodes_in_group("events"):
+        keys.push_back(str(i.name))    
+    return keys
+
+
+func get_size():
+    return colls_shape.shape.size
+
+
 func set_texture(texture):
     spr.texture= texture
     

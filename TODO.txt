@@ -7,9 +7,11 @@ choices prompt.
 dialogue portrait and finishing.
 inventory and inventory prompt.
 internal switch in console.
-game goto dan player set pos.
+add dump for console commands.
+move player related command into player.
 
 
+✓ game goto dan player set pos.
 ✓ add escape key to close the console.
 ✓ player cannot move again when console is opened when character is walking.
 ✓ add keyboard ctrl + ` to toggle in game console.

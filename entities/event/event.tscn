@@ -1,14 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbukaldu4q8gj"]
+[gd_scene load_steps=6 format=3 uid="uid://cbukaldu4q8gj"]
 
 [ext_resource type="Script" uid="uid://b72k2e2fde4ti" path="res://entities/event/event.gd" id="1_1x41k"]
+[ext_resource type="LabelSettings" uid="uid://3wboop2jrvep" path="res://assets/styles/default.tres" id="2_3oow2"]
+[ext_resource type="Script" uid="uid://qqm40ogn6vp2" path="res://commons/ui/text_shadow.gd" id="3_2ntnn"]
+[ext_resource type="Script" uid="uid://b5mbwivnpsj6a" path="res://entities/event/event_id.gd" id="3_mvs4a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3oow2"]
 size = Vector2(16, 16)
 
-[node name="ev000" type="Node2D" node_paths=PackedStringArray("area", "spr")]
+[node name="ev000" type="Node2D" node_paths=PackedStringArray("area", "spr", "colls_shape")]
 script = ExtResource("1_1x41k")
 area = NodePath("Area2D")
 spr = NodePath("Sprite2D")
+colls_shape = NodePath("Area2D/CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 centered = false
@@ -21,3 +25,22 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_3oow2")
+
+[node name="event_id" type="Label" parent="." node_paths=PackedStringArray("parent")]
+self_modulate = Color(1, 1, 0, 1)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -13.0
+offset_right = 72.0
+grow_vertical = 0
+text = "<event_name>"
+label_settings = ExtResource("2_3oow2")
+script = ExtResource("3_mvs4a")
+parent = NodePath("..")
+
+[node name="TextShadow" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("3_2ntnn")
+target = NodePath("../event_id")
+shadow_color = Color(0.418568, 0.269434, 1.92523e-07, 1)
+metadata/_custom_type_script = "uid://qqm40ogn6vp2"

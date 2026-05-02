@@ -44,7 +44,7 @@ func _parse_direction(dir_id: int):
     
 class PlayerTransferData:
     var spawn_pos: Vector2
-    var direction: int
+    var direction: Direction
     var map_id: String
     
     

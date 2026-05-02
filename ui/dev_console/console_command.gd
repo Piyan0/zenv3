@@ -10,12 +10,14 @@ enum {
     dk_AUTOCOMPLETE,
     dk_ARGS_RULES,
     dk_ACTION,
+    dk_DOCS,
 }
 
 var prefix = "command"
 
 var sub_commands : Dictionary = {
     "/default" : {
+        dk_DOCS : "this is default documentation.",
         # method that will be called when this sub command is called.
         dk_ACTION : func(args) -> String:
                     print("this is default command.")
@@ -107,3 +109,21 @@ func _get_sub_command(text) -> String:
         if i in sub_commands:
             return i
     return ""
+
+
+# @ virtual
+func _dump_path():
+    return "res://dump/{0}_console_commands.txt".format([prefix])
+
+
+func _dump():
+    var str_doc = "${0}\n\n".format([prefix])
+    for i in sub_commands.keys():
+        var docs = "no documentation."
+        if dk_DOCS in sub_commands[i]:
+            docs = sub_commands[i][dk_DOCS]
+        str_doc += "{0}: {1}\n".format([i, docs])
+    
+    var file = FileAccess.open(_dump_path(), FileAccess.WRITE)
+    file.store_string(str_doc) 
+    file.close()

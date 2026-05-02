@@ -7,8 +7,15 @@ extends Node
 var clone
 
 func _ready():
+    # target.visibility_changed.connect(_setup)
+
     clone= target.duplicate()
+    clone.set_script(null)
     target.add_child(clone)
+    _setup()
+
+
+func _setup():
     clone.self_modulate= Color.WHITE
     clone.modulate= shadow_color
     clone.show_behind_parent= true
@@ -18,6 +25,7 @@ func _ready():
 
 func _process(_delta):
     if clone:
+        clone.visible = target.visible
         clone.visible_characters= target.visible_characters
         clone.text= target.text
         # printt(clone.visible_characters, target.visible_characters)

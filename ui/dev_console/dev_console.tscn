@@ -1006,7 +1006,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_ojc13")
 Button/styles/normal = SubResource("StyleBoxFlat_sdxqu")
 Button/styles/pressed = SubResource("StyleBoxFlat_gsicx")
 
-[node name="DevConsole" type="Control" node_paths=PackedStringArray("line_edit", "lb_msg", "btn_console", "btn_console_container", "console_container", "autocomplete_container")]
+[node name="DevConsole" type="Control" node_paths=PackedStringArray("line_edit", "lb_msg", "btn_console", "btn_console_container", "console_container", "autocomplete_container", "lb_command_info")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1015,11 +1015,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fdgnb")
 line_edit = NodePath("Control/MarginContainer/HBoxContainer/LineEdit")
-lb_msg = NodePath("Label")
+lb_msg = NodePath("VBoxContainer/Label")
 btn_console = NodePath("MarginContainer/VBoxContainer/TextureRect/Button")
 btn_console_container = NodePath("MarginContainer")
 console_container = NodePath("Control")
 autocomplete_container = NodePath("AutocompleteContainer")
+lb_command_info = NodePath("VBoxContainer/CommandInfo")
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(320, 14)
@@ -1107,20 +1108,36 @@ focus_mode = 1
 theme = SubResource("Theme_ecv1r")
 flat = true
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-offset_left = 7.0
-offset_top = 17.0
-offset_right = 73.0
-offset_bottom = 30.0
+[node name="TextShadow" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("5_lbav8")
+target = NodePath("../VBoxContainer/Label")
+metadata/_custom_type_script = "uid://qqm40ogn6vp2"
+
+[node name="TextShadow2" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("5_lbav8")
+target = NodePath("../VBoxContainer/CommandInfo")
+shadow_color = Color(0.631128, 0.393438, 0.146883, 1)
+metadata/_custom_type_script = "uid://qqm40ogn6vp2"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 84.0
+offset_bottom = 42.0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 text = "<info here>"
 label_settings = ExtResource("1_erjtr")
 justification_flags = 131
 
-[node name="TextShadow" type="Node" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("5_lbav8")
-target = NodePath("../Label")
-metadata/_custom_type_script = "uid://qqm40ogn6vp2"
+[node name="CommandInfo" type="Label" parent="VBoxContainer"]
+self_modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+text = "<command info>"
+label_settings = ExtResource("1_erjtr")
+justification_flags = 131
 
 [node name="AutocompleteContainer" type="MarginContainer" parent="." node_paths=PackedStringArray("text_container")]
 custom_minimum_size = Vector2(64, 0)

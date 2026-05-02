@@ -11,6 +11,7 @@ signal console_blur()
 @export var btn_console_container: Control
 @export var console_container: Control
 @export var autocomplete_container: Control
+@export var lb_command_info: Label
 
 
 var commands = [ConsoleCommand.new()]
@@ -21,8 +22,8 @@ var _can_toggle_console = true
 func _ready():
     _console_visible(false)
     lb_msg.text = ""
+    lb_command_info.text = ""
     autocomplete_container.hide()
-
     autocomplete_container.selected.connect(
         func(text):
             var new_text = _remove_word_at_caret(line_edit.text, line_edit.caret_column, text)
@@ -56,6 +57,7 @@ func _ready():
     
     line_edit.text_changed.connect(
         func(text):
+            _update_command_info(text, commands)
             for i in commands:
                 var text_before_carret = _get_text_before_caret()
                 var currently_typed_text = text_before_carret.split(" ")[-1] # equivalent with Array.back()
@@ -124,15 +126,15 @@ func _show_msg(text):
 
 
 func _console_visible(is_visible):
+    lb_command_info.visible = is_visible
+    lb_msg.visible = is_visible
     if is_visible:
         console_active.emit()
-        lb_msg.show()
         line_edit.grab_focus()
         var animate = AnimateOffset.new(console_container, Vector2.ZERO, 0.2, false)
     else:
         console_blur.emit()
         line_edit.release_focus()
-        lb_msg.hide()
         var animate = AnimateOffset.new(console_container, Vector2(0, -console_container.size.y), 0.2, false)
         
 
@@ -162,3 +164,14 @@ func _remove_word_at_caret(text, caret_index, replace_with = ""):
     var split_text = text.split(" ")
     split_text[caret_region] = replace_with
     return " ".join(split_text)
+
+
+func _update_command_info(text, p_commands):
+    for i in p_commands:
+        var command = i.is_valid(text)
+        if command != null:
+            lb_command_info.show()
+            lb_command_info.text = "(?)"+i.sub_commands[command].get(ConsoleCommand.dk_DOCS, "")
+            return
+        else:
+            lb_command_info.hide()
