@@ -7,9 +7,11 @@ extends Control
 @export var description: String
 @export var tr_icon: TextureRect
 @export var hand_pointer: TextureRect
+@export var lb_name: Label
 
 func _ready() -> void:
     tr_icon.texture= icon
+    lb_name.text = item_name
     
 
 func state_active():
@@ -19,4 +21,4 @@ func state_active():
 
 func state_blur():
     hand_pointer.hide()
-    modulate.a= 0.5
+    # modulate.a= 0.5

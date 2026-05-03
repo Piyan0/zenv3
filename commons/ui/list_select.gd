@@ -2,8 +2,14 @@ class_name ListSelect
 extends Node
 
 var horizontal_item_count= 0
-var effect_active= func(control_node): pass
-var effect_blur= func(control_node): pass
+var effect_active= func(control_node):
+        if control_node.has_method("state_active"):
+            control_node.state_active()
+
+var effect_blur= func(control_node):
+        if control_node.has_method("state_blur"):
+            control_node.state_blur()
+            
 var on_select_change: Callable= func(selected_node, all_nodes: Array): pass
 var on_select_end: Callable= func(selected_node, all_nodes: Array): pass
 
@@ -111,8 +117,10 @@ func _selection_change(idx):
     var blur_nodes= _node_list.duplicate()
     blur_nodes.erase(node)
     for i in blur_nodes:
+        if !is_instance_valid(i): continue
         effect_blur.call(i)
-    effect_active.call(node)
+    if is_instance_valid(node):
+        effect_active.call(node)
     on_select_change.call(node, _node_list)
 
 

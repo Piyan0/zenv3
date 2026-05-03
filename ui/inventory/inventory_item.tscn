@@ -15,7 +15,7 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("1_wiepw")
 region = Rect2(0, 0, 16, 16)
 
-[node name="InventoryItem" type="MarginContainer" node_paths=PackedStringArray("tr_icon", "hand_pointer")]
+[node name="InventoryItem" type="MarginContainer" node_paths=PackedStringArray("tr_icon", "hand_pointer", "lb_name")]
 custom_minimum_size = Vector2(16, 16)
 offset_right = 86.0
 offset_bottom = 16.0
@@ -25,6 +25,7 @@ item_name = "item_name>"
 description = "desc."
 tr_icon = NodePath("HBoxContainer/TextureRect")
 hand_pointer = NodePath("HBoxContainer/Control/TextureRect2")
+lb_name = NodePath("HBoxContainer/Label")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

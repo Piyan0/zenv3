@@ -14,10 +14,10 @@ func _ready():
 
 func setup():
     await get_tree().process_frame
-    var start_pos= target.global_position
+    var start_pos= target.position
     var anim_pos= start_pos + offset
-    target.top_level= true
-    target.global_position= start_pos
+    # target.top_level= true
+    # target.global_position= start_pos
     _animate(start_pos, anim_pos)
     
     

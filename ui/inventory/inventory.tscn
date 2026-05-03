@@ -1,15 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1148pqf8xuv8"]
+[gd_scene load_steps=9 format=3 uid="uid://c1148pqf8xuv8"]
 
 [ext_resource type="Script" uid="uid://b70xsiqkf261e" path="res://ui/inventory/inventory.gd" id="1_t68fq"]
 [ext_resource type="PackedScene" uid="uid://ci8j8b57p3nvg" path="res://ui/inventory/inventory_item.tscn" id="2_s83yu"]
 [ext_resource type="LabelSettings" uid="uid://3wboop2jrvep" path="res://assets/styles/default.tres" id="3_qrt2q"]
 [ext_resource type="Script" uid="uid://ckxn54sqp5f4b" path="res://ui/inventory/inventory_item_list.gd" id="3_ucnnj"]
+[ext_resource type="Texture2D" uid="uid://dnb6p5aus6cut" path="res://assets/icons/arrow_thin_up.png" id="4_138qw"]
 [ext_resource type="Script" uid="uid://qqm40ogn6vp2" path="res://commons/ui/text_shadow.gd" id="4_lep46"]
+[ext_resource type="Texture2D" uid="uid://b6i4t0rou05lt" path="res://assets/icons/arrow_thin_down.png" id="6_8dyvk"]
+[ext_resource type="Script" uid="uid://cimwh7dvhh4av" path="res://commons/ui/animate_offset_loop.gd" id="7_8dyvk"]
 
-[node name="Inventory" type="CanvasLayer" node_paths=PackedStringArray("lb_desc")]
+[node name="Inventory" type="CanvasLayer" node_paths=PackedStringArray("items_container", "lb_desc")]
 script = ExtResource("1_t68fq")
-item_scene = ExtResource("2_s83yu")
-lb_desc = NodePath("MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer/Desc")
+items_container = NodePath("MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/InventoryItemList")
+lb_desc = NodePath("MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer/Desc2")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 10
@@ -42,28 +45,87 @@ theme_override_constants/margin_bottom = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Items"
 label_settings = ExtResource("3_qrt2q")
 
-[node name="InventoryItemList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(32, 32)
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ScrollUp" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/ScrollUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -3.5
+offset_right = 3.5
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_138qw")
+stretch_mode = 4
+
+[node name="InventoryItemList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" node_paths=PackedStringArray("arrow_up", "arrow_down")]
+custom_minimum_size = Vector2(120, 76)
 layout_mode = 2
 script = ExtResource("3_ucnnj")
+arrow_up = NodePath("../ScrollUp")
+arrow_down = NodePath("../ScrollDown")
 
-[node name="InventoryItem" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
+[node name="InventoryItem" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
 layout_mode = 2
 
-[node name="InventoryItem2" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
+[node name="InventoryItem2" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
 layout_mode = 2
 
-[node name="InventoryItem3" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
+[node name="InventoryItem3" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
 layout_mode = 2
 
-[node name="InventoryItem4" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
+[node name="InventoryItem4" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
 layout_mode = 2
+
+[node name="ScrollDown" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/ScrollDown"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -3.5
+offset_right = 3.5
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_8dyvk")
+stretch_mode = 4
+
+[node name="AnimateOffsetLoop" type="Node" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer" node_paths=PackedStringArray("target")]
+script = ExtResource("7_8dyvk")
+target = NodePath("../VBoxContainer/VBoxContainer/ScrollUp/TextureRect")
+offset = Vector2(0, -2)
+metadata/_custom_type_script = "uid://cimwh7dvhh4av"
+
+[node name="AnimateOffsetLoop2" type="Node" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer" node_paths=PackedStringArray("target")]
+script = ExtResource("7_8dyvk")
+target = NodePath("../VBoxContainer/VBoxContainer/ScrollDown/TextureRect")
+offset = Vector2(0, 2)
+metadata/_custom_type_script = "uid://cimwh7dvhh4av"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
