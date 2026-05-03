@@ -1,8 +1,12 @@
 {
+	"items_id": [
+		1,
+		1
+	],
 	"progression": {
 		"_global_switches": {
 			"my_other_switch": false,
-			"my_switch": true
+			"my_switch": false
 		},
 		"_internal_switches": {
 			"2-ev000": {

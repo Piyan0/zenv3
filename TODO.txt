@@ -8,7 +8,7 @@ change map id to string, not enum.
 choices prompt.
 dialogue portrait and finishing.
 inventory and inventory prompt.
-
+add a way to add a field in save system.
 
 ✓ create save and load system with multiple slot.
 ✓ add dump for console commands.

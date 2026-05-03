@@ -1,12 +1,13 @@
 class_name Inventory
 extends CanvasLayer
+signal inventory_closed(p_items_id)
+
+static var items_id = [1, 2, 2, 2, 1, 1]
 
 @export var items_container: Control
-@export var items_id: Array[int]= [1, 2, 2]
 @export var lb_desc: Label
 @export var tr_item_icon: TextureRect
 @export var desc_container: Control
-
 
 func _ready() -> void:
     _render_items()
@@ -35,6 +36,12 @@ func _ready() -> void:
     )
 
 
+func _input(event):
+    if event.is_action_pressed("ui_cancel"):
+        inventory_closed.emit(items_id)
+        queue_free()
+        
+
 func _render_items():
     var items = _get_items()
     items_container.render_items(items)
@@ -58,7 +65,7 @@ class Item:
     var effect = func(): print("this is method to run when item is being used.")
     
     func get_icon():
-        if icon_path == null:
+        if icon_path.is_empty():
             return null
         return load(icon_path)
     
