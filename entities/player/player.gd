@@ -19,12 +19,15 @@ enum Direction{ UP, DOWN, LEFT, RIGHT }
 @export var ray: RayCast2D
 static var instance: Player
 
-var lock_input= false:
-    set(value):
-        lock_input= value
-        grid_mov.lock_input= value
-        
 
+var lock_counter = 0:
+    set(value):
+        lock_counter = value
+        if lock_counter > 0:
+            grid_mov.lock_input = true
+        else:
+            grid_mov.lock_input = false
+        
 func _ready():
     instance= self
     match initial_direction:

@@ -13,6 +13,8 @@ var _page: Pagination
 
 
 func _ready() -> void:
+    arrow_up.modulate.a = 0
+    arrow_down.modulate.a = 0
     _items_view_added = get_children()
     _clear_items()
 

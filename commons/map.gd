@@ -1,7 +1,7 @@
 class_name Map
 extends Node2D
 
-@export var map_id: MapID.ID
+@export var map_id: String = "[map_id]"
 @export var bgm: AudioStream
 @export var map_display_name: String
 

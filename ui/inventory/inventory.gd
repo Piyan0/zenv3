@@ -2,16 +2,18 @@ class_name Inventory
 extends CanvasLayer
 signal inventory_closed(p_items_id)
 
-static var items_id = [1, 2, 2, 2, 1, 1]
 
+@export var items_id = [1, 2, 1, 2]
 @export var items_container: Control
 @export var lb_desc: Label
 @export var tr_item_icon: TextureRect
 @export var desc_container: Control
 
 func _ready() -> void:
+    desc_container.hide()
     _render_items()
     items_container.selection_change.connect(func(item):
+        desc_container.show()
         lb_desc.text = item.description    
         if item.get_icon() == null:
             tr_item_icon.hide()

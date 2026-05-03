@@ -3,6 +3,7 @@ extends Node
 
 signal map_refreshed(events)
 
+var can_process_interact = func(): return true
 var _current_input: InputEvent= InputEventAction.new()
 var _is_running_event= false
 
@@ -13,6 +14,7 @@ func _init(p_owner):
     
     
 func _input(event):
+    if !can_process_interact.call(): return
     if event is InputEventAction || event is InputEventKey:
         _current_input= event
 
@@ -27,11 +29,11 @@ func _process(_delta):
         if i.is_interact(player, _current_input):
             # print(1)
             _is_running_event= true
-            player.lock_input= true
+            player.lock_counter += 1
             await i.interact(player)
             await _delay_after_interact()
             _is_running_event= false
-            player.lock_input= false
+            player.lock_counter -= 1
 
 
 func refresh_map(internal_switches, variables, global_switches):

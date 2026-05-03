@@ -11,7 +11,7 @@
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_7bght")
-map_id = 2
+map_id = "main"
 
 [node name="ev000" parent="." instance=ExtResource("4_5s6t7")]
 position = Vector2(112, 16)

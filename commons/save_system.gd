@@ -1,6 +1,7 @@
 class_name SaveSystem
 signal on_data_loaded(p_save_data)
 
+var fields = {}
 var slot = 4
 var get_save_data = func() : return {}
 var _save_dir = "res://user/save"
@@ -21,6 +22,7 @@ func load_data(slot):
     var str_data = file.get_as_text()
     file.close()
     var save_data = JSON.parse_string(str_data)
+    fields = save_data["fields"]
     on_data_loaded.emit(save_data)
     
     
@@ -31,5 +33,7 @@ func _get_save_path(save_slot):
 func save(slot):
     var path = _get_save_path(slot)
     var file = FileAccess.open(path, FileAccess.WRITE)
-    file.store_string(JSON.stringify(get_save_data.call(), "\t"))
+    var save_data = get_save_data.call()
+    save_data["fields"] = fields
+    file.store_string(JSON.stringify(save_data, "\t"))
     file.close()

@@ -1,15 +1,18 @@
 {
-	"items_id": [
-		1,
-		1
-	],
+	"fields": {
+		"items_id": [
+			1.0,
+			1.0
+		],
+		"player_map_id": ""
+	},
 	"progression": {
 		"_global_switches": {
 			"my_other_switch": false,
 			"my_switch": false
 		},
 		"_internal_switches": {
-			"2-ev000": {
+			"main-ev000": {
 				"1": false,
 				"2": false,
 				"3": false,
@@ -18,7 +21,7 @@
 		},
 		"_variables": {
 			"my_other_var": "Salwa.",
-			"my_var": 123
+			"my_var": 123.0
 		}
 	}
 }

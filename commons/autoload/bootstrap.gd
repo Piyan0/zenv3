@@ -12,7 +12,7 @@ func _enter_tree():
     MobileControl.new(self, true)
     canvas= _add_canvas()
     
-    event_manager= EventManager.new(self)
+    event_manager= _create_event_manager()
     asset_database= AssetDatabase.new("res://vault/asset_database")
 
     progression= _boot_progression()
@@ -39,15 +39,20 @@ func _enter_tree():
 
 func _create_save_system():
     var sv = SaveSystem.new("res://user/save")
+    sv.fields = {
+        "items_id" : [],
+        "player_map_id" : "",
+    }
+    
     sv.on_data_loaded.connect(
         func(save_data):
             progression.set_data(save_data["progression"])
-            Inventory.items_id = save_data["items_id"]
+            #Inventory.items_id = save_data["items_id"]
     )
     sv.get_save_data = func():
         return {
             "progression" : progression.get_data(),
-            "items_id" : Inventory.items_id
+            #"items_id" : Inventory.items_id,
         }
         
     return sv
@@ -73,13 +78,23 @@ func _create_dev_console():
     if console:
         console.console_active.connect(func():
             if Player.instance:
-                Player.instance.lock_input = true
+                Player.instance.lock_counter += 1
         )
         console.console_blur.connect(func():
             if Player.instance:
-                Player.instance.lock_input = false
+                Player.instance.lock_counter -= 1
         )
         canvas.add_child(console)
+
+
+func _create_event_manager():
+    var evm = EventManager.new(self)
+    evm.can_process_interact = func():
+        if Player.instance:
+            return Player.instance.lock_counter == 0
+        return true
+    
+    return evm
     
     
 func _add_canvas():

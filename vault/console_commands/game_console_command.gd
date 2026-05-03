@@ -95,7 +95,7 @@ func _init():
         },
     }
     
-    sub_commands[".save"] = {
+    sub_commands["/save"] = {
         dk_DOCS : "save the data. -slot_id(1-max_save_slot).",
         dk_ACTION : func(args):
             Bootstrap.save_system.save(args[0])
@@ -110,7 +110,7 @@ func _init():
         },
     }
     
-    sub_commands[".load"] = {
+    sub_commands["/load"] = {
         dk_DOCS : "load save data. -slot_id(1-max_save_slot).",
         dk_ACTION : func(args):
             Bootstrap.save_system.load_data(args[0])
