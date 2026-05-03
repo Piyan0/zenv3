@@ -15,9 +15,25 @@ var _page: Pagination
 func _ready() -> void:
     _items_view_added = get_children()
     _clear_items()
-    owner.set_meta("_render_items", _render_items)
 
 
+func render_items(items: Array):
+    _before_render()
+    _items_view_added= []
+    var idx = 1
+    for i in items:
+        var item_view = load("uid://ci8j8b57p3nvg").instantiate()
+        item_view.description = i.description
+        item_view.item_name = i.name
+        item_view.set_meta("item", i)
+        item_view.set_index(idx)
+        _items_view_added.push_back(item_view)
+        add_child(item_view)
+        idx += 1
+    
+    _after_render()
+
+    
 func _before_render():
     if is_instance_valid(_select):
         _select.queue_free()
@@ -47,24 +63,6 @@ func _after_render():
     _select.on_select_change = func(s, a):
         _page.update_page(_select.get_current_index())
         selection_change.emit(s.get_meta("item"))
-
-
-func _render_items(items: Array):
-    _before_render()
-    _items_view_added= []
-    var idx = 1
-    for i in items:
-        var item_view = load("uid://ci8j8b57p3nvg").instantiate()
-        item_view.icon = i.get_icon()
-        item_view.description = i.description
-        item_view.item_name = i.name
-        item_view.set_meta("item", i)
-        item_view.set_index(idx)
-        _items_view_added.push_back(item_view)
-        add_child(item_view)
-        idx += 1
-    
-    _after_render()
 
 
 func _clear_items():

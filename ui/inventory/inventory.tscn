@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1148pqf8xuv8"]
+[gd_scene load_steps=12 format=3 uid="uid://c1148pqf8xuv8"]
 
 [ext_resource type="Script" uid="uid://b70xsiqkf261e" path="res://ui/inventory/inventory.gd" id="1_t68fq"]
+[ext_resource type="Texture2D" uid="uid://c1jdvprvedoin" path="res://assets/ui_sheet.png" id="2_fowqc"]
 [ext_resource type="PackedScene" uid="uid://ci8j8b57p3nvg" path="res://ui/inventory/inventory_item.tscn" id="2_s83yu"]
 [ext_resource type="LabelSettings" uid="uid://3wboop2jrvep" path="res://assets/styles/default.tres" id="3_qrt2q"]
 [ext_resource type="Script" uid="uid://ckxn54sqp5f4b" path="res://ui/inventory/inventory_item_list.gd" id="3_ucnnj"]
@@ -10,10 +11,16 @@
 [ext_resource type="Script" uid="uid://cimwh7dvhh4av" path="res://commons/ui/animate_offset_loop.gd" id="7_8dyvk"]
 [ext_resource type="Texture2D" uid="uid://otoioodij3el" path="res://assets/16px.png" id="8_galwr"]
 
-[node name="Inventory" type="CanvasLayer" node_paths=PackedStringArray("items_container", "lb_desc")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2fgi"]
+atlas = ExtResource("2_fowqc")
+region = Rect2(0, 0, 16, 16)
+
+[node name="Inventory" type="CanvasLayer" node_paths=PackedStringArray("items_container", "lb_desc", "tr_item_icon", "desc_container")]
 script = ExtResource("1_t68fq")
 items_container = NodePath("MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/InventoryItemList")
 lb_desc = NodePath("MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer/Desc2")
+tr_item_icon = NodePath("MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer/TextureRect")
+desc_container = NodePath("MarginContainer/VBoxContainer/MarginContainer2")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 10
@@ -33,9 +40,13 @@ custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-color = Color(0, 0, 0, 0.321)
+texture = SubResource("AtlasTexture_v2fgi")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -80,6 +91,7 @@ stretch_mode = 4
 [node name="InventoryItemList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" node_paths=PackedStringArray("arrow_up", "arrow_down")]
 custom_minimum_size = Vector2(120, 76)
 layout_mode = 2
+theme_override_constants/separation = 2
 script = ExtResource("3_ucnnj")
 arrow_up = NodePath("../ScrollUp")
 arrow_down = NodePath("../ScrollDown")
@@ -131,9 +143,13 @@ metadata/_custom_type_script = "uid://cimwh7dvhh4av"
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
-color = Color(0, 0, 0, 0.321)
+texture = SubResource("AtlasTexture_v2fgi")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
@@ -143,6 +159,7 @@ theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer"]
@@ -154,7 +171,7 @@ stretch_mode = 4
 [node name="Desc2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(169, 29)
 layout_mode = 2
-text = "<description.
+text = "<description>
 "
 label_settings = ExtResource("3_qrt2q")
 

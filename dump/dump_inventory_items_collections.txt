@@ -1,2 +1,2 @@
-(1) my_items.
-(2) other_items.
+(1) letter.
+(2) key.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ci8j8b57p3nvg"]
+[gd_scene load_steps=8 format=3 uid="uid://ci8j8b57p3nvg"]
 
 [ext_resource type="Script" uid="uid://ckoq1b2go56a2" path="res://ui/inventory/inventory_item.gd" id="1_vxpmx"]
 [ext_resource type="Texture2D" uid="uid://c054b3via74hc" path="res://assets/bit.png" id="1_wiepw"]
@@ -11,11 +11,7 @@
 atlas = ExtResource("1_wiepw")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ato3p"]
-atlas = ExtResource("1_wiepw")
-region = Rect2(0, 0, 16, 16)
-
-[node name="InventoryItem" type="MarginContainer" node_paths=PackedStringArray("tr_icon", "hand_pointer", "lb_name", "lb_index")]
+[node name="InventoryItem" type="MarginContainer" node_paths=PackedStringArray("hand_pointer", "lb_name", "lb_index")]
 custom_minimum_size = Vector2(16, 16)
 offset_right = 86.0
 offset_bottom = 16.0
@@ -23,7 +19,6 @@ script = ExtResource("1_vxpmx")
 icon = SubResource("AtlasTexture_lipmm")
 item_name = "item_name>"
 description = "desc."
-tr_icon = NodePath("HBoxContainer/TextureRect")
 hand_pointer = NodePath("HBoxContainer/Control/TextureRect2")
 lb_name = NodePath("HBoxContainer/Label")
 lb_index = NodePath("HBoxContainer/Index")
@@ -55,15 +50,10 @@ texture = ExtResource("2_ep6dq")
 stretch_mode = 5
 
 [node name="Index" type="Label" parent="HBoxContainer"]
+modulate = Color(0.609128, 0.723217, 0.83207, 1)
 layout_mode = 2
 text = "(1)"
 label_settings = ExtResource("3_r1uuc")
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
-visible = false
-layout_mode = 2
-texture = SubResource("AtlasTexture_ato3p")
-stretch_mode = 4
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
