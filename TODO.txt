@@ -4,6 +4,7 @@ migrate to new database system for asset.
 grid movement loop.
 cutscene movement.
 spawnable animation with offset.
+change map id to string, not enum.
 choices prompt.
 dialogue portrait and finishing.
 inventory and inventory prompt.

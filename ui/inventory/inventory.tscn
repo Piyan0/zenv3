@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1148pqf8xuv8"]
+[gd_scene load_steps=10 format=3 uid="uid://c1148pqf8xuv8"]
 
 [ext_resource type="Script" uid="uid://b70xsiqkf261e" path="res://ui/inventory/inventory.gd" id="1_t68fq"]
 [ext_resource type="PackedScene" uid="uid://ci8j8b57p3nvg" path="res://ui/inventory/inventory_item.tscn" id="2_s83yu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://qqm40ogn6vp2" path="res://commons/ui/text_shadow.gd" id="4_lep46"]
 [ext_resource type="Texture2D" uid="uid://b6i4t0rou05lt" path="res://assets/icons/arrow_thin_down.png" id="6_8dyvk"]
 [ext_resource type="Script" uid="uid://cimwh7dvhh4av" path="res://commons/ui/animate_offset_loop.gd" id="7_8dyvk"]
+[ext_resource type="Texture2D" uid="uid://otoioodij3el" path="res://assets/16px.png" id="8_galwr"]
 
 [node name="Inventory" type="CanvasLayer" node_paths=PackedStringArray("items_container", "lb_desc")]
 script = ExtResource("1_t68fq")
@@ -54,7 +55,7 @@ label_settings = ExtResource("3_qrt2q")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = -3
 
 [node name="ScrollUp" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 7)
@@ -144,12 +145,11 @@ theme_override_constants/margin_bottom = 4
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer"]
 layout_mode = 2
 
-[node name="Desc" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer"]
-modulate = Color(0.236698, 0.710179, 0.929597, 1)
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_vertical = 0
-text = "desc."
-label_settings = ExtResource("3_qrt2q")
+texture = ExtResource("8_galwr")
+stretch_mode = 4
 
 [node name="Desc2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(169, 29)
@@ -157,11 +157,6 @@ layout_mode = 2
 text = "<description.
 "
 label_settings = ExtResource("3_qrt2q")
-
-[node name="TextShadow2" type="Node" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("4_lep46")
-target = NodePath("../MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer/Desc")
-metadata/_custom_type_script = "uid://qqm40ogn6vp2"
 
 [node name="TextShadow3" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("4_lep46")

@@ -15,7 +15,7 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("1_wiepw")
 region = Rect2(0, 0, 16, 16)
 
-[node name="InventoryItem" type="MarginContainer" node_paths=PackedStringArray("tr_icon", "hand_pointer", "lb_name")]
+[node name="InventoryItem" type="MarginContainer" node_paths=PackedStringArray("tr_icon", "hand_pointer", "lb_name", "lb_index")]
 custom_minimum_size = Vector2(16, 16)
 offset_right = 86.0
 offset_bottom = 16.0
@@ -26,6 +26,7 @@ description = "desc."
 tr_icon = NodePath("HBoxContainer/TextureRect")
 hand_pointer = NodePath("HBoxContainer/Control/TextureRect2")
 lb_name = NodePath("HBoxContainer/Label")
+lb_index = NodePath("HBoxContainer/Index")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -53,7 +54,13 @@ size_flags_vertical = 4
 texture = ExtResource("2_ep6dq")
 stretch_mode = 5
 
+[node name="Index" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "(1)"
+label_settings = ExtResource("3_r1uuc")
+
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 texture = SubResource("AtlasTexture_ato3p")
 stretch_mode = 4
@@ -72,4 +79,9 @@ metadata/_custom_type_script = "uid://cimwh7dvhh4av"
 [node name="TextShadow" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("6_yd6md")
 target = NodePath("../HBoxContainer/Label")
+metadata/_custom_type_script = "uid://qqm40ogn6vp2"
+
+[node name="TextShadow2" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("6_yd6md")
+target = NodePath("../HBoxContainer/Index")
 metadata/_custom_type_script = "uid://qqm40ogn6vp2"
