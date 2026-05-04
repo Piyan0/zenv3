@@ -1,11 +1,15 @@
 extends CanvasLayer
 
+signal dialogue_finished()
+
 @export var bg: Control
 @export var container: Control
 @export var lb_name: Label
 @export var lb_msg: Label
 @export var next_indicator: Control
+
 var _dialogue_base: DialogueBase
+var dialogue_batch: Array[DialogueBase.DialogueNormal]= [ DialogueBase.DialogueNormal.new("piyan", "kereen") ]
 
 func _ready() -> void:
     # var x= await AnimateOpenCenter.spawn(bg, 0.4, func(): container.hide(), func(): container.show())
@@ -19,13 +23,11 @@ func _ready() -> void:
         next_indicator.show()
     )
     _dialogue_base.batch_finished.connect(func():
+        dialogue_finished.emit()
         queue_free()    
     )
-    
-    _dialogue_base.dialogue_batch= [
-        DialogueBase.DialogueNormal.new("piyan", "Anjay mabar...\n keren euy..."),
-        DialogueBase.DialogueNormal.new("salwa", "keren...."),
-    ]
+   
+    _dialogue_base.dialogue_batch= dialogue_batch
 
 func _input(event: InputEvent):
     _dialogue_base.input(event)
