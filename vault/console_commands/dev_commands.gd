@@ -4,7 +4,7 @@ extends ConsoleCommand
 func _init():
     prefix = "dev"
     
-    sub_commands["/inv"] = {
+    sub_commands["inv"] = {
         dk_ACTION : func(args):
             var player = Player.instance
             if player != null:
@@ -17,5 +17,12 @@ func _init():
                 Bootstrap.save_system.fields["items_id"] = items
             )
             Bootstrap.canvas.add_child(inven)
+            ,
+    }
+
+    sub_commands["dialogue"] = {
+        dk_ACTION : func(args):
+            var dialogue = load("uid://dws6emg1mc14n").instantiate()
+            Bootstrap.canvas.add_child(dialogue)
             ,
     }

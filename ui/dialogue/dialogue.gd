@@ -13,9 +13,12 @@ func _ready() -> void:
         lb_name.text= d.speaker
         lb_msg.text= d.msg
         lb_msg.visible_characters= v
+    _dialogue_base.batch_finished.connect(func():
+        queue_free()    
+    )
     
     _dialogue_base.dialogue_batch= [
-        DialogueBase.DialogueNormal.new("piyan", "Anjay mabar..."),
+        DialogueBase.DialogueNormal.new("piyan", "Anjay mabar...\n keren euy..."),
         DialogueBase.DialogueNormal.new("salwa", "keren...."),
     ]
 
