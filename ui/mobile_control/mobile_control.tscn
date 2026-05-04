@@ -1,6 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxxlmvxb1njx0"]
+[gd_scene load_steps=19 format=3 uid="uid://bxxlmvxb1njx0"]
 
 [ext_resource type="Texture2D" uid="uid://gld400filib8" path="res://ui/mobile_control/gdb-switch-2.png" id="1_jc4dg"]
+[ext_resource type="Script" uid="uid://dckq246w3nkm7" path="res://ui/mobile_control/mobile_control.gd" id="1_v2ky5"]
+[ext_resource type="Texture2D" uid="uid://d1f1cec51a4on" path="res://ui/mobile_control/dpad_up.png" id="2_eerth"]
+[ext_resource type="Texture2D" uid="uid://b3pwugbq28o0i" path="res://ui/mobile_control/dpad_down.png" id="3_1oa1u"]
+[ext_resource type="Texture2D" uid="uid://c58k0p5rpvu3a" path="res://ui/mobile_control/button_disable_control.png" id="3_u0yph"]
+[ext_resource type="Script" uid="uid://bn6c7x6aercwc" path="res://ui/mobile_control/button_press.gd" id="4_5vl16"]
+[ext_resource type="Texture2D" uid="uid://d1vcd4m0fxawr" path="res://ui/mobile_control/dpad_left.png" id="4_kro4v"]
+[ext_resource type="Texture2D" uid="uid://cyi433kqrixf3" path="res://ui/mobile_control/dpad_right.png" id="5_ow6bc"]
+[ext_resource type="Texture2D" uid="uid://bon4d1vjq0s81" path="res://ui/mobile_control/button_a.png" id="6_kro4v"]
+[ext_resource type="Texture2D" uid="uid://br8o8idnvddjt" path="res://ui/mobile_control/button_b.png" id="7_5bki4"]
+[ext_resource type="Texture2D" uid="uid://mdkave6mp1g" path="res://ui/mobile_control/hamburger.png" id="8_v2ky5"]
+[ext_resource type="Texture2D" uid="uid://ipijsk13lg7s" path="res://ui/mobile_control/button_enable_control.png" id="9_5vl16"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjq75"]
 atlas = ExtResource("1_jc4dg")
@@ -26,9 +37,17 @@ region = Rect2(290, 418, 12, 12)
 atlas = ExtResource("1_jc4dg")
 region = Rect2(290, 434, 12, 12)
 
-[node name="MobileControl" type="CanvasLayer"]
+[node name="MobileControl" type="CanvasLayer" node_paths=PackedStringArray("btn_toggle_control", "btn_hamburger", "dpad_container", "action_btn_contaienr")]
+script = ExtResource("1_v2ky5")
+img_button_enable = ExtResource("9_5vl16")
+img_button_disabled = ExtResource("3_u0yph")
+btn_toggle_control = NodePath("Option/EnableButton")
+btn_hamburger = NodePath("Option/Hamburger")
+dpad_container = NodePath("Dpad")
+action_btn_contaienr = NodePath("Action")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
 offset_left = 10.0
 offset_top = 91.0
 offset_right = 50.0
@@ -84,6 +103,7 @@ passby_press = true
 action = "ui_right"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
+visible = false
 offset_left = 243.0
 offset_top = 112.0
 offset_right = 271.0
@@ -108,3 +128,68 @@ size_flags_vertical = 8
 modulate = Color(1, 1, 1, 0.215686)
 texture_normal = SubResource("AtlasTexture_eerth")
 action = "ui_accept"
+
+[node name="Dpad" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.3)
+position = Vector2(44, 91)
+
+[node name="DpaUp" type="TouchScreenButton" parent="Dpad"]
+texture_normal = ExtResource("2_eerth")
+passby_press = true
+action = "ui_up"
+script = ExtResource("4_5vl16")
+
+[node name="DpadDown" type="TouchScreenButton" parent="Dpad"]
+position = Vector2(0, 39)
+texture_normal = ExtResource("3_1oa1u")
+passby_press = true
+action = "ui_down"
+script = ExtResource("4_5vl16")
+
+[node name="DpadLeft" type="TouchScreenButton" parent="Dpad"]
+position = Vector2(-28, 27)
+texture_normal = ExtResource("4_kro4v")
+passby_press = true
+action = "ui_left"
+script = ExtResource("4_5vl16")
+
+[node name="DpadRight" type="TouchScreenButton" parent="Dpad"]
+position = Vector2(13, 27)
+texture_normal = ExtResource("5_ow6bc")
+passby_press = true
+action = "ui_left"
+script = ExtResource("4_5vl16")
+
+[node name="Action" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.3)
+position = Vector2(276, 138)
+
+[node name="ButtonA" type="TouchScreenButton" parent="Action"]
+texture_normal = ExtResource("6_kro4v")
+passby_press = true
+action = "ui_accept"
+script = ExtResource("4_5vl16")
+
+[node name="ButtonB" type="TouchScreenButton" parent="Action"]
+position = Vector2(-28, -28)
+texture_normal = ExtResource("7_5bki4")
+passby_press = true
+action = "ui_cancel"
+script = ExtResource("4_5vl16")
+
+[node name="Option" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.3)
+position = Vector2(250, 7)
+
+[node name="Hamburger" type="TouchScreenButton" parent="Option"]
+position = Vector2(38, 5)
+texture_normal = ExtResource("8_v2ky5")
+passby_press = true
+action = "ui_cancel"
+script = ExtResource("4_5vl16")
+
+[node name="EnableButton" type="TouchScreenButton" parent="Option"]
+texture_normal = ExtResource("9_5vl16")
+passby_press = true
+action = "ui_cancel"
+script = ExtResource("4_5vl16")

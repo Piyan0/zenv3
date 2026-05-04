@@ -9,8 +9,8 @@ var items_database: ItemsDatabase
 var save_system
 
 func _enter_tree():
-    MobileControl.new(self, true)
     canvas= _add_canvas()
+    _create_mobile_control()
     
     event_manager= _create_event_manager()
     asset_database= AssetDatabase.new("res://vault/asset_database")
@@ -57,7 +57,7 @@ func _create_save_system():
         
     return sv
     
-    
+
 func _boot_map_manager():
     var scene_man= MapManager.new(self, "res://entities/player/player.tscn")
     return scene_man
@@ -97,6 +97,12 @@ func _create_event_manager():
     return evm
     
     
+func _create_mobile_control():
+    var mobile_control = MobileControl.spawn()
+    if mobile_control != null:
+        canvas.add_child(mobile_control)
+
+
 func _add_canvas():
     var cv= CanvasLayer.new()
     # other canvas layer should below this, as global_canvas is considered as high priority draw order.
