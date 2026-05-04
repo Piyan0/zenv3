@@ -25,7 +25,7 @@ func _process(_delta):
         if _is_running_event: break
         var player= Player.instance
         # Don't process further if player hasn't been instantiated.
-        if !player: return
+        if !player || _current_input == null: return
         if i.is_interact(player, _current_input):
             # print(1)
             _is_running_event= true
@@ -34,6 +34,7 @@ func _process(_delta):
             await _delay_after_interact()
             _is_running_event= false
             player.lock_counter -= 1
+            _current_input = null
 
 
 func refresh_map(internal_switches, variables, global_switches):
@@ -53,4 +54,4 @@ func get_event(id: String):
 
 
 func _delay_after_interact():
-    await get_tree().create_timer(0.2).timeout
+    await get_tree().create_timer(0.33).timeout

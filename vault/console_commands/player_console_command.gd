@@ -6,7 +6,7 @@ func _init() -> void:
     var text_recc = TextReccomendation.new()
     prefix = "player"
 
-    sub_commands["/p"] = {
+    sub_commands["p"] = {
         dk_DOCS : "move player to specified position. -x,y.",
         dk_ACTION : func(args):
             if Player.instance:
@@ -21,7 +21,7 @@ func _init() -> void:
         },
     }
 
-    sub_commands["/m"] = {
+    sub_commands["m"] = {
         dk_DOCS : "move to marker position. -marker_id.",
         dk_ACTION: func(arg):
             if Player.instance:
@@ -40,7 +40,7 @@ func _init() -> void:
         },
     }
 
-    sub_commands["/e"] = {
+    sub_commands["e"] = {
         dk_DOCS : "move player to event position. -event_id.",
         dk_ACTION : func(args):
             var event = Event.get_by_id(args[0])

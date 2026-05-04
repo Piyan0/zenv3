@@ -12,19 +12,19 @@ func _ready():
     await _add_choices()
     
     
-static func spawn(pos, choices):
+static func spawn(pos, p_choices = ["Yes.", "No."] as Array[String]):
     var choice_node = load("uid://c85noq02lrvw1").instantiate()
-    choice_node.choices = choices
+    choice_node.choices = p_choices
     choice_node.modulate.a = 0
-    Bootstrap.canvas.add_child(choice_node)
+    Bootstrap.world_canvas.add_child(choice_node)
     await choice_node._choices_added
     choice_node.global_position = pos
-    #choice_node.global_position += Vector2(-(choice_node.size.x/2) , -(choice_node.size.y))
+    choice_node.global_position += Vector2(-(choice_node.size.x/2) , -(choice_node.size.y))
     choice_node.modulate.a = 1
     var result = await choice_node.choice_selected
-    return result[0]
+    return result
     
-    
+
 func _add_choices():
     for i in choice_container.get_children():
         i.free()
@@ -39,6 +39,8 @@ func _add_choices():
     _select = ListSelect.new(self, choice_container.get_children(), 0, VERTICAL)
     _select.on_select_end = func(s, a):
         choice_selected.emit(_select.get_current_index())
+        queue_free()
+
     await get_tree().process_frame
-    
+
     _choices_added.emit()

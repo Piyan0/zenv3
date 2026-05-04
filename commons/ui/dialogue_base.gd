@@ -31,6 +31,7 @@ func _skip(dialogue):
     _t.finished.emit()
     _t.kill()
     on_progress.call(dialogue, dialogue.msg.length(), false)
+    line_finished.emit()
 
 
 func _trigger_progress(visible_characters):

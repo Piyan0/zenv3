@@ -5,11 +5,13 @@ var asset_database
 var progression
 var map_manager
 var canvas
+var world_canvas
 var items_database: ItemsDatabase
 var save_system
 
 func _enter_tree():
     canvas= _add_canvas()
+    world_canvas = _add_world_canvas()
     _create_mobile_control()
     
     event_manager= _create_event_manager()
@@ -108,5 +110,14 @@ func _add_canvas():
     # other canvas layer should below this, as global_canvas is considered as high priority draw order.
     cv.layer= 10
     cv.name= "GlobalCanvas"
+    add_child(cv)
+    return cv
+
+
+func _add_world_canvas():
+    var cv= Node2D.new()
+    # other canvas layer should below this, as global_canvas is considered as high priority draw order.
+    cv.z_index= 30
+    cv.name= "WorldGlobalCanvas"
     add_child(cv)
     return cv

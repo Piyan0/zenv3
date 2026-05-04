@@ -8,9 +8,10 @@
 [ext_resource type="Resource" uid="uid://dxf7u8jg4tyrj" path="res://vault/event_pages/demo/test.tres" id="6_k7603"]
 [ext_resource type="Script" uid="uid://t0ori4wcmybj" path="res://commons/marker.gd" id="7_ij5t7"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("color")]
 y_sort_enabled = true
 script = ExtResource("1_7bght")
+color = NodePath("")
 map_id = "main"
 
 [node name="ev000" parent="." instance=ExtResource("4_5s6t7")]
@@ -27,3 +28,7 @@ metadata/_custom_type_script = "uid://t0ori4wcmybj"
 position = Vector2(112, 0)
 script = ExtResource("7_ij5t7")
 metadata/_custom_type_script = "uid://t0ori4wcmybj"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

@@ -29,6 +29,6 @@ func _init():
     
     sub_commands["choices"] = {
         dk_ACTION : func(args):
-            Choice.spawn(Player.instance.position, ["Salwa", "Hawa"] as Array[String])
+            Choice.spawn(Player.instance.position + Vector2(8, -28), ["Salwa", "Hawa"] as Array[String])
             ,
     }
