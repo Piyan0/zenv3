@@ -66,7 +66,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Name" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-modulate = Color(0.24469, 0.601097, 0.987554, 1)
+modulate = Color(0.455, 0.60125, 0.65, 1)
 layout_mode = 2
 size_flags_vertical = 0
 text = "<speaker>"
@@ -79,7 +79,7 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 12
 
 [node name="Content" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
-modulate = Color(0.868985, 0.868985, 0.868985, 1)
+modulate = Color(0.894922, 0.894922, 0.894922, 1)
 custom_minimum_size = Vector2(0, 29)
 layout_mode = 2
 size_flags_vertical = 3

@@ -38,6 +38,7 @@ atlas = ExtResource("1_jc4dg")
 region = Rect2(290, 434, 12, 12)
 
 [node name="MobileControl" type="CanvasLayer" node_paths=PackedStringArray("btn_toggle_control", "btn_hamburger", "dpad_container", "action_btn_contaienr")]
+layer = 10
 script = ExtResource("1_v2ky5")
 img_button_enable = ExtResource("9_5vl16")
 img_button_disabled = ExtResource("3_u0yph")
@@ -157,7 +158,7 @@ script = ExtResource("4_5vl16")
 position = Vector2(13, 27)
 texture_normal = ExtResource("5_ow6bc")
 passby_press = true
-action = "ui_left"
+action = "ui_right"
 script = ExtResource("4_5vl16")
 
 [node name="Action" type="Node2D" parent="."]

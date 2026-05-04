@@ -1,15 +1,12 @@
 {
 	"fields": {
-		"items_id": [
-			1.0,
-			1.0
-		],
+		"items_id": [2, 2, 1, 2],
 		"player_map_id": ""
 	},
 	"progression": {
 		"_global_switches": {
 			"my_other_switch": false,
-			"my_switch": false
+			"my_switch": true
 		},
 		"_internal_switches": {
 			"main-ev000": {

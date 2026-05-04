@@ -1,8 +1,10 @@
 class_name EventCommands
 
 var _commands= {}
+var action
 
 func _init():
+    action = EventPageActions.new()
     _commands = _get_commands_list()
 
 

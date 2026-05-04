@@ -26,3 +26,9 @@ func _init():
             Bootstrap.canvas.add_child(dialogue)
             ,
     }
+    
+    sub_commands["choices"] = {
+        dk_ACTION : func(args):
+            Choice.spawn(Player.instance.position, ["Salwa", "Hawa"] as Array[String])
+            ,
+    }
