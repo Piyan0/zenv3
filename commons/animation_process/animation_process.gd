@@ -27,6 +27,11 @@ func _process(delta: float):
         _current_animation_idx+= 1
 
 
+func _ready():
+    if animation_data:
+        _initial_frame()
+
+
 func change_animation(animation: AnimationData):
     animation_data= animation
     set_process(true)

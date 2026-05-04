@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AnimationData" load_steps=3 format=3 uid="uid://dx16mmxvsp3ud"]
+
+[ext_resource type="Script" uid="uid://dsnkbelrc631k" path="res://commons/animation_process/animation_data.gd" id="1_rkn72"]
+[ext_resource type="Texture2D" uid="uid://csy3pb44b13od" path="res://assets/Adam_phone_16x16.png" id="2_ksj8x"]
+
+[resource]
+script = ExtResource("1_rkn72")
+texture = ExtResource("2_ksj8x")
+columns = 9
+delay_each_frame = 0.1
+is_loop = true
+frames_index = Array[int]([0, 1, 2, 3, 4, 5, 6, 7, 8])
+tile_size = Vector2(16, 32)
+offset = Vector2(0, -32)
+metadata/_custom_type_script = "uid://dsnkbelrc631k"
