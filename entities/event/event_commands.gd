@@ -8,6 +8,10 @@ func _init():
     _commands = _get_commands_list()
 
 
+func push(args = []):
+    await action.push(args)
+
+
 func get_event_commands(key : int) -> Callable:
     if key in _commands:
         return _commands[key]

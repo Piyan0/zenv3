@@ -1,14 +1,15 @@
 dialogue portrait and finishing.
-inventory and inventory prompt.
-event page action, a class that group all available function to call through event commands.
 internal switch in console.
+internal switch event page action.
 migrate to new database system for asset.
 grid movement loop.
 cutscene movement.
 spawnable animation with offset.
-choices prompt.
 
 
+✓ event page action, a class that group all available function to call through event commands.
+✓ inventory and inventory prompt.
+✓ choices prompt.
 ✓ change map id to string, not enum.
 ✓ add a way to add a field in save system.
 ✓ event can be trigger when opening inventory.

@@ -61,7 +61,11 @@ func _after_render():
 
     _select = ListSelect.new(self, _items_view_added, select_index, VERTICAL)
     _select.on_select_end = func(s, a):
-        item_selected.emit(s.get_meta("item"), _select.get_current_index())
+        _select.set_pause(true)
+        var item = s.get_meta("item")
+        await item.effect.call()
+        _select.set_pause(false)
+        item_selected.emit(item, _select.get_current_index())
     _select.on_select_change = func(s, a):
         _page.update_page(_select.get_current_index())
         selection_change.emit(s.get_meta("item"))

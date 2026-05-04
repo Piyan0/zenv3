@@ -54,6 +54,7 @@ func set_pause(pause):
     if pause:
         _pause= true
     else:
+        _pause = false
         _selection_change(_current_idx)
 
 

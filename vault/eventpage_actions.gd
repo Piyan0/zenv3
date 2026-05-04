@@ -10,18 +10,55 @@ func _init() -> void:
     
     _actions["start_dialogue"] = _start_dialogue
 
-    _actions["choices"] = func(p_choices, on_end_dict = {}):
+    _actions["choices"] = func(p_choices = [], on_end = func(choice_index): pass):
         var choices = [] as Array[String]
         choices.assign(p_choices)
         var result = await Choice.spawn(Player.instance.position + Vector2(8, -28), choices)
-        if result in on_end_dict:
-            await on_end_dict[result].call()
-            
-        return result
+        await on_end.call(result)
+    
+    _actions["open_inventory"] = func(on_end = func(item_id): pass):
+        var inven = load("uid://c1148pqf8xuv8").instantiate()
+        inven.close_on_selected = true
+        inven.items_id = Bootstrap.save_system.fields["items_id"]
+        Bootstrap.canvas.add_child(inven)
+        var item_id = await inven.inventory_closed
+        await on_end.call(item_id)
+    
+    _actions["erase_item"] = func(id):
+        Bootstrap.save_system.fields["items_id"].erase(id)
+    
+    _actions["set_internal_switch"] = func(event_name, internal_switch, value):
+        pass
+        
+    _actions["get_internal_switch"] = func(event_name, internal_switch):
+        pass
+        
+    _actions["set_switch"] = func(id, value):
+        Bootstrap.progression.set_switch(id, value)
+        
+    _actions["get_switch"] = func(id, cb):
+        var value = Bootstrap.progression.get_switch(id)
+        await cb.call(value)
+    
+    _actions["set_var"] = func(id, value):
+        Bootstrap.progression.set_var(id, value)
+        
+    _actions["get_var"] = func(id, cb):
+        var value = Bootstrap.progression.get_var(id)
+        await cb.call(value)
+        
+    _actions["show_image"] = func(img_id):
+        await DisplayImage.spawn(img_id)
+    
+    _actions["has_item"] = func(item_id):
+        pass
+        
+    _actions["goto"] = func(map_id, pos):
+        pass
 
-
-
-func push(id, args = []):
+func push(args = []):
+    # print(args)
+    var id = args.pop_front()
     var result = await _actions[id].callv(args) 
     return result
 

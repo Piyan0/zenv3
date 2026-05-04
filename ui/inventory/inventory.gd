@@ -1,15 +1,16 @@
 class_name Inventory
 extends CanvasLayer
-signal inventory_closed(p_items_id)
-
+signal inventory_closed(item_id)
 
 @export var items_id = [1, 2, 1, 2]
 @export var items_container: Control
 @export var lb_desc: Label
 @export var tr_item_icon: TextureRect
 @export var desc_container: Control
+@export var close_on_selected = false
 
 func _ready() -> void:
+    #Engine.time_scale = 0.1
     desc_container.hide()
     _render_items()
     items_container.selection_change.connect(func(item):
@@ -23,14 +24,15 @@ func _ready() -> void:
     )
     
     items_container.item_selected.connect(func(item, index):
-        item.effect.call()
+        if close_on_selected:
+            queue_free()        
         if item.is_consumable:
             var new_items_id = items_id.duplicate()
             new_items_id.pop_at(index)
             items_id = new_items_id
             items_container.select_index = index
             _render_items()
-        
+        inventory_closed.emit(item["id"])
         if items_id.is_empty():
             desc_container.hide()
         else:
@@ -40,7 +42,7 @@ func _ready() -> void:
 
 func _input(event):
     if event.is_action_pressed("ui_cancel"):
-        inventory_closed.emit(items_id)
+        inventory_closed.emit(-1)
         queue_free()
         
 

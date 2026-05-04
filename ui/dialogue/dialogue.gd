@@ -12,6 +12,8 @@ var _dialogue_base: DialogueBase
 var dialogue_batch: Array[DialogueBase.DialogueNormal]= [ DialogueBase.DialogueNormal.new("piyan", "kereen") ]
 
 func _ready() -> void:
+    lb_msg.text = ""
+    lb_name.text = ""
     # var x= await AnimateOpenCenter.spawn(bg, 0.4, func(): container.hide(), func(): container.show())
     _dialogue_base= DialogueBase.new() 
     _dialogue_base.on_progress= func(d, v, j):

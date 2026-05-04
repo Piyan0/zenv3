@@ -35,5 +35,8 @@ func _get_test_items(items):
         "id" : 2,
         "name" : "key",
         "description" : "This is a key. Consumable.",
-        "is_consumable" : true,
+        "is_consumable" : false,
+        "effect" : func():
+            var ev = EventPageActions.new()
+            await ev.push(["show_image", "screen"])
     })
