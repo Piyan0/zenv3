@@ -4,15 +4,20 @@ extends CanvasLayer
 @export var container: Control
 @export var lb_name: Label
 @export var lb_msg: Label
+@export var next_indicator: Control
 var _dialogue_base: DialogueBase
 
 func _ready() -> void:
     # var x= await AnimateOpenCenter.spawn(bg, 0.4, func(): container.hide(), func(): container.show())
     _dialogue_base= DialogueBase.new() 
     _dialogue_base.on_progress= func(d, v, j):
+        next_indicator.hide()
         lb_name.text= d.speaker
         lb_msg.text= d.msg
         lb_msg.visible_characters= v
+    _dialogue_base.line_finished.connect(func():
+        next_indicator.show()
+    )
     _dialogue_base.batch_finished.connect(func():
         queue_free()    
     )

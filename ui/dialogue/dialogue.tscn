@@ -1,19 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://dws6emg1mc14n"]
+[gd_scene load_steps=10 format=3 uid="uid://dws6emg1mc14n"]
 
 [ext_resource type="LabelSettings" uid="uid://3wboop2jrvep" path="res://assets/styles/default.tres" id="1_8q5o4"]
 [ext_resource type="Script" uid="uid://b6tm0yxyg6yig" path="res://ui/dialogue/dialogue.gd" id="1_jy5du"]
+[ext_resource type="Texture2D" uid="uid://c1jdvprvedoin" path="res://assets/ui_sheet.png" id="2_135c7"]
 [ext_resource type="Script" uid="uid://qqm40ogn6vp2" path="res://commons/ui/text_shadow.gd" id="2_h4lfh"]
 [ext_resource type="Script" uid="uid://cimwh7dvhh4av" path="res://commons/ui/animate_offset_loop.gd" id="4_r2qx3"]
+[ext_resource type="Texture2D" uid="uid://ct2a4pty6207s" path="res://assets/icons/icon_down.png" id="4_vqqoj"]
 [ext_resource type="Texture2D" uid="uid://xefhbho3cth2" path="res://assets/portraits/bob.png" id="6_135c7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqqoj"]
+atlas = ExtResource("2_135c7")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jy5du"]
 
-[node name="Dialogue" type="CanvasLayer" node_paths=PackedStringArray("bg", "container", "lb_name", "lb_msg")]
+[node name="Dialogue" type="CanvasLayer" node_paths=PackedStringArray("container", "lb_name", "lb_msg", "next_indicator")]
 script = ExtResource("1_jy5du")
-bg = NodePath("")
 container = NodePath("MarginContainer")
 lb_name = NodePath("MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/Name")
 lb_msg = NodePath("MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/Content")
+next_indicator = NodePath("MarginContainer/MarginContainer/Control/NextIndicator")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 12
@@ -30,9 +36,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_vqqoj")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
-color = Color(0, 0, 0, 0.5)
+color = Color(0, 0, 0, 0.643137)
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
@@ -72,6 +87,25 @@ text = "<line001>"
 label_settings = ExtResource("1_8q5o4")
 autowrap_mode = 2
 
+[node name="Control" type="Control" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="NextIndicator" type="TextureRect" parent="MarginContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -11.0
+offset_right = -6.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_vqqoj")
+stretch_mode = 4
+
 [node name="Portrait" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -91,8 +125,7 @@ metadata/_custom_type_script = "uid://qqm40ogn6vp2"
 
 [node name="AnimateOffsetLoop" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("4_r2qx3")
-start_on_ready = false
-target = NodePath("")
+target = NodePath("../MarginContainer/MarginContainer/Control/NextIndicator")
 offset = Vector2(0, -3)
 metadata/_custom_type_script = "uid://cimwh7dvhh4av"
 

@@ -1,7 +1,7 @@
 class_name DialogueBase
 signal batch_finished()
+signal line_finished()
 signal _input_next()
-signal _line_fine_finished()
 
 var speed= 20
 var dialogue_batch: Array[DialogueNormal]= []: set= _set_dialogue_batch
@@ -46,7 +46,7 @@ func _start_batch(p_dialogue_batch):
         _is_running_dialogue= true
         _just_changed= true
         await _t.finished
-        _line_fine_finished.emit()
+        line_finished.emit()
         _is_running_dialogue= false
         await _input_next
     

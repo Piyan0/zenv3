@@ -1,10 +1,10 @@
 $game
 
 /default: this is default documentation.
-/v: set var. -key -value.
-/s: set global switch. -key -on|off.
-/event_id: toggle event id preview.
-/goto: move to map. -map_id -x,y.
-/save: save the data. -slot_id(1-max_save_slot).
-/load: load save data. -slot_id(1-max_save_slot).
-/r: refresh the map.
+v: set var. -key -value.
+s: set global switch. -key -on|off.
+event_id: toggle event id preview.
+goto: move to map. -map_id -x,y.
+save: save the data. -slot_id(1-max_save_slot).
+load: load save data. -slot_id(1-max_save_slot).
+r: refresh the map.

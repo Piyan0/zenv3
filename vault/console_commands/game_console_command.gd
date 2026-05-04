@@ -5,7 +5,7 @@ func _init():
     prefix = "game"
     var tect_recc = TextReccomendation.new()
 
-    sub_commands["/v"] = {
+    sub_commands["v"] = {
         dk_DOCS : "set var. -key -value.",
         dk_ACTION : func(args):
             var id = args[0]
@@ -31,7 +31,7 @@ func _init():
         },
     }
 
-    sub_commands["/s"] = {
+    sub_commands["s"] = {
         dk_DOCS : "set global switch. -key -on|off.",
         dk_ACTION : func(args):
             var id = args[0]
@@ -62,7 +62,7 @@ func _init():
         }
     }
 
-    sub_commands["/event_id"] = {
+    sub_commands["event_id"] = {
         dk_DOCS : "toggle event id preview.",
         dk_ACTION : func(args):
             for i in Engine.get_main_loop().get_nodes_in_group("events"):
@@ -70,7 +70,7 @@ func _init():
     }
 
     # TODO add autocomplete for map id.
-    sub_commands["/goto"] = {
+    sub_commands["goto"] = {
         dk_DOCS : "move to map. -map_id -x,y.",
         dk_ACTION : func(args):
             var map_id = args[0]
@@ -95,7 +95,7 @@ func _init():
         },
     }
     
-    sub_commands["/save"] = {
+    sub_commands["save"] = {
         dk_DOCS : "save the data. -slot_id(1-max_save_slot).",
         dk_ACTION : func(args):
             Bootstrap.save_system.save(args[0])
@@ -110,7 +110,7 @@ func _init():
         },
     }
     
-    sub_commands["/load"] = {
+    sub_commands["load"] = {
         dk_DOCS : "load save data. -slot_id(1-max_save_slot).",
         dk_ACTION : func(args):
             Bootstrap.save_system.load_data(args[0])
@@ -126,7 +126,7 @@ func _init():
         },
     }
     
-    sub_commands["/r"] = {
+    sub_commands["r"] = {
         dk_DOCS : "refresh the map.",
         dk_ACTION : func(args):
             if !Bootstrap.map_manager.prev_transfer_data: return
@@ -138,7 +138,7 @@ func _init():
     }
 
     _dump()
-    # autocomplete["/ss"] = {
+    # autocomplete["ss"] = {
     #     0 : func(text):
     #         return TextReccomendation.new().get_recc(text, ["ev000", "ev001", "ev002", "ev003", "ev004"]),
     #     1: func(typed_text):
