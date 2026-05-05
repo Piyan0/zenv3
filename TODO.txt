@@ -1,6 +1,7 @@
 dialogue portrait and finishing.
 grid movement loop.
 cutscene movement.
+add narator view.
 
 
 ✓ error when refresh map after load.
