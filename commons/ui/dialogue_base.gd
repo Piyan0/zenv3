@@ -1,4 +1,5 @@
 class_name DialogueBase
+
 signal batch_finished()
 signal line_finished()
 signal _input_next()

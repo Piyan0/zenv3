@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqtqvc51an3sh"]
+
+[ext_resource type="Script" uid="uid://cuu6r6nxeuttj" path="res://ui/narator_view/narator_view.gd" id="1_ea4p4"]
+[ext_resource type="LabelSettings" uid="uid://3wboop2jrvep" path="res://assets/styles/default.tres" id="1_vc2ui"]
+[ext_resource type="Texture2D" uid="uid://bng88ugqqmnl6" path="res://assets/screen.png" id="2_1n0gh"]
+
+[node name="NaratorView" type="CanvasLayer" node_paths=PackedStringArray("lb_top", "lb_bottom_right", "lb_center")]
+script = ExtResource("1_ea4p4")
+lb_top = NodePath("MarginContainer/TopText")
+lb_bottom_right = NodePath("MarginContainer/BottomRightText")
+lb_center = NodePath("MarginContainer/MiddleText")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.212305, 0.212305, 0.212305, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1n0gh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 24
+
+[node name="TopText" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "<this is a narator.>"
+label_settings = ExtResource("1_vc2ui")
+autowrap_mode = 2
+visible_characters = 13
+visible_characters_behavior = 1
+visible_ratio = 0.65
+
+[node name="MiddleText" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(164, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "<this is a narator.>"
+label_settings = ExtResource("1_vc2ui")
+autowrap_mode = 2
+visible_characters_behavior = 1
+
+[node name="BottomRightText" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(164, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "this is a message."
+label_settings = ExtResource("1_vc2ui")
+autowrap_mode = 2
+visible_characters_behavior = 1
