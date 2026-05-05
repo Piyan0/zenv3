@@ -19,7 +19,7 @@ func _get_commands_list():
                     push(["push_dialogue", "Godot", "She's beautiful..."]) 
                     await push(["start_dialogue"])
         ])
-        push(["set_switch", "my_switch", true])
+        push(["set_iswitch", 1, true])
         # Bootstrap.progression.set_switch("my_switch", true)
     
     commands[2] = func():

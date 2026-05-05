@@ -3,7 +3,7 @@ extends ConsoleCommand
 
 func _init():
     prefix = "game"
-    var tect_recc = TextReccomendation.new()
+    var text_recc = TextReccomendation.new()
 
     sub_commands["v"] = {
         dk_DOCS : "set var. -key -value.",
@@ -25,9 +25,46 @@ func _init():
 
         dk_AUTOCOMPLETE : {
             0 : func(typed_text):
-                var text_recc = TextReccomendation.new()
                 var keys = Bootstrap.progression.get_var_keys()
                 return text_recc.get_recc(typed_text, keys, 10),
+        },
+    }
+    
+    sub_commands["is"] = {
+        dk_DOCS : "set internal switch. -event_id -internal_switch_id -on|off.",
+        dk_ACTION : func(args):
+            var event_id = args[0]
+            var iswitch_id= args[1]
+            var value= args[2]
+            Bootstrap.progression.set_internal_switch(event_id, iswitch_id, value)
+            ,
+        dk_ARGS_RULES : {
+            0 : func(arg):
+                if !arg in Event.get_keys(): return null
+                return Event.get_by_id(arg).get_internal_switch_id()
+                ,
+            1: func(arg):
+                if !arg in EventPage.InternalSwitch: return null
+                return EventPage.InternalSwitch[arg]
+                ,
+            2 : func(arg):
+                if arg == "on":
+                    return true
+                if arg == "off":
+                    return false
+                ,
+        },
+        
+        dk_AUTOCOMPLETE : {
+            0 : func(typed_text):
+                return text_recc.get_recc(typed_text, Event.get_keys())
+                ,
+            1 : func(typed_text):
+                return text_recc.get_recc(typed_text, ["A", "B", "C", "D"])
+                ,
+            2 : func(typed_text):
+                return text_recc.get_recc(typed_text, ["on", "off"])
+                ,
         },
     }
 
@@ -53,7 +90,6 @@ func _init():
         },
         dk_AUTOCOMPLETE :{
             0 : func(typed_text):
-                var text_recc = TextReccomendation.new()
                 var keys = Bootstrap.progression.get_global_switch_keys()
                 return text_recc.get_recc(typed_text, keys, 10),
                 

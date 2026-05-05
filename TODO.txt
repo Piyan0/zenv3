@@ -1,12 +1,13 @@
 dialogue portrait and finishing.
-migrate to new database system for asset.
 grid movement loop.
 cutscene movement.
-spawnable animation with offset.
-internal switch in console.
-internal switch event page action.
+error when refresh map after load.
 
 
+✓ migrate to new database system for asset.
+✓ internal switch event page action.
+✓ internal switch in console.
+✓ spawnable animation with offset.
 ✓ add filter items to inventory.
 ✓ update items after inventory item is used/consume.
 ✓ event page action, a class that group all available function to call through event commands.

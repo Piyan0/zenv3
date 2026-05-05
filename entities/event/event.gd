@@ -33,6 +33,13 @@ func _physics_process(delta):
         i.call_update(delta, self)
 
 
+func get_internal_switch_id():
+    var current_scene = get_tree().current_scene
+    if !current_scene is Map:
+        return "<internal_switch_id>"
+    return current_scene.map_id + "-" + name
+    
+    
 static func get_by_id(id):
     for i in Engine.get_main_loop().get_nodes_in_group("events"):
         if i.name == id:
@@ -98,7 +105,7 @@ func update_active_event(internal_switches, variables, global_switches):
     var reversed_event_pages= eventpages.duplicate()
     reversed_event_pages.reverse()
     for i in reversed_event_pages:
-        if i.is_event_active(internal_switches, variables, global_switches):
+        if i.is_event_active(internal_switches[get_internal_switch_id()], variables, global_switches):
             active_event_page= i
             _active_event_changed(i)
 

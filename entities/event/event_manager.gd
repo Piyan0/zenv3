@@ -3,7 +3,9 @@ extends Node
 
 signal map_refreshed(events)
 
+static var current_internal_switch_id: String
 var can_process_interact = func(): return true
+
 var _current_input: InputEvent= InputEventAction.new()
 var _is_running_event= false
 
@@ -28,6 +30,7 @@ func _process(_delta):
         # Don't process further if player hasn't been instantiated.
         if !player || _current_input == null: return
         if i.is_interact(player, _current_input):
+            current_internal_switch_id = i.get_internal_switch_id()
             # print(1)
             _is_running_event= true
             player.lock_counter += 1
@@ -36,6 +39,7 @@ func _process(_delta):
             _is_running_event= false
             player.lock_counter -= 1
             _current_input = null
+            current_internal_switch_id = ""
 
 
 func refresh_map(internal_switches, variables, global_switches):

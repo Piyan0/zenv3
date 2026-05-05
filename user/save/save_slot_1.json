@@ -1,6 +1,8 @@
 {
 	"fields": {
 		"items_id": [
+			1,
+			1,
 			2
 		],
 		"player_map_id": ""
@@ -12,10 +14,10 @@
 		},
 		"_internal_switches": {
 			"main-ev000": {
-				"1": false,
-				"2": false,
+				"1": true,
+				"2": true,
 				"3": false,
-				"4": false
+				"4": true
 			}
 		},
 		"_variables": {

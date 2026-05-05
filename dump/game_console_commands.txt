@@ -2,6 +2,7 @@ $game
 
 /default: this is default documentation.
 v: set var. -key -value.
+is: set internal switch. -event_id -internal_switch_id -on|off.
 s: set global switch. -key -on|off.
 event_id: toggle event id preview.
 goto: move to map. -map_id -x,y.

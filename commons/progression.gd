@@ -99,6 +99,11 @@ func get_var(key):
     return _variables[key]
 
 
+func get_internal_switch(event_id, internal_switch_id):
+    _assert_key_exist(event_id, internal_switch_id, "_internal_switches")
+    return _internal_switches[event_id][internal_switch_id]
+    
+    
 func set_internal_switch(event_id, internal_switch_id, value):
     _assert_key_exist(event_id, _internal_switches, "_internal_switches")
     _internal_switches[event_id][internal_switch_id]= value

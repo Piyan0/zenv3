@@ -28,7 +28,7 @@ func _enter_tree():
             if current_scene is Map:
                 var map_id= current_scene.map_id
                 for i in events:
-                    progression.add_internal_switch(str(map_id)+"-"+i.name)
+                    progression.add_internal_switch(i.get_internal_switch_id())
     )
     map_manager= _boot_map_manager()
     save_system = _create_save_system()

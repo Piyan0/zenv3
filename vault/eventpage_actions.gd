@@ -34,10 +34,11 @@ func _init() -> void:
     _actions["erase_item"] = func(id):
         Bootstrap.save_system.fields["items_id"].erase(id)
     
-    _actions["set_internal_switch"] = func(event_name, internal_switch, value):
-        pass
+    _actions["set_iswitch"] = func(internal_switch, value):
+        var id = EventManager.current_internal_switch_id
+        Bootstrap.progression.set_internal_switch(id, internal_switch, value)
         
-    _actions["get_internal_switch"] = func(event_name, internal_switch):
+    _actions["get_iswitch"] = func(event_name, internal_switch):
         pass
         
     _actions["set_switch"] = func(id, value):
@@ -62,6 +63,13 @@ func _init() -> void:
         
     _actions["goto"] = func(map_id, pos):
         pass
+        
+    _actions["spawn_animation_player"] = func(animation_id):
+        pass
+        
+    _actions["spawn_animation_world"] = func(animation_id, pos):
+        pass
+
 
 func push(args = []):
     # print(args)
