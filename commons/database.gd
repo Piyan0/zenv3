@@ -28,7 +28,7 @@ func path(p_path):
     return _base_path() + p_path
 
 
-func _dump(path: String):
+func _dump(p_path: String):
     var items_str= ""
     var items_display= func(id, name):
         return "({0}) {1}.\n".format([id, name])
@@ -36,10 +36,10 @@ func _dump(path: String):
     for i in _items:
         items_str+= items_display.call(i["id"], i["name"])
     
-    if !DirAccess.dir_exists_absolute(path.get_base_dir()):
-        DirAccess.make_dir_recursive_absolute(path.get_base_dir())
+    if !DirAccess.dir_exists_absolute(p_path.get_base_dir()):
+        DirAccess.make_dir_recursive_absolute(p_path.get_base_dir())
         
-    var file= FileAccess.open(path, FileAccess.WRITE)
+    var file= FileAccess.open(p_path, FileAccess.WRITE)
     file.store_string(items_str)
     file.close()
 

@@ -2,6 +2,7 @@ extends Node
 
 var event_manager
 var asset_database
+var asset_loader
 var progression
 var map_manager
 var canvas
@@ -13,7 +14,7 @@ func _enter_tree():
     canvas= _add_canvas()
     world_canvas = _add_world_canvas()
     _create_mobile_control()
-    
+    asset_loader = AssetLoader.new()
     event_manager= _create_event_manager()
     asset_database= AssetDatabase.new("res://vault/asset_database")
 
@@ -42,7 +43,7 @@ func _enter_tree():
 func _create_save_system():
     var sv = SaveSystem.new("res://user/save")
     sv.fields = {
-        "items_id" : [],
+        "items_id" : [1,1,2],
         "player_map_id" : "",
     }
     

@@ -17,12 +17,19 @@ func _init() -> void:
         await on_end.call(result)
     
     _actions["open_inventory"] = func(on_end = func(item_id): pass):
+        var items = Bootstrap.save_system.fields["items_id"].duplicate()
         var inven = load("uid://c1148pqf8xuv8").instantiate()
+        inven.filter_item = func(item):
+            return item.is_key_item
+            
         inven.close_on_selected = true
-        inven.items_id = Bootstrap.save_system.fields["items_id"]
+        inven.items_id = items
         Bootstrap.canvas.add_child(inven)
-        var item_id = await inven.inventory_closed
-        await on_end.call(item_id)
+        var items_used = await inven.inventory_closed
+        if items_used.is_empty():
+            await on_end.call(-1)
+            return
+        await on_end.call(items_used[0])
     
     _actions["erase_item"] = func(id):
         Bootstrap.save_system.fields["items_id"].erase(id)

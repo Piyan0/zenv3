@@ -27,19 +27,19 @@ func _input(event: InputEvent):
 static func spawn(image_id):
     var instance= DisplayImage.new()
     instance.name= "DisplayImage"
-    var image= Bootstrap.asset_database.get_asset(AssetDatabase.IMAGE, image_id)
+    var image= Bootstrap.asset_loader.get_asset(image_id)
     instance._image= image
     Bootstrap.add_child(instance)
     await instance.finished
     
 
 func _add_texture_rect():
-    var tr= TextureRect.new()
-    tr.texture= _image
-    tr.set_anchors_and_offsets_preset(Control.LayoutPreset.PRESET_FULL_RECT)
-    tr.modulate= Color.TRANSPARENT
-    Bootstrap.canvas.add_child(tr)
-    return tr
+    var txr= TextureRect.new()
+    txr.texture= _image
+    txr.set_anchors_and_offsets_preset(Control.LayoutPreset.PRESET_FULL_RECT)
+    txr.modulate= Color.TRANSPARENT
+    Bootstrap.canvas.add_child(txr)
+    return txr
     
     
 func _show_image():

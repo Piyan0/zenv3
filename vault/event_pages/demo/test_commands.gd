@@ -3,6 +3,11 @@ extends EventCommands
 func _get_commands_list():
     var commands = {}
     commands[1] = func():
+        await push(["open_inventory", func(item_id):
+            print(item_id)
+        ])
+    
+    commands[1] = func():
         await push(["push_dialogue", "Godot", "Which one would you pick??"])
         await push(["start_dialogue"])
         await push(["choices", ["Manyssa", "Qeisya."],

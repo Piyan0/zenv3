@@ -22,6 +22,7 @@ static var instance: Player
 
 var lock_counter = 0:
     set(value):
+        # print(value)
         lock_counter = value
         if lock_counter > 0:
             grid_mov.lock_input = true
@@ -77,7 +78,7 @@ func _ready():
                 animation_process.change_animation(walk_left)
             Vector2.RIGHT:
                 animation_process.change_animation(walk_right)
-                
+  
 
 func get_latest_collider():
     ray.force_raycast_update()

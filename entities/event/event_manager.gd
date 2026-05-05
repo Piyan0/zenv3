@@ -14,7 +14,8 @@ func _init(p_owner):
     
     
 func _input(event):
-    if !can_process_interact.call(): return
+    if !can_process_interact.call():
+        return
     if event is InputEventAction || event is InputEventKey:
         _current_input= event
 

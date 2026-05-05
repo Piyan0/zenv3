@@ -12,12 +12,12 @@ func _init(p_save_dir = _save_dir):
     var dir = DirAccess.make_dir_recursive_absolute(_save_dir)
     
     
-func is_slot_saved(slot):
-    return FileAccess.file_exists(_get_save_path(slot))
+func is_slot_saved(p_slot):
+    return FileAccess.file_exists(_get_save_path(p_slot))
     
 
-func load_data(slot):
-    var path = _get_save_path(slot)
+func load_data(p_slot):
+    var path = _get_save_path(p_slot)
     var file = FileAccess.open(path, FileAccess.READ)
     var str_data = file.get_as_text()
     file.close()

@@ -11,10 +11,12 @@ func _init():
                 player.lock_counter += 1
             var inven = load("uid://c1148pqf8xuv8").instantiate()
             inven.items_id = Bootstrap.save_system.fields["items_id"]
-            inven.inventory_closed.connect(func(items):
+            #print(inven.items_id)
+            inven.inventory_closed.connect(func(items_used):
                 if player:
                     player.lock_counter -= 1
-                Bootstrap.save_system.fields["items_id"] = items
+                for i in items_used:
+                    Bootstrap.save_system.fields["items_id"].erase(i)
             )
             Bootstrap.canvas.add_child(inven)
             ,

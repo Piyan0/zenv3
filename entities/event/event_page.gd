@@ -14,7 +14,7 @@ enum Trigger{ PLAYER_TOUCH, INTERACT_BUTTON, AUTORUN }
 enum InternalSwitch { NONE, A, B, C, D }
 enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 
-@export var event_commands_id : EventCommandsID
+@export var event_commands_id : EventCommandsID = EventCommandsID.Commands_001
 @export var graphic: Texture2D
 @export var offset= Vector2.ZERO
 

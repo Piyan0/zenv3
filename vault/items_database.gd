@@ -27,6 +27,7 @@ func _get_test_items(items):
         "description": "so this is...a letter maybe.",
         "icon_path" : "res://assets/16px.png",
         "is_consumable" : true,
+        "is_key_item" : false,
         "effect" : func():
             print("anjay mabar")
     })
@@ -36,7 +37,8 @@ func _get_test_items(items):
         "name" : "key",
         "description" : "This is a key. Consumable.",
         "is_consumable" : false,
+        "is_key_item" : true,
         "effect" : func():
             var ev = EventPageActions.new()
-            await ev.push(["show_image", "screen"])
+            await ev.push(["show_image", "img_screen"])
     })

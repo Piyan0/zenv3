@@ -7,6 +7,8 @@ cutscene movement.
 spawnable animation with offset.
 
 
+✓ add filter items to inventory.
+✓ update items after inventory item is used/consume.
 ✓ event page action, a class that group all available function to call through event commands.
 ✓ inventory and inventory prompt.
 ✓ choices prompt.

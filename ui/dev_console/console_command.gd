@@ -94,6 +94,7 @@ func _get_arguments(text, fill = true):
     var sub = _get_sub_command(text)
     # remove sub command.
     if !sub.is_empty():
+        printt(split_text, sub)
         split_text.remove_at(split_text.find(sub))
     
     var args = []

@@ -1,6 +1,6 @@
 class_name Inventory
 extends CanvasLayer
-signal inventory_closed(item_id)
+signal inventory_closed(items_used)
 
 @export var items_id = [1, 2, 1, 2]
 @export var items_container: Control
@@ -8,9 +8,16 @@ signal inventory_closed(item_id)
 @export var tr_item_icon: TextureRect
 @export var desc_container: Control
 @export var close_on_selected = false
+var filter_item = func(item): return true
+var _items_used = []
 
 func _ready() -> void:
-    #Engine.time_scale = 0.1
+    var filtered_items_id = []
+    for i in items_id:
+        if filter_item.call(Bootstrap.items_database.get_item(i)):
+            filtered_items_id.push_back(i)
+    
+    items_id = filtered_items_id
     desc_container.hide()
     _render_items()
     items_container.selection_change.connect(func(item):
@@ -25,14 +32,13 @@ func _ready() -> void:
     
     items_container.item_selected.connect(func(item, index):
         if close_on_selected:
+            inventory_closed.emit([item.id])
             queue_free()        
         if item.is_consumable:
-            var new_items_id = items_id.duplicate()
-            new_items_id.pop_at(index)
-            items_id = new_items_id
+            items_id.erase(item.id)
+            _items_used.push_back(item.id)
             items_container.select_index = index
             _render_items()
-        inventory_closed.emit(item["id"])
         if items_id.is_empty():
             desc_container.hide()
         else:
@@ -42,7 +48,7 @@ func _ready() -> void:
 
 func _input(event):
     if event.is_action_pressed("ui_cancel"):
-        inventory_closed.emit(-1)
+        inventory_closed.emit(_items_used)
         queue_free()
         
 
@@ -66,6 +72,7 @@ class Item:
     var description
     var icon_path: String
     var is_consumable = true
+    var is_key_item = false
     var effect = func(): print("this is method to run when item is being used.")
     
     func get_icon():
