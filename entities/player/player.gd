@@ -28,7 +28,8 @@ var lock_counter = 0:
             grid_mov.lock_input = true
         else:
             grid_mov.lock_input = false
-        
+
+
 func _ready():
     instance= self
     match initial_direction:

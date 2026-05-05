@@ -67,6 +67,7 @@ func _boot_progression():
     return progression
 
 
+var _valid_player: Player
 func _create_dev_console():
     var commands = [
         DevCommand.new(),
@@ -77,9 +78,12 @@ func _create_dev_console():
     if console:
         console.console_active.connect(func():
             if Player.instance:
+                _valid_player = Player.instance
                 Player.instance.lock_counter += 1
         )
         console.console_blur.connect(func():
+            if Player.instance != _valid_player:
+                return
             if Player.instance:
                 Player.instance.lock_counter -= 1
         )
