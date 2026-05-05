@@ -71,3 +71,9 @@ shape = SubResource("RectangleShape2D_sglur")
 script = ExtResource("8_a1qjk")
 target = NodePath("../Sprite2D")
 metadata/_custom_type_script = "uid://crrbtwoclhcmy"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(2, 2)
+offset_right = 2.0
+offset_bottom = 2.0

@@ -4,6 +4,7 @@ cutscene movement.
 add narator view.
 
 
+✓ z index problem on spawnable animation.
 ✓ error when refresh map after load.
 ✓ migrate to new database system for asset.
 ✓ internal switch event page action.
