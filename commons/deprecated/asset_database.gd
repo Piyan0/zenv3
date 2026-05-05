@@ -1,5 +1,3 @@
-class_name AssetDatabase
-
 enum {
     IMAGE = 0,
     MAP = 1,

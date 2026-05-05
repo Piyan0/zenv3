@@ -1,10 +1,10 @@
 dialogue portrait and finishing.
-internal switch in console.
-internal switch event page action.
 migrate to new database system for asset.
 grid movement loop.
 cutscene movement.
 spawnable animation with offset.
+internal switch in console.
+internal switch event page action.
 
 
 ✓ add filter items to inventory.

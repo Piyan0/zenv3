@@ -83,7 +83,7 @@ func _init():
             ,
         dk_ARGS_RULES : {
             0 : func(arg):
-                if !Bootstrap.asset_database.has_asset(AssetDatabase.MAP, arg):
+                if !Bootstrap.asset_loader.has_asset(arg):
                     return null
                 return arg,
             1 : func(arg):

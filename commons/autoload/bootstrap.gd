@@ -1,7 +1,6 @@
 extends Node
 
 var event_manager
-var asset_database
 var asset_loader
 var progression
 var map_manager
@@ -16,7 +15,6 @@ func _enter_tree():
     _create_mobile_control()
     asset_loader = AssetLoader.new()
     event_manager= _create_event_manager()
-    asset_database= AssetDatabase.new("res://vault/asset_database")
 
     progression= _boot_progression()
     progression.entries_changed.connect(

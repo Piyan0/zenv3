@@ -1,6 +1,8 @@
 {
 	"fields": {
-		"items_id": [2, 2, 1, 2],
+		"items_id": [
+			2
+		],
 		"player_map_id": ""
 	},
 	"progression": {
@@ -18,7 +20,7 @@
 		},
 		"_variables": {
 			"my_other_var": "Salwa.",
-			"my_var": 123.0
+			"my_var": 123
 		}
 	}
 }
