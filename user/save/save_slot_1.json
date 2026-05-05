@@ -1,9 +1,9 @@
 {
 	"fields": {
 		"items_id": [
-			1,
-			1,
-			2
+			1.0,
+			1.0,
+			2.0
 		],
 		"player_map_id": ""
 	},
@@ -22,7 +22,7 @@
 		},
 		"_variables": {
 			"my_other_var": "Salwa.",
-			"my_var": 123
+			"my_var": 123.0
 		}
 	}
 }

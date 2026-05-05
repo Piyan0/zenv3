@@ -1,9 +1,9 @@
 dialogue portrait and finishing.
 grid movement loop.
 cutscene movement.
-error when refresh map after load.
 
 
+✓ error when refresh map after load.
 ✓ migrate to new database system for asset.
 ✓ internal switch event page action.
 ✓ internal switch in console.

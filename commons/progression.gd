@@ -113,10 +113,10 @@ func set_internal_switch(event_id, internal_switch_id, value):
 func add_internal_switch(id):
     if id in _internal_switches: return
     _internal_switches[id]= {
-        EventPage.InternalSwitch.A: false,
-        EventPage.InternalSwitch.B: false,
-        EventPage.InternalSwitch.C: false,
-        EventPage.InternalSwitch.D: false,
+        str(EventPage.InternalSwitch.A): false,
+        str(EventPage.InternalSwitch.B): false,
+        str(EventPage.InternalSwitch.C): false,
+        str(EventPage.InternalSwitch.D): false,
     }
     
     

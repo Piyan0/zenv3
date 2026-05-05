@@ -45,7 +45,7 @@ func _init():
                 ,
             1: func(arg):
                 if !arg in EventPage.InternalSwitch: return null
-                return EventPage.InternalSwitch[arg]
+                return str(EventPage.InternalSwitch[arg])
                 ,
             2 : func(arg):
                 if arg == "on":
@@ -174,11 +174,3 @@ func _init():
     }
 
     _dump()
-    # autocomplete["ss"] = {
-    #     0 : func(text):
-    #         return TextReccomendation.new().get_recc(text, ["ev000", "ev001", "ev002", "ev003", "ev004"]),
-    #     1: func(typed_text):
-    #         return TextReccomendation.new().get_recc(typed_text, ["A", "B", "C", "D"]),
-    #     2: func(typed_text):
-    #         return TextReccomendation.new().get_recc(typed_text, ["on", "off"]),
-    # }

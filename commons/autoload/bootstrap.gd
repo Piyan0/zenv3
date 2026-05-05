@@ -48,12 +48,10 @@ func _create_save_system():
     sv.on_data_loaded.connect(
         func(save_data):
             progression.set_data(save_data["progression"])
-            #Inventory.items_id = save_data["items_id"]
     )
     sv.get_save_data = func():
         return {
             "progression" : progression.get_data(),
-            #"items_id" : Inventory.items_id,
         }
         
     return sv

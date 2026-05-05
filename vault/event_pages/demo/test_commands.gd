@@ -20,7 +20,6 @@ func _get_commands_list():
                     await push(["start_dialogue"])
         ])
         push(["set_iswitch", 1, true])
-        # Bootstrap.progression.set_switch("my_switch", true)
     
     commands[2] = func():
         await push(["get_var", "my_var", func(value):

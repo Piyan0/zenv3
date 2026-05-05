@@ -64,8 +64,8 @@ func is_event_active(
 func _internal_switch_pass(switches):
     assert(!switches.is_empty(), str(switches))
     if i_switch == InternalSwitch.NONE: return true
-    #print(switches)
-    return switches[i_switch] == true
+    # printt(switches, i_switch)
+    return switches[str(i_switch)] == true
 
 
 func _variable_pass(variables):
