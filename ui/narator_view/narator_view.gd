@@ -9,18 +9,12 @@ var _example_short_msg = "message."
 var _current_bg_id = ""
 
 func _ready() -> void:
+    tr_bg.hide()
     _dialogue_base = DialogueBase.new()
     _dialogue_base.on_progress = func(dialogue: NaratorDialogue, visible_characters, just_changed):
         if just_changed:
-           # print(1)
-            var bg = dialogue.get_bg()
-            if bg!= null:
-                if dialogue.bg_id != _current_bg_id:
-                    _current_bg_id = dialogue.bg_id
-                    await _close_image()
-                print(2)
-                _show_image(bg)
-                
+            _change_bg(dialogue.bg_id, dialogue.get_bg())
+            
         lb_msg.text = dialogue.msg
         lb_msg.visible_characters = visible_characters
      
@@ -36,6 +30,17 @@ func _input(event: InputEvent) -> void:
     _dialogue_base.input(event)
     
 
+func _change_bg(new_bg_id, img):
+    if img == null:
+        return
+        
+    if new_bg_id != _current_bg_id && tr_bg.visible:
+        await _close_image()
+    tr_bg.show()
+    await _show_image(img)
+    _current_bg_id = new_bg_id
+    
+
 func _show_image(img):
     tr_bg.texture = img
     var fade = AnimateFade.new(tr_bg, true, 0.5)
@@ -43,7 +48,7 @@ func _show_image(img):
     
 
 func _close_image():
-    var fade = AnimateFade.new(tr_bg, true, 0.5)
+    var fade = AnimateFade.new(tr_bg, false, 0.5)
     await fade.finished
     
     
