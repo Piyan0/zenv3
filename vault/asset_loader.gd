@@ -10,6 +10,7 @@ func _init():
 
 
 func get_asset(id):
+    assert(id in _assets, id)
     return load(_assets[id])
 
 
@@ -19,6 +20,7 @@ func has_asset(id):
 
 func _get_image_assets():
     _assets["img_screen"] = "res://assets/screen.png"
+    _assets["img_screen_transparent"] = "res://assets/screen_transparent.png"
     _assets["img_icon"] = "res://icon.svg"
 
 
