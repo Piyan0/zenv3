@@ -90,8 +90,9 @@ func _queue_dialogue_batch(name, msg):
 
 
 func _start_dialogue():
+    #print(_state["dialogue_batch"])
     var dialogue = load("uid://dws6emg1mc14n").instantiate()
-    dialogue.dialogue_batch = _state["dialogue_batch"]
-    _state.erase("dialogue_batch")
     Bootstrap.canvas.add_child(dialogue)
+    dialogue.set_dialogue_batch(_state["dialogue_batch"])
     await dialogue.dialogue_finished
+    _state.erase("dialogue_batch")

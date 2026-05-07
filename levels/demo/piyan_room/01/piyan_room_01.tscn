@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://k5lvxw6c0876" path="res://levels/demo/piyan_room/01/main.gd" id="1_3m4ff"]
 [ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="2_iwha2"]
-[ext_resource type="Script" uid="uid://dvav6oi166uv0" path="res://levels/demo/piyan_room/01/event_pages/demo/test_commands.gd" id="3_4ph8e"]
+[ext_resource type="Script" uid="uid://dglk4e6hilm8v" path="res://vault/event_commands_template/000.gd" id="3_4ph8e"]
 [ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="4_htmja"]
 [ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="5_dsneu"]
 [ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="6_ao5nd"]

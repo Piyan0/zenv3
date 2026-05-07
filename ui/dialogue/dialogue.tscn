@@ -66,7 +66,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Name" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-modulate = Color(0.455, 0.60125, 0.65, 1)
+modulate = Color(0.2629, 0.615775, 0.791857, 1)
 layout_mode = 2
 size_flags_vertical = 0
 text = "<speaker>"
@@ -83,9 +83,10 @@ modulate = Color(0.894922, 0.894922, 0.894922, 1)
 custom_minimum_size = Vector2(0, 29)
 layout_mode = 2
 size_flags_vertical = 3
-text = "<line001>"
+text = "pada jaman dahulu ada legenda yang menceritakan tentang suatu kisah yang- sangat mencengangkan dan juga sangat- mencengangkan."
 label_settings = ExtResource("1_8q5o4")
 autowrap_mode = 2
+justification_flags = 227
 visible_characters_behavior = 1
 
 [node name="Control" type="Control" parent="MarginContainer/MarginContainer"]
