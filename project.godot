@@ -49,6 +49,7 @@ ui_accept={
 [internationalization]
 
 locale/translations=PackedStringArray("res://vault/translations/001.en_US.translation", "res://vault/translations/001.id_ID.translation", "res://vault/translations/002.en_US.translation", "res://vault/translations/002.id_ID.translation", "res://vault/translations/003.en_US.translation", "res://vault/translations/003.id_ID.translation", "res://vault/translations/004.en_US.translation", "res://vault/translations/004.id_ID.translation")
+locale/test="id-ID"
 
 [layer_names]
 

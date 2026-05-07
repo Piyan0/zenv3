@@ -9,6 +9,7 @@ var _example_short_msg = "message."
 var _current_bg_id = ""
 
 func _ready() -> void:
+    print(tr("line_01"))
     tr_bg.hide()
     _dialogue_base = DialogueBase.new()
     _dialogue_base.on_progress = func(dialogue: NaratorDialogue, visible_characters, just_changed):
