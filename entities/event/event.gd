@@ -76,6 +76,9 @@ func get_collision_space():
     
     
 func is_interact(player: Player, input_event: InputEvent= null):
+    if active_event_page == null:
+        return false
+        
     match active_event_page.placement:
         EventPage.Placement.GROUND:
             return _is_interact_ground(player, input_event)

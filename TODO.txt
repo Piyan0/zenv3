@@ -2,9 +2,9 @@ dialogue portrait and finishing.
 grid movement loop.
 cutscene movement.
 add narator view.
-static event page commands.
 
 
+✓ static event page commands.
 ✓ player still can walk when console is opened after game r
 ✓ z index problem on spawnable animation.
 ✓ error when refresh map after load.

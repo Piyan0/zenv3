@@ -86,6 +86,7 @@ size_flags_vertical = 3
 text = "<line001>"
 label_settings = ExtResource("1_8q5o4")
 autowrap_mode = 2
+visible_characters_behavior = 1
 
 [node name="Control" type="Control" parent="MarginContainer/MarginContainer"]
 layout_mode = 2

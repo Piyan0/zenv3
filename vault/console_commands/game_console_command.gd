@@ -107,7 +107,7 @@ func _init():
 
     # TODO add autocomplete for map id.
     sub_commands["goto"] = {
-        dk_DOCS : "move to map. -map_id -x,y.",
+        dk_DOCS : "move to map. -map_id -x,y=0,0.",
         dk_ACTION : func(args):
             var map_id = args[0]
             var spawn_pos = args[1]
@@ -123,11 +123,17 @@ func _init():
                     return null
                 return arg,
             1 : func(arg):
+                if arg == null: return Vector2.ZERO
                 var vect_str = "Vector2({0})".format([arg])
                 var vect = str_to_var(vect_str)
                 if vect == null:
                     return null
                 return vect,
+        },
+        dk_AUTOCOMPLETE : {
+            0 : func(typed_text):
+                return text_recc.get_recc(typed_text, Bootstrap.asset_loader.get_keys("map"), 10)
+                ,
         },
     }
     

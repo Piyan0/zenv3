@@ -16,7 +16,14 @@ func get_asset(id):
 
 func has_asset(id):
     return id in _assets
-        
+
+
+func get_keys(prefix = ""):
+    var keys = _assets.keys()
+    return keys.filter(func(text: String):
+        return text.begins_with(prefix)
+    )
+    
 
 func _get_image_assets():
     _assets["img_screen"] = "res://assets/screen.png"
@@ -26,7 +33,8 @@ func _get_image_assets():
 
 func _get_map_assets():
     var map_base_path = "res://levels"
-    _assets["map_test"] = map_base_path + "/demo/main/Main.tscn"
+    _assets["map_piyan_room_01"] = map_base_path + "/demo/piyan_room/01/piyan_room_01.tscn"
+    _assets["map_piyan_room_02"] = map_base_path + "/demo/piyan_room/02/piyan_room_02.tscn"
     
 
 func _get_animation_data_assets():

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3xxo62kvqxtp"]
+
+[ext_resource type="Script" uid="uid://hauwh2jnpxfl" path="res://levels/demo/piyan_room/02/piyan_room_02.gd" id="1_o1oh3"]
+
+[node name="PiiyanRoom02" type="Node2D"]
+script = ExtResource("1_o1oh3")
+map_id = "piyan_room_02"
