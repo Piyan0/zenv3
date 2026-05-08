@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dyk86kgdrft2x"]
+[gd_scene load_steps=16 format=3 uid="uid://dyk86kgdrft2x"]
 
 [ext_resource type="Script" uid="uid://b1luavvlxm1ak" path="res://entities/player/player.gd" id="1_sglur"]
 [ext_resource type="Resource" uid="uid://yfmgx7t4yq4b" path="res://vault/animation_data/demo/walk_up.tres" id="2_26q78"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://crrbtwoclhcmy" path="res://commons/animation_process/animation_process.gd" id="8_a1qjk"]
 [ext_resource type="Resource" uid="uid://devhtq3gs3an" path="res://vault/animation_data/demo/idle_left.tres" id="8_j3ovn"]
 [ext_resource type="Resource" uid="uid://dft10wgsgq1u" path="res://vault/animation_data/demo/idle_right.tres" id="9_afbqv"]
+[ext_resource type="Script" uid="uid://be0l1f1nxulqo" path="res://entities/player/player_cutscene_movement.gd" id="13_j3ovn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkugw"]
 atlas = ExtResource("2_bls4j")
@@ -77,3 +78,6 @@ visible = false
 custom_minimum_size = Vector2(2, 2)
 offset_right = 2.0
 offset_bottom = 2.0
+
+[node name="PlayerCutsceneMovement" type="Node" parent="."]
+script = ExtResource("13_j3ovn")
