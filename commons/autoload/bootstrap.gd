@@ -20,16 +20,18 @@ func _enter_tree():
     progression.entries_changed.connect(
         func(it_switch, vars, gb_switch):
             event_manager.refresh_map(it_switch, vars, gb_switch)
+            if Player.instance:
+                Player.instance.update_active_animation(gb_switch)
     )
     #print(progression.get_data())
-    event_manager.map_refreshed.connect(
-        func(events):
-            var current_scene= get_tree().current_scene
-            if current_scene is Map:
-                var map_id= current_scene.map_id
-                for i in events:
-                    progression.add_internal_switch(i.get_internal_switch_id())
-    )
+    # event_manager.map_refreshed.connect(
+    #     func(events):
+    #         var current_scene= get_tree().current_scene
+    #         if current_scene is Map:
+    #             var map_id= current_scene.map_id
+    #             for i in events:
+    #                 progression.add_internal_switch(i.get_internal_switch_id())
+    # )
     map_manager= _boot_map_manager()
     save_system = _create_save_system()
     items_database= ItemsDatabase.new()

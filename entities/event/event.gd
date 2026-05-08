@@ -34,10 +34,6 @@ func _physics_process(delta):
         i.call_update(delta, self)
 
 
-func get_animation_process():
-    return animation_process
-
-
 func play_animation(anim_name):
     var anim = get_animation(anim_name)
     if anim != null:
@@ -45,12 +41,17 @@ func play_animation(anim_name):
 
 
 func get_animation(anim_name):
+    if !active_event_page: return null
     if active_event_page.walk_animations:
         if anim_name in active_event_page.walk_animations:
             return active_event_page.walk_animations[anim_name]
     if active_event_page.idle_animations:
         if anim_name in active_event_page.idle_animations:
             return active_event_page.idle_animations[anim_name]
+
+
+func get_animation_process():
+    return animation_process
 
 
 func get_internal_switch_id():

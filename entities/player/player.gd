@@ -2,23 +2,16 @@ class_name Player
 extends Node2D
 
 enum Direction{ UP, DOWN, LEFT, RIGHT }
-@export_group("Movement Animation")
-@export var walk_up: AnimationData
-@export var walk_down: AnimationData
-@export var walk_left: AnimationData
-@export var walk_right: AnimationData
-@export var idle_up: AnimationData
-@export var idle_down: AnimationData
-@export var idle_left: AnimationData
-@export var idle_right: AnimationData
-@export_group("")
+static var instance: Player
 
+@export var player_animations: Array[PlayerAnimationCollection]
 @export var initial_direction: Direction
 @export var animation_process: AnimationProcess
 @export var grid_mov: InputGridMovement
 @export var ray: RayCast2D
-static var instance: Player
 
+var last_direction
+var active_animation: PlayerAnimationCollection
 
 var lock_counter = 0:
     set(value):
@@ -31,23 +24,21 @@ var lock_counter = 0:
 
 
 func _ready():
+    last_direction = initial_direction
+    var progression_data= Bootstrap.progression.get_data()
+    update_active_animation(progression_data[Progression.KEY_GLOBAL_SWITCHES])
+    
     instance= self
     match initial_direction:
         Direction.UP:
-            animation_process.change_animation(idle_up)
+            play_animation("idle_up")
         Direction.DOWN:
-            animation_process.change_animation(idle_down)
+            play_animation("idle_down")
         Direction.LEFT:
-            animation_process.change_animation(idle_left)
+            play_animation("idle_left")
         Direction.RIGHT:
-            animation_process.change_animation(idle_right)
+            play_animation("idle_right")
         
-    #grid_mov.on_sprint_changed= func(sprint):
-        #if sprint:
-            #anim.speed_scale= 1.8
-        #else:
-            #anim.speed_scale= 1.5
-    #
     grid_mov.can_move= func(dir):
         var angles= [-20, 0, 20]
         for i in angles:
@@ -64,29 +55,56 @@ func _ready():
             Vector2.ZERO:
                 match prev:
                     Vector2.UP:
-                        animation_process.change_animation(idle_up)
+                        play_animation("idle_up")
                     Vector2.DOWN:
-                        animation_process.change_animation(idle_down)
+                        play_animation("idle_down")
                     Vector2.LEFT:
-                        animation_process.change_animation(idle_left)
+                        play_animation("idle_left")
                     Vector2.RIGHT:
-                        animation_process.change_animation(idle_right)
+                        play_animation("idle_right")
             Vector2.UP:
-                animation_process.change_animation(walk_up)
+                last_direction = Direction.UP
+                play_animation("walk_up")
             Vector2.DOWN:
-                animation_process.change_animation(walk_down)
+                last_direction = Direction.DOWN
+                play_animation("walk_down")
             Vector2.LEFT:
-                animation_process.change_animation(walk_left)
+                last_direction = Direction.LEFT
+                play_animation("walk_left")
             Vector2.RIGHT:
-                animation_process.change_animation(walk_right)
+                last_direction = Direction.RIGHT
+                play_animation("walk_right")
   
 
+func update_active_animation(global_switches):
+    var anims_reversed = player_animations.duplicate()
+    anims_reversed.reverse()
+    for i in anims_reversed:
+        if i.is_active(global_switches):
+            active_animation = i
+            _active_animation_changed(i)
+            return
+    
+    
+func play_animation(anim_name):
+    var anim = get_animation(anim_name)
+    if anim != null:
+        animation_process.change_animation(anim)
+
+ 
+func get_animation(anim_name):
+    if !active_animation: return
+    if active_animation.walk_animations:
+        if anim_name in active_animation.walk_animations:
+            return active_animation.walk_animations[anim_name]
+    if active_animation.idle_animations:
+        if anim_name in active_animation.idle_animations:
+            return active_animation.idle_animations[anim_name]
+
+    
+    
 func get_animation_process():
     return animation_process
-
-
-func get_animation(anim_name):
-    return self[anim_name]
 
 
 func get_latest_collider():
@@ -96,3 +114,15 @@ func get_latest_collider():
 
 func is_moving():
     return grid_mov.is_moving()
+
+
+func _active_animation_changed(player_anim: PlayerAnimationCollection):
+    match last_direction:
+        Direction.UP:
+            play_animation("idle_up")
+        Direction.DOWN:
+            play_animation("idle_down")
+        Direction.LEFT:
+            play_animation("idle_left")
+        Direction.RIGHT:
+            play_animation("idle_right")

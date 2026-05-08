@@ -16,22 +16,22 @@ func _ready():
             Vector2.ZERO:
                 match prev_dir:
                     Vector2.UP:
-                        parent.get_animation_process().change_animation(parent.get_animation("idle_up"))
+                        parent.play_animation("idle_up")
                     Vector2.DOWN:
-                        parent.get_animation_process().change_animation(parent.get_animation("idle_down"))
+                        parent.play_animation("idle_down")
                     Vector2.LEFT:
-                        parent.get_animation_process().change_animation(parent.get_animation("idle_left"))
+                        parent.play_animation("idle_left")
                     Vector2.RIGHT:
-                        parent.get_animation_process().change_animation(parent.get_animation("idle_right"))
+                        parent.play_animation("idle_right")
 
             Vector2.UP:
-                parent.get_animation_process().change_animation(parent.get_animation("walk_up"))
+                parent.play_animation("walk_up")
             Vector2.DOWN:
-                parent.get_animation_process().change_animation(parent.get_animation("walk_down"))
+                parent.play_animation("walk_down")
             Vector2.LEFT:
-                parent.get_animation_process().change_animation(parent.get_animation("walk_left"))
+                parent.play_animation("walk_left")
             Vector2.RIGHT:
-                parent.get_animation_process().change_animation(parent.get_animation("walk_right"))
+                parent.play_animation("walk_right")
 
 
     parent.set_meta("set_movement_repeat", func(repeat):
