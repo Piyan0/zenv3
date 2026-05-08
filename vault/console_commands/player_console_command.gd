@@ -5,12 +5,21 @@ extends ConsoleCommand
 func _init() -> void:
     var text_recc = TextReccomendation.new()
     prefix = "player"
+    
+    sub_commands["g"] = {
+        dk_DOCS : "toggle player god mode.",
+        dk_ACTION : func(args):
+            Player.god_mode = !Player.god_mode
+    }
 
     sub_commands["p"] = {
-        dk_DOCS : "move player to specified position. -x,y.",
+        dk_DOCS : "move player to specified position. -x,y flag(--relative).",
         dk_ACTION : func(args):
             if Player.instance:
-                Player.instance.position = args[0],
+                if args[1] == "--relative":
+                    Player.instance.position += args[0]
+                else:
+                    Player.instance.position = args[0],
         dk_ARGS_RULES : {
             0 : func(arg):
                 var vect_str = "Vector2({0})".format([arg])

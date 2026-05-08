@@ -21,7 +21,7 @@ func _get_commands_list():
 # @autocomplete
 #{autocomplete}
 """)
-var generate_amount = 1
+var generate_amount = 5
 func _run():
     var path = EditorInterface.get_selected_paths()
     if path.is_empty():

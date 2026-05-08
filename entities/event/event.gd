@@ -110,7 +110,6 @@ func is_interact(player: Player, input_event: InputEvent= null):
 func interact(player):
     if !can_interact:
         return
-        
     var direction_from_player= player.position - position
     direction_from_player= direction_from_player.normalized()
     

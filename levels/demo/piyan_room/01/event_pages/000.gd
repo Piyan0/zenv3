@@ -5,7 +5,8 @@ func _get_commands_list():
     var commands = {}
     # start from index one.
     commands[1] = func():
-        await push(["move", "player", ["down", "down", "down", "left"]])
+        await push(["push_dialogue", "fred", "Wah, selamat ya! Akhirnya kamu bisa mendalami bidang yang paling kamu sukai dulu. Kalau aku, seperti tebakanmu dulu, aku ambil jurusan Sejarah di Lady Shri Ram College, Delhi"])
+        await push(["start_dialogue"])
         
     commands[2] = func():
         await push([""])

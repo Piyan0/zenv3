@@ -3,6 +3,7 @@ extends Node2D
 
 enum Direction{ UP, DOWN, LEFT, RIGHT }
 static var instance: Player
+static var god_mode = false
 
 @export var player_animations: Array[PlayerAnimationCollection]
 @export var initial_direction: Direction
@@ -40,6 +41,8 @@ func _ready():
             play_animation("idle_right")
         
     grid_mov.can_move= func(dir):
+        if god_mode:
+            return true
         var angles= [-20, 0, 20]
         for i in angles:
             ray.rotation_degrees= i
@@ -110,7 +113,7 @@ func get_animation_process():
 func get_latest_collider():
     ray.force_raycast_update()
     return ray.get_collider()
-    
+
 
 func is_moving():
     return grid_mov.is_moving()

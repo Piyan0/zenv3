@@ -65,8 +65,12 @@ func _init() -> void:
     _actions["has_item"] = func(item_id):
         pass
         
-    _actions["goto"] = func(map_id, pos):
-        pass
+    _actions["goto"] = func(map_id, pos, dir):
+        var tf_data = MapManager.PlayerTransferData.new()
+        tf_data.map_id = map_id
+        tf_data.spawn_pos = pos
+        tf_data.direction = dir
+        await Bootstrap.map_manager.goto(tf_data)
         
     _actions["spawn_animation_player"] = func(animation_id):
         pass

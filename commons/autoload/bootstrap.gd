@@ -38,6 +38,9 @@ func _enter_tree():
     
     if OS.is_debug_build():
         _create_dev_console()
+    else:
+        RenderingServer.set_default_clear_color(Color.BLACK)
+
 
 
 func _create_save_system():

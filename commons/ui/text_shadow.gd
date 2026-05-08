@@ -8,7 +8,7 @@ var clone
 
 func _ready():
     # target.visibility_changed.connect(_setup)
-
+    await get_tree().process_frame
     clone= target.duplicate()
     clone.set_script(null)
     target.add_child(clone)

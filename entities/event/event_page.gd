@@ -46,7 +46,7 @@ var event_commands: Callable
 func exec_commands() -> void:
     for static_command in static_command_list:
         await static_command.run_command()
-        
+    
     await event_commands.call()
 
 

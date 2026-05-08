@@ -11,5 +11,5 @@ delay_each_frame = 0.1
 is_loop = true
 frames_index = Array[int]([12, 13, 14, 15])
 tile_size = Vector2(16, 21)
-offset = Vector2(0, -19)
+offset = Vector2(0, -20)
 metadata/_custom_type_script = "uid://dsnkbelrc631k"

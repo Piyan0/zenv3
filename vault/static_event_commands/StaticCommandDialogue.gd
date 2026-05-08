@@ -8,6 +8,6 @@ func _command():
     var ev_page = EventPageActions.new()
     for i in dialogue_list:
         var split_text = i.split("$")
-        ev_page.push(["push_dialogue", split_text[0], split_text[1]])
+        ev_page.push(["push_dialogue", tr(split_text[0]), tr(split_text[1])])
         
     await ev_page.push(["start_dialogue"])

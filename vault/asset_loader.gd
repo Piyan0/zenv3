@@ -32,10 +32,17 @@ func _get_image_assets():
 
 
 func _get_map_assets():
-    var map_base_path = "res://levels"
-    _assets["map_piyan_room_01"] = map_base_path + "/demo/piyan_room/01/piyan_room_01.tscn"
-    _assets["map_piyan_room_02"] = map_base_path + "/demo/piyan_room/02/piyan_room_02.tscn"
-    _assets["map_piyan_room_03"] = map_base_path + "/demo/piyan_room/03/piyan_room_03.tscn"
+    var map_base_path = "res://levels/"
+    _assets["map_piyan_room_01"] = map_base_path + "demo/piyan_room/01/piyan_room_01.tscn"
+    _assets["map_piyan_room_02"] = map_base_path + "demo/piyan_room/02/piyan_room_02.tscn"
+    _assets["map_piyan_room_03"] = map_base_path + "demo/piyan_room/03/piyan_room_03.tscn"
+    _assets["map_level_01_01"] = map_base_path + "/level_01/01/map.tscn"
+    _assets["map_level_01_02"] = map_base_path + "/level_01/02/map.tscn"
+    _assets["map_level_01_03"] = map_base_path + "/level_01/03/map.tscn"
+    _assets["map_level_01_04"] = map_base_path + "/level_01/04/map.tscn"
+    _assets["map_level_01_05"] = map_base_path + "/level_01/05/map.tscn"
+    _assets["map_level_01_06"] = map_base_path + "/level_01/06/map.tscn"
+    _assets["map_level_01_07"] = map_base_path + "/level_01/07/map.tscn"
     
 
 func _get_animation_data_assets():
