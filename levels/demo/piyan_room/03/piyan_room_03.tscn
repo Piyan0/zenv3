@@ -1,52 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dku64chs35fsw"]
+[gd_scene load_steps=2 format=3 uid="uid://dku64chs35fsw"]
 
 [ext_resource type="Script" uid="uid://cpuurkkj4ksm7" path="res://commons/map.gd" id="1_goqpi"]
-[ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="2_dbxyi"]
-[ext_resource type="Script" uid="uid://dsmjcgbhywrfl" path="res://vault/event_commands_template/002.gd" id="3_8r4xq"]
-[ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="4_a7h64"]
-[ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="5_i0dvv"]
-[ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="6_c5u3p"]
-
-[sub_resource type="Resource" id="Resource_xn3aw"]
-script = ExtResource("4_a7h64")
-event_commands_id = 1
-offset = Vector2(0, 0)
-trigger = 2
-placement = 2
-i_switch = 0
-variable = "empty"
-variable_value = -1
-global_switch_001 = "empty"
-global_switch_001_value = false
-global_switch_002 = "empty"
-global_switch_002_value = false
-event_traits = Array[ExtResource("5_i0dvv")]([])
-static_command_list = Array[ExtResource("6_c5u3p")]([])
-metadata/_custom_type_script = "uid://c3bjilqd18jq"
-
-[sub_resource type="Resource" id="Resource_dbxyi"]
-script = ExtResource("4_a7h64")
-event_commands_id = 2
-offset = Vector2(0, 0)
-trigger = 1
-placement = 2
-i_switch = 1
-variable = "empty"
-variable_value = -1
-global_switch_001 = "empty"
-global_switch_001_value = false
-global_switch_002 = "empty"
-global_switch_002_value = false
-event_traits = Array[ExtResource("5_i0dvv")]([])
-static_command_list = Array[ExtResource("6_c5u3p")]([])
-metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="PiyanRoom03" type="Node2D"]
 script = ExtResource("1_goqpi")
 map_id = "piyan_room_03"
 metadata/_custom_type_script = "uid://cpuurkkj4ksm7"
-
-[node name="ev000" parent="." instance=ExtResource("2_dbxyi")]
-position = Vector2(64, 80)
-_commands_source = ExtResource("3_8r4xq")
-eventpages = Array[ExtResource("4_a7h64")]([SubResource("Resource_xn3aw"), SubResource("Resource_dbxyi")])

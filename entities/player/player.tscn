@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://crrbtwoclhcmy" path="res://commons/animation_process/animation_process.gd" id="8_a1qjk"]
 [ext_resource type="Resource" uid="uid://devhtq3gs3an" path="res://vault/animation_data/demo/idle_left.tres" id="8_j3ovn"]
 [ext_resource type="Resource" uid="uid://dft10wgsgq1u" path="res://vault/animation_data/demo/idle_right.tres" id="9_afbqv"]
-[ext_resource type="Script" uid="uid://be0l1f1nxulqo" path="res://entities/player/player_cutscene_movement.gd" id="13_j3ovn"]
+[ext_resource type="Script" uid="uid://nag5gx806bqk" path="res://entities/player/player_event_actions.gd" id="13_j3ovn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkugw"]
 atlas = ExtResource("2_bls4j")
@@ -79,5 +79,6 @@ custom_minimum_size = Vector2(2, 2)
 offset_right = 2.0
 offset_bottom = 2.0
 
-[node name="PlayerCutsceneMovement" type="Node" parent="."]
+[node name="PlayerEventActions" type="Node" parent="." node_paths=PackedStringArray("parent")]
 script = ExtResource("13_j3ovn")
+parent = NodePath("..")

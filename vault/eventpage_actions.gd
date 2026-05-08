@@ -1,5 +1,8 @@
 class_name EventPageActions
 
+enum Direction{
+    UP, DOWN, LEFT, RIGHT
+}
 
 var _actions = {}
 var _state = {}
@@ -71,10 +74,43 @@ func _init() -> void:
     _actions["spawn_animation_world"] = func(animation_id, pos):
         pass
 
+    _actions["transfer"] = func(target: String, x , y):
+        var instance = Player.instance
+        if target != "player":
+            instance = Event.get_by_id(target)
+        
+        if instance:
+            var mk_transfer = "transfer"
+            if instance.has_meta(mk_transfer):
+                instance.get_meta(mk_transfer).call(Vector2(x,y))
+    
+
+    _actions["move"] = func(target: String, arr_dir: Array):
+        var instance = Player.instance
+        if target != "player":
+            instance = Event.get_by_id(target)
+        var parse_dir = func():
+            var r = []
+            for i in arr_dir:
+                match i:
+                    "up":
+                        r.push_back(Vector2.UP)
+                    "down":
+                        r.push_back(Vector2.DOWN)
+                    "left":
+                        r.push_back(Vector2.LEFT)
+                    "right":
+                        r.push_back(Vector2.RIGHT)
+            return r
+
+        if instance:
+            var mk_set_routes = "set_routes"
+            if instance.has_meta(mk_set_routes):
+                await instance.get_meta(mk_set_routes).call(parse_dir.call())
+
 
 # first element (at index 0 should be the key of '_actions', rest is call arguments.)
 func push(args = []):
-    # print(args)
     var id = args.pop_front()
     var result = await _actions[id].callv(args) 
     return result

@@ -15,6 +15,7 @@ enum Direction{ UP, DOWN, LEFT, RIGHT }
 @export var tile_size= Vector2(16,16)
 @export var routes: Array[Direction]
 @export var trait_idle: TraitIdleAnimation
+@export var start_on_ready = true
 
 var _walk_anim_process: AnimationProcess
 var _wandering_node: WanderingNode
@@ -91,7 +92,6 @@ func _enter(event):
                 r.push_back(_direction_map[i])
             return r
         
-        # print(1)
         _grid_mov.routes= parsed_routes.call()
     
     

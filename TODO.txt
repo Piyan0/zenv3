@@ -1,9 +1,10 @@
 dialogue portrait and finishing.
-grid movement loop.
-cutscene movement.
 add narator view.
-impelement moving text on dialogue if overflow.
+cutscene movement.
 
+
+✓ grid movement loop.
+✓ impelement moving text on dialogue if overflow.
 ✓ static event page commands.
 ✓ player still can walk when console is opened after game r
 ✓ z index problem on spawnable animation.

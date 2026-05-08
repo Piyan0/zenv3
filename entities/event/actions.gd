@@ -1,0 +1,41 @@
+extends Node
+
+@export var parent: Node2D
+@export var speed = 30
+
+func _ready() -> void:
+    parent.set_meta("transfer", func(pos):
+        parent.global_position = pos    
+    )
+    _create_grid_movement()
+
+
+func _create_grid_movement():
+    var grid = GridMovement.new(parent)
+    grid.on_direction_changed = func(dir, prev_dir):
+        match dir:
+            Vector2.ZERO:
+                match prev_dir:
+                    Vector2.UP:
+                       parent.play_animation("idle_up")
+                    Vector2.DOWN:
+                       parent.play_animation("idle_down")
+                    Vector2.LEFT:
+                       parent.play_animation("idle_left")
+                    Vector2.RIGHT:
+                       parent.play_animation("idle_right")
+
+            Vector2.UP:
+               parent.play_animation("walk_up")
+            Vector2.DOWN:
+               parent.play_animation("walk_down")
+            Vector2.LEFT:
+               parent.play_animation("walk_left")
+            Vector2.RIGHT:
+               parent.play_animation("walk_right")
+
+    
+    parent.set_meta("set_routes", func(routes):
+        grid.routes = routes
+        await grid.movement_finished
+    )

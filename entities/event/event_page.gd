@@ -16,7 +16,12 @@ enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 
 @export var event_commands_id : EventCommandsID = EventCommandsID.Commands_001
 @export var graphic: Texture2D
-@export var offset= Vector2.ZERO
+@export var graphic_offset= Vector2.ZERO
+
+@export_group("animations")
+@export var walk_animations: WalkAnimationCollection
+@export var idle_animations: IdleAnimationCollection
+@export_group("")
 
 @export var trigger: Trigger= Trigger.INTERACT_BUTTON
 @export var placement: Placement= Placement.GROUND

@@ -8,6 +8,7 @@ signal interact_finished()
 @export var area: Area2D
 @export var spr: Sprite2D
 @export var colls_shape: CollisionShape2D
+@export var animation_process: AnimationProcess
 
 var instances = []
 var is_interact_running= false
@@ -31,6 +32,25 @@ func _physics_process(delta):
     if !active_event_page: return
     for i in active_event_page.event_traits:
         i.call_update(delta, self)
+
+
+func get_animation_process():
+    return animation_process
+
+
+func play_animation(anim_name):
+    var anim = get_animation(anim_name)
+    if anim != null:
+        animation_process.change_animation(anim) 
+
+
+func get_animation(anim_name):
+    if active_event_page.walk_animations:
+        if anim_name in active_event_page.walk_animations:
+            return active_event_page.walk_animations[anim_name]
+    if active_event_page.idle_animations:
+        if anim_name in active_event_page.idle_animations:
+            return active_event_page.idle_animations[anim_name]
 
 
 func get_internal_switch_id():
@@ -126,7 +146,7 @@ func _active_event_changed(event_page: EventPage):
     event_page.event_commands = _commands.get_event_commands(event_page.event_commands_id)
     area.collision_layer = 0
     spr.texture= event_page.graphic
-    spr.offset= event_page.offset
+    spr.offset= event_page.graphic_offset
     match event_page.placement:
         EventPage.Placement.BELOW_GROUND:
             area.set_collision_layer_value(1, true)

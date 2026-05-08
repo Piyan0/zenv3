@@ -58,7 +58,7 @@ func _ready():
                 return false
             
         return true
-        
+
     grid_mov.on_direction_changed= func(dir, prev):
         match dir:
             Vector2.ZERO:
@@ -80,6 +80,14 @@ func _ready():
             Vector2.RIGHT:
                 animation_process.change_animation(walk_right)
   
+
+func get_animation_process():
+    return animation_process
+
+
+func get_animation(anim_name):
+    return self[anim_name]
+
 
 func get_latest_collider():
     ray.force_raycast_update()

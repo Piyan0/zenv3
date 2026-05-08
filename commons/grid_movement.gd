@@ -1,17 +1,21 @@
 class_name GridMovement
+extends Node
+
+signal movement_finished()
 
 var target: Node2D
 var tile_size= Vector2(16,16)
 var can_move= func(tile_region): return true
 var on_direction_changed= func(dir, prev_dir): pass
 var on_claim_tile= func(tile_region): pass
+var repeat = false
 var routes= [Vector2.DOWN]:
     set(value):
         routes= value
         _start_move()
         
 var delay= 0
-var speed= 5
+var speed= 30
 
 var _dir= Vector2.ZERO
 var _prev_dir= Vector2.ZERO
@@ -25,6 +29,8 @@ var _cb_to_run_after_stop: Callable
 
 func _init(p_target):
     target= p_target
+    p_target.add_child.call_deferred(self)
+    
 
 
 func update(_delta):
@@ -84,9 +90,26 @@ func _start_move():
         _t.tween_property(target, "position", pos, _get_speed())
         
     await _t.finished
+    _handle_movement_finished()
     _invoke_direction_changed(Vector2.ZERO)
     _is_moving= false
         
+
+func _handle_movement_finished():
+    if repeat:
+        var inverted_routes = func():
+            var r = []
+            var routes_reversed = routes.duplicate()
+            routes_reversed.reverse()
+            for i: Vector2 in routes_reversed:
+                r.push_back(i * -1)
+            return r
+        
+        var new_routes = inverted_routes.call()
+        routes = new_routes
+    else:
+        movement_finished.emit()
+
 
 func _invoke_direction_changed(dir):
     _dir= dir
