@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="PlayerAnimationCollection" load_steps=14 format=3 uid="uid://ckso1s44v0kq2"]
+
+[ext_resource type="Resource" uid="uid://c5ymqviscb0s2" path="res://vault/animation_data/fred_idle_down.tres" id="1_0hprt"]
+[ext_resource type="Script" uid="uid://cu54lgwjyo2bn" path="res://commons/player_animation_collection.gd" id="1_8jn3u"]
+[ext_resource type="Script" uid="uid://dppwvvxbnd1y3" path="res://commons/walk_animation_collection.gd" id="2_8fum2"]
+[ext_resource type="Resource" uid="uid://d2yj75oqlrgx5" path="res://vault/animation_data/fred_idle_left.tres" id="2_gocne"]
+[ext_resource type="Resource" uid="uid://xqin8wx26qgs" path="res://vault/animation_data/fred_walk_down.tres" id="3_nqgto"]
+[ext_resource type="Resource" uid="uid://c0qvn1v16rx63" path="res://vault/animation_data/fred_idle_right.tres" id="3_uy5gx"]
+[ext_resource type="Resource" uid="uid://dorbxdcs3olf7" path="res://vault/animation_data/fred_walk_left.tres" id="4_8hygi"]
+[ext_resource type="Resource" uid="uid://quvhwfv2xlto" path="res://vault/animation_data/fred_idle_up.tres" id="4_eix5p"]
+[ext_resource type="Script" uid="uid://cpejx1nq0nk1j" path="res://commons/idle_animation_collection.gd" id="5_f2dyk"]
+[ext_resource type="Resource" uid="uid://4kng411fmt3l" path="res://vault/animation_data/fred_walk_right.tres" id="5_wkacg"]
+[ext_resource type="Resource" uid="uid://c34ulfpvgqfcc" path="res://vault/animation_data/fred_walk_up.tres" id="6_dh1ss"]
+
+[sub_resource type="Resource" id="Resource_oea2v"]
+script = ExtResource("5_f2dyk")
+idle_up = ExtResource("4_eix5p")
+idle_down = ExtResource("1_0hprt")
+idle_left = ExtResource("2_gocne")
+idle_right = ExtResource("3_uy5gx")
+metadata/_custom_type_script = "uid://cpejx1nq0nk1j"
+
+[sub_resource type="Resource" id="Resource_0hprt"]
+script = ExtResource("2_8fum2")
+walk_up = ExtResource("6_dh1ss")
+walk_down = ExtResource("3_nqgto")
+walk_left = ExtResource("4_8hygi")
+walk_right = ExtResource("5_wkacg")
+metadata/_custom_type_script = "uid://dppwvvxbnd1y3"
+
+[resource]
+script = ExtResource("1_8jn3u")
+switch = "[empty]"
+idle_animations = SubResource("Resource_oea2v")
+walk_animations = SubResource("Resource_0hprt")
+metadata/_custom_type_script = "uid://cu54lgwjyo2bn"

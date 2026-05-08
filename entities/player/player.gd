@@ -90,7 +90,7 @@ func play_animation(anim_name):
     var anim = get_animation(anim_name)
     if anim != null:
         animation_process.change_animation(anim)
-
+    
  
 func get_animation(anim_name):
     if !active_animation: return

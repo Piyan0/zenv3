@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://dws6emg1mc14n"]
 
-[ext_resource type="LabelSettings" uid="uid://3wboop2jrvep" path="res://assets/styles/default.tres" id="1_8q5o4"]
 [ext_resource type="Script" uid="uid://b6tm0yxyg6yig" path="res://ui/dialogue/dialogue.gd" id="1_jy5du"]
 [ext_resource type="Texture2D" uid="uid://c1jdvprvedoin" path="res://assets/ui_sheet.png" id="2_135c7"]
 [ext_resource type="Script" uid="uid://qqm40ogn6vp2" path="res://commons/ui/text_shadow.gd" id="2_h4lfh"]
+[ext_resource type="LabelSettings" uid="uid://bcaegaq2amce6" path="res://assets/styles/default2.tres" id="3_vqqoj"]
 [ext_resource type="Script" uid="uid://cimwh7dvhh4av" path="res://commons/ui/animate_offset_loop.gd" id="4_r2qx3"]
 [ext_resource type="Texture2D" uid="uid://ct2a4pty6207s" path="res://assets/icons/icon_down.png" id="4_vqqoj"]
 [ext_resource type="Texture2D" uid="uid://xefhbho3cth2" path="res://assets/portraits/bob.png" id="6_135c7"]
@@ -16,6 +16,7 @@ region = Rect2(0, 0, 16, 16)
 
 [node name="Dialogue" type="CanvasLayer" node_paths=PackedStringArray("container", "lb_name", "lb_msg", "next_indicator")]
 script = ExtResource("1_jy5du")
+max_char_one_line = 32
 container = NodePath("MarginContainer")
 lb_name = NodePath("MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/Name")
 lb_msg = NodePath("MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/Content")
@@ -70,7 +71,7 @@ modulate = Color(0.2629, 0.615775, 0.791857, 1)
 layout_mode = 2
 size_flags_vertical = 0
 text = "<speaker>"
-label_settings = ExtResource("1_8q5o4")
+label_settings = ExtResource("3_vqqoj")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -80,11 +81,11 @@ theme_override_constants/margin_right = 12
 
 [node name="Content" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
 modulate = Color(0.894922, 0.894922, 0.894922, 1)
-custom_minimum_size = Vector2(0, 29)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 size_flags_vertical = 3
-text = "pada jaman dahulu ada legenda yang menceritakan tentang suatu kisah yang- sangat mencengangkan dan juga sangat- mencengangkan."
-label_settings = ExtResource("1_8q5o4")
+text = "<line>"
+label_settings = ExtResource("3_vqqoj")
 autowrap_mode = 2
 justification_flags = 227
 visible_characters_behavior = 1
