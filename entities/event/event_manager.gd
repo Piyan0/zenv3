@@ -59,4 +59,4 @@ func get_event(id: String):
 
 
 func _delay_after_interact():
-    await get_tree().create_timer(0.33).timeout
+    await get_tree().process_frame

@@ -28,17 +28,30 @@ var _destination_pos
 var _start_pos
 var _default_speed
 var _prev_sprint_state= false
-
+var _current_input_dir = Vector2.ZERO
 
 func _ready() -> void:
     _default_speed= speed
     pass
 
 
+func _unhandled_input(event: InputEvent):
+    if event.is_action_pressed("ui_up"):
+        _current_input_dir= Vector2.UP
+    elif event.is_action_pressed("ui_down"):
+        _current_input_dir= Vector2.DOWN
+    elif event.is_action_pressed("ui_left"):
+        _current_input_dir= Vector2.LEFT
+    elif event.is_action_pressed("ui_right"):
+        _current_input_dir= Vector2.RIGHT
+    elif !_is_move_key_pressed():
+        _current_input_dir = Vector2.ZERO
+
+    
+
 func _physics_process(delta: float) -> void:
-    _update_input()
+    _process_input_dir()
     _update_destination()
-    _update_sprint_mode()
     _process_moving(delta)
 
 
@@ -46,34 +59,24 @@ func is_moving():
     return _is_moving
 
 
-func _update_input():
+func _update_destination():
+    if _is_moving:
+        return
+
+    _start_pos= target.position
+    _destination_pos= target.position + (Vector2(tile_size, tile_size) * _direction)
+
+
+func _process_input_dir():
     if _is_moving:
         return
     if lock_input:
         return
-
-    if Input.is_action_pressed("ui_up"):
-        _direction= Vector2.UP
-    elif Input.is_action_pressed("ui_down"):
-        _direction= Vector2.DOWN
-    elif Input.is_action_pressed("ui_left"):
-        _direction= Vector2.LEFT
-    elif Input.is_action_pressed("ui_right"):
-        _direction= Vector2.RIGHT
-    else:
-        _direction= Vector2.ZERO
-
+    
+    _direction = _current_input_dir
     if _prev_direction!= _direction:
         on_direction_changed.call(_direction, _prev_direction)
-
     _prev_direction= _direction
-
-
-func _update_destination():
-    if _is_moving:
-        return
-    _start_pos= target.position
-    _destination_pos= target.position + (Vector2(tile_size, tile_size) * _direction)
 
 
 func _process_moving(delta):
@@ -81,7 +84,6 @@ func _process_moving(delta):
 
     if !_is_moving:
         if !can_move.call(_direction):
-            # print(_is_moving)
             return
 
     _is_moving= true 
@@ -106,4 +108,14 @@ func _update_sprint_mode():
 
 func _get_time(p_speed):
     return tile_size / float(p_speed)
+    
 
+func _is_move_key_pressed():
+    var keys = ["ui_up", "ui_down", "ui_left", "ui_right"]
+    var pressed_status = []
+    for i in keys:
+        pressed_status.push_back(Input.is_action_pressed(i))
+    
+    return pressed_status.any(func(value):
+        return value == true
+    )
