@@ -8,6 +8,12 @@ size = Vector2(16, 16)
 [node name="MapBase" type="Node2D" unique_id=279109716]
 script = ExtResource("1_tud3c")
 
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=187995610]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+border_width = 2.0
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1877365204]
 modulate = Color(0.5449743, 0.54497427, 0.54497427, 1)
 centered = false
@@ -18,9 +24,3 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=180166799]
 shape = SubResource("RectangleShape2D_fsu8c")
-
-[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=187995610]
-custom_minimum_size = Vector2(16, 16)
-offset_right = 16.0
-offset_bottom = 16.0
-border_width = 2.0

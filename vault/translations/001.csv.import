@@ -15,3 +15,5 @@ dest_files=["res://vault/translations/001.id_ID.translation", "res://vault/trans
 
 compress=true
 delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -2,6 +2,7 @@ $player
 
 /default: this is default documentation.
 g: toggle player god mode.
+i: add item.
 p: move player to specified position. -x,y flag(--relative).
 m: move to marker position. -marker_id.
 e: move player to event position. -event_id.

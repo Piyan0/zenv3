@@ -47,7 +47,7 @@ func _enter_tree():
 func _create_save_system():
     var sv = SaveSystem.new("res://user/save")
     sv.fields = {
-        "items_id" : [1,1,2],
+        "items_id" : [],
         "player_map_id" : "",
     }
     

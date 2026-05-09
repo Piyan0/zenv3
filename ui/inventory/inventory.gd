@@ -2,7 +2,7 @@ class_name Inventory
 extends CanvasLayer
 signal inventory_closed(items_used)
 
-@export var items_id = [1, 2, 1, 2]
+@export var items_id = [1, 2, 3, 4, 5, 6, 7 ,9]
 @export var items_container: Control
 @export var lb_desc: Label
 @export var tr_item_icon: TextureRect

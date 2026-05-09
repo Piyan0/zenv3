@@ -1,2 +1,10 @@
-(1) letter.
-(2) key.
+(1) item_id_card.
+(2) item_lab_liquid.
+(3) item_battery.
+(4) item_vaccine.
+(5) item_baseball_bat.
+(6) item_gas.
+(7) item_flint.
+(8) item_scope.
+(9) item_green_crystal.
+(10) item_green_liquid.

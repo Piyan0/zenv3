@@ -25,8 +25,8 @@ func render_items(items: Array):
     var idx = 1
     for i in items:
         var item_view = load("uid://ci8j8b57p3nvg").instantiate()
-        item_view.description = i.description
-        item_view.item_name = i.name
+        item_view.description = tr(i.description)
+        item_view.item_name = tr(i.name)
         item_view.set_meta("item", i)
         item_view.set_index(idx)
         _items_view_added.push_back(item_view)

@@ -49,6 +49,9 @@ func _init() -> void:
 	_actions["erase_item"] = func(id):
 		Bootstrap.save_system.fields["items_id"].erase(id)
 	
+	_actions["add_item"] = func(id):
+		Bootstrap.save_system.fields["items_id"].push_back(id)
+	
 	_actions["set_iswitch"] = func(internal_switch_str, value):
 		var id = EventManager.current_internal_switch_id
 		var internal_switch = EventPage.InternalSwitch[internal_switch_str.to_upper()]
