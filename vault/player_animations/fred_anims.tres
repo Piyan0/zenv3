@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerAnimationCollection" load_steps=14 format=3 uid="uid://ckso1s44v0kq2"]
+[gd_resource type="Resource" script_class="PlayerAnimationCollection" format=3 uid="uid://ckso1s44v0kq2"]
 
 [ext_resource type="Resource" uid="uid://c5ymqviscb0s2" path="res://vault/animation_data/fred_idle_down.tres" id="1_cfn3p"]
 [ext_resource type="Resource" uid="uid://d2yj75oqlrgx5" path="res://vault/animation_data/fred_idle_left.tres" id="2_vvkwf"]
@@ -30,7 +30,6 @@ metadata/_custom_type_script = "uid://dppwvvxbnd1y3"
 
 [resource]
 script = ExtResource("6_imon2")
-switch = "[empty]"
 idle_animations = SubResource("Resource_oea2v")
 walk_animations = SubResource("Resource_0hprt")
 metadata/_custom_type_script = "uid://cu54lgwjyo2bn"
