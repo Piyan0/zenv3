@@ -2,26 +2,26 @@ extends EventCommands
 
 
 func _get_commands_list():
-    var commands = {}
-    # start from index one.
-    commands[1] = func():
-        push(["transfer", "player", 160, 64])
-        await push(["move", "player", ["down", "down", "down"]])
-        
-        push(["push_dialogue", "chloe", "lv1_chloe_arrival_01"])
-        push(["push_dialogue", "chloe", "lv1_chloe_arrival_02"])
-        push(["push_dialogue", "chloe", "lv1_chloe_arrival_03"])
-        push(["push_dialogue", "chloe", "lv1_chloe_arrival_04"])
-        await push(["start_dialogue"])
-        push(["set_iswitch", "A", true])
-        
-    commands[2] = func():
-        await push([""])
-        
-    commands[3] = func():
-        await push([""])
+	var commands = {}
+	# start from index one.
+	commands[1] = func():
+		push(["transfer", "player", 160, 64])
+		await push(["move", "player", ["down", "down", "down"]])
+		
+		push(["push_dialogue", "chloe", "lv1_chloe_arrival_01"])
+		push(["push_dialogue", "chloe", "lv1_chloe_arrival_02"])
+		push(["push_dialogue", "chloe", "lv1_chloe_arrival_03"])
+		push(["push_dialogue", "chloe", "lv1_chloe_arrival_04"])
+		await push(["start_dialogue"])
+		push(["set_iswitch", "A", true])
+		
+	commands[2] = func():
+		await push([""])
+		
+	commands[3] = func():
+		await push([""])
 
-    return commands
+	return commands
 
 # @autocomplete
 #actions

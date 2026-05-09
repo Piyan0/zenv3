@@ -11,7 +11,7 @@ func _get_commands_list():
         await push(["push_dialogue", "chloe", "lv1_chloe_got_number_01"])
         await push(["push_dialogue", "chloe", "lv1_chloe_got_number_02"])
         await push(["start_dialogue"])
-        await push(["goto", "map_level_01_07", 224, 160, 2])
+        await push(["goto", "map_level_01_07", 224, 160, "left"])
         push(["set_iswitch", "b", true])
         
     commands[3] = func():

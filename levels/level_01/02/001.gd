@@ -13,7 +13,7 @@ func _get_commands_list():
         await push(["open_inventory", func(id):
             if id == 1:
                 push(["set_iswitch", "a", true])    
-                await push(["goto", "map_level_01_05", 48, 96, 3])
+                await push(["goto", "map_level_01_05", 48, 96, "right"])
         ])
         
     commands[3] = func():

@@ -7,5 +7,16 @@ extends StaticEventCommand
 
 
 func _command():
+    var dir_str = ""
+    match direction:
+        MapManager.Direction.UP:
+            dir_str = "up"
+        MapManager.Direction.DOWN:
+            dir_str = "down"
+        MapManager.Direction.LEFT:
+            dir_str = "left"
+        MapManager.Direction.RIGHT:
+            dir_str = "right"
+            
     var eva= EventPageActions.new()
-    await eva.push(["goto", map_id, spawn_pos.x, spawn_pos.y, direction, false])
+    await eva.push(["goto", map_id, spawn_pos.x, spawn_pos.y, dir_str, false])
