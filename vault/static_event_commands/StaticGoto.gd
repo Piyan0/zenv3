@@ -5,6 +5,7 @@ extends StaticEventCommand
 @export var spawn_pos = Vector2.ZERO
 @export var direction: MapManager.Direction
 
+
 func _command():
-    var eva = EventPageActions.new()
-    eva.push(["goto", map_id, spawn_pos, direction])
+    var eva= EventPageActions.new()
+    await eva.push(["goto", map_id, spawn_pos, direction])

@@ -15,6 +15,7 @@ var _current_dialogue= ""
 
 func input(event: InputEvent):
     if event.is_action_pressed("ui_accept"):
+        # print(1)
         if _is_running_dialogue:
             _skip(_current_dialogue)
             return

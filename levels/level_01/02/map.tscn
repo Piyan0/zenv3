@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://w52e5vj263c7"]
+[gd_scene load_steps=17 format=3 uid="uid://w52e5vj263c7"]
 
 [ext_resource type="Script" uid="uid://cpuurkkj4ksm7" path="res://commons/map.gd" id="1_ec25p"]
 [ext_resource type="Texture2D" uid="uid://bmcf7hhuotdkw" path="res://levels/level_01/bg.png" id="2_1nat3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="5_orom6"]
 [ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="6_y3btu"]
 [ext_resource type="Script" uid="uid://8v1xdhfvcvkk" path="res://vault/static_event_commands/StaticGoto.gd" id="7_ftlur"]
+[ext_resource type="Script" uid="uid://udvneqyhy02s" path="res://vault/static_event_commands/StaticCommandDialogue.gd" id="8_p74rc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivy6n"]
 atlas = ExtResource("2_1nat3")
@@ -26,7 +27,7 @@ metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
 script = ExtResource("4_p74rc")
 event_commands_id = 1
 graphic_offset = Vector2(0, 0)
-trigger = 1
+trigger = 0
 placement = 2
 i_switch = 0
 variable = "empty"
@@ -39,12 +40,58 @@ event_traits = Array[ExtResource("5_orom6")]([])
 static_command_list = Array[ExtResource("6_y3btu")]([SubResource("Resource_jvru6")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
+[sub_resource type="Resource" id="Resource_y3btu"]
+script = ExtResource("8_p74rc")
+dialogue_list = Array[String](["fred$lv1_locked_door"])
+metadata/_custom_type_script = "uid://udvneqyhy02s"
+
+[sub_resource type="Resource" id="Resource_orom6"]
+script = ExtResource("4_p74rc")
+event_commands_id = 1
+graphic_offset = Vector2(0, 0)
+trigger = 0
+placement = 2
+i_switch = 0
+variable = "empty"
+variable_value = -1
+global_switch_001 = "empty"
+global_switch_001_value = false
+global_switch_002 = "empty"
+global_switch_002_value = false
+event_traits = Array[ExtResource("5_orom6")]([])
+static_command_list = Array[ExtResource("6_y3btu")]([SubResource("Resource_y3btu")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_lyt13"]
+script = ExtResource("7_ftlur")
+map_id = "map_level_01_05"
+spawn_pos = Vector2(48, 96)
+direction = 3
+metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
+
+[sub_resource type="Resource" id="Resource_p74rc"]
+script = ExtResource("4_p74rc")
+event_commands_id = 1
+graphic_offset = Vector2(0, 0)
+trigger = 0
+placement = 2
+i_switch = 0
+variable = "empty"
+variable_value = -1
+global_switch_001 = "chloe_session"
+global_switch_001_value = true
+global_switch_002 = "empty"
+global_switch_002_value = false
+event_traits = Array[ExtResource("5_orom6")]([])
+static_command_list = Array[ExtResource("6_y3btu")]([SubResource("Resource_lyt13")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
 [node name="Level0102" type="Node2D"]
 script = ExtResource("1_ec25p")
 map_id = "level_01_02"
 metadata/_custom_type_script = "uid://cpuurkkj4ksm7"
-metadata/_edit_vertical_guides_ = [256.0]
-metadata/_edit_horizontal_guides_ = [64.0]
+metadata/_edit_vertical_guides_ = [256.0, 312.0]
+metadata/_edit_horizontal_guides_ = [64.0, 176.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_ivy6n")
@@ -71,7 +118,7 @@ position = Vector2(168, 40)
 shape = SubResource("RectangleShape2D_1nat3")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(184, 56)
+position = Vector2(184, 40)
 shape = SubResource("RectangleShape2D_1nat3")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
@@ -100,10 +147,6 @@ shape = SubResource("RectangleShape2D_1nat3")
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(248, 88)
-shape = SubResource("RectangleShape2D_1nat3")
-
-[node name="CollisionShape2D14" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(264, 104)
 shape = SubResource("RectangleShape2D_1nat3")
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="StaticBody2D"]
@@ -181,3 +224,7 @@ shape = SubResource("RectangleShape2D_1nat3")
 [node name="ev000" parent="." instance=ExtResource("3_lyt13")]
 position = Vector2(96, 32)
 eventpages = Array[ExtResource("4_p74rc")]([SubResource("Resource_xsxn6")])
+
+[node name="ev001" parent="." instance=ExtResource("3_lyt13")]
+position = Vector2(256, 112)
+eventpages = Array[ExtResource("4_p74rc")]([SubResource("Resource_orom6"), SubResource("Resource_p74rc")])

@@ -132,6 +132,7 @@ func _queue_dialogue_batch(name, msg):
 func _start_dialogue():
     #print(_state["dialogue_batch"])
     var dialogue = load("uid://dws6emg1mc14n").instantiate()
+    dialogue.portrait_data = DialoguePortraitData.new().get_data()
     Bootstrap.canvas.add_child(dialogue)
     dialogue.set_dialogue_batch(_state["dialogue_batch"])
     await dialogue.dialogue_finished

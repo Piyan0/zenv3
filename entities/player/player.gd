@@ -29,6 +29,7 @@ func _ready():
     var progression_data= Bootstrap.progression.get_data()
     update_active_animation(progression_data[Progression.KEY_GLOBAL_SWITCHES])
     
+    ray.target_position = Vector2.ZERO
     instance= self
     match initial_direction:
         Direction.UP:

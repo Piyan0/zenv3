@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dv0pl50jfyh6g"]
+[gd_scene load_steps=12 format=3 uid="uid://dv0pl50jfyh6g"]
 
 [ext_resource type="PackedScene" uid="uid://cn4a1buk2tejm" path="res://levels/MapBase.tscn" id="1_n4abq"]
 [ext_resource type="Texture2D" uid="uid://bmcf7hhuotdkw" path="res://levels/level_01/bg.png" id="2_pgt2y"]
+[ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="3_dvr7k"]
+[ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="4_vaiv6"]
+[ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="5_uru3y"]
+[ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="6_kjvtv"]
+[ext_resource type="Script" uid="uid://8v1xdhfvcvkk" path="res://vault/static_event_commands/StaticGoto.gd" id="7_mdqkn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_on18w"]
 atlas = ExtResource("2_pgt2y")
@@ -10,8 +15,34 @@ region = Rect2(0, 180, 320, 180)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsu8c"]
 size = Vector2(16, 16)
 
+[sub_resource type="Resource" id="Resource_7xy48"]
+script = ExtResource("7_mdqkn")
+map_id = "map_level_01_04"
+spawn_pos = Vector2(272, 128)
+direction = 3
+metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
+
+[sub_resource type="Resource" id="Resource_ap00f"]
+script = ExtResource("4_vaiv6")
+event_commands_id = 1
+graphic_offset = Vector2(0, 0)
+trigger = 0
+placement = 2
+i_switch = 0
+variable = "empty"
+variable_value = -1
+global_switch_001 = "empty"
+global_switch_001_value = false
+global_switch_002 = "empty"
+global_switch_002_value = false
+event_traits = Array[ExtResource("5_uru3y")]([])
+static_command_list = Array[ExtResource("6_kjvtv")]([SubResource("Resource_7xy48")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
 [node name="MapBase" instance=ExtResource("1_n4abq")]
 map_id = "level_01_06"
+metadata/_edit_vertical_guides_ = [144.0]
+metadata/_edit_horizontal_guides_ = [224.0]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = SubResource("AtlasTexture_on18w")
@@ -92,10 +123,16 @@ shape = SubResource("RectangleShape2D_fsu8c")
 position = Vector2(104, 104)
 shape = SubResource("RectangleShape2D_fsu8c")
 
-[node name="CollisionShape2D21" type="CollisionShape2D" parent="StaticBody2D" index="20"]
-position = Vector2(104, 88)
-shape = SubResource("RectangleShape2D_fsu8c")
-
-[node name="CollisionShape2D22" type="CollisionShape2D" parent="StaticBody2D" index="21"]
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="StaticBody2D" index="20"]
 position = Vector2(104, 72)
 shape = SubResource("RectangleShape2D_fsu8c")
+
+[node name="ev000" parent="." index="2" instance=ExtResource("3_dvr7k")]
+position = Vector2(96, 96)
+eventpages = Array[ExtResource("4_vaiv6")]([SubResource("Resource_ap00f")])
+
+[node name="ReferenceRect" parent="." index="3"]
+offset_left = 112.0
+offset_top = 96.0
+offset_right = 128.0
+offset_bottom = 112.0

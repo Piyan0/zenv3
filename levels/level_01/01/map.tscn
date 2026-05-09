@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dilnm03q43dt7"]
+[gd_scene load_steps=39 format=3 uid="uid://dilnm03q43dt7"]
 
 [ext_resource type="Script" uid="uid://cpuurkkj4ksm7" path="res://commons/map.gd" id="1_w8nm1"]
 [ext_resource type="Texture2D" uid="uid://bmcf7hhuotdkw" path="res://levels/level_01/bg.png" id="2_sqocx"]
@@ -192,7 +192,7 @@ metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
 script = ExtResource("5_xkodp")
 event_commands_id = 1
 graphic_offset = Vector2(0, 0)
-trigger = 1
+trigger = 0
 placement = 2
 i_switch = 0
 variable = "empty"
@@ -204,6 +204,58 @@ global_switch_002_value = false
 event_traits = Array[ExtResource("6_kcasg")]([])
 static_command_list = Array[ExtResource("8_yee5q")]([SubResource("Resource_bks58")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_45lsa"]
+script = ExtResource("9_xkodp")
+dialogue_list = Array[String](["fred$lv1_hapn_logo_interact_00"])
+metadata/_custom_type_script = "uid://udvneqyhy02s"
+
+[sub_resource type="Resource" id="Resource_emahb"]
+script = ExtResource("5_xkodp")
+event_commands_id = 1
+graphic_offset = Vector2(0, 0)
+trigger = 1
+placement = 2
+i_switch = 0
+variable = "empty"
+variable_value = -1
+global_switch_001 = "empty"
+global_switch_001_value = false
+global_switch_002 = "empty"
+global_switch_002_value = false
+event_traits = Array[ExtResource("6_kcasg")]([])
+static_command_list = Array[ExtResource("8_yee5q")]([SubResource("Resource_45lsa")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vb0t"]
+size = Vector2(64, 16)
+
+[sub_resource type="Resource" id="Resource_5vb0t"]
+script = ExtResource("11_sd6j2")
+map_id = "map_level_01_03"
+spawn_pos = Vector2(288, 144)
+direction = 2
+metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
+
+[sub_resource type="Resource" id="Resource_g740a"]
+script = ExtResource("5_xkodp")
+event_commands_id = 1
+graphic_offset = Vector2(0, 0)
+trigger = 0
+placement = 2
+i_switch = 0
+variable = "empty"
+variable_value = -1
+global_switch_001 = "empty"
+global_switch_001_value = false
+global_switch_002 = "empty"
+global_switch_002_value = false
+event_traits = Array[ExtResource("6_kcasg")]([])
+static_command_list = Array[ExtResource("8_yee5q")]([SubResource("Resource_5vb0t")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqbco"]
+size = Vector2(16, 32)
 
 [node name="Level0101" type="Node2D"]
 script = ExtResource("1_w8nm1")
@@ -240,22 +292,6 @@ shape = SubResource("RectangleShape2D_sqocx")
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(120, 40)
-shape = SubResource("RectangleShape2D_sqocx")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(136, 40)
-shape = SubResource("RectangleShape2D_sqocx")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(152, 40)
-shape = SubResource("RectangleShape2D_sqocx")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(168, 40)
-shape = SubResource("RectangleShape2D_sqocx")
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(184, 40)
 shape = SubResource("RectangleShape2D_sqocx")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
@@ -406,14 +442,6 @@ shape = SubResource("RectangleShape2D_sqocx")
 position = Vector2(24, 120)
 shape = SubResource("RectangleShape2D_sqocx")
 
-[node name="CollisionShape2D46" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8, 104)
-shape = SubResource("RectangleShape2D_sqocx")
-
-[node name="CollisionShape2D47" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8, 88)
-shape = SubResource("RectangleShape2D_sqocx")
-
 [node name="CollisionShape2D48" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(24, 72)
 shape = SubResource("RectangleShape2D_sqocx")
@@ -450,3 +478,22 @@ eventpages = Array[ExtResource("5_xkodp")]([SubResource("Resource_aiide"), SubRe
 [node name="ev004" parent="." instance=ExtResource("4_4s2kk")]
 position = Vector2(240, 192)
 eventpages = Array[ExtResource("5_xkodp")]([SubResource("Resource_2pyod")])
+
+[node name="ev005" parent="." instance=ExtResource("4_4s2kk")]
+position = Vector2(128, 48)
+eventpages = Array[ExtResource("5_xkodp")]([SubResource("Resource_emahb")])
+
+[node name="CollisionShape2D" parent="ev005/Area2D" index="0"]
+position = Vector2(32, 8)
+shape = SubResource("RectangleShape2D_5vb0t")
+
+[node name="ev006" parent="." instance=ExtResource("4_4s2kk")]
+position = Vector2(0, 96)
+eventpages = Array[ExtResource("5_xkodp")]([SubResource("Resource_g740a")])
+
+[node name="CollisionShape2D" parent="ev006/Area2D" index="0"]
+position = Vector2(8, 16)
+shape = SubResource("RectangleShape2D_nqbco")
+
+[editable path="ev005"]
+[editable path="ev006"]

@@ -29,6 +29,8 @@ func _get_image_assets():
     _assets["img_screen"] = "res://assets/screen.png"
     _assets["img_screen_transparent"] = "res://assets/screen_transparent.png"
     _assets["img_icon"] = "res://icon.svg"
+    _assets["img_fred_portrait"] = "res://assets/chloe/avatar_fred.png"
+    _assets["img_chloe_portrait"] = "res://assets/chloe/avatar_chloe.png"
 
 
 func _get_map_assets():
