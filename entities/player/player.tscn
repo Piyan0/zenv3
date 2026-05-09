@@ -69,4 +69,5 @@ offset_bottom = 2.0
 
 [node name="PlayerEventActions" type="Node" parent="." unique_id=1682485353 node_paths=PackedStringArray("parent")]
 script = ExtResource("13_j3ovn")
+speed = 30
 parent = NodePath("..")

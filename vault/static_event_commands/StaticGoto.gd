@@ -8,4 +8,4 @@ extends StaticEventCommand
 
 func _command():
     var eva= EventPageActions.new()
-    await eva.push(["goto", map_id, spawn_pos, direction])
+    await eva.push(["goto", map_id, spawn_pos.x, spawn_pos.y, direction, false])

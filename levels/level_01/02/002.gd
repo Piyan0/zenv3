@@ -10,7 +10,15 @@ func _get_commands_list():
     commands[2] = func():
         await push(["choices", ["ui_yes", "ui_no"], func(id):
             if id == 0:
+                await push(["narator", [
+                    tr("lv1_story_fred_use_hoverboard_01"),
+                    tr("lv1_story_fred_use_hoverboard_02"),
+                    tr("lv1_story_fred_use_hoverboard_03"),
+                ]])
+                # TODO inspect why await works after tree is dhanged.
+                await push(["goto", "map_level_01_01", 0, 0, 1, true])
                 push(["set_switch", "chloe_session", true])
+                push(["set_iswitch", "A", true])
     ])
         
     commands[3] = func():

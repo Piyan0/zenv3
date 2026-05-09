@@ -17,6 +17,7 @@ area = NodePath("Area2D")
 spr = NodePath("Sprite2D")
 colls_shape = NodePath("Area2D/CollisionShape2D")
 animation_process = NodePath("AnimationProcess")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=165441763]
 texture = ExtResource("2_qgul5")

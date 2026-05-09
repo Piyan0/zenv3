@@ -81,6 +81,11 @@ global_switch_001_value = true
 static_command_list = Array[ExtResource("6_y3btu")]([SubResource("Resource_lnfa0")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
+[sub_resource type="Resource" id="Resource_8sj8o"]
+script = ExtResource("4_p74rc")
+i_switch = 1
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p74rc"]
 size = Vector2(32, 16)
 
@@ -155,6 +160,24 @@ i_switch = 2
 static_command_list = Array[ExtResource("6_y3btu")]([SubResource("Resource_daiau")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvru6"]
+atlas = ExtResource("10_y3btu")
+region = Rect2(0, 0, 16, 17)
+
+[sub_resource type="Resource" id="Resource_6yyrv"]
+script = ExtResource("8_p74rc")
+dialogue_list = Array[String](["ui_worker$lv1_chloe_hoverboard_owner00", "ui_worker$lv1_chloe_hoverboard_owner01", "ui_worker$lv1_chloe_hoverboard_owner02"])
+metadata/_custom_type_script = "uid://udvneqyhy02s"
+
+[sub_resource type="Resource" id="Resource_sgj0s"]
+script = ExtResource("4_p74rc")
+graphic = SubResource("AtlasTexture_jvru6")
+graphic_offset = Vector2(0, -18)
+global_switch_001 = "chloe_session"
+global_switch_001_value = true
+static_command_list = Array[ExtResource("6_y3btu")]([SubResource("Resource_6yyrv")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
 [node name="Level0102" type="Node2D" unique_id=1896626666]
 script = ExtResource("1_ec25p")
 map_id = "level_01_02"
@@ -163,7 +186,6 @@ metadata/_edit_vertical_guides_ = [256.0, 312.0]
 metadata/_edit_horizontal_guides_ = [64.0, 176.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1692356738]
-modulate = Color(0.38928655, 0.38928664, 0.38928658, 1)
 texture = SubResource("AtlasTexture_ivy6n")
 centered = false
 
@@ -294,7 +316,7 @@ eventpages = Array[ExtResource("4_p74rc")]([SubResource("Resource_orom6"), SubRe
 [node name="ev002" parent="." unique_id=141828580 instance=ExtResource("3_lyt13")]
 position = Vector2(192, 80)
 _commands_source = ExtResource("9_orom6")
-eventpages = Array[ExtResource("4_p74rc")]([SubResource("Resource_hfv6r"), SubResource("Resource_pnwgb")])
+eventpages = Array[ExtResource("4_p74rc")]([SubResource("Resource_hfv6r"), SubResource("Resource_pnwgb"), SubResource("Resource_8sj8o")])
 
 [node name="CollisionShape2D" parent="ev002/Area2D" parent_id_path=PackedInt32Array(141828580, 189961276) index="0" unique_id=967732704]
 position = Vector2(16, 8)
@@ -302,6 +324,6 @@ shape = SubResource("RectangleShape2D_p74rc")
 
 [node name="ev003" parent="." unique_id=54980545 instance=ExtResource("3_lyt13")]
 position = Vector2(176, 80)
-eventpages = Array[ExtResource("4_p74rc")]([SubResource("Resource_shn6k"), SubResource("Resource_w8syk"), SubResource("Resource_3cwpn"), SubResource("Resource_qatkh")])
+eventpages = Array[ExtResource("4_p74rc")]([SubResource("Resource_shn6k"), SubResource("Resource_w8syk"), SubResource("Resource_3cwpn"), SubResource("Resource_qatkh"), SubResource("Resource_sgj0s")])
 
 [editable path="ev002"]
