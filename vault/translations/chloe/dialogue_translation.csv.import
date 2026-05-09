@@ -15,3 +15,5 @@ dest_files=["res://vault/translations/chloe/dialogue_translation.en_US.translati
 
 compress=true
 delimiter=0
+unescape_keys=false
+unescape_translations=true

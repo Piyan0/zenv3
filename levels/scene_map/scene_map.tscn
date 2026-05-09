@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ekl6egoo7ssq"]
+[gd_scene format=3 uid="uid://ekl6egoo7ssq"]
 
 [ext_resource type="Script" uid="uid://rnfj2bg14875" path="res://levels/scene_map/scene_map.gd" id="1_jdh4r"]
 
-[node name="SceneMap" type="Node"]
+[node name="SceneMap" type="Node" unique_id=1781906236]
 script = ExtResource("1_jdh4r")
 spawn_pos = Vector2(160, 96)
-map_id = "map_level_01_04"
+map_id = "map_level_01_02"
 direction = 1

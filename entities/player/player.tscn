@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyk86kgdrft2x"]
+[gd_scene format=3 uid="uid://dyk86kgdrft2x"]
 
 [ext_resource type="Script" uid="uid://b1luavvlxm1ak" path="res://entities/player/player.gd" id="1_sglur"]
 [ext_resource type="Texture2D" uid="uid://b4wxpxxyx34wl" path="res://assets/Alex_idle_anim_16x16.png" id="2_bls4j"]
 [ext_resource type="Script" uid="uid://cu54lgwjyo2bn" path="res://commons/player_animation_collection.gd" id="2_qiwj3"]
 [ext_resource type="Script" uid="uid://b33r1rec7b2nn" path="res://commons/behaviors/input_grid_movement.gd" id="2_sglur"]
 [ext_resource type="Resource" uid="uid://ckso1s44v0kq2" path="res://vault/player_animations/fred_anims.tres" id="3_qiwj3"]
+[ext_resource type="Resource" uid="uid://ixcm7otsunw3" path="res://vault/player_animations/chloe_anims.tres" id="4_26q78"]
 [ext_resource type="Script" uid="uid://crrbtwoclhcmy" path="res://commons/animation_process/animation_process.gd" id="8_a1qjk"]
 [ext_resource type="Script" uid="uid://nag5gx806bqk" path="res://entities/player/player_event_actions.gd" id="13_j3ovn"]
 
@@ -15,57 +16,57 @@ region = Rect2(0, 0, 16, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sglur"]
 size = Vector2(16, 16)
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("animation_process", "grid_mov", "ray")]
+[node name="Player" type="Node2D" unique_id=503484590 node_paths=PackedStringArray("animation_process", "grid_mov", "ray")]
 z_index = 10
 script = ExtResource("1_sglur")
-player_animations = Array[ExtResource("2_qiwj3")]([ExtResource("3_qiwj3")])
+player_animations = Array[ExtResource("2_qiwj3")]([ExtResource("3_qiwj3"), ExtResource("4_26q78")])
 initial_direction = 2
 animation_process = NodePath("AnimationProcess")
 grid_mov = NodePath("GridMovement")
 ray = NodePath("WalkDetect")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1548905319]
 texture = SubResource("AtlasTexture_fkugw")
 centered = false
 offset = Vector2(0, -16)
 
-[node name="GridMovement" type="Node2D" parent="." node_paths=PackedStringArray("target")]
+[node name="GridMovement" type="Node2D" parent="." unique_id=1158367916 node_paths=PackedStringArray("target")]
 script = ExtResource("2_sglur")
 target = NodePath("..")
 metadata/_custom_type_script = "uid://b33r1rec7b2nn"
 
-[node name="WalkDetect" type="RayCast2D" parent="."]
+[node name="WalkDetect" type="RayCast2D" parent="." unique_id=903810788]
 position = Vector2(8, -8)
 target_position = Vector2(0, 16)
 collision_mask = 2
 collide_with_areas = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1488536404]
 position = Vector2(8, 0)
 position_smoothing_speed = 10.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1950137288]
 position = Vector2(0, -16)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1919986915]
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_sglur")
 
-[node name="AnimationProcess" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="AnimationProcess" type="Node" parent="." unique_id=621695379 node_paths=PackedStringArray("target")]
 script = ExtResource("8_a1qjk")
 target = NodePath("../Sprite2D")
 metadata/_custom_type_script = "uid://crrbtwoclhcmy"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=412370938]
 visible = false
 custom_minimum_size = Vector2(2, 2)
 offset_right = 2.0
 offset_bottom = 2.0
 
-[node name="PlayerEventActions" type="Node" parent="." node_paths=PackedStringArray("parent")]
+[node name="PlayerEventActions" type="Node" parent="." unique_id=1682485353 node_paths=PackedStringArray("parent")]
 script = ExtResource("13_j3ovn")
 parent = NodePath("..")

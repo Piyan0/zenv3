@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1148pqf8xuv8"]
+[gd_scene format=3 uid="uid://c1148pqf8xuv8"]
 
 [ext_resource type="Script" uid="uid://b70xsiqkf261e" path="res://ui/inventory/inventory.gd" id="1_t68fq"]
 [ext_resource type="Texture2D" uid="uid://c1jdvprvedoin" path="res://assets/ui_sheet.png" id="2_fowqc"]
@@ -16,14 +16,14 @@
 atlas = ExtResource("2_fowqc")
 region = Rect2(0, 0, 16, 16)
 
-[node name="Inventory" type="CanvasLayer" node_paths=PackedStringArray("items_container", "lb_desc", "tr_item_icon", "desc_container")]
+[node name="Inventory" type="CanvasLayer" unique_id=812948988 node_paths=PackedStringArray("items_container", "lb_desc", "tr_item_icon", "desc_container")]
 script = ExtResource("1_t68fq")
 items_container = NodePath("MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/InventoryItemList")
 lb_desc = NodePath("MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer/Desc2")
 tr_item_icon = NodePath("MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer/TextureRect")
 desc_container = NodePath("MarginContainer/VBoxContainer/MarginContainer2")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1041852218]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 180.0
@@ -33,15 +33,15 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=951869941]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=313285967]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=291711864]
 layout_mode = 2
 texture = SubResource("AtlasTexture_v2fgi")
 patch_margin_left = 1
@@ -49,31 +49,31 @@ patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1406557804]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer" unique_id=397210395]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer" unique_id=1906175274]
 layout_mode = 2
 text = "Items"
 label_settings = ExtResource("3_qrt2q")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer" unique_id=894322306]
 layout_mode = 2
 theme_override_constants/separation = -3
 
-[node name="ScrollUp" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ScrollUp" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=177615646]
 custom_minimum_size = Vector2(0, 7)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/ScrollUp"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/ScrollUp" unique_id=1615479917]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,7 +89,7 @@ grow_vertical = 2
 texture = ExtResource("4_138qw")
 stretch_mode = 4
 
-[node name="InventoryItemList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" node_paths=PackedStringArray("arrow_up", "arrow_down")]
+[node name="InventoryItemList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=871588561 node_paths=PackedStringArray("arrow_up", "arrow_down")]
 custom_minimum_size = Vector2(120, 76)
 layout_mode = 2
 theme_override_constants/separation = 2
@@ -97,23 +97,23 @@ script = ExtResource("3_ucnnj")
 arrow_up = NodePath("../ScrollUp")
 arrow_down = NodePath("../ScrollDown")
 
-[node name="InventoryItem" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
+[node name="InventoryItem" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/InventoryItemList" unique_id=313220114 instance=ExtResource("2_s83yu")]
 layout_mode = 2
 
-[node name="InventoryItem2" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
+[node name="InventoryItem2" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/InventoryItemList" unique_id=1613577507 instance=ExtResource("2_s83yu")]
 layout_mode = 2
 
-[node name="InventoryItem3" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
+[node name="InventoryItem3" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/InventoryItemList" unique_id=1773104115 instance=ExtResource("2_s83yu")]
 layout_mode = 2
 
-[node name="InventoryItem4" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/InventoryItemList" instance=ExtResource("2_s83yu")]
+[node name="InventoryItem4" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/InventoryItemList" unique_id=1528906282 instance=ExtResource("2_s83yu")]
 layout_mode = 2
 
-[node name="ScrollDown" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ScrollDown" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=85249360]
 custom_minimum_size = Vector2(0, 7)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/ScrollDown"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/ScrollDown" unique_id=1918972775]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -129,22 +129,22 @@ grow_vertical = 2
 texture = ExtResource("6_8dyvk")
 stretch_mode = 4
 
-[node name="AnimateOffsetLoop" type="Node" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer" node_paths=PackedStringArray("target")]
+[node name="AnimateOffsetLoop" type="Node" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer" unique_id=974166053 node_paths=PackedStringArray("target")]
 script = ExtResource("7_8dyvk")
 target = NodePath("../VBoxContainer/VBoxContainer/ScrollUp/TextureRect")
 offset = Vector2(0, -2)
 metadata/_custom_type_script = "uid://cimwh7dvhh4av"
 
-[node name="AnimateOffsetLoop2" type="Node" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer" node_paths=PackedStringArray("target")]
+[node name="AnimateOffsetLoop2" type="Node" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer" unique_id=258397531 node_paths=PackedStringArray("target")]
 script = ExtResource("7_8dyvk")
 target = NodePath("../VBoxContainer/VBoxContainer/ScrollDown/TextureRect")
 offset = Vector2(0, 2)
 metadata/_custom_type_script = "uid://cimwh7dvhh4av"
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=642343268]
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=501653294]
 layout_mode = 2
 texture = SubResource("AtlasTexture_v2fgi")
 patch_margin_left = 1
@@ -152,36 +152,36 @@ patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=476422945]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer" unique_id=185928056]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer" unique_id=546356904]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("8_galwr")
 stretch_mode = 4
 
-[node name="Desc2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer"]
+[node name="Desc2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer" unique_id=570395557]
 custom_minimum_size = Vector2(169, 29)
 layout_mode = 2
 text = "<description>
 "
 label_settings = ExtResource("3_qrt2q")
 
-[node name="TextShadow3" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="TextShadow3" type="Node" parent="." unique_id=589579857 node_paths=PackedStringArray("target")]
 script = ExtResource("4_lep46")
 target = NodePath("../MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer/Desc2")
 metadata/_custom_type_script = "uid://qqm40ogn6vp2"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1107218010]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -195,7 +195,7 @@ text = "UI_CLOSE_DESKTOP"
 label_settings = ExtResource("11_v2fgi")
 horizontal_alignment = 2
 
-[node name="TextShadow" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="TextShadow" type="Node" parent="." unique_id=1456875705 node_paths=PackedStringArray("target")]
 script = ExtResource("4_lep46")
 target = NodePath("../Label")
 metadata/_custom_type_script = "uid://qqm40ogn6vp2"

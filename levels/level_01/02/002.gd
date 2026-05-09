@@ -5,10 +5,13 @@ func _get_commands_list():
     var commands = {}
     # start from index one.
     commands[1] = func():
-        await push(["commands_id", "args1"])
+        pass
         
     commands[2] = func():
-        await push([""])
+        await push(["choices", ["ui_yes", "ui_no"], func(id):
+            if id == 0:
+                push(["set_switch", "chloe_session", true])
+    ])
         
     commands[3] = func():
         await push([""])

@@ -26,7 +26,7 @@ lv1_npc_info_giver_06,"Good luck on your love journey! May you find the true sou
 lv1_hapn_logo_interact_00,"A Happn logo.","Un logo Happn"
 lv1_machine_number_00,"It seems that I need someone's number to use this machine.","Il semble que j'aie besoin du numéro de quelqu'un pour utiliser cette machine."
 lv1_machine_number_01,"I wonder who I'm going to meet.","Je me demande qui je vais rencontrer."
-lv1_cave,"--Cave--","Grotte"
+lv1_sign,"Sign","Panneau"
 lv1_cave_sign_00,"Cave up ahead.","Grotte droit devant"
 lv1_cave_chest_closed_00,"What could be inside this chest?","Que pourrait-il y avoir dans ce coffre ?"
 lv1_cave_chest_opened_00,"Found [Green crystal].","Trouvé [Cristal vert]"
