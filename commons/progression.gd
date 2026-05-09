@@ -105,6 +105,7 @@ func get_internal_switch(event_id, internal_switch_id):
     
     
 func set_internal_switch(event_id, internal_switch_id, value):
+    # printt(">>", event_id)
     _assert_key_exist(event_id, _internal_switches, "_internal_switches")
     _internal_switches[event_id][internal_switch_id]= value
     entries_changed.emit(_internal_switches, _variables, _global_switches)

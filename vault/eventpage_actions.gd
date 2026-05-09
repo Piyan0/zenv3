@@ -39,7 +39,7 @@ func _init() -> void:
     
     _actions["set_iswitch"] = func(internal_switch, value):
         var id = EventManager.current_internal_switch_id
-        #print(id, internal_switch, value)
+        # print(">>",id)
         Bootstrap.progression.set_internal_switch(id, str(internal_switch), value)
         
     _actions["get_iswitch"] = func(event_name, internal_switch):
@@ -116,7 +116,9 @@ func _init() -> void:
 # first element (at index 0 should be the key of '_actions', rest is call arguments.)
 func push(args = []):
     var id = args.pop_front()
+    # print("start push {id}".format({"id":id}), ">>",EventManager.current_internal_switch_id)
     var result = await _actions[id].callv(args) 
+    # print("finished push {id}".format({"id":id}), ">>",EventManager.current_internal_switch_id)
     return result
 
 

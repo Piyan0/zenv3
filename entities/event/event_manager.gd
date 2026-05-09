@@ -35,6 +35,7 @@ func _process(_delta):
             player.lock_counter += 1
             await i.interact(player)
             await _delay_after_interact()
+            # print("finished.")
             _is_running_event= false
             player.lock_counter -= 1
             _current_input = null
@@ -53,7 +54,8 @@ func refresh_map(internal_switches, variables, global_switches):
 func _reset():
     _is_running_event = false
     _current_input = null
-    current_internal_switch_id = ""
+    # print("id resetted.")
+    # current_internal_switch_id = ""
     
 
 func get_event(id: String):

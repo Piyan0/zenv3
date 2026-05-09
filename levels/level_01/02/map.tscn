@@ -128,13 +128,31 @@ script = ExtResource("12_jvru6")
 switch = "hoverboard_permission"
 metadata/_custom_type_script = "uid://b817nyl00j2ar"
 
+[sub_resource type="Resource" id="Resource_q113d"]
+script = ExtResource("11_ftlur")
+internal_switch = 2
+metadata/_custom_type_script = "uid://byidxrucavag5"
+
 [sub_resource type="Resource" id="Resource_3cwpn"]
 script = ExtResource("4_p74rc")
 graphic = SubResource("AtlasTexture_ftlur")
 graphic_offset = Vector2(0, -18)
 global_switch_001 = "energy_acquired"
 global_switch_001_value = true
-static_command_list = Array[ExtResource("6_y3btu")]([SubResource("Resource_7xvud"), SubResource("Resource_cmkvo")])
+static_command_list = Array[ExtResource("6_y3btu")]([SubResource("Resource_7xvud"), SubResource("Resource_cmkvo"), SubResource("Resource_q113d")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_daiau"]
+script = ExtResource("8_p74rc")
+dialogue_list = Array[String](["ui_worker$lv1_hoverboard_owner_energy_acquired_02"])
+metadata/_custom_type_script = "uid://udvneqyhy02s"
+
+[sub_resource type="Resource" id="Resource_qatkh"]
+script = ExtResource("4_p74rc")
+graphic = SubResource("AtlasTexture_ftlur")
+graphic_offset = Vector2(0, -18)
+i_switch = 2
+static_command_list = Array[ExtResource("6_y3btu")]([SubResource("Resource_daiau")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="Level0102" type="Node2D" unique_id=1896626666]
@@ -284,6 +302,6 @@ shape = SubResource("RectangleShape2D_p74rc")
 
 [node name="ev003" parent="." unique_id=54980545 instance=ExtResource("3_lyt13")]
 position = Vector2(176, 80)
-eventpages = Array[ExtResource("4_p74rc")]([SubResource("Resource_shn6k"), SubResource("Resource_w8syk"), SubResource("Resource_3cwpn")])
+eventpages = Array[ExtResource("4_p74rc")]([SubResource("Resource_shn6k"), SubResource("Resource_w8syk"), SubResource("Resource_3cwpn"), SubResource("Resource_qatkh")])
 
 [editable path="ev002"]
