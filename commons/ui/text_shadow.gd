@@ -19,6 +19,7 @@ func _setup():
     clone.self_modulate= Color.WHITE
     clone.modulate= shadow_color
     clone.show_behind_parent= true
+    clone.z_as_relative = false
     clone.set_anchors_and_offsets_preset(Control.LayoutPreset.PRESET_FULL_RECT)
     clone.position= Vector2.ZERO + offset
     

@@ -2,7 +2,7 @@ extends Node
 
 var event_manager
 var asset_loader
-var progression
+var progression: Progression
 var map_manager
 var canvas
 var world_canvas
@@ -19,6 +19,7 @@ func _enter_tree():
     progression= _boot_progression()
     progression.entries_changed.connect(
         func(it_switch, vars, gb_switch):
+            # print(gb_switch)
             event_manager.refresh_map(it_switch, vars, gb_switch)
             if Player.instance:
                 Player.instance.update_active_animation(gb_switch)

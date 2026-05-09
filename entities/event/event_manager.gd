@@ -28,7 +28,7 @@ func _process(_delta):
         if _is_running_event: break
         var player= Player.instance
         # Don't process further if player hasn't been instantiated.
-        if !player || _current_input == null: return
+        if !player: return
         if i.is_interact(player, _current_input):
             current_internal_switch_id = i.get_internal_switch_id()
             _is_running_event= true

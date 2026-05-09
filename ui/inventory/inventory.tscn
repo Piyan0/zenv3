@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1148pqf8xuv8"]
+[gd_scene load_steps=13 format=3 uid="uid://c1148pqf8xuv8"]
 
 [ext_resource type="Script" uid="uid://b70xsiqkf261e" path="res://ui/inventory/inventory.gd" id="1_t68fq"]
 [ext_resource type="Texture2D" uid="uid://c1jdvprvedoin" path="res://assets/ui_sheet.png" id="2_fowqc"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b6i4t0rou05lt" path="res://assets/icons/arrow_thin_down.png" id="6_8dyvk"]
 [ext_resource type="Script" uid="uid://cimwh7dvhh4av" path="res://commons/ui/animate_offset_loop.gd" id="7_8dyvk"]
 [ext_resource type="Texture2D" uid="uid://otoioodij3el" path="res://assets/16px.png" id="8_galwr"]
+[ext_resource type="LabelSettings" uid="uid://bcaegaq2amce6" path="res://assets/styles/default2.tres" id="11_v2fgi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v2fgi"]
 atlas = ExtResource("2_fowqc")
@@ -178,4 +179,23 @@ label_settings = ExtResource("3_qrt2q")
 [node name="TextShadow3" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("4_lep46")
 target = NodePath("../MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer/Desc2")
+metadata/_custom_type_script = "uid://qqm40ogn6vp2"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "UI_CLOSE_DESKTOP"
+label_settings = ExtResource("11_v2fgi")
+horizontal_alignment = 2
+
+[node name="TextShadow" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_lep46")
+target = NodePath("../Label")
 metadata/_custom_type_script = "uid://qqm40ogn6vp2"

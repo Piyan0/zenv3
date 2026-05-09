@@ -173,6 +173,7 @@ func _is_interact_ground(player, input_event):
                     return true
             
         EventPage.Trigger.INTERACT_BUTTON:
+            if !input_event: return
             if !player.is_moving():
                 if input_event.is_action_pressed("ui_accept"):
                     if player.get_latest_collider() == area:
@@ -200,6 +201,7 @@ func _is_interact_below_or_above_ground(player, input_event):
                     return true
             
         EventPage.Trigger.INTERACT_BUTTON:
+            if !input_event: return
             if !player.is_moving():
                 var interact_threshold= 1.0
                 var distance_from_player= abs( position.distance_to(player.position) )

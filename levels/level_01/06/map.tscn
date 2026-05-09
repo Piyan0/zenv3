@@ -19,7 +19,7 @@ size = Vector2(16, 16)
 script = ExtResource("7_mdqkn")
 map_id = "map_level_01_04"
 spawn_pos = Vector2(272, 128)
-direction = 3
+direction = 2
 metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
 
 [sub_resource type="Resource" id="Resource_ap00f"]
