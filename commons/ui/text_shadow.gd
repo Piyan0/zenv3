@@ -26,9 +26,10 @@ func _setup():
 
 func _process(_delta):
     if clone:
+        # target.force_update_transform()
+        # clone.force_update_transform()
         clone.visible = target.visible
         clone.visible_characters= target.visible_characters
         clone.text= target.text
-        # printt(clone.visible_characters, target.visible_characters)
         
     

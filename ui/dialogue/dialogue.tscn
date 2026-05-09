@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dws6emg1mc14n"]
+[gd_scene format=3 uid="uid://dws6emg1mc14n"]
 
 [ext_resource type="Script" uid="uid://b6tm0yxyg6yig" path="res://ui/dialogue/dialogue.gd" id="1_jy5du"]
 [ext_resource type="Texture2D" uid="uid://c1jdvprvedoin" path="res://assets/ui_sheet.png" id="2_135c7"]
@@ -12,7 +12,7 @@
 atlas = ExtResource("2_135c7")
 region = Rect2(0, 0, 16, 16)
 
-[node name="Dialogue" type="CanvasLayer" node_paths=PackedStringArray("container", "lb_name", "lb_msg", "next_indicator", "tr_portrait")]
+[node name="Dialogue" type="CanvasLayer" unique_id=1526175197 node_paths=PackedStringArray("container", "lb_name", "lb_msg", "next_indicator", "tr_portrait")]
 script = ExtResource("1_jy5du")
 container = NodePath("MarginContainer")
 lb_name = NodePath("MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/Name")
@@ -20,18 +20,18 @@ lb_msg = NodePath("MarginContainer/MarginContainer/MarginContainer/HBoxContainer
 next_indicator = NodePath("MarginContainer/MarginContainer/Control/NextIndicator")
 tr_portrait = NodePath("MarginContainer/MarginContainer/MarginContainer/HBoxContainer/TextureRect")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1974076574]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 63.0
 grow_horizontal = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=335028620]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/MarginContainer" unique_id=1679782524]
 layout_mode = 2
 texture = SubResource("AtlasTexture_vqqoj")
 patch_margin_left = 1
@@ -39,44 +39,44 @@ patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/MarginContainer" unique_id=717914915]
 visible = false
 layout_mode = 2
 color = Color(0, 0, 0, 0.643137)
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer" unique_id=1336281685]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/MarginContainer" unique_id=550143857]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/MarginContainer/HBoxContainer" unique_id=1045268936]
 layout_mode = 2
 texture = ExtResource("3_mfx2q")
 stretch_mode = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/MarginContainer/HBoxContainer" unique_id=570825686]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Name" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Name" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=675345800]
 modulate = Color(0.2629, 0.615775, 0.791857, 1)
 layout_mode = 2
 size_flags_vertical = 0
 text = "<speaker>"
 label_settings = ExtResource("3_vqqoj")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=144874118]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 12
 
-[node name="Content" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+[node name="Content" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer" unique_id=1382140940]
 modulate = Color(0.894922, 0.894922, 0.894922, 1)
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
@@ -88,10 +88,10 @@ autowrap_mode = 2
 justification_flags = 227
 visible_characters_behavior = 1
 
-[node name="Control" type="Control" parent="MarginContainer/MarginContainer"]
+[node name="Control" type="Control" parent="MarginContainer/MarginContainer" unique_id=418464622]
 layout_mode = 2
 
-[node name="NextIndicator" type="TextureRect" parent="MarginContainer/MarginContainer/Control"]
+[node name="NextIndicator" type="TextureRect" parent="MarginContainer/MarginContainer/Control" unique_id=1990058058]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -107,17 +107,17 @@ grow_vertical = 0
 texture = ExtResource("4_vqqoj")
 stretch_mode = 4
 
-[node name="TextShadow" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="TextShadow" type="Node" parent="." unique_id=2054762418 node_paths=PackedStringArray("target")]
 script = ExtResource("2_h4lfh")
 target = NodePath("../MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/Name")
 metadata/_custom_type_script = "uid://qqm40ogn6vp2"
 
-[node name="TextShadow2" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="TextShadow2" type="Node" parent="." unique_id=883377904 node_paths=PackedStringArray("target")]
 script = ExtResource("2_h4lfh")
 target = NodePath("../MarginContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/Content")
 metadata/_custom_type_script = "uid://qqm40ogn6vp2"
 
-[node name="AnimateOffsetLoop" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="AnimateOffsetLoop" type="Node" parent="." unique_id=1568569091 node_paths=PackedStringArray("target")]
 script = ExtResource("4_r2qx3")
 target = NodePath("../MarginContainer/MarginContainer/Control/NextIndicator")
 offset = Vector2(0, -3)

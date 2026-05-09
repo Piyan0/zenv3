@@ -31,6 +31,8 @@ func _get_image_assets():
     _assets["img_icon"] = "res://icon.svg"
     _assets["img_fred_portrait"] = "res://assets/chloe/avatar_fred.png"
     _assets["img_chloe_portrait"] = "res://assets/chloe/avatar_chloe.png"
+    _assets["img_lv1_hint_01"] = "res://assets/chloe/lv1_hint_01.png"
+    _assets["img_lv1_hint_02"] = "res://assets/chloe/lv1_hint_02.png"
 
 
 func _get_map_assets():
