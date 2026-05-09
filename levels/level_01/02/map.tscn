@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="6_y3btu"]
 [ext_resource type="Script" uid="uid://8v1xdhfvcvkk" path="res://vault/static_event_commands/StaticGoto.gd" id="7_ftlur"]
 [ext_resource type="Script" uid="uid://udvneqyhy02s" path="res://vault/static_event_commands/StaticCommandDialogue.gd" id="8_p74rc"]
+[ext_resource type="Script" uid="uid://invlp4gwle8n" path="res://levels/level_01/02/001.gd" id="8_xsxn6"]
 [ext_resource type="Script" uid="uid://buos34p56quv7" path="res://levels/level_01/02/002.gd" id="9_orom6"]
 [ext_resource type="Texture2D" uid="uid://b15u01g6phs8m" path="res://assets/chloe/sheet_npcs.png" id="10_y3btu"]
 [ext_resource type="Script" uid="uid://byidxrucavag5" path="res://vault/static_event_commands/StaticInternalSwitch.gd" id="11_ftlur"]
@@ -43,6 +44,14 @@ trigger = 0
 static_command_list = Array[ExtResource("6_y3btu")]([SubResource("Resource_y3btu")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
+[sub_resource type="Resource" id="Resource_pyx5i"]
+script = ExtResource("4_p74rc")
+event_commands_id = 2
+trigger = 0
+global_switch_001 = "chloe_session"
+global_switch_001_value = true
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
 [sub_resource type="Resource" id="Resource_lyt13"]
 script = ExtResource("7_ftlur")
 map_id = "map_level_01_05"
@@ -52,9 +61,9 @@ metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
 
 [sub_resource type="Resource" id="Resource_p74rc"]
 script = ExtResource("4_p74rc")
+event_commands_id = 3
 trigger = 0
-global_switch_001 = "chloe_session"
-global_switch_001_value = true
+i_switch = 1
 static_command_list = Array[ExtResource("6_y3btu")]([SubResource("Resource_lyt13")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
@@ -311,7 +320,8 @@ eventpages = Array[ExtResource("4_p74rc")]([SubResource("Resource_xsxn6")])
 
 [node name="ev001" parent="." unique_id=1882420794 instance=ExtResource("3_lyt13")]
 position = Vector2(256, 112)
-eventpages = Array[ExtResource("4_p74rc")]([SubResource("Resource_orom6"), SubResource("Resource_p74rc")])
+_commands_source = ExtResource("8_xsxn6")
+eventpages = Array[ExtResource("4_p74rc")]([SubResource("Resource_orom6"), SubResource("Resource_pyx5i"), SubResource("Resource_p74rc")])
 
 [node name="ev002" parent="." unique_id=141828580 instance=ExtResource("3_lyt13")]
 position = Vector2(192, 80)

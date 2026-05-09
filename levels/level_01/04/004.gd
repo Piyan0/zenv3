@@ -5,11 +5,16 @@ func _get_commands_list():
 	var commands = {}
 	# start from index one.
 	commands[1] = func():
+		push(["push_dialogue", "fred", "lv1_energy_source_inspect_00"])
+		await push(["start_dialogue"])
 		await push(["open_inventory", func(id):
 			if id == 9:
 				push(["erase_item", 9])
 				await push(["show_image","img_cave_energy_placed"])
+				push(["push_dialogue", "fred", "lv1_energy_source_get_00"])
+				await push(["start_dialogue"])
 				push(["set_iswitch", "A", true])
+			push(["set_switch", "energy_acquired", true])
 		])
 		
 	commands[2] = func():

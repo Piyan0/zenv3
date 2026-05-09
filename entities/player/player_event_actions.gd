@@ -68,4 +68,17 @@ func _ready():
     parent.set_meta("transfer", func(pos):
         parent.global_position = pos    
     )
+
+    parent.set_meta("look", func(direction):
+        match direction:
+            "up":
+                parent.play_animation("idle_up")
+            "down":
+                parent.play_animation("idle_down")
+            "left":
+                parent.play_animation("idle_left")
+            "right":
+                parent.play_animation("idle_right")
+    )
+    
     

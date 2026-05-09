@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bgn61rgk1f365" path="res://assets/chloe/sheet_cave_objects.png" id="9_b6sko"]
 [ext_resource type="Script" uid="uid://b817nyl00j2ar" path="res://vault/static_event_commands/static_switch.gd" id="10_cgcwr"]
 [ext_resource type="Script" uid="uid://byidxrucavag5" path="res://vault/static_event_commands/StaticInternalSwitch.gd" id="10_e2ckx"]
+[ext_resource type="Script" uid="uid://g7a2u2g0obk1" path="res://vault/static_event_commands/static_add_item.gd" id="12_fhat0"]
 [ext_resource type="Script" uid="uid://go4acgg3baol" path="res://levels/level_01/04/004.gd" id="13_6msn6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_drchm"]
@@ -94,6 +95,11 @@ script = ExtResource("10_e2ckx")
 internal_switch = 1
 metadata/_custom_type_script = "uid://byidxrucavag5"
 
+[sub_resource type="Resource" id="Resource_cbjri"]
+script = ExtResource("12_fhat0")
+item_id = 9
+metadata/_custom_type_script = "uid://g7a2u2g0obk1"
+
 [sub_resource type="Resource" id="Resource_cgcwr"]
 script = ExtResource("4_qbeyo")
 event_commands_id = 2
@@ -101,7 +107,7 @@ graphic = SubResource("AtlasTexture_5ckn8")
 graphic_offset = Vector2(0, -32)
 global_switch_001 = "cave_stepping_puzzle_correct"
 global_switch_001_value = true
-static_command_list = Array[ExtResource("6_5ckn8")]([SubResource("Resource_ms2ph"), SubResource("Resource_78hyu")])
+static_command_list = Array[ExtResource("6_5ckn8")]([SubResource("Resource_ms2ph"), SubResource("Resource_78hyu"), SubResource("Resource_cbjri")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_8g5uk"]

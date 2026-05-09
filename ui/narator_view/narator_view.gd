@@ -58,7 +58,7 @@ class NaratorDialogue:
 	var bg_id = ""
 	
 	func _init(p_msg, p_bg_id = ""):
-		msg = p_msg
+		msg = tr(p_msg)
 		bg_id = p_bg_id
 	
 	func get_bg():

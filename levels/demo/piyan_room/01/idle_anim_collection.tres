@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="IdleAnimationCollection" load_steps=6 format=3 uid="uid://drrlnhm58on0k"]
+[gd_resource type="Resource" script_class="IdleAnimationCollection" format=3 uid="uid://drrlnhm58on0k"]
 
 [ext_resource type="Script" uid="uid://cpejx1nq0nk1j" path="res://commons/idle_animation_collection.gd" id="1_0riju"]
 [ext_resource type="Resource" uid="uid://byhx82ux8bhtf" path="res://vault/animation_data/demo/idle_down.tres" id="1_ku0ms"]
