@@ -37,6 +37,7 @@ func _skip(dialogue):
 
 
 func _trigger_progress(visible_characters):
+    # await Engine.get_main_loop().process_frame
     on_progress.call(_current_dialogue, visible_characters, _just_changed)
     _just_changed= false
     

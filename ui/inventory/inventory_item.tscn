@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ci8j8b57p3nvg"]
+[gd_scene format=3 uid="uid://ci8j8b57p3nvg"]
 
 [ext_resource type="Script" uid="uid://ckoq1b2go56a2" path="res://ui/inventory/inventory_item.gd" id="1_vxpmx"]
 [ext_resource type="Texture2D" uid="uid://c054b3via74hc" path="res://assets/bit.png" id="1_wiepw"]
 [ext_resource type="Texture2D" uid="uid://c3gduy5wogajy" path="res://assets/icons/icon_right.png" id="2_ep6dq"]
-[ext_resource type="LabelSettings" uid="uid://3wboop2jrvep" path="res://assets/styles/default.tres" id="3_r1uuc"]
+[ext_resource type="LabelSettings" uid="uid://bcaegaq2amce6" path="res://assets/styles/default2.tres" id="4_yd6md"]
 [ext_resource type="Script" uid="uid://cimwh7dvhh4av" path="res://commons/ui/animate_offset_loop.gd" id="5_lipmm"]
 [ext_resource type="Script" uid="uid://qqm40ogn6vp2" path="res://commons/ui/text_shadow.gd" id="6_yd6md"]
 
@@ -11,7 +11,7 @@
 atlas = ExtResource("1_wiepw")
 region = Rect2(0, 0, 16, 16)
 
-[node name="InventoryItem" type="MarginContainer" node_paths=PackedStringArray("hand_pointer", "lb_name", "lb_index")]
+[node name="InventoryItem" type="MarginContainer" unique_id=230765946 node_paths=PackedStringArray("hand_pointer", "lb_name", "lb_index")]
 custom_minimum_size = Vector2(16, 16)
 offset_right = 86.0
 offset_bottom = 16.0
@@ -23,15 +23,15 @@ hand_pointer = NodePath("HBoxContainer/Control/TextureRect2")
 lb_name = NodePath("HBoxContainer/Label")
 lb_index = NodePath("HBoxContainer/Index")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=225276391]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="Control" type="Control" parent="HBoxContainer"]
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=1698851441]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/Control"]
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/Control" unique_id=652086553]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,29 +49,29 @@ size_flags_vertical = 4
 texture = ExtResource("2_ep6dq")
 stretch_mode = 5
 
-[node name="Index" type="Label" parent="HBoxContainer"]
+[node name="Index" type="Label" parent="HBoxContainer" unique_id=239006347]
 modulate = Color(0.609128, 0.723217, 0.83207, 1)
 layout_mode = 2
 text = "(1)"
-label_settings = ExtResource("3_r1uuc")
+label_settings = ExtResource("4_yd6md")
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=2117080689]
 layout_mode = 2
 text = "<item_name>"
-label_settings = ExtResource("3_r1uuc")
+label_settings = ExtResource("4_yd6md")
 
-[node name="AnimateOffsetLoop" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="AnimateOffsetLoop" type="Node" parent="." unique_id=358485724 node_paths=PackedStringArray("target")]
 script = ExtResource("5_lipmm")
 target = NodePath("../HBoxContainer/Control/TextureRect2")
 offset = Vector2(-3, 0)
 metadata/_custom_type_script = "uid://cimwh7dvhh4av"
 
-[node name="TextShadow" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="TextShadow" type="Node" parent="." unique_id=1806278546 node_paths=PackedStringArray("target")]
 script = ExtResource("6_yd6md")
 target = NodePath("../HBoxContainer/Label")
 metadata/_custom_type_script = "uid://qqm40ogn6vp2"
 
-[node name="TextShadow2" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="TextShadow2" type="Node" parent="." unique_id=238738307 node_paths=PackedStringArray("target")]
 script = ExtResource("6_yd6md")
 target = NodePath("../HBoxContainer/Index")
 metadata/_custom_type_script = "uid://qqm40ogn6vp2"

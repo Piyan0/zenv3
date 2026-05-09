@@ -13,7 +13,7 @@ func _init(p_owner, p_player_scene_path):
 
 func goto(transfer_data: PlayerTransferData, start_from_black = false):
     prev_transfer_data = transfer_data
-    var fade= await TransitionBlack.spawn(start_from_black)
+    var fade= await TransitionBlack.spawn(start_from_black, Color.BLACK, 0.3)
     var scene= Bootstrap.asset_loader.get_asset(transfer_data.map_id)
     await get_tree().process_frame
     get_tree().change_scene_to_packed(scene)

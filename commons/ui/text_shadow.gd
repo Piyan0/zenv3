@@ -12,6 +12,7 @@ func _ready():
     clone= target.duplicate()
     clone.set_script(null)
     target.add_child(clone)
+    target.item_rect_changed.connect(_sync)
     _setup()
 
 
@@ -25,11 +26,11 @@ func _setup():
     
 
 func _process(_delta):
+    _sync()
+
+func _sync():
     if clone:
-        # target.force_update_transform()
-        # clone.force_update_transform()
         clone.visible = target.visible
         clone.visible_characters= target.visible_characters
         clone.text= target.text
-        
     
