@@ -5,17 +5,12 @@ func _get_commands_list():
     var commands = {}
     # start from index one.
     commands[1] = func():
-        push(["push_dialogue", "fred", "lv1_energy_source_inspect_00"])
-        await push(["start_dialogue"])
-        await push(["open_inventory", func(id):
-            if id == 9:
-                push(["erase_item", 9])
-                await push(["show_image","img_cave_energy_placed"])
-                push(["push_dialogue", "fred", "lv1_energy_source_get_00"])
-                await push(["start_dialogue"])
-                push(["set_iswitch", "A", true])
-            push(["set_switch", "energy_acquired", true])
-        ])
+        var puzzle_correct = await Bootstrap.asset_loader.get_asset("sc_lv1_puzzle").new().spawn()
+        if puzzle_correct:
+            push(["push_dialogue", "chloe", "got_item"])
+            await push(["start_dialogue"])
+            push(["add_item", 1])
+            push(["set_iswitch", "a", true])
         
     commands[2] = func():
         await push([""])
@@ -33,6 +28,7 @@ func _get_commands_list():
 #	choices
 #	open_inventory
 #	erase_item
+#	add_item
 #	set_iswitch
 #	get_iswitch
 #	set_switch
@@ -45,6 +41,7 @@ func _get_commands_list():
 #	spawn_animation_player
 #	spawn_animation_world
 #	transfer
+#	look
 #	move
 
 # player ev000 ev001 ev002 ev003 ev004 ev005 ev006 ev007 ev008 ev009 ev010 ev011 ev012 ev013 ev014 ev015 ev016 ev017 ev018 ev019 ev020

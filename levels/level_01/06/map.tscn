@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="5_uru3y"]
 [ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="6_kjvtv"]
 [ext_resource type="Script" uid="uid://8v1xdhfvcvkk" path="res://vault/static_event_commands/StaticGoto.gd" id="7_mdqkn"]
-[ext_resource type="Script" uid="uid://g7a2u2g0obk1" path="res://vault/static_event_commands/static_add_item.gd" id="8_vaiv6"]
+[ext_resource type="Script" uid="uid://bw3nklfemh3aa" path="res://levels/level_01/06/001.gd" id="8_vaiv6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_on18w"]
 atlas = ExtResource("2_pgt2y")
@@ -29,14 +29,14 @@ trigger = 0
 static_command_list = Array[ExtResource("6_kjvtv")]([SubResource("Resource_7xy48")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
-[sub_resource type="Resource" id="Resource_uru3y"]
-script = ExtResource("8_vaiv6")
-item_id = 1
-metadata/_custom_type_script = "uid://g7a2u2g0obk1"
-
 [sub_resource type="Resource" id="Resource_kjvtv"]
 script = ExtResource("4_vaiv6")
-static_command_list = Array[ExtResource("6_kjvtv")]([SubResource("Resource_uru3y")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_vaiv6"]
+script = ExtResource("4_vaiv6")
+event_commands_id = 2
+i_switch = 1
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="MapBase" unique_id=728070160 instance=ExtResource("1_n4abq")]
@@ -139,4 +139,5 @@ eventpages = Array[ExtResource("4_vaiv6")]([SubResource("Resource_ap00f")])
 
 [node name="ev001" parent="." index="4" unique_id=1425815131 instance=ExtResource("3_dvr7k")]
 position = Vector2(192, 64)
-eventpages = Array[ExtResource("4_vaiv6")]([SubResource("Resource_kjvtv")])
+_commands_source = ExtResource("8_vaiv6")
+eventpages = Array[ExtResource("4_vaiv6")]([SubResource("Resource_kjvtv"), SubResource("Resource_vaiv6")])

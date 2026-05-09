@@ -7,6 +7,7 @@ func _init():
     _get_image_assets()
     _get_map_assets()
     _get_animation_data_assets()
+    _get_script_assets()
 
 
 func get_asset(id):
@@ -52,3 +53,7 @@ func _get_map_assets():
 
 func _get_animation_data_assets():
     _assets["anim_phone"] = "res://vault/animation_data/demo/look_phone.tres"
+
+
+func _get_script_assets():
+    _assets["sc_lv1_puzzle"] = "res://levels/level_01/06/puzzles/puzzle_01.gd"
