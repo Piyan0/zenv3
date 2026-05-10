@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bc1wmut54ue6a"]
+
+[ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="1_ar6v6"]
+[ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="2_h3n8k"]
+[ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="3_3p5gs"]
+[ext_resource type="Script" uid="uid://cghequ0x24ql0" path="res://entities/event/traits/trait_wandering/trait_wandering.gd" id="4_72x22"]
+[ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="5_ctnxa"]
+[ext_resource type="Texture2D" uid="uid://otoioodij3el" path="res://assets/16px.png" id="5_h3n8k"]
+[ext_resource type="Script" uid="uid://dtf5oetpcn15r" path="res://vault/static_event_commands/static_transfer_player.gd" id="6_ctnxa"]
+[ext_resource type="Resource" uid="uid://40w6nk2wns08" path="res://vault/animation_data/monster/monster_right.tres" id="8_m5yol"]
+[ext_resource type="PackedScene" uid="uid://dyk86kgdrft2x" path="res://entities/player/player.tscn" id="9_ctnxa"]
+[ext_resource type="Script" uid="uid://ck3brfw7p4exl" path="res://entities/event/traits/trait_touch.gd" id="9_m5yol"]
+[ext_resource type="Resource" uid="uid://b4mhrfxclu250" path="res://vault/animation_data/monster/monster_left.tres" id="9_yv6sw"]
+
+[sub_resource type="GDScript" id="GDScript_ar6v6"]
+script/source = "extends Map
+"
+
+[sub_resource type="Resource" id="Resource_m5yol"]
+script = ExtResource("6_ctnxa")
+transition = true
+
+[sub_resource type="Resource" id="Resource_2exdx"]
+script = ExtResource("9_m5yol")
+static_commands = Array[ExtResource("5_ctnxa")]([SubResource("Resource_m5yol")])
+touch_min_distance = 8
+metadata/_custom_type_script = "uid://ck3brfw7p4exl"
+
+[sub_resource type="Resource" id="Resource_ctnxa"]
+script = ExtResource("4_72x22")
+walk_up = ExtResource("8_m5yol")
+walk_down = ExtResource("8_m5yol")
+walk_left = ExtResource("9_yv6sw")
+walk_right = ExtResource("8_m5yol")
+routes = Array[int]([0, 0, 2])
+repeat = true
+metadata/_custom_type_script = "uid://cghequ0x24ql0"
+
+[sub_resource type="Resource" id="Resource_72x22"]
+script = ExtResource("2_h3n8k")
+graphic = ExtResource("5_h3n8k")
+graphic_offset = Vector2(0, -16)
+through = true
+event_traits = Array[ExtResource("3_3p5gs")]([SubResource("Resource_2exdx"), SubResource("Resource_ctnxa")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[node name="DemoEnemyPatrol" type="Node2D" unique_id=363803956]
+script = SubResource("GDScript_ar6v6")
+
+[node name="ev000" parent="." unique_id=1425815131 instance=ExtResource("1_ar6v6")]
+position = Vector2(48, 48)
+eventpages = Array[ExtResource("2_h3n8k")]([SubResource("Resource_72x22")])
+
+[node name="Player" parent="." unique_id=503484590 instance=ExtResource("9_ctnxa")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1884996023]
+custom_minimum_size = Vector2(16, 16)
+offset_left = 128.0
+offset_top = 32.0
+offset_right = 144.0
+offset_bottom = 48.0

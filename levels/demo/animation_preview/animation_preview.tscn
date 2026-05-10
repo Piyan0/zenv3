@@ -3,18 +3,18 @@
 [ext_resource type="Script" uid="uid://c07yhdm7cosva" path="res://levels/demo/animation_preview/animation_preview.gd" id="1_qlbl7"]
 [ext_resource type="Script" uid="uid://crrbtwoclhcmy" path="res://commons/animation_process/animation_process.gd" id="1_t2aov"]
 [ext_resource type="Texture2D" uid="uid://otoioodij3el" path="res://assets/16px.png" id="3_kjiig"]
-[ext_resource type="Resource" uid="uid://xqin8wx26qgs" path="res://vault/animation_data/fred/fred_walk_down.tres" id="3_qlbl7"]
+[ext_resource type="Resource" uid="uid://40w6nk2wns08" path="res://vault/animation_data/monster/monster_right.tres" id="3_qlbl7"]
 
-[node name="AnimationPreview" type="Node2D"]
+[node name="AnimationPreview" type="Node2D" unique_id=2023675153]
 script = ExtResource("1_qlbl7")
 
-[node name="AnimationProcess" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="AnimationProcess" type="Node" parent="." unique_id=37689183 node_paths=PackedStringArray("target")]
 script = ExtResource("1_t2aov")
 target = NodePath("../Sprite2D")
 animation_data = ExtResource("3_qlbl7")
 metadata/_custom_type_script = "uid://crrbtwoclhcmy"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=107993193]
 position = Vector2(121, 91)
 texture = ExtResource("3_kjiig")
 centered = false

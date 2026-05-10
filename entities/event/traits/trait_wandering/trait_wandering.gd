@@ -3,6 +3,7 @@ extends EventTrait
 
 enum Direction{ UP, DOWN, LEFT, RIGHT }
 
+#TODO use animation from the event source.
 @export_group("Walk Animation")
 @export var walk_up: AnimationData
 @export var walk_down: AnimationData
@@ -16,6 +17,7 @@ enum Direction{ UP, DOWN, LEFT, RIGHT }
 @export var routes: Array[Direction]
 @export var trait_idle: TraitIdleAnimation
 @export var start_on_ready = true
+@export var repeat = false
 
 var _walk_anim_process: AnimationProcess
 var _wandering_node: WanderingNode
@@ -40,12 +42,18 @@ func _enter(event):
     event.add_child.call_deferred(_walk_anim_process)
     
     _wandering_node= load("uid://cd8t01ocegbc8").instantiate()
+    # _wandering_node.claim_tile_area.area_entered.connect(func(area):
+    #     if area.get_parent() is Player:
+    #         for i in claim_tile_entered_events:
+    #             await i.run_command()
+    # )
     _wandering_node.position= event.area.position
     _wandering_node.add_exception(event.get_area())
     _wandering_node.set_collision_space(event.get_collision_space())
     event.add_child.call_deferred(_wandering_node)
     
     _grid_mov= GridMovement.new(event)
+    _grid_mov.repeat = repeat
     _grid_mov.speed= speed
     _grid_mov.delay= delay
     _grid_mov.tile_size= tile_size
@@ -72,9 +80,14 @@ func _enter(event):
         _walk_anim_process.change_animation(walk_animation)
     
     _grid_mov.on_claim_tile= func(tile_reg):
+        if !is_instance_valid(_wandering_node): return
         _wandering_node.cast_claim_tile_to(tile_reg)
     
     _grid_mov.can_move= func(tile_reg):
+        if event.active_event_page.through:
+            if is_instance_valid(_wandering_node):
+                _wandering_node.queue_free()
+            return true
         # prevent walking while interact is running.
         if event.is_interact_running: return false
         var is_colliding= _wandering_node.is_colliding(tile_reg)

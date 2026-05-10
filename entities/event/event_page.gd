@@ -25,7 +25,7 @@ enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 
 @export var trigger: Trigger= Trigger.INTERACT_BUTTON
 @export var placement: Placement= Placement.GROUND
-
+@export var through = false
 # activations
 @export var i_switch: InternalSwitch
 

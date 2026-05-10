@@ -7,6 +7,7 @@ extends Node2D
 
 
 func _ready():
+    y_sort_enabled = true
     _add_event_id()
     var events = get_tree().get_nodes_in_group("events")
     for i in events:

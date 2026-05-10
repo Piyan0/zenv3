@@ -4,6 +4,7 @@ class_name WanderingNode
 @export var ray: ShapeCast2D
 @export var claim_tile_area: Area2D
 
+
 func _ready():
     claim_tile_area.top_level= true
     claim_tile_area.position= global_position
