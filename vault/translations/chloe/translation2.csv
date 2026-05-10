@@ -62,3 +62,6 @@ lv3_extra_62,"A flower.","Une fleur."
 
 UI_CLOSE_DESKTOP,"[X] close",""
 UI_CLOSE_MOBILE,"[B] close",""
+
+ui_close,"Close","Fermer"
+ui_retry,"Retry","Réessayer"

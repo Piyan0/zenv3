@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwa4uijbejooi" path="res://ui/pretzel_minigame/hitspot.tscn" id="2_keu58"]
 [ext_resource type="PackedScene" uid="uid://cjylhsrlwl83l" path="res://ui/pretzel_minigame/hit_mark.tscn" id="4_sp22k"]
 [ext_resource type="Texture2D" uid="uid://clxd1wui4k52g" path="res://assets/chloe/avatar_fred.png" id="6_nbg16"]
+[ext_resource type="Texture2D" uid="uid://dp6orrydbqcpk" path="res://assets/chloe/ui_shet_00.png" id="7_gw88e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sp22k"]
 atlas = ExtResource("2_325b1")
@@ -122,14 +123,21 @@ load_path = "res://.godot/imported/avatar_chloe.png-b6e8cb90adbbd1a8155434ad21d3
 atlas = ExtResource("1_rnbff")
 region = Rect2(26, 0, 8, 8)
 
-[node name="PretzelMinigame" type="CanvasLayer" unique_id=1105890959 node_paths=PackedStringArray("mark", "hit_spot_list", "spr_hit_state")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n74ho"]
+atlas = ExtResource("7_gw88e")
+region = Rect2(0, 32, 112, 16)
+
+[node name="PretzelMinigame" type="CanvasLayer" unique_id=1105890959 node_paths=PackedStringArray("game_over_text", "player_01_avatar", "player_02_avatar", "health_container", "mark", "hit_spot_list", "spr_hit_state")]
 script = ExtResource("1_keu58")
+game_over_text = NodePath("GameOverText")
+player_01_avatar = NodePath("TextureRect")
+player_02_avatar = NodePath("TextureRect2")
+health_container = NodePath("HBoxContainer")
 mark = NodePath("HitMark")
 hit_spot_list = [NodePath("HitSpotList/Hitspot"), NodePath("HitSpotList/Hitspot2"), NodePath("HitSpotList/Hitspot3"), NodePath("HitSpotList/Hitspot4"), NodePath("HitSpotList/Hitspot5"), NodePath("HitSpotList/Hitspot6"), NodePath("HitSpotList/Hitspot7"), NodePath("HitSpotList/Hitspot8"), NodePath("HitSpotList/Hitspot9"), NodePath("HitSpotList/Hitspot10"), NodePath("HitSpotList/Hitspot11"), NodePath("HitSpotList/Hitspot12"), NodePath("HitSpotList/Hitspot13"), NodePath("HitSpotList/Hitspot14"), NodePath("HitSpotList/Hitspot15"), NodePath("HitSpotList/Hitspot16"), NodePath("HitSpotList/Hitspot17"), NodePath("HitSpotList/Hitspot18"), NodePath("HitSpotList/Hitspot19"), NodePath("HitSpotList/Hitspot20"), NodePath("HitSpotList/Hitspot21"), NodePath("HitSpotList/Hitspot22"), NodePath("HitSpotList/Hitspot23"), NodePath("HitSpotList/Hitspot24")]
 img_pretzel_state_list = Array[Texture2D]([SubResource("AtlasTexture_sp22k"), SubResource("AtlasTexture_nbg16"), SubResource("AtlasTexture_gw88e"), SubResource("AtlasTexture_g10ri"), SubResource("AtlasTexture_iw4f7"), SubResource("AtlasTexture_q1jpw"), SubResource("AtlasTexture_w1w0i"), SubResource("AtlasTexture_ea103"), SubResource("AtlasTexture_xid35"), SubResource("AtlasTexture_7kix7"), SubResource("AtlasTexture_q52g7"), SubResource("AtlasTexture_xafye"), SubResource("AtlasTexture_3rfra"), SubResource("AtlasTexture_dcybh"), SubResource("AtlasTexture_lpebh"), SubResource("AtlasTexture_cglx5"), SubResource("AtlasTexture_3vrsm"), SubResource("AtlasTexture_jques"), SubResource("AtlasTexture_gj1fn"), SubResource("AtlasTexture_sh6vs"), SubResource("AtlasTexture_trcxc"), SubResource("AtlasTexture_7pveh"), SubResource("AtlasTexture_jnm7a"), SubResource("AtlasTexture_q56nw"), SubResource("AtlasTexture_qt6hk")])
 img_pretzel_flash = SubResource("AtlasTexture_72dmw")
 spr_hit_state = NodePath("Sprite2D")
-hit_state = 16
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=671989774]
 texture = SubResource("AtlasTexture_ycio0")
@@ -137,7 +145,7 @@ centered = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1002647093]
 position = Vector2(160, 80)
-texture = SubResource("AtlasTexture_3vrsm")
+texture = SubResource("AtlasTexture_sp22k")
 
 [node name="HitSpotList" type="Node2D" parent="." unique_id=1860740577]
 
@@ -312,3 +320,22 @@ layout_mode = 2
 size_flags_horizontal = 0
 texture = SubResource("AtlasTexture_fqu3q")
 stretch_mode = 4
+
+[node name="GameOverText" type="TextureRect" parent="." unique_id=179535484]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -56.0
+offset_right = 57.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_n74ho")
+stretch_mode = 4
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1208711070]
+position = Vector2(160, 96)

@@ -12,11 +12,14 @@ func _ready():
     await _add_choices()
     
     
-static func spawn(pos, p_choices = ["Yes.", "No."] as Array[String]):
+static func spawn(pos, p_choices = ["Yes.", "No."] as Array[String], in_ui = false):
     var choice_node = load("uid://c85noq02lrvw1").instantiate()
     choice_node.choices = p_choices
     choice_node.modulate.a = 0
-    Bootstrap.world_canvas.add_child(choice_node)
+    if !in_ui:
+        Bootstrap.world_canvas.add_child(choice_node)
+    else:
+        Bootstrap.canvas.add_child(choice_node)
     await choice_node._choices_added
     choice_node.global_position = pos
     choice_node.global_position += Vector2(-(choice_node.size.x/2) , -(choice_node.size.y))

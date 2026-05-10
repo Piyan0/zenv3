@@ -57,3 +57,4 @@ func _get_animation_data_assets():
 
 func _get_script_assets():
     _assets["sc_lv1_puzzle"] = "res://levels/level_01/06/puzzles/puzzle_01.gd"
+    _assets["sc_pretzel_minigame"] = "res://ui/pretzel_minigame/pretzel_minigame.gd"

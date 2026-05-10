@@ -81,7 +81,7 @@ func _init() -> void:
         pass
     
     #TODO change dir into string. 
-    _actions["goto"] = func(map_id, x, y, dir_str, start_from_black = false):
+    _actions["goto"] = func(map_id, x, y, dir_str = "down", start_from_black = false):
         var dir
         match dir_str:
             "up":
