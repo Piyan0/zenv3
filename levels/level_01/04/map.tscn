@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dm7fnnefptbfi"]
 
-[ext_resource type="PackedScene" uid="uid://cn4a1buk2tejm" path="res://levels/MapBase.tscn" id="1_8hgoo"]
+[ext_resource type="PackedScene" uid="uid://cn4a1buk2tejm" path="res://levels/map_base.tscn" id="1_8hgoo"]
 [ext_resource type="Texture2D" uid="uid://bmcf7hhuotdkw" path="res://levels/level_01/bg.png" id="2_ip4fb"]
 [ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="3_tl7wv"]
 [ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="4_qbeyo"]
@@ -330,6 +330,7 @@ shape = SubResource("RectangleShape2D_fsu8c")
 [node name="Puzzle01" parent="." index="3" unique_id=2057633931 instance=ExtResource("8_qbeyo")]
 position = Vector2(192, 48)
 enable_on_switch = "cave_stepping_puzzle"
+correct_answer = Array[int]([0, 3, 2, 1])
 switch_correct = "cave_stepping_puzzle_correct"
 switch_wrong = "cave_stepping_puzzle_wrong"
 

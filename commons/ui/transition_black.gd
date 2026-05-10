@@ -16,6 +16,10 @@ static func spawn(p_start_from_black= false, p_color= Color.BLACK, p_dur= 0.5):
     await instance._start()
     return instance
     
+
+func _exit_tree() -> void:
+    if is_instance_valid(_overlay):
+        _overlay.queue_free()
     
 func confirm():
     await _fade_out()

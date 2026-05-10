@@ -1,8 +1,9 @@
-dialogue portrait and finishing.
-add narator view.
-cutscene movement.
+make map id more efficent, currently there is still a lot of repeat.
 
 
+✓ dialogue portrait and finishing.
+✓ add narator view.
+✓ cutscene movement.
 ✓ grid movement loop.
 ✓ impelement moving text on dialogue if overflow.
 ✓ static event page commands.

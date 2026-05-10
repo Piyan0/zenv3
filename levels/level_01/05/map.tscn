@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://457bfuff0d3l"]
 
-[ext_resource type="PackedScene" uid="uid://cn4a1buk2tejm" path="res://levels/MapBase.tscn" id="1_cq0rh"]
+[ext_resource type="PackedScene" uid="uid://cn4a1buk2tejm" path="res://levels/map_base.tscn" id="1_cq0rh"]
 [ext_resource type="Texture2D" uid="uid://bmcf7hhuotdkw" path="res://levels/level_01/bg.png" id="2_dauy0"]
 [ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="3_hd3i7"]
 [ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="4_tjvxa"]

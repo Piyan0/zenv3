@@ -149,8 +149,21 @@ func _init() -> void:
             var mk_set_routes = "set_routes"
             if instance.has_meta(mk_set_routes):
                 await instance.get_meta(mk_set_routes).call(parse_dir.call())
+    
+    _actions["fade_in"] = func(free_at_end = false):
+        var fade = await TransitionBlack.spawn()
+        if free_at_end:
+            fade.queue_free()
+        else:
+            _state["fade"] = fade
+    
+    _actions["fade_out"] = func(wait = false):
+        if wait:
+            await _state["fade"].confirm()
+        else:
+            _state["fade"].confirm()
             
-            
+
 # first element (at index 0 should be the key of '_actions', rest is call arguments.)
 func push(args = []):
     var id = args.pop_front()
