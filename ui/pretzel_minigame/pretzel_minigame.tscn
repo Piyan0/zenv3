@@ -1,0 +1,314 @@
+[gd_scene format=3 uid="uid://bathporo7b0oe"]
+
+[ext_resource type="Script" uid="uid://hyohok7nv5k6" path="res://ui/pretzel_minigame/pretzel_minigame.gd" id="1_keu58"]
+[ext_resource type="Texture2D" uid="uid://bgieupkrd26ds" path="res://ui/pretzel_minigame/sheet.png" id="1_rnbff"]
+[ext_resource type="Texture2D" uid="uid://beauvoxvcgqkh" path="res://ui/pretzel_minigame/pretzel_hittate.png" id="2_325b1"]
+[ext_resource type="PackedScene" uid="uid://cwa4uijbejooi" path="res://ui/pretzel_minigame/hitspot.tscn" id="2_keu58"]
+[ext_resource type="PackedScene" uid="uid://cjylhsrlwl83l" path="res://ui/pretzel_minigame/hit_mark.tscn" id="4_sp22k"]
+[ext_resource type="Texture2D" uid="uid://clxd1wui4k52g" path="res://assets/chloe/avatar_fred.png" id="6_nbg16"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp22k"]
+atlas = ExtResource("2_325b1")
+region = Rect2(0, 816, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbg16"]
+atlas = ExtResource("2_325b1")
+region = Rect2(0, 0, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gw88e"]
+atlas = ExtResource("2_325b1")
+region = Rect2(132, 0, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g10ri"]
+atlas = ExtResource("2_325b1")
+region = Rect2(264, 0, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw4f7"]
+atlas = ExtResource("2_325b1")
+region = Rect2(0, 102, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1jpw"]
+atlas = ExtResource("2_325b1")
+region = Rect2(132, 102, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1w0i"]
+atlas = ExtResource("2_325b1")
+region = Rect2(264, 102, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea103"]
+atlas = ExtResource("2_325b1")
+region = Rect2(0, 204, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xid35"]
+atlas = ExtResource("2_325b1")
+region = Rect2(132, 204, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kix7"]
+atlas = ExtResource("2_325b1")
+region = Rect2(264, 204, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q52g7"]
+atlas = ExtResource("2_325b1")
+region = Rect2(0, 306, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xafye"]
+atlas = ExtResource("2_325b1")
+region = Rect2(132, 306, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rfra"]
+atlas = ExtResource("2_325b1")
+region = Rect2(264, 306, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcybh"]
+atlas = ExtResource("2_325b1")
+region = Rect2(0, 408, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpebh"]
+atlas = ExtResource("2_325b1")
+region = Rect2(132, 408, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cglx5"]
+atlas = ExtResource("2_325b1")
+region = Rect2(264, 408, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vrsm"]
+atlas = ExtResource("2_325b1")
+region = Rect2(0, 510, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jques"]
+atlas = ExtResource("2_325b1")
+region = Rect2(132, 510, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj1fn"]
+atlas = ExtResource("2_325b1")
+region = Rect2(264, 510, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sh6vs"]
+atlas = ExtResource("2_325b1")
+region = Rect2(0, 612, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trcxc"]
+atlas = ExtResource("2_325b1")
+region = Rect2(132, 612, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pveh"]
+atlas = ExtResource("2_325b1")
+region = Rect2(264, 612, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnm7a"]
+atlas = ExtResource("2_325b1")
+region = Rect2(0, 714, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q56nw"]
+atlas = ExtResource("2_325b1")
+region = Rect2(132, 714, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt6hk"]
+atlas = ExtResource("2_325b1")
+region = Rect2(264, 714, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72dmw"]
+atlas = ExtResource("1_rnbff")
+region = Rect2(264, 15, 130, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycio0"]
+atlas = ExtResource("1_rnbff")
+region = Rect2(0, 117, 320, 180)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sp22k"]
+load_path = "res://.godot/imported/avatar_chloe.png-b6e8cb90adbbd1a8155434ad21d33cc7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqu3q"]
+atlas = ExtResource("1_rnbff")
+region = Rect2(26, 0, 8, 8)
+
+[node name="PretzelMinigame" type="CanvasLayer" unique_id=1105890959 node_paths=PackedStringArray("mark", "hit_spot_list", "spr_hit_state")]
+script = ExtResource("1_keu58")
+mark = NodePath("HitMark")
+hit_spot_list = [NodePath("HitSpotList/Hitspot"), NodePath("HitSpotList/Hitspot2"), NodePath("HitSpotList/Hitspot3"), NodePath("HitSpotList/Hitspot4"), NodePath("HitSpotList/Hitspot5"), NodePath("HitSpotList/Hitspot6"), NodePath("HitSpotList/Hitspot7"), NodePath("HitSpotList/Hitspot8"), NodePath("HitSpotList/Hitspot9"), NodePath("HitSpotList/Hitspot10"), NodePath("HitSpotList/Hitspot11"), NodePath("HitSpotList/Hitspot12"), NodePath("HitSpotList/Hitspot13"), NodePath("HitSpotList/Hitspot14"), NodePath("HitSpotList/Hitspot15"), NodePath("HitSpotList/Hitspot16"), NodePath("HitSpotList/Hitspot17"), NodePath("HitSpotList/Hitspot18"), NodePath("HitSpotList/Hitspot19"), NodePath("HitSpotList/Hitspot20"), NodePath("HitSpotList/Hitspot21"), NodePath("HitSpotList/Hitspot22"), NodePath("HitSpotList/Hitspot23"), NodePath("HitSpotList/Hitspot24")]
+img_pretzel_state_list = Array[Texture2D]([SubResource("AtlasTexture_sp22k"), SubResource("AtlasTexture_nbg16"), SubResource("AtlasTexture_gw88e"), SubResource("AtlasTexture_g10ri"), SubResource("AtlasTexture_iw4f7"), SubResource("AtlasTexture_q1jpw"), SubResource("AtlasTexture_w1w0i"), SubResource("AtlasTexture_ea103"), SubResource("AtlasTexture_xid35"), SubResource("AtlasTexture_7kix7"), SubResource("AtlasTexture_q52g7"), SubResource("AtlasTexture_xafye"), SubResource("AtlasTexture_3rfra"), SubResource("AtlasTexture_dcybh"), SubResource("AtlasTexture_lpebh"), SubResource("AtlasTexture_cglx5"), SubResource("AtlasTexture_3vrsm"), SubResource("AtlasTexture_jques"), SubResource("AtlasTexture_gj1fn"), SubResource("AtlasTexture_sh6vs"), SubResource("AtlasTexture_trcxc"), SubResource("AtlasTexture_7pveh"), SubResource("AtlasTexture_jnm7a"), SubResource("AtlasTexture_q56nw"), SubResource("AtlasTexture_qt6hk")])
+img_pretzel_flash = SubResource("AtlasTexture_72dmw")
+spr_hit_state = NodePath("Sprite2D")
+hit_state = 16
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=671989774]
+texture = SubResource("AtlasTexture_ycio0")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1002647093]
+position = Vector2(160, 80)
+texture = SubResource("AtlasTexture_3vrsm")
+
+[node name="HitSpotList" type="Node2D" parent="." unique_id=1860740577]
+
+[node name="Hitspot" parent="HitSpotList" unique_id=1917365890 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(168, 73)
+
+[node name="Hitspot2" parent="HitSpotList" unique_id=1227827954 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(146, 80)
+
+[node name="Hitspot3" parent="HitSpotList" unique_id=1106089655 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(141, 62)
+
+[node name="Hitspot4" parent="HitSpotList" unique_id=477515041 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(160, 64)
+
+[node name="Hitspot5" parent="HitSpotList" unique_id=799870009 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(165, 96)
+
+[node name="Hitspot6" parent="HitSpotList" unique_id=1561347413 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(148, 97)
+
+[node name="Hitspot7" parent="HitSpotList" unique_id=1921011390 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(137, 91)
+
+[node name="Hitspot8" parent="HitSpotList" unique_id=318421014 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(170, 87)
+
+[node name="Hitspot9" parent="HitSpotList" unique_id=261780015 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(169, 62)
+
+[node name="Hitspot10" parent="HitSpotList" unique_id=818713496 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(149, 70)
+
+[node name="Hitspot11" parent="HitSpotList" unique_id=634460918 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(143, 55)
+
+[node name="Hitspot12" parent="HitSpotList" unique_id=485064600 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(162, 77)
+
+[node name="Hitspot13" parent="HitSpotList" unique_id=823088197 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(181, 95)
+
+[node name="Hitspot14" parent="HitSpotList" unique_id=1135958591 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(156, 89)
+
+[node name="Hitspot15" parent="HitSpotList" unique_id=2119046834 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(163, 87)
+
+[node name="Hitspot16" parent="HitSpotList" unique_id=1464558577 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(169, 56)
+
+[node name="Hitspot17" parent="HitSpotList" unique_id=429801309 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(155, 73)
+
+[node name="Hitspot18" parent="HitSpotList" unique_id=977398877 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(147, 86)
+
+[node name="Hitspot19" parent="HitSpotList" unique_id=1541841334 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(174, 97)
+
+[node name="Hitspot20" parent="HitSpotList" unique_id=1789074645 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(138, 97)
+
+[node name="Hitspot21" parent="HitSpotList" unique_id=1741903863 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(178, 100)
+
+[node name="Hitspot22" parent="HitSpotList" unique_id=1441030851 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(153, 57)
+
+[node name="Hitspot23" parent="HitSpotList" unique_id=1018646629 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(136, 100)
+
+[node name="Hitspot24" parent="HitSpotList" unique_id=299663624 instance=ExtResource("2_keu58")]
+top_level = true
+position = Vector2(164, 55)
+
+[node name="HitMark" parent="." unique_id=663579984 instance=ExtResource("4_sp22k")]
+position = Vector2(64, 80)
+mark_speed = 90
+offset_from_target = 40
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1751853474]
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("CompressedTexture2D_sp22k")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1520501023]
+modulate = Color(0.3943528, 0.39435276, 0.39435276, 1)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 32.0
+grow_horizontal = 0
+texture = ExtResource("6_nbg16")
+stretch_mode = 4
+flip_h = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=670923977]
+custom_minimum_size = Vector2(80, 8)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.0
+offset_top = 6.0
+offset_right = 34.0
+offset_bottom = 14.0
+grow_horizontal = 2
+
+[node name="Health" type="TextureRect" parent="HBoxContainer" unique_id=1965237092]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_fqu3q")
+stretch_mode = 4
+
+[node name="Health2" type="TextureRect" parent="HBoxContainer" unique_id=1605791148]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_fqu3q")
+stretch_mode = 4
+
+[node name="Health3" type="TextureRect" parent="HBoxContainer" unique_id=312402945]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_fqu3q")
+stretch_mode = 4
+
+[node name="Health4" type="TextureRect" parent="HBoxContainer" unique_id=1572460355]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_fqu3q")
+stretch_mode = 4
+
+[node name="Health5" type="TextureRect" parent="HBoxContainer" unique_id=1100507729]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_fqu3q")
+stretch_mode = 4
+
+[node name="Health6" type="TextureRect" parent="HBoxContainer" unique_id=846607332]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_fqu3q")
+stretch_mode = 4
+
+[node name="Health7" type="TextureRect" parent="HBoxContainer" unique_id=1067921477]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_fqu3q")
+stretch_mode = 4
