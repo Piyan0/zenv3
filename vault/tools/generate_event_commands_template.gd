@@ -21,7 +21,7 @@ func _get_commands_list():
 # @autocomplete
 #{autocomplete}
 """)
-var start_name = 1
+var start_name = 9
 var generate_amount = 1
 func _run():
     var path = EditorInterface.get_selected_paths()
@@ -50,7 +50,7 @@ func _get_autocomplete():
     var arr = []
     arr.push_back(_get_actions_available())
     arr.push_back("# player ev000 ev001 ev002 ev003 ev004 ev005 ev006 ev007 ev008 ev009 ev010 ev011 ev012 ev013 ev014 ev015 ev016 ev017 ev018 ev019 ev020")
-    arr.push_back("# up down left right")
+    arr.push_back("# up down left right event internal_switch")
     arr.push_back("# A B C D")
     return ("\n".join(arr))
 

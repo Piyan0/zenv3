@@ -54,7 +54,8 @@ func _ready():
         routes_queue.push_back(Vector2.RIGHT)    
     )
 
-    parent.set_meta("set_routes", func(routes):
+    parent.set_meta("set_routes", func(routes, speed):
+        grid.speed = speed
         grid.routes = routes    
         await grid.movement_finished
     )
@@ -79,6 +80,10 @@ func _ready():
                 parent.play_animation("idle_left")
             "right":
                 parent.play_animation("idle_right")
+    )
+
+    parent.set_meta("alpha", func(is_transparent):
+        parent.visible = is_transparent    
     )
     
     

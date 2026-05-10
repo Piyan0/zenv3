@@ -39,12 +39,13 @@ enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 @export var global_switch_002_value: bool
 
 @export var event_traits: Array[EventTrait]
-@export var static_command_list: Array[StaticEventCommand]
+@export var static_command_list: Array[StaticEventCommand] = [null, null]
 var event_commands: Callable
 
 
 func exec_commands() -> void:
     for static_command in static_command_list:
+        if static_command == null: continue
         await static_command.run_command()
     
     await event_commands.call()

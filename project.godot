@@ -36,6 +36,7 @@ gdscript/warnings/integer_division=0
 
 window/size/viewport_width=320
 window/size/viewport_height=180
+window/size/mode=2
 window/size/window_width_override=600
 window/size/window_height_override=600
 window/stretch/mode="viewport"

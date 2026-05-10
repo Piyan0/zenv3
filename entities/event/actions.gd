@@ -35,7 +35,14 @@ func _create_grid_movement():
                parent.play_animation("walk_right")
 
     
-    parent.set_meta("set_routes", func(routes):
-        grid.routes = routes
-        await grid.movement_finished
+    parent.set_meta("set_routes", func(routes, speed):
+         grid.speed = speed
+         grid.routes = routes
+         await grid.movement_finished
     )
+
+    
+    parent.set_meta("alpha", func(is_transparent):
+        parent.visible = is_transparent    
+    )
+    

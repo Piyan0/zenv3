@@ -2,6 +2,8 @@ class_name EventCommands
 
 var _commands= {}
 var action
+var event
+var internal_switch
 
 func _init():
     action = EventPageActions.new()

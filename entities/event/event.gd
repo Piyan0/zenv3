@@ -24,6 +24,9 @@ func _ready():
     spr.hide()
     if _commands_source:
         _commands = _commands_source.new()
+        _commands.event = name
+        _commands.internal_switch = get_internal_switch_id()
+        
     else:
         _commands = EventCommands.new()
     add_to_group("events")
@@ -128,6 +131,7 @@ func update_active_event(internal_switches, variables, global_switches):
     var reversed_event_pages= eventpages.duplicate()
     reversed_event_pages.reverse()
     for i in reversed_event_pages:
+        if i == null: continue
         if i.is_event_active(internal_switches[get_internal_switch_id()], variables, global_switches):
             active_event_page= i
             _active_event_changed(i)

@@ -52,7 +52,7 @@ func _init() -> void:
     _actions["add_item"] = func(id):
         Bootstrap.save_system.fields["items_id"].push_back(id)
     
-    _actions["set_iswitch"] = func(internal_switch_str, value):
+    _actions["set_iswitch"] = func(internal_switch_str, value = true):
         var id = EventManager.current_internal_switch_id
         var internal_switch = EventPage.InternalSwitch[internal_switch_str.to_upper()]
         Bootstrap.progression.set_internal_switch(id, str(internal_switch), value)
@@ -60,7 +60,7 @@ func _init() -> void:
     _actions["get_iswitch"] = func(event_name, internal_switch):
         pass
         
-    _actions["set_switch"] = func(id, value):
+    _actions["set_switch"] = func(id, value = true):
         Bootstrap.progression.set_switch(id, value)
         
     _actions["get_switch"] = func(id, cb):
@@ -106,10 +106,10 @@ func _init() -> void:
         pass
 
     _actions["transfer"] = func(target: String, x , y):
-        var instance = Player.instance
-        if target != "player":
-            instance = Event.get_by_id(target)
-        
+        var instance = Event.get_by_id(target)
+        if target == "player":
+            instance = Player.instance
+       
         if instance:
             var mk_transfer = "transfer"
             if instance.has_meta(mk_transfer):
@@ -117,20 +117,32 @@ func _init() -> void:
     
     
     _actions["look"] = func(target: String, dir_str = "up"):
-        var instance = Player.instance
-        if target != "player":
-            instance = Event.get_by_id(target)
-        
+        var instance = Event.get_by_id(target)
+        if target == "player":
+            instance = Player.instance
+       
         if instance:
             var nk_look = "look"
             if instance.has_meta(nk_look):
                 instance.get_meta(nk_look).call(dir_str)
     
+    
+    _actions["alpha"] = func(target: String, is_transparent = true):
+        var instance = Event.get_by_id(target)
+        if target == "player":
+            instance = Player.instance
+       
+        if instance:
+            var meta_key = "alpha"
+            if instance.has_meta(meta_key):
+                instance.get_meta(meta_key).call(is_transparent)
+    
 
-    _actions["move"] = func(target: String, arr_dir: Array):
-        var instance = Player.instance
-        if target != "player":
-            instance = Event.get_by_id(target)
+    _actions["move"] = func(target: String, arr_dir: Array, speed = 30):
+        var instance = Event.get_by_id(target)
+        if target == "player":
+            instance = Player.instance
+        
         var parse_dir = func():
             var r = []
             for i in arr_dir:
@@ -148,7 +160,7 @@ func _init() -> void:
         if instance:
             var mk_set_routes = "set_routes"
             if instance.has_meta(mk_set_routes):
-                await instance.get_meta(mk_set_routes).call(parse_dir.call())
+                await instance.get_meta(mk_set_routes).call(parse_dir.call(), speed)
     
     _actions["fade_in"] = func(free_at_end = false):
         var fade = await TransitionBlack.spawn()
@@ -162,6 +174,9 @@ func _init() -> void:
             await _state["fade"].confirm()
         else:
             _state["fade"].confirm()
+    
+    _actions["wait"] = func(second):
+        await Engine.get_main_loop().create_timer(second).timeout
             
 
 # first element (at index 0 should be the key of '_actions', rest is call arguments.)
