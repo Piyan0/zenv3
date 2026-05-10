@@ -1,7 +1,7 @@
 class_name StaticCommandDialogue
 extends StaticEventCommand
 
-@export var dialogue_list: Array[String] = ["speaker$content."]
+@export_multiline var dialogue_list: Array[String] = ["speaker$content."]
 
 func _command():
     var dialogue_batch = [] as Array[DialogueBase.DialogueNormal]
