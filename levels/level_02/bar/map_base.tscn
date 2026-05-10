@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="5_gvrnh"]
 [ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="6_s7j7c"]
 [ext_resource type="Script" uid="uid://8v1xdhfvcvkk" path="res://vault/static_event_commands/StaticGoto.gd" id="7_qjhn3"]
+[ext_resource type="Script" uid="uid://udvneqyhy02s" path="res://vault/static_event_commands/StaticCommandDialogue.gd" id="8_icf2u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_geonf"]
 atlas = ExtResource("2_dlhfk")
@@ -17,7 +18,7 @@ size = Vector2(16, 16)
 
 [sub_resource type="Resource" id="Resource_cy0aa"]
 script = ExtResource("7_qjhn3")
-map_id = "map_road_01"
+map_id = "map_road_02"
 spawn_pos = Vector2(224, 96)
 direction = 1
 metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
@@ -26,6 +27,36 @@ metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
 script = ExtResource("4_icf2u")
 trigger = 0
 static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_cy0aa")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_gvrnh"]
+script = ExtResource("8_icf2u")
+dialogue_list = Array[String](["ui_man$lv2_bar_npc01"])
+metadata/_custom_type_script = "uid://udvneqyhy02s"
+
+[sub_resource type="Resource" id="Resource_s7j7c"]
+script = ExtResource("4_icf2u")
+static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_gvrnh")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_qjhn3"]
+script = ExtResource("8_icf2u")
+dialogue_list = Array[String](["ui_man$lv2_bar_bartender_greet00"])
+metadata/_custom_type_script = "uid://udvneqyhy02s"
+
+[sub_resource type="Resource" id="Resource_7nt1g"]
+script = ExtResource("4_icf2u")
+static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_qjhn3")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_dqu3t"]
+script = ExtResource("8_icf2u")
+dialogue_list = Array[String](["ui_man$lv2_bar_npc00"])
+metadata/_custom_type_script = "uid://udvneqyhy02s"
+
+[sub_resource type="Resource" id="Resource_5wk27"]
+script = ExtResource("4_icf2u")
+static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_dqu3t")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="MapBase" unique_id=279109716 instance=ExtResource("1_yx5tg")]
@@ -267,10 +298,30 @@ shape = SubResource("RectangleShape2D_fsu8c")
 position = Vector2(24, 72)
 shape = SubResource("RectangleShape2D_fsu8c")
 
-[node name="CollisionShape2D32" type="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="57" unique_id=1795921126]
-position = Vector2(88, 152)
+[node name="CollisionShape2D62" type="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="57" unique_id=9716698]
+position = Vector2(176, 272)
+shape = SubResource("RectangleShape2D_fsu8c")
+
+[node name="CollisionShape2D63" type="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="58" unique_id=602195605]
+position = Vector2(88, 136)
+shape = SubResource("RectangleShape2D_fsu8c")
+
+[node name="CollisionShape2D64" type="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="59" unique_id=848114840]
+position = Vector2(56, 136)
 shape = SubResource("RectangleShape2D_fsu8c")
 
 [node name="ev000" parent="." index="3" unique_id=1425815131 instance=ExtResource("3_17p1y")]
 position = Vector2(64, 176)
 eventpages = Array[ExtResource("4_icf2u")]([SubResource("Resource_rghrd")])
+
+[node name="ev001" parent="." index="4" unique_id=1031436553 instance=ExtResource("3_17p1y")]
+position = Vector2(96, 96)
+eventpages = Array[ExtResource("4_icf2u")]([SubResource("Resource_s7j7c")])
+
+[node name="ev002" parent="." index="5" unique_id=109160394 instance=ExtResource("3_17p1y")]
+position = Vector2(112, 80)
+eventpages = Array[ExtResource("4_icf2u")]([SubResource("Resource_7nt1g")])
+
+[node name="ev003" parent="." index="6" unique_id=862996025 instance=ExtResource("3_17p1y")]
+position = Vector2(128, 96)
+eventpages = Array[ExtResource("4_icf2u")]([SubResource("Resource_5wk27")])
