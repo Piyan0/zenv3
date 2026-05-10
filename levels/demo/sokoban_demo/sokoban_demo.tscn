@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://d37gkqce2d01a"]
+
+[ext_resource type="PackedScene" uid="uid://b5io0t4608hun" path="res://entities/sokoban_minigame/sokoban_box.tscn" id="1_gcrxh"]
+[ext_resource type="PackedScene" uid="uid://dyk86kgdrft2x" path="res://entities/player/player.tscn" id="2_6u5lu"]
+
+[node name="DemoSokoban" type="Node2D" unique_id=1223978042]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=979670567]
+custom_minimum_size = Vector2(16, 16)
+offset_left = 48.0
+offset_top = 32.0
+offset_right = 64.0
+offset_bottom = 48.0
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1131520202]
+custom_minimum_size = Vector2(16, 16)
+offset_left = 80.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 48.0
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=243940689]
+custom_minimum_size = Vector2(16, 16)
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 80.0
+offset_bottom = 48.0
+color = Color(0.6255971, 0.6255971, 0.6255971, 1)
+
+[node name="SokobanBox" parent="." unique_id=1868284286 node_paths=PackedStringArray("routes") instance=ExtResource("1_gcrxh")]
+position = Vector2(32, 48)
+push_speed = 60
+routes = [NodePath("../ColorRect"), NodePath("../ColorRect3"), NodePath("../ColorRect2")]
+
+[node name="Player" parent="." unique_id=503484590 instance=ExtResource("2_6u5lu")]
+position = Vector2(80, 32)

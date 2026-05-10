@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b5io0t4608hun"]
+
+[ext_resource type="Script" uid="uid://carhvu72lj8l8" path="res://entities/sokoban_minigame/sokoban_box.gd" id="1_idbu1"]
+[ext_resource type="Texture2D" uid="uid://otoioodij3el" path="res://assets/16px.png" id="2_7w5qd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7w5qd"]
+size = Vector2(16, 16)
+
+[node name="SokobanBox" type="Node2D" unique_id=1868284286 node_paths=PackedStringArray("area")]
+script = ExtResource("1_idbu1")
+area = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=825191918]
+texture = ExtResource("2_7w5qd")
+centered = false
+offset = Vector2(0, -16)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1412719438]
+position = Vector2(0, -16)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=607381965]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_7w5qd")

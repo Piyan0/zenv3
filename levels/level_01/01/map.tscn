@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="8_yee5q"]
 [ext_resource type="Script" uid="uid://udvneqyhy02s" path="res://vault/static_event_commands/StaticCommandDialogue.gd" id="9_xkodp"]
 [ext_resource type="Script" uid="uid://byidxrucavag5" path="res://vault/static_event_commands/StaticInternalSwitch.gd" id="10_kcasg"]
+[ext_resource type="Script" uid="uid://6y7tkvwkmi5s" path="res://vault/static_event_commands/StaticImage.gd" id="11_lukhv"]
 [ext_resource type="Script" uid="uid://8v1xdhfvcvkk" path="res://vault/static_event_commands/StaticGoto.gd" id="11_sd6j2"]
 [ext_resource type="Script" uid="uid://c8mg6ccyq8ppt" path="res://levels/level_01/01/000.gd" id="12_yee5q"]
 
@@ -106,8 +107,13 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_bldm3"]
 script = ExtResource("9_xkodp")
-dialogue_list = Array[String](["ui_worker$lv1_worker_chloe_warehouse_key00", "ui_worker$lv1_worker_chloe_warehouse_key01"])
+dialogue_list = Array[String](["ui_worker$lv1_worker_chloe_warehouse_key00", "ui_worker$lv1_worker_chloe_warehouse_key01", "ui_worker$chloe_puzzle_hint00"])
 metadata/_custom_type_script = "uid://udvneqyhy02s"
+
+[sub_resource type="Resource" id="Resource_4mlkm"]
+script = ExtResource("11_lukhv")
+image_id = "img_lv1_hint_02"
+metadata/_custom_type_script = "uid://6y7tkvwkmi5s"
 
 [sub_resource type="Resource" id="Resource_cusor"]
 script = ExtResource("5_xkodp")
@@ -115,7 +121,7 @@ graphic = SubResource("AtlasTexture_kcasg")
 graphic_offset = Vector2(0, -18)
 global_switch_001 = "chloe_session"
 global_switch_001_value = true
-static_command_list = Array[ExtResource("8_yee5q")]([SubResource("Resource_bldm3")])
+static_command_list = Array[ExtResource("8_yee5q")]([SubResource("Resource_bldm3"), SubResource("Resource_4mlkm")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_bks58"]
