@@ -37,7 +37,7 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 script = ExtResource("1_23vvl")
 
 [node name="SokobabSource" parent="." unique_id=1603854147 instance=ExtResource("1_gcrxh")]
-position = Vector2(48, 16)
+position = Vector2(96, 16)
 switch = "my_switch"
 switch_value = true
 
@@ -45,5 +45,5 @@ switch_value = true
 position = Vector2(16, 80)
 
 [node name="ev000" parent="." unique_id=1425815131 instance=ExtResource("3_6u5lu")]
-position = Vector2(160, 32)
+position = Vector2(144, -16)
 eventpages = Array[ExtResource("4_lwbnj")]([SubResource("Resource_8n1ib"), SubResource("Resource_iu3hl")])
