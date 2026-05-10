@@ -29,10 +29,10 @@ var _health
 func _ready() -> void:
     if Engine.is_editor_hint(): return 
     _setup()
-    game_over.connect(func():
-        var eva = EventPageActions.new()
-        eva.push(["goto", "map_level_01_01", 0,0, "down", true])
-    )
+    # game_over.connect(func():
+    #     var eva = EventPageActions.new()
+    #     eva.push(["goto", "map_level_01_01", 0,0, "down", true])
+    # )
 
 
 func _setup():
