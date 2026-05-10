@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="zenv3"
-run/main_scene="uid://ekl6egoo7ssq"
+run/main_scene="uid://d37gkqce2d01a"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

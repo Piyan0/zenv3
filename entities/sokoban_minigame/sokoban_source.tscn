@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cjel5wlwv1jlk"]
+
+[ext_resource type="Script" uid="uid://bf7x7r8pp5k2e" path="res://entities/sokoban_minigame/sokoban_source.gd" id="1_2m84a"]
+[ext_resource type="PackedScene" uid="uid://sdtrfntcwwyn" path="res://entities/sokoban_minigame/sokoban_destination.tscn" id="2_dqksc"]
+[ext_resource type="PackedScene" uid="uid://b5io0t4608hun" path="res://entities/sokoban_minigame/sokoban_box.tscn" id="2_e7cin"]
+[ext_resource type="PackedScene" uid="uid://blivdvtexin0w" path="res://entities/sokoban_minigame/sokoban_route.tscn" id="2_gkc8a"]
+[ext_resource type="PackedScene" uid="uid://cdrxdj1givypk" path="res://entities/sokoban_minigame/sokoban_blockade.tscn" id="4_erurb"]
+
+[node name="SokobabSource" type="Node2D" unique_id=1603854147 node_paths=PackedStringArray("box_list", "destination_list", "allowed_routes")]
+script = ExtResource("1_2m84a")
+box_list = NodePath("BoxList")
+destination_list = NodePath("DestinationList")
+allowed_routes = NodePath("AllowedRoutes")
+
+[node name="AllowedRoutes" type="Node2D" parent="." unique_id=1720761330]
+
+[node name="Route" parent="AllowedRoutes" unique_id=1776123424 instance=ExtResource("2_gkc8a")]
+
+[node name="BlockadeList" type="Node2D" parent="." unique_id=1747431150]
+position = Vector2(80, 64)
+
+[node name="SokobanBlockade" parent="BlockadeList" unique_id=1821112328 instance=ExtResource("4_erurb")]
+
+[node name="DestinationList" type="Node2D" parent="." unique_id=1165009369]
+
+[node name="SokobanDestination" parent="DestinationList" unique_id=922576190 instance=ExtResource("2_dqksc")]
+position = Vector2(80, 96)
+
+[node name="BoxList" type="Node2D" parent="." unique_id=57153847]
+
+[node name="SokobanBox" parent="BoxList" unique_id=1868284286 instance=ExtResource("2_e7cin")]
+position = Vector2(48, 96)

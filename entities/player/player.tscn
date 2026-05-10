@@ -16,9 +16,10 @@ region = Rect2(0, 0, 16, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sglur"]
 size = Vector2(16, 16)
 
-[node name="Player" type="Node2D" unique_id=503484590 node_paths=PackedStringArray("animation_process", "grid_mov", "ray")]
+[node name="Player" type="Node2D" unique_id=503484590 node_paths=PackedStringArray("area", "animation_process", "grid_mov", "ray")]
 z_index = 10
 script = ExtResource("1_sglur")
+area = NodePath("Area2D")
 player_animations = Array[ExtResource("2_qiwj3")]([ExtResource("3_qiwj3"), ExtResource("4_26q78")])
 initial_direction = 2
 animation_process = NodePath("AnimationProcess")

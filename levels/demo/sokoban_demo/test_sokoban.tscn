@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cddl1pyhu3ay2"]
+
+[ext_resource type="PackedScene" uid="uid://cjel5wlwv1jlk" path="res://entities/sokoban_minigame/sokoban_source.tscn" id="1_7xbfk"]
+[ext_resource type="PackedScene" uid="uid://cdrxdj1givypk" path="res://entities/sokoban_minigame/sokoban_blockade.tscn" id="2_1n8bq"]
+[ext_resource type="PackedScene" uid="uid://blivdvtexin0w" path="res://entities/sokoban_minigame/sokoban_route.tscn" id="2_hd4ym"]
+[ext_resource type="Texture2D" uid="uid://dxif6l048nmai" path="res://assets/chloe/sheet_box.png" id="3_1n8bq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd4ym"]
+atlas = ExtResource("3_1n8bq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y67e"]
+atlas = ExtResource("3_1n8bq")
+region = Rect2(0, 16, 16, 16)
+
+[node name="SokobabSource" unique_id=1603854147 instance=ExtResource("1_7xbfk")]
+
+[node name="Route" parent="AllowedRoutes" parent_id_path=PackedInt32Array(1720761330) index="0" unique_id=1776123424]
+position = Vector2(32, 80)
+texture = null
+
+[node name="Route2" parent="AllowedRoutes" parent_id_path=PackedInt32Array(1720761330) index="1" unique_id=769394905 instance=ExtResource("2_hd4ym")]
+position = Vector2(48, 80)
+texture = null
+
+[node name="Route3" parent="AllowedRoutes" parent_id_path=PackedInt32Array(1720761330) index="2" unique_id=1868372562 instance=ExtResource("2_hd4ym")]
+position = Vector2(48, 64)
+texture = null
+
+[node name="Route4" parent="AllowedRoutes" parent_id_path=PackedInt32Array(1720761330) index="3" unique_id=1673132654 instance=ExtResource("2_hd4ym")]
+position = Vector2(48, 64)
+texture = null
+
+[node name="Route5" parent="AllowedRoutes" parent_id_path=PackedInt32Array(1720761330) index="4" unique_id=1361864150 instance=ExtResource("2_hd4ym")]
+position = Vector2(48, 48)
+texture = null
+
+[node name="Route6" parent="AllowedRoutes" parent_id_path=PackedInt32Array(1720761330) index="5" unique_id=945433776 instance=ExtResource("2_hd4ym")]
+position = Vector2(48, 32)
+texture = null
+
+[node name="BlockadeList" parent="." index="1" unique_id=1747431150]
+position = Vector2(64, 80)
+
+[node name="SokobanBlockade" parent="BlockadeList" index="0" unique_id=1821112328]
+texture = SubResource("AtlasTexture_hd4ym")
+
+[node name="SokobanBlockade2" parent="BlockadeList" index="1" unique_id=642782112 instance=ExtResource("2_1n8bq")]
+position = Vector2(0, 16)
+texture = SubResource("AtlasTexture_hd4ym")
+
+[node name="SokobanBox" parent="BoxList" parent_id_path=PackedInt32Array(57153847) index="0" unique_id=1868284286]
+position = Vector2(16, 96)
+texture = SubResource("AtlasTexture_7y67e")
+
+[node name="SokobanDestination" parent="DestinationList" parent_id_path=PackedInt32Array(1165009369) index="0" unique_id=922576190]
+position = Vector2(48, 48)

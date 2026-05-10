@@ -5,6 +5,7 @@ enum Direction{ UP, DOWN, LEFT, RIGHT }
 static var instance: Player
 static var god_mode = false
 
+@export var area: Area2D
 @export var player_animations: Array[PlayerAnimationCollection]
 @export var initial_direction: Direction
 @export var animation_process: AnimationProcess
