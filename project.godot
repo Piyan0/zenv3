@@ -36,7 +36,6 @@ gdscript/warnings/integer_division=0
 
 window/size/viewport_width=320
 window/size/viewport_height=180
-window/size/mode=2
 window/size/window_width_override=600
 window/size/window_height_override=600
 window/stretch/mode="viewport"
@@ -65,7 +64,6 @@ pointing/emulate_touch_from_mouse=true
 [internationalization]
 
 locale/translations=PackedStringArray("res://vault/translations/001.en_US.translation", "res://vault/translations/001.id_ID.translation", "res://vault/translations/002.en_US.translation", "res://vault/translations/002.id_ID.translation", "res://vault/translations/003.en_US.translation", "res://vault/translations/003.id_ID.translation", "res://vault/translations/004.en_US.translation", "res://vault/translations/004.id_ID.translation", "res://vault/translations/chloe/dialogue_translation.en_US.translation", "res://vault/translations/chloe/dialogue_translation.fr_FR.translation", "res://vault/translations/chloe/translation2.en_US.translation", "res://vault/translations/chloe/translation2.fr_FR.translation", "res://vault/translations/chloe/translation.en_US.translation", "res://vault/translations/chloe/translation.fr_FR.translation")
-locale/test="id-ID"
 
 [layer_names]
 

@@ -6,4 +6,4 @@ extends StaticEventCommand
 
 func _command():
     var eva = EventPageActions.new()
-    eva.push(["narator", narator_dialogue])
+    await eva.push(["narator", narator_dialogue])

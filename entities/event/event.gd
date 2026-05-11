@@ -132,6 +132,7 @@ func update_active_event(internal_switches, variables, global_switches):
     reversed_event_pages.reverse()
     for i in reversed_event_pages:
         if i == null: continue
+        # TODO return if event is the same, since everytime variable / switch is changed, it will be called.
         if i.is_event_active(internal_switches[get_internal_switch_id()], variables, global_switches):
             active_event_page= i
             _active_event_changed(i)

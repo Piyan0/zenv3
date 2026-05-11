@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b2h8rj628uoe0" path="res://assets/chloe/fred_walk.png" id="10_d8cqf"]
 [ext_resource type="Script" uid="uid://bav2f5k2kdr8e" path="res://levels/level_02/010.gd" id="10_s7j7c"]
 [ext_resource type="Script" uid="uid://bbjmsh211yvgp" path="res://levels/level_02/009.gd" id="10_y700q"]
+[ext_resource type="Script" uid="uid://cm6lib5yoxkup" path="res://vault/static_event_commands/static_increment_var.gd" id="11_vjowb"]
 [ext_resource type="Resource" uid="uid://ca4v2db6d8ixb" path="res://vault/animation_data/chloe/chloe_idle_down.tres" id="12_d8cqf"]
 [ext_resource type="Texture2D" uid="uid://vh15f57kbnnl" path="res://assets/chloe/chloe_walk.png" id="12_rghrd"]
 [ext_resource type="Resource" uid="uid://bj77bwu36i5vt" path="res://vault/animation_data/chloe/chloe_idle_left.tres" id="13_y700q"]
@@ -84,11 +85,16 @@ script = ExtResource("8_icf2u")
 dialogue_list = Array[String](["ui_man$lv2_bar_npc09"])
 metadata/_custom_type_script = "uid://udvneqyhy02s"
 
+[sub_resource type="Resource" id="Resource_m2c6t"]
+script = ExtResource("11_vjowb")
+id = "bar_interact_count"
+metadata/_custom_type_script = "uid://cm6lib5yoxkup"
+
 [sub_resource type="Resource" id="Resource_icf2u"]
 script = ExtResource("4_icf2u")
 graphic = SubResource("AtlasTexture_s7j7c")
 graphic_offset = Vector2(0, -18)
-static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_mucvw")])
+static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_mucvw"), SubResource("Resource_m2c6t")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gvrnh"]
@@ -223,7 +229,7 @@ walk_animations = SubResource("Resource_nilbh")
 idle_animations = SubResource("Resource_yi1ht")
 trigger = 2
 variable = "bar_interact_count"
-variable_value = 7
+variable_value = 1
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_e5ths"]

@@ -47,6 +47,7 @@ func exec_commands() -> void:
     for static_command in static_command_list:
         if static_command == null: continue
         await static_command.run_command()
+        # print(static_command)
     
     await event_commands.call()
 

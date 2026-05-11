@@ -10,6 +10,7 @@ func _get_commands_list():
     commands[2] = func():
         await push(["fade_in"])
         push(["transfer", "player", 192, 48])
+        push(["look", "player", "down"])
         push(["fade_out"])
         await push(["transfer", event, 64, 160])
         await push(["move", event, ["up", "up", "up", "right", "right", "right", "right", "right", "right", "right", "right", "right"], 40])

@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://c0qvn1v16rx63" path="res://vault/animation_data/fred/fred_idle_right.tres" id="10_sonbf"]
 [ext_resource type="Resource" uid="uid://quvhwfv2xlto" path="res://vault/animation_data/fred/fred_idle_up.tres" id="11_spm4h"]
 [ext_resource type="Script" uid="uid://cpejx1nq0nk1j" path="res://commons/idle_animation_collection.gd" id="12_5jfxe"]
+[ext_resource type="Script" uid="uid://8v1xdhfvcvkk" path="res://vault/static_event_commands/StaticGoto.gd" id="17_0mhx0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nbl57"]
 atlas = ExtResource("2_pxffn")
@@ -69,13 +70,21 @@ script = ExtResource("9_6qr1i")
 internal_switch = 2
 metadata/_custom_type_script = "uid://byidxrucavag5"
 
+[sub_resource type="Resource" id="Resource_sonbf"]
+script = ExtResource("17_0mhx0")
+map_id = "map_road_01"
+spawn_pos = Vector2(32, 96)
+direction = 3
+start_from_black = true
+metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
+
 [sub_resource type="Resource" id="Resource_0rlqy"]
 script = ExtResource("4_xynn4")
 graphic = SubResource("AtlasTexture_6qr1i")
 graphic_offset = Vector2(0, -18)
 trigger = 2
 i_switch = 1
-static_command_list = Array[ExtResource("6_p7elp")]([SubResource("Resource_0p2qt"), SubResource("Resource_w37uj")])
+static_command_list = Array[ExtResource("6_p7elp")]([SubResource("Resource_0p2qt"), SubResource("Resource_w37uj"), SubResource("Resource_sonbf")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_majd2"]
@@ -90,7 +99,7 @@ map_id = "level_01_07"
 metadata/_edit_vertical_guides_ = [448.0]
 metadata/_edit_horizontal_guides_ = [176.0]
 
-[node name="Sprite2D" parent="." index="1" unique_id=1877365204]
+[node name="Sprite2D" parent="." index="0" unique_id=1877365204]
 texture = SubResource("AtlasTexture_nbl57")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="1" unique_id=389134969]

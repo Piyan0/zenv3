@@ -69,11 +69,17 @@ func _init() -> void:
     
     _actions["set_var"] = func(id, value):
         Bootstrap.progression.set_var(id, value)
-        
+    
     _actions["get_var"] = func(id, cb):
         var value = Bootstrap.progression.get_var(id)
         await cb.call(value)
+
+    _actions["increment_var"] = func(id):
+        var current_value = Bootstrap.progression.get_var(id)
+        if current_value is int:
+            Bootstrap.progression.set_var(id, current_value + 1)
         
+
     _actions["show_image"] = func(img_id):
         await DisplayImage.spawn(img_id)
     
@@ -187,7 +193,7 @@ func push(args = []):
     # print("start push {id}".format({"id":id}), ">>",EventManager.current_internal_switch_id)
     var result = await _actions[id].callv(args) 
     # print("finished push {id}".format({"id":id}), ">>",EventManager.current_internal_switch_id)
-    return result
+    return self
 
 
 func _queue_dialogue_batch(name, msg):
