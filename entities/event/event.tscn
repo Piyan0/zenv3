@@ -77,4 +77,4 @@ metadata/_custom_type_script = "uid://crrbtwoclhcmy"
 custom_minimum_size = Vector2(16, 16)
 offset_top = -16.0
 offset_right = 16.0
-border_color = Color(2.4065375e-05, 0.9975974, 0.84792054, 1)
+border_color = Color(1, 1, 1, 1)

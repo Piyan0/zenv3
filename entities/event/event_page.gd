@@ -15,6 +15,8 @@ enum InternalSwitch { NONE, A = 1, B = 2, C = 3, D = 4}
 enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 
 @export var event_commands_id : EventCommandsID = EventCommandsID.Commands_001
+@export var static_command_list: Array[StaticEventCommand] = [null, null]
+
 @export var graphic: Texture2D
 @export var graphic_offset= Vector2.ZERO
 
@@ -39,7 +41,6 @@ enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 @export var global_switch_002_value: bool
 
 @export var event_traits: Array[EventTrait]
-@export var static_command_list: Array[StaticEventCommand] = [null, null]
 var event_commands: Callable
 
 
