@@ -7,7 +7,6 @@ enum Direction{
 var _actions = {}
 var _state = {}
 
-
 func _init() -> void:
     _actions["narator"] = func(msg_arr):
         var narator_dialogue = [] as Array[DialogueBase.DialogueNormal]

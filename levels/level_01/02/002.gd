@@ -16,8 +16,8 @@ func _get_commands_list():
                     tr("lv1_story_fred_use_hoverboard_03"),
                 ]])
                 push(["set_iswitch", "A", true]) 
-                await push(["goto", "map_level_01_01", 0, 0, "down", true])
                 push(["set_switch", "chloe_session", true])
+                await push(["goto", "map_level_01_01", 0, 0, "down", true])
     ])
         
     commands[3] = func():

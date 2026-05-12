@@ -57,11 +57,6 @@ func refresh_map(internal_switches, variables, global_switches):
     _reset()
 
 
-
-func reset_interact():
-    _is_running_event = false
-
-
 func _reset():
     # _is_running_event = false
     _current_input = null

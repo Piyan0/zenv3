@@ -54,7 +54,7 @@ func _get_map_assets():
     _assets["map_road_02"] = map_base_path + "/level_02/road_02/map.tscn"
     _assets["map_bar"] = map_base_path + "/level_02/bar/map_base.tscn"
 
-    _assets["map_level_03_01"] = map_base_path + "/level_03/01/map_base.tscn"
+    _assets["map_level_03_01"] = map_base_path + "/level_03/01.tscn"
     
 
 func _get_animation_data_assets():
