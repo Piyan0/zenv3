@@ -60,7 +60,6 @@ metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
 script = ExtResource("4_qbeyo")
 trigger = 0
 global_switch_001 = "chloe_session"
-global_switch_001_value = true
 static_command_list = Array[ExtResource("6_5ckn8")]([SubResource("Resource_tl7wv")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
@@ -75,9 +74,9 @@ metadata/_custom_type_script = "uid://udvneqyhy02s"
 
 [sub_resource type="Resource" id="Resource_b6sko"]
 script = ExtResource("4_qbeyo")
-event_commands_id = 2
 graphic = SubResource("AtlasTexture_b6sko")
 graphic_offset = Vector2(0, -32)
+event_commands_id = 2
 static_command_list = Array[ExtResource("6_5ckn8")]([SubResource("Resource_5ckn8")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
@@ -102,20 +101,19 @@ metadata/_custom_type_script = "uid://g7a2u2g0obk1"
 
 [sub_resource type="Resource" id="Resource_cgcwr"]
 script = ExtResource("4_qbeyo")
-event_commands_id = 2
 graphic = SubResource("AtlasTexture_5ckn8")
 graphic_offset = Vector2(0, -32)
 global_switch_001 = "cave_stepping_puzzle_correct"
-global_switch_001_value = true
+event_commands_id = 2
 static_command_list = Array[ExtResource("6_5ckn8")]([SubResource("Resource_ms2ph"), SubResource("Resource_78hyu"), SubResource("Resource_cbjri")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_8g5uk"]
 script = ExtResource("4_qbeyo")
-event_commands_id = 2
 graphic = SubResource("AtlasTexture_5ckn8")
 graphic_offset = Vector2(0, -32)
 i_switch = 1
+event_commands_id = 2
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_dw23v"]
@@ -137,7 +135,6 @@ metadata/_custom_type_script = "uid://b817nyl00j2ar"
 script = ExtResource("4_qbeyo")
 trigger = 2
 global_switch_001 = "cave_stepping_puzzle_wrong"
-global_switch_001_value = true
 static_command_list = Array[ExtResource("6_5ckn8")]([SubResource("Resource_oaqyw"), SubResource("Resource_l3ujy")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
@@ -157,18 +154,17 @@ region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="Resource" id="Resource_k4wl2"]
 script = ExtResource("4_qbeyo")
-event_commands_id = 2
 graphic = SubResource("AtlasTexture_6msn6")
 graphic_offset = Vector2(0, -16)
 i_switch = 1
+event_commands_id = 2
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="MapBase" unique_id=72178244 instance=ExtResource("1_8hgoo")]
-map_id = "level_01_04"
 metadata/_edit_vertical_guides_ = [392.0, 240.0, 264.0]
 metadata/_edit_horizontal_guides_ = [288.0, 160.0, 240.0, 136.0]
 
-[node name="Sprite2D" parent="." index="1" unique_id=1877365204]
+[node name="Sprite2D" parent="." index="0" unique_id=1877365204]
 texture = SubResource("AtlasTexture_drchm")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="1" unique_id=1210561224]

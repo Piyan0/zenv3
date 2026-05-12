@@ -44,16 +44,15 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_6gog6"]
 script = ExtResource("4_icf2u")
-event_commands_id = 2
 trigger = 2
 global_switch_001 = "bar_kiss"
-global_switch_001_value = true
+event_commands_id = 2
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_k3c0c"]
 script = ExtResource("4_icf2u")
-event_commands_id = 3
 i_switch = 1
+event_commands_id = 3
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_gvrnh"]
@@ -78,8 +77,8 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_32wmr"]
 script = ExtResource("4_icf2u")
-static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_gvrnh")])
 i_switch = 1
+static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_gvrnh")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_qjhn3"]
@@ -104,8 +103,8 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_e3p2q"]
 script = ExtResource("4_icf2u")
-static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_qjhn3")])
 i_switch = 1
+static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_qjhn3")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_dqu3t"]
@@ -130,8 +129,8 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_5wk27"]
 script = ExtResource("4_icf2u")
-static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_dqu3t")])
 i_switch = 1
+static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_dqu3t")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s7j7c"]
@@ -159,8 +158,8 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 script = ExtResource("4_icf2u")
 graphic = SubResource("AtlasTexture_s7j7c")
 graphic_offset = Vector2(0, -18)
-static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_mucvw")])
 i_switch = 1
+static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_mucvw")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gvrnh"]
@@ -188,8 +187,8 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 script = ExtResource("4_icf2u")
 graphic = SubResource("AtlasTexture_gvrnh")
 graphic_offset = Vector2(0, -18)
-static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_mcoh5")])
 i_switch = 1
+static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_mcoh5")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qjhn3"]
@@ -217,8 +216,8 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 script = ExtResource("4_icf2u")
 graphic = SubResource("AtlasTexture_qjhn3")
 graphic_offset = Vector2(0, -18)
-static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_0fb35")])
 i_switch = 1
+static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_0fb35")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_d8cqf"]
@@ -242,8 +241,8 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 script = ExtResource("4_icf2u")
 graphic = SubResource("AtlasTexture_s7j7c")
 graphic_offset = Vector2(0, -18)
-static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_d8cqf")])
 i_switch = 1
+static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_d8cqf")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_cy0aa"]
@@ -255,8 +254,8 @@ metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
 
 [sub_resource type="Resource" id="Resource_rghrd"]
 script = ExtResource("4_icf2u")
-static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_cy0aa")])
 trigger = 0
+static_command_list = Array[ExtResource("6_s7j7c")]([SubResource("Resource_cy0aa")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_ugbfh"]
@@ -287,10 +286,9 @@ region = Rect2(0, 21, 16, 21)
 script = ExtResource("4_icf2u")
 graphic = SubResource("AtlasTexture_hn5uu")
 graphic_offset = Vector2(1, -26)
-event_commands_id = 2
 trigger = 2
 global_switch_001 = "bar_sit"
-global_switch_001_value = true
+event_commands_id = 2
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y700q"]
@@ -301,16 +299,14 @@ region = Rect2(0, 21, 16, 21)
 script = ExtResource("4_icf2u")
 graphic = SubResource("AtlasTexture_y700q")
 graphic_offset = Vector2(1, -26)
-event_commands_id = 3
 i_switch = 1
 global_switch_001 = "bar_sit"
-global_switch_001_value = true
+event_commands_id = 3
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_xhqbl"]
 script = ExtResource("4_icf2u")
 global_switch_001 = "bar_kiss"
-global_switch_001_value = true
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7nt1g"]
@@ -323,9 +319,9 @@ metadata/_custom_type_script = "uid://cpejx1nq0nk1j"
 [sub_resource type="Resource" id="Resource_m4j6n"]
 script = ExtResource("4_icf2u")
 graphic = SubResource("AtlasTexture_7nt1g")
-event_commands_id = 2
 idle_animations = SubResource("Resource_eaioy")
 i_switch = 1
+event_commands_id = 2
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7myc0"]
@@ -352,22 +348,22 @@ metadata/_custom_type_script = "uid://dppwvvxbnd1y3"
 script = ExtResource("4_icf2u")
 graphic = SubResource("AtlasTexture_7myc0")
 graphic_offset = Vector2(0, -17)
-event_commands_id = 2
 walk_animations = SubResource("Resource_nilbh")
 idle_animations = SubResource("Resource_yi1ht")
 trigger = 2
 variable = "bar_interact_count"
 variable_value = 7
+event_commands_id = 2
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_e5ths"]
 script = ExtResource("4_icf2u")
 graphic_offset = Vector2(0, -17)
-event_commands_id = 3
 walk_animations = SubResource("Resource_nilbh")
 idle_animations = SubResource("Resource_yi1ht")
 through = true
 i_switch = 1
+event_commands_id = 3
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d8cqf"]
@@ -379,13 +375,11 @@ script = ExtResource("4_icf2u")
 graphic = SubResource("AtlasTexture_d8cqf")
 graphic_offset = Vector2(-2, -26)
 global_switch_001 = "bar_sit"
-global_switch_001_value = true
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_quoqg"]
 script = ExtResource("4_icf2u")
 global_switch_001 = "bar_kiss"
-global_switch_001_value = true
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_h81bo"]
@@ -412,7 +406,6 @@ walk_animations = SubResource("Resource_jjhfo")
 idle_animations = SubResource("Resource_bt1ho")
 through = true
 global_switch_001 = "bar_kiss"
-global_switch_001_value = true
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_dmkip"]
@@ -431,7 +424,6 @@ graphic = SubResource("AtlasTexture_m4j6n")
 graphic_offset = Vector2(-8, -20)
 through = true
 global_switch_001 = "bar_kiss"
-global_switch_001_value = true
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_nrh4x"]
@@ -464,11 +456,9 @@ script = ExtResource("4_icf2u")
 graphic = ExtResource("30_e5ths")
 through = true
 global_switch_001 = "show_love_bubble"
-global_switch_001_value = true
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="MapBase" unique_id=279109716 instance=ExtResource("1_yx5tg")]
-map_id = "bar"
 metadata/_edit_vertical_guides_ = [248.0, 320.0, 336.0]
 metadata/_edit_horizontal_guides_ = [176.0, 112.0, 128.0]
 

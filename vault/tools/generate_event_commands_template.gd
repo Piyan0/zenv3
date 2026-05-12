@@ -1,7 +1,9 @@
 @tool
 extends EditorScript
 
-var _template_content = ("""extends EventCommands
+var _template_content = ("""# meta-name: EventCommandsTemplate
+
+extends EventCommands
 
 
 func _get_commands_list():
@@ -21,18 +23,13 @@ func _get_commands_list():
 # @autocomplete
 #{autocomplete}
 """)
-var start_name = 0
-var generate_amount = 1
 func _run():
-    var path = EditorInterface.get_selected_paths()
-    if path.is_empty():
-        print("please select a directory target for event template.")
-        return
-    var dir_exists = DirAccess.dir_exists_absolute(path[0])
+    var dir = "res://script_templates/Node/"
+    var dir_exists = DirAccess.dir_exists_absolute(dir)
     if dir_exists:
-        for i in range(0, generate_amount):
-            _generate_template(path[0], str(start_name+i).pad_zeros(3))
+        _generate_template(dir, "event_commands_template")
     EditorInterface.get_resource_filesystem().scan()
+
 
 func _generate_template(dir, name):
     var autocomplete = _get_autocomplete()

@@ -1,12 +1,16 @@
 class_name Map
 extends Node2D
 
-@export var map_id: String = "[map_id]"
 @export var bgm: AudioStream
 @export var map_display_name: String
 
+var map_id: String:
+    get():
+        return get_map_id()
+
 
 func _ready():
+    
     y_sort_enabled = true
     _add_event_id()
     var events = get_tree().get_nodes_in_group("events")
@@ -32,3 +36,11 @@ func _add_event_id():
             label.queue_free()
         )
         
+func get_map_id():
+    var asset_dict = Bootstrap.asset_loader.get_asset_data()
+    for i in asset_dict.keys():
+        # printt(scene_file_path, asset_dict[i])
+        if asset_dict[i] == scene_file_path:
+            return i
+    
+    return "<map id not found.>"

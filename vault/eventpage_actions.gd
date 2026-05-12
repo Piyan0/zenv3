@@ -45,7 +45,10 @@ func _init() -> void:
             return
         await on_end.call(items_used[0])
     
-    _actions["erase_item"] = func(id):
+    _actions["erase_item"] = func(id = -1):
+        if id == -1:
+            id = Inventory.last_used_item
+        print(id)
         Bootstrap.save_system.fields["items_id"].erase(id)
     
     _actions["add_item"] = func(id):

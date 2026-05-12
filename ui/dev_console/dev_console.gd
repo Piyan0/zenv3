@@ -17,9 +17,12 @@ signal console_blur()
 var commands = [ConsoleCommand.new()]
 var _is_console_visible = false
 var _can_toggle_console = true
-
+var _history = []
+var _history_save_path = "res://ui/dev_console/command_history.cfg"
 
 func _ready():
+    _load_history()
+
     _console_visible(false)
     lb_msg.hide()
     lb_command_info.hide()
@@ -46,6 +49,11 @@ func _ready():
 
     line_edit.text_submitted.connect(
         func(text):
+            _history.push_front(text)
+            if _history.size() >= 24:
+                _history.resize(24)
+            _save_history()
+
             for i in commands:
                 var command_id = i.is_valid(text)
                 if command_id != null:
@@ -83,7 +91,28 @@ func _process(delta: float) -> void:
         _can_toggle_console = true
 
 
+var _history_index = -1
+func _input(event: InputEvent) -> void:
+    if event.is_action_pressed("ui_up"):
+        _history_index= ( _history_index + 1 ) % _history.size()
+        var last_used_command = _history[_history_index]
+        if last_used_command:
+            line_edit.text = last_used_command
+            await get_tree().process_frame
+            line_edit.caret_column = last_used_command.length()
+
+    if event.is_action_pressed("ui_down"):
+        _history_index= ( _history_index - 1 ) % _history.size()
+        var last_used_command = _history[_history_index]
+        if last_used_command:
+            line_edit.text = last_used_command
+            await get_tree().process_frame
+            line_edit.caret_column = last_used_command.length()
+
+
 func _toggle_console():
+    _history_index = -1
+    line_edit.text = ""
     _is_console_visible = !_is_console_visible
     if !_is_console_visible:
         autocomplete_container.off()
@@ -181,3 +210,16 @@ func _update_command_info(text, p_commands):
             return
         else:
             lb_command_info.hide()
+
+
+func _load_history():
+    var cfg = ConfigFile.new()
+    cfg.load(_history_save_path)
+    _history = cfg.get_value("Main", "history")
+
+
+func _save_history():
+    var cfg = ConfigFile.new()
+    cfg.load(_history_save_path)
+    cfg.set_value("Main", "history", _history)
+    cfg.save(_history_save_path)

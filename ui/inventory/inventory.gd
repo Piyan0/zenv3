@@ -2,6 +2,7 @@ class_name Inventory
 extends CanvasLayer
 signal inventory_closed(items_used)
 
+static var last_used_item = 0
 @export var items_id = [1, 2, 3, 4, 5, 6, 7 ,9]
 @export var items_container: Control
 @export var lb_desc: Label
@@ -31,6 +32,7 @@ func _ready() -> void:
     )
     
     items_container.item_selected.connect(func(item, index):
+        last_used_item = item.id
         if close_on_selected:
             inventory_closed.emit([item.id])
             queue_free()        

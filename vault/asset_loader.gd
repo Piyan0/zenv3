@@ -2,7 +2,7 @@ class_name AssetLoader
 
 var _assets= {}
 
-
+# TODO add convention for dir asset we dont have to add it to dict.
 func _init():
     _get_image_assets()
     _get_map_assets()
@@ -26,6 +26,10 @@ func get_keys(prefix = ""):
     )
     
 
+func get_asset_data():
+    return _assets
+
+
 func _get_image_assets():
     _assets["img_screen"] = "res://assets/screen.png"
     _assets["img_screen_transparent"] = "res://assets/screen_transparent.png"
@@ -35,6 +39,10 @@ func _get_image_assets():
     _assets["img_lv1_hint_01"] = "res://assets/chloe/lv1_hint_01.png"
     _assets["img_lv1_hint_02"] = "res://assets/chloe/lv1_hint_02.png"
     _assets["img_cave_energy_placed"] = "res://assets/chloe/cave_energy_placed.png"
+    
+    _assets["img_lv3_hint1"] = "res://assets/chloe/lv3_hint_01.png"
+    _assets["img_lv3_hint2"] = "res://assets/chloe/lv3_hint_02.png"
+    _assets["img_lv3_hint3"] = "res://assets/chloe/lv3_hint_03.png"
 
 
 func _get_map_assets():
@@ -42,19 +50,20 @@ func _get_map_assets():
     _assets["map_piyan_room_01"] = map_base_path + "demo/piyan_room/01/piyan_room_01.tscn"
     _assets["map_piyan_room_02"] = map_base_path + "demo/piyan_room/02/piyan_room_02.tscn"
     _assets["map_piyan_room_03"] = map_base_path + "demo/piyan_room/03/piyan_room_03.tscn"
-    _assets["map_level_01_01"] = map_base_path + "/level_01/01/map.tscn"
-    _assets["map_level_01_02"] = map_base_path + "/level_01/02/map.tscn"
-    _assets["map_level_01_03"] = map_base_path + "/level_01/03/map.tscn"
-    _assets["map_level_01_04"] = map_base_path + "/level_01/04/map.tscn"
-    _assets["map_level_01_05"] = map_base_path + "/level_01/05/map.tscn"
-    _assets["map_level_01_06"] = map_base_path + "/level_01/06/map.tscn"
-    _assets["map_level_01_07"] = map_base_path + "/level_01/07/map.tscn"
+    _assets["map_level_01_01"] = map_base_path + "level_01/01/map.tscn"
+    _assets["map_level_01_02"] = map_base_path + "level_01/02/map.tscn"
+    _assets["map_level_01_03"] = map_base_path + "level_01/03/map.tscn"
+    _assets["map_level_01_04"] = map_base_path + "level_01/04/map.tscn"
+    _assets["map_level_01_05"] = map_base_path + "level_01/05/map.tscn"
+    _assets["map_level_01_06"] = map_base_path + "level_01/06/map.tscn"
+    _assets["map_level_01_07"] = map_base_path + "level_01/07/map.tscn"
 
-    _assets["map_road_01"] = map_base_path + "/level_02/road_01/map.tscn"
-    _assets["map_road_02"] = map_base_path + "/level_02/road_02/map.tscn"
-    _assets["map_bar"] = map_base_path + "/level_02/bar/map_base.tscn"
+    _assets["map_road_01"] = map_base_path + "level_02/road_01/map.tscn"
+    _assets["map_road_02"] = map_base_path + "level_02/road_02/map.tscn"
+    _assets["map_bar"] = map_base_path + "level_02/bar/map_base.tscn"
 
-    _assets["map_level_03_01"] = map_base_path + "/level_03/01.tscn"
+    _assets["map_level_03_01"] = map_base_path + "level_03/01.tscn"
+    _assets["map_level_03_02"] = map_base_path + "level_03/02.tscn"
     
 
 func _get_animation_data_assets():

@@ -40,6 +40,10 @@ window/size/window_width_override=600
 window/size/window_height_override=600
 window/stretch/mode="viewport"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/createeventcommand/plugin.cfg")
+
 [input]
 
 ui_accept={
