@@ -53,6 +53,7 @@ func get_current_index():
 func set_pause(pause):
     if pause:
         _pause= true
+        _selection_change(-1)
     else:
         _pause = false
         _selection_change(_current_idx)
@@ -101,21 +102,28 @@ func _process_input_grid(event: InputEvent):
     elif event.is_action_pressed("ui_right"):
         _current_idx= _move_index(1)
         get_viewport().set_input_as_handled()
-    if event.is_action_pressed("ui_down"):
+    elif event.is_action_pressed("ui_down"):
         _current_idx= _move_index(horizontal_item_count)
         get_viewport().set_input_as_handled()
     elif event.is_action_pressed("ui_up"):
         _current_idx= _move_index(horizontal_item_count * -1)
         get_viewport().set_input_as_handled()
+    else:
+        return
     _selection_change(_current_idx)
 
 
 func _selection_change(idx):
-    # print(idx)
     if connect_index_obj != null:
         connect_index_obj[connect_index_field]= idx
     var node= _node_list[idx]
     var blur_nodes= _node_list.duplicate()
+    if idx == -1:
+        for i in blur_nodes:
+            #print(1)
+            effect_blur.call(i)
+        return
+            
     blur_nodes.erase(node)
     for i in blur_nodes:
         if !is_instance_valid(i): continue

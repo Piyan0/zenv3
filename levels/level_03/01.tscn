@@ -15,6 +15,9 @@
 [ext_resource type="Script" uid="uid://cyudso7k3m43s" path="res://levels/level_03/002.gd" id="9_sqh50"]
 [ext_resource type="Script" uid="uid://6y7tkvwkmi5s" path="res://vault/static_event_commands/StaticImage.gd" id="10_hsfym"]
 [ext_resource type="Script" uid="uid://8v1xdhfvcvkk" path="res://vault/static_event_commands/StaticGoto.gd" id="11_jbyss"]
+[ext_resource type="Script" uid="uid://byidxrucavag5" path="res://vault/static_event_commands/StaticInternalSwitch.gd" id="15_2el6i"]
+[ext_resource type="Script" uid="uid://c3bp0psn2pji4" path="res://vault/generated_event_command/0.gd" id="16_sovtf"]
+[ext_resource type="Script" uid="uid://clb5817cuc20c" path="res://vault/generated_event_command/2.gd" id="17_dql2g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_14hew"]
 atlas = ExtResource("2_h44vv")
@@ -80,11 +83,29 @@ script = ExtResource("8_sovtf")
 dialogue_list = Array[String](["name_blob$lv3_fred_hint00", "name_blob$lv3_fred_hint"])
 metadata/_custom_type_script = "uid://udvneqyhy02s"
 
+[sub_resource type="Resource" id="Resource_dtcxt"]
+script = ExtResource("10_hsfym")
+image_id = "img_lv3_hint2"
+metadata/_custom_type_script = "uid://6y7tkvwkmi5s"
+
+[sub_resource type="Resource" id="Resource_8f67h"]
+script = ExtResource("15_2el6i")
+internal_switch = 1
+metadata/_custom_type_script = "uid://byidxrucavag5"
+
 [sub_resource type="Resource" id="Resource_vrrwa"]
 script = ExtResource("5_hsfym")
 graphic = SubResource("AtlasTexture_837ee")
 graphic_offset = Vector2(0, -16)
-static_command_list = Array[ExtResource("7_l7s86")]([SubResource("Resource_e64pu")])
+static_command_list = Array[ExtResource("7_l7s86")]([SubResource("Resource_e64pu"), SubResource("Resource_dtcxt"), SubResource("Resource_8f67h")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_1nb37"]
+script = ExtResource("5_hsfym")
+graphic = SubResource("AtlasTexture_837ee")
+graphic_offset = Vector2(0, -16)
+i_switch = 1
+static_command_list = Array[ExtResource("7_l7s86")]([SubResource("Resource_dtcxt"), null])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_i78hb"]
@@ -108,6 +129,44 @@ metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
 script = ExtResource("5_hsfym")
 trigger = 0
 static_command_list = Array[ExtResource("7_l7s86")]([SubResource("Resource_joc3j"), null])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_2el6i"]
+script = ExtResource("5_hsfym")
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_ln677"]
+script = ExtResource("5_hsfym")
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_4jffs"]
+script = ExtResource("8_sovtf")
+dialogue_list = Array[String](["name_blob$lv3_fred_hint02"])
+metadata/_custom_type_script = "uid://udvneqyhy02s"
+
+[sub_resource type="Resource" id="Resource_5fi4c"]
+script = ExtResource("5_hsfym")
+static_command_list = Array[ExtResource("7_l7s86")]([SubResource("Resource_4jffs"), null])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_avdox"]
+script = ExtResource("8_sovtf")
+dialogue_list = Array[String](["name_blob$lv3_fred_hint03"])
+metadata/_custom_type_script = "uid://udvneqyhy02s"
+
+[sub_resource type="Resource" id="Resource_r27od"]
+script = ExtResource("5_hsfym")
+static_command_list = Array[ExtResource("7_l7s86")]([SubResource("Resource_avdox"), null])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_lwirr"]
+script = ExtResource("8_sovtf")
+dialogue_list = Array[String](["name_blob$lv3_fred_hint01"])
+metadata/_custom_type_script = "uid://udvneqyhy02s"
+
+[sub_resource type="Resource" id="Resource_xs670"]
+script = ExtResource("5_hsfym")
+static_command_list = Array[ExtResource("7_l7s86")]([SubResource("Resource_lwirr"), null])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="MapBase" unique_id=279109716 instance=ExtResource("1_t5e44")]
@@ -314,7 +373,7 @@ eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_thmfj"), null]
 
 [node name="ev003" parent="." index="8" unique_id=343763000 instance=ExtResource("3_jbyss")]
 position = Vector2(192, 48)
-eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_vrrwa"), null])
+eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_vrrwa"), SubResource("Resource_1nb37")])
 
 [node name="ev004" parent="." index="9" unique_id=1736139323 instance=ExtResource("3_jbyss")]
 position = Vector2(240, 32)
@@ -323,3 +382,25 @@ eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_7uuhd"), null]
 [node name="ev005" parent="." index="10" unique_id=827856574 instance=ExtResource("3_jbyss")]
 position = Vector2(288, 112)
 eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_hsfym"), null])
+
+[node name="ev006" parent="." index="11" unique_id=537602198 instance=ExtResource("3_jbyss")]
+position = Vector2(128, 64)
+_commands_source = ExtResource("16_sovtf")
+eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_2el6i"), null])
+
+[node name="ev007" parent="." index="12" unique_id=1790439983 instance=ExtResource("3_jbyss")]
+position = Vector2(144, 64)
+_commands_source = ExtResource("17_dql2g")
+eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_ln677"), null])
+
+[node name="ev008" parent="." index="13" unique_id=1380545154 instance=ExtResource("3_jbyss")]
+position = Vector2(160, 64)
+eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_5fi4c"), null])
+
+[node name="ev009" parent="." index="14" unique_id=1141058347 instance=ExtResource("3_jbyss")]
+position = Vector2(192, 64)
+eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_r27od"), null])
+
+[node name="ev010" parent="." index="15" unique_id=2138953446 instance=ExtResource("3_jbyss")]
+position = Vector2(208, 64)
+eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_xs670"), null])

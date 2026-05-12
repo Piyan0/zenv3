@@ -16,6 +16,9 @@ func _enter_tree() -> void:
         if selection[0] is Event:
             _erase_orphan_files()
             var event: Event = selection[0]
+            if event._commands_source != null:
+                print("{0} command source is not empty. aborting.".format([event.name]))
+                return
             
             var text_source = FileAccess.open(_template_path, FileAccess.READ)
             var content = text_source.get_as_text()
@@ -28,7 +31,7 @@ func _enter_tree() -> void:
             file.close()
             event._commands_source = load(_generate_path + name)
             get_editor_interface().get_resource_filesystem().scan()
-            print("generated.")
+            print("generated " + name)
             
         )
 
