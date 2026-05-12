@@ -30,6 +30,7 @@ func _get_commands_list():
         await Bootstrap.asset_loader.get_asset("sc_pretzel_minigame").spawn()
 
         push(["set_iswitch", "a", true])
+        push(["set_switch", "bar_kiss"])
         
     commands[3] = func():
         await push([""])

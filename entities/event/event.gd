@@ -1,3 +1,4 @@
+@icon("./icon_search.png")
 class_name Event
 extends Node2D
 
@@ -30,6 +31,10 @@ func _ready():
     else:
         _commands = EventCommands.new()
     add_to_group("events")
+
+
+func _exit_tree() -> void:
+    interact_finished.emit()
 
 
 func _physics_process(delta):
@@ -120,7 +125,7 @@ func interact(player):
     interact_direction= direction_from_player
     is_interact_running= true
     await active_event_page.exec_commands()
-    interact_finished.emit()
+    interact_finished.emit.call_deferred()
     is_interact_running= false
     
 
@@ -134,6 +139,9 @@ func update_active_event(internal_switches, variables, global_switches):
         if i == null: continue
         # TODO return if event is the same, since everytime variable / switch is changed, it will be called.
         if i.is_event_active(internal_switches[get_internal_switch_id()], variables, global_switches):
+            if i == active_event_page:
+                # print("same")
+                return
             active_event_page= i
             _active_event_changed(i)
 

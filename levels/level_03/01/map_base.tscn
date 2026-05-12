@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bk4iyk616qtlr"]
+
+[ext_resource type="PackedScene" uid="uid://cn4a1buk2tejm" path="res://levels/map_base.tscn" id="1_xlnfb"]
+[ext_resource type="Texture2D" uid="uid://duaenrpahrw0m" path="res://assets/chloe/sheet_lv3.png" id="2_xja6m"]
+[ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="3_cwadc"]
+[ext_resource type="Script" uid="uid://cnaufp6srnhon" path="res://levels/level_03/01/000.gd" id="4_cwadc"]
+[ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="4_twfcu"]
+[ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="5_e2l7w"]
+[ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="6_837ee"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14hew"]
+atlas = ExtResource("2_xja6m")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="Resource" id="Resource_88t4m"]
+script = ExtResource("4_twfcu")
+trigger = 2
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_837ee"]
+script = ExtResource("4_twfcu")
+event_commands_id = 2
+i_switch = 1
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[node name="MapBase" unique_id=279109716 instance=ExtResource("1_xlnfb")]
+map_id = "map_level_03_01"
+
+[node name="Sprite2D" parent="." index="0" unique_id=1877365204]
+texture = SubResource("AtlasTexture_14hew")
+
+[node name="ReferenceRect" parent="." index="1" unique_id=187995610]
+offset_left = 144.0
+offset_top = 64.0
+offset_right = 160.0
+offset_bottom = 80.0
+
+[node name="ev000" parent="." index="3" unique_id=1425815131 instance=ExtResource("3_cwadc")]
+position = Vector2(0, -16)
+_commands_source = ExtResource("4_cwadc")
+eventpages = Array[ExtResource("4_twfcu")]([SubResource("Resource_88t4m"), SubResource("Resource_837ee")])

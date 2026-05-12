@@ -14,11 +14,11 @@ enum Trigger{ PLAYER_TOUCH, INTERACT_BUTTON, AUTORUN }
 enum InternalSwitch { NONE, A = 1, B = 2, C = 3, D = 4}
 enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 
-@export var event_commands_id : EventCommandsID = EventCommandsID.Commands_001
-@export var static_command_list: Array[StaticEventCommand] = [null, null]
-
 @export var graphic: Texture2D
 @export var graphic_offset= Vector2.ZERO
+
+@export var event_commands_id : EventCommandsID = EventCommandsID.Commands_001
+@export var static_command_list: Array[StaticEventCommand] = [null, null]
 
 @export_group("animations")
 @export var walk_animations: WalkAnimationCollection
@@ -48,7 +48,6 @@ func exec_commands() -> void:
     for static_command in static_command_list:
         if static_command == null: continue
         await static_command.run_command()
-        # print(static_command)
     
     await event_commands.call()
 

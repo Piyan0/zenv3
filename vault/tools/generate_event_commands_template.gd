@@ -21,7 +21,7 @@ func _get_commands_list():
 # @autocomplete
 #{autocomplete}
 """)
-var start_name = 9
+var start_name = 0
 var generate_amount = 1
 func _run():
     var path = EditorInterface.get_selected_paths()
@@ -32,7 +32,7 @@ func _run():
     if dir_exists:
         for i in range(0, generate_amount):
             _generate_template(path[0], str(start_name+i).pad_zeros(3))
-
+    EditorInterface.get_resource_filesystem().scan()
 
 func _generate_template(dir, name):
     var autocomplete = _get_autocomplete()

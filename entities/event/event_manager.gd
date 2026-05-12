@@ -36,11 +36,13 @@ func _process(_delta):
             current_event_id = i.name
             _is_running_event= true
             player.lock_counter += 1
-            await i.interact(player)
+            i.interact(player)
+            await i.interact_finished
             await _delay_after_interact()
-            # print("finished.")
             _is_running_event= false
-            player.lock_counter -= 1
+            if is_instance_valid(player):
+                player.lock_counter -= 1
+                
             _current_input = null
             current_internal_switch_id = ""
             current_event_id = ""
@@ -55,12 +57,15 @@ func refresh_map(internal_switches, variables, global_switches):
     _reset()
 
 
-func _reset():
+
+func reset_interact():
     _is_running_event = false
+
+
+func _reset():
+    # _is_running_event = false
     _current_input = null
-    # print("id resetted.")
-    # current_internal_switch_id = ""
-    
+  
 
 func get_event(id: String):
     for i in get_tree().get_nodes_in_group("events"):

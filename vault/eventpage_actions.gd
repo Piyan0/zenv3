@@ -86,7 +86,7 @@ func _init() -> void:
     _actions["has_item"] = func(item_id):
         pass
     
-    #TODO change dir into string. 
+    #TODO this change the current scene, so all control flow such as set_switch and set_var, set_internal_switch will be error. Call this at the end of the commands. 
     _actions["goto"] = func(map_id, x, y, dir_str = "down", start_from_black = false):
         var dir
         match dir_str:
@@ -176,10 +176,25 @@ func _init() -> void:
             _state["fade"] = fade
     
     _actions["fade_out"] = func(wait = false):
-        if wait:
-            await _state["fade"].confirm()
+        if "fade" in _state:
+            if wait:
+                await _state["fade"].confirm()
+            else:
+                _state["fade"].confirm()
         else:
-            _state["fade"].confirm()
+            var fade = await TransitionBlack.spawn(true)
+            await fade.confirm()
+
+
+    _actions["black"] = func(duration):
+        var cr = ColorRect.new()
+        cr.color = Color.BLACK
+        Bootstrap.canvas.add_child(cr)
+        cr.set_anchors_and_offsets_preset(Control.LayoutPreset.PRESET_FULL_RECT)
+        await Bootstrap.get_tree().create_timer(duration).timeout
+        cr.queue_free()
+        
+
     
     _actions["wait"] = func(second):
         await Engine.get_main_loop().create_timer(second).timeout
