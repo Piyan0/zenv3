@@ -2,12 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://cn4a1buk2tejm" path="res://levels/map_base.tscn" id="1_beqba"]
 [ext_resource type="Texture2D" uid="uid://duaenrpahrw0m" path="res://assets/chloe/sheet_lv3.png" id="2_qesfk"]
+[ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="3_jnfsx"]
+[ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="4_0nce8"]
+[ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="5_otaoh"]
+[ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="6_a7p52"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n8mjo"]
 atlas = ExtResource("2_qesfk")
 region = Rect2(640, 0, 320, 180)
 
+[sub_resource type="Resource" id="Resource_gdmdq"]
+script = ExtResource("4_0nce8")
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
 [node name="MapBase" unique_id=279109716 instance=ExtResource("1_beqba")]
 
 [node name="Sprite2D" parent="." index="0" unique_id=1877365204]
 texture = SubResource("AtlasTexture_n8mjo")
+
+[node name="ev000" parent="." index="3" unique_id=1425815131 instance=ExtResource("3_jnfsx")]
+eventpages = Array[ExtResource("4_0nce8")]([SubResource("Resource_gdmdq"), null])
