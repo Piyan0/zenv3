@@ -7,7 +7,7 @@ func _get_commands_list():
     var commands = {}
     # start from index one.
     commands[1] = func():
-        await Bootstrap.asset_loader.get_asset("sc_vault_puzzle").new().spawn([4, 4, 4, 4], "", func(is_correct):
+        await Bootstrap.asset_loader.get_asset("sc_vault_puzzle").new().spawn([3, 7, 8, 1], "", func(is_correct):
             if is_correct:
                 push(["push_dialogue", "fred", "anjay"])
                 await push(["start_dialogue"])
