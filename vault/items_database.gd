@@ -19,7 +19,7 @@ func _get_items():
     _get_test_items(items)
     return items
 
-
+# TODO use asset loader for image.
 func _get_test_items(items):
     items.push_back({
         "id" : 1,
@@ -107,6 +107,34 @@ func _get_test_items(items):
         "name" : "item_green_liquid",
         "description": "no_desc",
         "icon_path" : "res://assets/chloe/items/item_energy.png",
+        "is_consumable" : false,
+        "is_key_item" : true,
+    })
+    
+    items.push_back({
+        "id" : 11,
+        "name" : "item_drawing",
+        "description": "no_desc",
+        "icon_path" : "res://assets/chloe/items/item_drawing.png",
+        "is_consumable" : false,
+        "is_key_item" : true,
+    })
+    
+    items.push_back({
+        "id" : 12,
+        "name" : "item_flower",
+        "description": "no_desc",
+        "icon_path" : "res://assets/chloe/items/item_flower.png",
+        "is_consumable" : false,
+        "is_key_item" : true,
+    })
+    
+    
+    items.push_back({
+        "id" : 13,
+        "name" : "item_watering_can",
+        "description": "no_desc",
+        "icon_path" : "res://assets/chloe/items/item_watercan.png",
         "is_consumable" : false,
         "is_key_item" : true,
     })

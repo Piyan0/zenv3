@@ -11,7 +11,7 @@ func _init():
 
 
 func push(args = []):
-    await action.push(args)
+    return await action.push(args)
 
 
 func get_event_commands(key : int) -> Callable:

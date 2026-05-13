@@ -116,6 +116,7 @@ lv2_bar_chloe_and_fred13,"Chloe...","Chloé..."
 lv2_bar_chloe_and_fred14,"Fred...","Fred..."
 --lv3--,,
 name_blob,"Blob","Blob"
+lv3_battery_placed,"Batery placed.","Batterie placée."
 lv3_need_key_card,"It needs a [Key card].","Il faut une [Carte d'accès]"
 lv3_fred_microscope00,"A microscope.","Un microscope"
 lv3_fred_microscope01,"I can inspect the liquid in here.","Je peux inspecter le liquide là-dedans."
@@ -153,7 +154,7 @@ lv3_chloe04,"Break the glass?","Briser la glace?"
 lv3_chloe05,"That burn mark might hide something...","Cette marque de brûlure pourrait cacher quelque chose..."
 lv3_chloe06,"Need something to start a fire.","Il faut quelque chose pour démarrer un feu."
 lv3_chloe07,"Use [Gasoline] and [Lighter]?","Utiliser l'[Essence] et le [Briquet] ?"
-lv3_chloe08,"There's a paper.",""Il y a un papier.
+lv3_chloe08,"There's a paper.","Il y a un papier."
 lv3_end00,"They finally reunited, filled with joy after being apart in distant.","Ils furent finalement réunis, emplis de joie à l'idée de se retrouver après avoir été séparés si longtemps."
 lv3_end01,"And decided to go on several trips together, especially in Norway... .","Et décidèrent ensemble faire ensemble de nombreux voyages, dont un très spécial en Norvège..."
 --lv4--,,

@@ -49,7 +49,10 @@ func _ready():
 
     line_edit.text_submitted.connect(
         func(text):
-            _history.push_front(text)
+            if text.is_empty(): return
+            if text != _history.front():
+                _history.push_front(text)
+                _history_index += 1
             if _history.size() >= 24:
                 _history.resize(24)
             _save_history()

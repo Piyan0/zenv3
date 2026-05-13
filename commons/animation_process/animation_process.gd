@@ -32,6 +32,7 @@ func _ready():
         _initial_frame()
 
 
+# TODO return if animation is same.
 func change_animation(animation: AnimationData):
     animation_data= animation
     set_process(true)

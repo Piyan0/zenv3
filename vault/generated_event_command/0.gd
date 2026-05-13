@@ -5,20 +5,21 @@ extends EventCommands
 
 func _get_commands_list():
     var commands = {}
-    # start from index one.
     commands[1] = func():
+        push(["push_dialogue", "fred", "lv3_fred_vault00"])        
+        await push(["start_dialogue"])
+        
+    commands[2] = func():
         await Bootstrap.asset_loader.get_asset("sc_vault_puzzle").new().spawn([3, 7, 8, 1], "", func(is_correct):
             if is_correct:
                 push(["push_dialogue", "fred", "anjay"])
                 await push(["start_dialogue"])
+                push(["set_iswitch", "a"])
         )
         
-        
-    commands[2] = func():
-        await push([""])
-        
     commands[3] = func():
-        await push([""])
+        push(["push_dialogue", "fred", "interact_empty"])
+        await push(["start_dialogue"])
 
     return commands
 

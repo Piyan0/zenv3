@@ -8,6 +8,7 @@ enum InternalSwitch { NONE, A = 1, B = 2, C = 3, D = 4}
 enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 
 
+# TODO add event graphic resources.
 @export_group("graphics")
 @export var graphic: Texture2D
 @export var graphic_offset= Vector2.ZERO
@@ -23,6 +24,7 @@ enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 @export var placement: Placement= Placement.GROUND
 @export var through = false
 @export var i_switch: InternalSwitch
+# TODO add item conditions.
 @export var variable: String= EMPTY
 @export var variable_value: int= -1
 @export var global_switch_001: String= EMPTY

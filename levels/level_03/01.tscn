@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://byidxrucavag5" path="res://vault/static_event_commands/StaticInternalSwitch.gd" id="15_2el6i"]
 [ext_resource type="Script" uid="uid://c3bp0psn2pji4" path="res://vault/generated_event_command/0.gd" id="16_sovtf"]
 [ext_resource type="Script" uid="uid://clb5817cuc20c" path="res://vault/generated_event_command/2.gd" id="17_dql2g"]
+[ext_resource type="Script" uid="uid://d3bmrnl4jep8" path="res://vault/generated_event_command/4.gd" id="17_ln677"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_14hew"]
 atlas = ExtResource("2_h44vv")
@@ -74,6 +75,24 @@ script = ExtResource("5_hsfym")
 static_command_list = Array[ExtResource("7_l7s86")]([SubResource("Resource_e2l7w"), null])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
+[sub_resource type="Resource" id="Resource_6fn5o"]
+script = ExtResource("5_hsfym")
+global_switch_001 = "got_battery"
+event_commands_id = 2
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_rkjbd"]
+script = ExtResource("5_hsfym")
+i_switch = 1
+event_commands_id = 3
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_s5pvu"]
+script = ExtResource("5_hsfym")
+i_switch = 2
+event_commands_id = 4
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_837ee"]
 atlas = ExtResource("9_dql2g")
 region = Rect2(48, 0, 16, 16)
@@ -118,6 +137,12 @@ script = ExtResource("5_hsfym")
 static_command_list = Array[ExtResource("7_l7s86")]([SubResource("Resource_i78hb"), null])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
+[sub_resource type="Resource" id="Resource_571ke"]
+script = ExtResource("5_hsfym")
+global_switch_001 = "fred_got_key"
+event_commands_id = 2
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
 [sub_resource type="Resource" id="Resource_joc3j"]
 script = ExtResource("11_jbyss")
 map_id = "map_level_03_02"
@@ -135,9 +160,25 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 script = ExtResource("5_hsfym")
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
+[sub_resource type="Resource" id="Resource_ol6w0"]
+script = ExtResource("5_hsfym")
+global_switch_001 = "fred_got_hint"
+event_commands_id = 2
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_0wejq"]
+script = ExtResource("5_hsfym")
+i_switch = 1
+event_commands_id = 3
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
 [sub_resource type="Resource" id="Resource_ln677"]
 script = ExtResource("5_hsfym")
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtcxt"]
+atlas = ExtResource("9_dql2g")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="Resource" id="Resource_4jffs"]
 script = ExtResource("8_sovtf")
@@ -146,8 +187,14 @@ metadata/_custom_type_script = "uid://udvneqyhy02s"
 
 [sub_resource type="Resource" id="Resource_5fi4c"]
 script = ExtResource("5_hsfym")
+graphic = SubResource("AtlasTexture_dtcxt")
+graphic_offset = Vector2(0, -16)
 static_command_list = Array[ExtResource("7_l7s86")]([SubResource("Resource_4jffs"), null])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f67h"]
+atlas = ExtResource("9_dql2g")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="Resource" id="Resource_avdox"]
 script = ExtResource("8_sovtf")
@@ -156,8 +203,14 @@ metadata/_custom_type_script = "uid://udvneqyhy02s"
 
 [sub_resource type="Resource" id="Resource_r27od"]
 script = ExtResource("5_hsfym")
+graphic = SubResource("AtlasTexture_8f67h")
+graphic_offset = Vector2(0, -16)
 static_command_list = Array[ExtResource("7_l7s86")]([SubResource("Resource_avdox"), null])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ln677"]
+atlas = ExtResource("9_dql2g")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="Resource" id="Resource_lwirr"]
 script = ExtResource("8_sovtf")
@@ -166,6 +219,8 @@ metadata/_custom_type_script = "uid://udvneqyhy02s"
 
 [sub_resource type="Resource" id="Resource_xs670"]
 script = ExtResource("5_hsfym")
+graphic = SubResource("AtlasTexture_ln677")
+graphic_offset = Vector2(0, -16)
 static_command_list = Array[ExtResource("7_l7s86")]([SubResource("Resource_lwirr"), null])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
@@ -369,7 +424,8 @@ eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_eg4pb"), SubRe
 
 [node name="ev002" parent="." index="7" unique_id=1849315695 instance=ExtResource("3_jbyss")]
 position = Vector2(64, 48)
-eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_thmfj"), null])
+_commands_source = ExtResource("17_dql2g")
+eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_thmfj"), SubResource("Resource_6fn5o"), SubResource("Resource_rkjbd"), SubResource("Resource_s5pvu")])
 
 [node name="ev003" parent="." index="8" unique_id=343763000 instance=ExtResource("3_jbyss")]
 position = Vector2(192, 48)
@@ -377,16 +433,17 @@ eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_vrrwa"), SubRe
 
 [node name="ev004" parent="." index="9" unique_id=1736139323 instance=ExtResource("3_jbyss")]
 position = Vector2(240, 32)
-eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_7uuhd"), null])
+_commands_source = ExtResource("17_ln677")
+eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_7uuhd"), SubResource("Resource_571ke")])
 
 [node name="ev005" parent="." index="10" unique_id=827856574 instance=ExtResource("3_jbyss")]
 position = Vector2(288, 112)
 eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_hsfym"), null])
 
 [node name="ev006" parent="." index="11" unique_id=537602198 instance=ExtResource("3_jbyss")]
-position = Vector2(128, 64)
+position = Vector2(112, 64)
 _commands_source = ExtResource("16_sovtf")
-eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_2el6i"), null])
+eventpages = Array[ExtResource("5_hsfym")]([SubResource("Resource_2el6i"), SubResource("Resource_ol6w0"), SubResource("Resource_0wejq")])
 
 [node name="ev007" parent="." index="12" unique_id=1790439983 instance=ExtResource("3_jbyss")]
 position = Vector2(144, 64)

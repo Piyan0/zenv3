@@ -1,35 +1,11 @@
 [gd_resource type="Resource" script_class="PlayerAnimationCollection" format=3 uid="uid://ckso1s44v0kq2"]
 
-[ext_resource type="Resource" uid="uid://c5ymqviscb0s2" path="res://vault/animation_data/fred/fred_idle_down.tres" id="1_cfn3p"]
-[ext_resource type="Resource" uid="uid://d2yj75oqlrgx5" path="res://vault/animation_data/fred/fred_idle_left.tres" id="2_vvkwf"]
-[ext_resource type="Resource" uid="uid://c0qvn1v16rx63" path="res://vault/animation_data/fred/fred_idle_right.tres" id="3_0i6gp"]
-[ext_resource type="Resource" uid="uid://quvhwfv2xlto" path="res://vault/animation_data/fred/fred_idle_up.tres" id="4_mbpks"]
-[ext_resource type="Script" uid="uid://cpejx1nq0nk1j" path="res://commons/idle_animation_collection.gd" id="5_4rlx8"]
+[ext_resource type="Resource" uid="uid://c6h7nggfuv6ab" path="res://vault/animation_data/chloe/fred_idle.tres" id="1_u2tl4"]
+[ext_resource type="Resource" uid="uid://b4t1tfick5j1s" path="res://vault/animation_data/chloe/fred_walk.tres" id="3_td2s5"]
 [ext_resource type="Script" uid="uid://cu54lgwjyo2bn" path="res://commons/player_animation_collection.gd" id="6_imon2"]
-[ext_resource type="Script" uid="uid://dppwvvxbnd1y3" path="res://commons/walk_animation_collection.gd" id="7_1vh4p"]
-[ext_resource type="Resource" uid="uid://xqin8wx26qgs" path="res://vault/animation_data/fred/fred_walk_down.tres" id="8_kxtdm"]
-[ext_resource type="Resource" uid="uid://dorbxdcs3olf7" path="res://vault/animation_data/fred/fred_walk_left.tres" id="9_uos53"]
-[ext_resource type="Resource" uid="uid://4kng411fmt3l" path="res://vault/animation_data/fred/fred_walk_right.tres" id="10_fusj2"]
-[ext_resource type="Resource" uid="uid://c34ulfpvgqfcc" path="res://vault/animation_data/fred/fred_walk_up.tres" id="11_qeq0e"]
-
-[sub_resource type="Resource" id="Resource_oea2v"]
-script = ExtResource("5_4rlx8")
-idle_up = ExtResource("4_mbpks")
-idle_down = ExtResource("1_cfn3p")
-idle_left = ExtResource("2_vvkwf")
-idle_right = ExtResource("3_0i6gp")
-metadata/_custom_type_script = "uid://cpejx1nq0nk1j"
-
-[sub_resource type="Resource" id="Resource_0hprt"]
-script = ExtResource("7_1vh4p")
-walk_up = ExtResource("11_qeq0e")
-walk_down = ExtResource("8_kxtdm")
-walk_left = ExtResource("9_uos53")
-walk_right = ExtResource("10_fusj2")
-metadata/_custom_type_script = "uid://dppwvvxbnd1y3"
 
 [resource]
 script = ExtResource("6_imon2")
-idle_animations = SubResource("Resource_oea2v")
-walk_animations = SubResource("Resource_0hprt")
+idle_animations = ExtResource("1_u2tl4")
+walk_animations = ExtResource("3_td2s5")
 metadata/_custom_type_script = "uid://cu54lgwjyo2bn"

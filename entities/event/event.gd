@@ -21,6 +21,8 @@ var _can_trigger_touch= true
 var _touch_area= Vector2.ZERO
 var _commands : EventCommands
 
+
+# TODO add initial graphic / idle animation for event in editor.
 func _ready():
     spr.hide()
     if _commands_source:
@@ -158,6 +160,7 @@ func _update_trigger_touch(player):
 func _active_event_changed(event_page: EventPage):
     event_page.event_commands = _commands.get_event_commands(event_page.event_commands_id)
     area.collision_layer = 0
+    # TODO play initial idle animation.
     spr.show()
     spr.texture= event_page.graphic
     spr.offset= event_page.graphic_offset

@@ -7,15 +7,30 @@ func _get_commands_list():
     var commands = {}
     # start from index one.
     commands[1] = func():
-        await Bootstrap.asset_loader.get_asset("sc_lv3_puzzle").spawn([1, 1, 1], "", func(is_correct):
-            print(is_correct)
-        )
+        await push([""])
         
     commands[2] = func():
-        await push([""])
+        await push(["open_inventory", func(item_id):
+            if item_id == 3:
+                push(["erase_item"])
+                push(["push_dialogue", "fred", "lv3_battery_placed"])
+                await push(["start_dialogue"])
+                push(["set_iswitch", "a"])
+        ])
         
     commands[3] = func():
-        await push([""])
+        await Bootstrap.asset_loader.get_asset("sc_lv3_puzzle").spawn([3, 0, 1], "", func(is_correct):
+            if is_correct:
+                push(["add_item", 1])
+                push(["add_item", 4])
+                push(["set_iswitch", "b"])
+                push(["push_dialogue", "fred", "got_item"])
+                await push(["start_dialogue"])
+        )
+    
+    commands[4] = func():
+        push(["push_dialogue", "fred", "interact_empty"])
+        await push(["start_dialogue"])
 
     return commands
 

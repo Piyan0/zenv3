@@ -8,3 +8,6 @@
 (8) item_scope.
 (9) item_green_crystal.
 (10) item_green_liquid.
+(11) item_drawing.
+(12) item_flower.
+(13) item_watering_can.

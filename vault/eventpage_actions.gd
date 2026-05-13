@@ -19,7 +19,7 @@ func _init() -> void:
         Bootstrap.canvas.add_child(narator_view)
         await narator_view.finished
     
-            
+    # TODO simplify dialogue invoke.
     _actions["push_dialogue"] = _queue_dialogue_batch
 
     _actions["start_dialogue"] = _start_dialogue
@@ -89,7 +89,7 @@ func _init() -> void:
         pass
     
     #TODO this change the current scene, so all control flow such as set_switch and set_var, set_internal_switch will be error. Call this at the end of the commands. 
-    _actions["goto"] = func(map_id, x, y, dir_str = "down", start_from_black = false):
+    _actions["goto"] = func(map_id, x = 0, y = 0, dir_str = "down", start_from_black = false):
         var dir
         match dir_str:
             "up":
@@ -173,7 +173,10 @@ func _init() -> void:
     _actions["fade_in"] = func(free_at_end = false):
         var fade = await TransitionBlack.spawn()
         if free_at_end:
-            fade.queue_free()
+            await Engine.get_main_loop().process_frame
+            await Engine.get_main_loop().process_frame
+            await Engine.get_main_loop().process_frame
+            fade.queue_free.call_deferred()
         else:
             _state["fade"] = fade
     
@@ -213,7 +216,7 @@ func push(args = []):
     return self
 
 
-func _queue_dialogue_batch(name, msg):
+func _queue_dialogue_batch(name = "Godot", msg = "<message here>"):
     if !"dialogue_batch" in _state:
         _state["dialogue_batch"]= [] as Array[DialogueBase.DialogueNormal]
     var d_batch = _state["dialogue_batch"]

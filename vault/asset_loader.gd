@@ -43,6 +43,7 @@ func _get_image_assets():
     _assets["img_lv3_hint1"] = "res://assets/chloe/lv3_hint_01.png"
     _assets["img_lv3_hint2"] = "res://assets/chloe/lv3_hint_02.png"
     _assets["img_lv3_hint3"] = "res://assets/chloe/lv3_hint_03.png"
+    _assets["img_reds_drawing"] = "res://assets/chloe/red_glob_drawing.png"
 
 
 func _get_map_assets():
@@ -64,6 +65,10 @@ func _get_map_assets():
 
     _assets["map_level_03_01"] = map_base_path + "level_03/01.tscn"
     _assets["map_level_03_02"] = map_base_path + "level_03/02.tscn"
+    _assets["map_level_03_03"] = map_base_path + "level_03/03.tscn"
+    _assets["map_level_03_04"] = map_base_path + "level_03/04.tscn"
+    _assets["map_level_03_05"] = map_base_path + "level_03/05.tscn"
+    _assets["map_level_03_06"] = map_base_path + "level_03/06.tscn"
     
 
 func _get_animation_data_assets():

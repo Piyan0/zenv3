@@ -4,6 +4,7 @@ extends EventTrait
 # the different with event.player_touch is this always emitted whenever
 # event area is touched by player.
 
+# TODO it should be using static command of the event.
 @export var static_commands: Array[StaticEventCommand]
 @export var touch_min_distance = 1
 var _is_running_event = false
