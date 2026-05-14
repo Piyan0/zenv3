@@ -88,7 +88,7 @@ func _get_test_items(items):
         "id" : 8,
         "name" : "item_scope",
         "description": "no_desc",
-        "icon_path" : "res://assets/chloe/items/.png",
+        "icon_path" : "res://assets/chloe/items/item_scope.png",
         "is_consumable" : false,
         "is_key_item" : true,
     })

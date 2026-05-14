@@ -84,6 +84,12 @@ func _get_map_assets():
     _assets["map_level5_3"] = map_base_path + "level5/3.tscn"
     _assets["map_level5_4"] = map_base_path + "level5/4.tscn"
     _assets["map_level5_5"] = map_base_path + "level5/5.tscn"
+    _assets["map_level5_6"] = map_base_path + "level5/6.tscn"
+    _assets["map_level5_7"] = map_base_path + "level5/7.tscn"
+    _assets["map_level5_8"] = map_base_path + "level5/8.tscn"
+    _assets["map_level5_9"] = map_base_path + "level5/9.tscn"
+    _assets["map_level5_10"] = map_base_path + "level5/10.tscn"
+    _assets["map_level5_11"] = map_base_path + "level5/11.tscn"
     
 
 func _get_animation_data_assets():
@@ -100,3 +106,5 @@ func _get_script_assets():
 func _get_sound_assets():
     _assets["bgm1"] = "res://assets/sounds/bgm/03 - Definitely Our Town.mp3"
     _assets["bgm2"] = "res://assets/sounds/bgm/07 - Port Town.mp3"
+
+    _assets["sfx_beep"] = "res://assets/sounds/beep.mp3"

@@ -11,13 +11,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3oow2"]
 size = Vector2(16, 16)
 
-[node name="ev000" type="Node2D" unique_id=1425815131 node_paths=PackedStringArray("area", "spr", "colls_shape", "animation_process")]
+[node name="ev000" type="Node2D" unique_id=1425815131 node_paths=PackedStringArray("area", "spr", "colls_shape", "animation_process", "hint_rect")]
 script = ExtResource("1_1x41k")
 eventpages = Array[ExtResource("2_qgul5")]([null, null])
 area = NodePath("Area2D")
 spr = NodePath("Sprite2D")
 colls_shape = NodePath("Area2D/CollisionShape2D")
 animation_process = NodePath("AnimationProcess")
+hint_rect = NodePath("ReferenceRect")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=165441763]

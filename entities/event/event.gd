@@ -11,6 +11,7 @@ signal interact_finished()
 @export var spr: Sprite2D
 @export var colls_shape: CollisionShape2D
 @export var animation_process: AnimationProcess
+@export var hint_rect: ReferenceRect
 
 var instances = []
 var is_interact_running= false
@@ -25,6 +26,9 @@ var _commands : EventCommands
 
 # TODO add initial graphic / idle animation for event in editor.
 func _ready():
+    if !OS.is_debug_build():
+        hint_rect.hide()
+        
     spr.hide()
     if _commands_source:
         _commands = _commands_source.new()

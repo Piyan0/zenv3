@@ -1,8 +1,13 @@
+@tool
 class_name Map
 extends Node2D
 
 @export var bgm_id: String
 @export var map_display_name: String
+@export_tool_button("Copy Map ID") var _copy_map_id = _copy_map_id_action
+
+func _copy_map_id_action():
+    DisplayServer.clipboard_set(map_id)
 
 var map_id: String:
     get():
@@ -10,7 +15,9 @@ var map_id: String:
 
 
 func _ready():
-    
+    if Engine.is_editor_hint():
+        return
+
     y_sort_enabled = true
     _add_event_id()
     var events = get_tree().get_nodes_in_group("events")
@@ -41,7 +48,11 @@ func _add_event_id():
         )
         
 func get_map_id():
-    var asset_dict = Bootstrap.asset_loader.get_asset_data()
+    var asset_dict = {}
+    if Engine.is_editor_hint():
+        asset_dict = AssetLoader.new().get_asset_data()
+    else:
+        asset_dict = Bootstrap.asset_loader.get_asset_data()
     for i in asset_dict.keys():
         # printt(scene_file_path, asset_dict[i])
         if asset_dict[i] == scene_file_path:

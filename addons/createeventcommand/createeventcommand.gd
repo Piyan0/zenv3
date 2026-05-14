@@ -25,7 +25,7 @@ func _enter_tree() -> void:
             text_source.close()
 
             var file_count = DirAccess.get_files_at(_generate_path).size()
-            var name = str(file_count) + ".gd"
+            var name = str(file_count) + "_" + event.name + ".gd"
             var file = FileAccess.open(_generate_path + name, FileAccess.WRITE) 
             file.store_string(content)
             file.close()

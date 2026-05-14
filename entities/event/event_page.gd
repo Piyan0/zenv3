@@ -22,7 +22,6 @@ enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 @export_group("")
 
 @export_group("conditions")
-@export var force_active = false
 @export var trigger: Trigger= Trigger.INTERACT_BUTTON
 @export var placement: Placement= Placement.GROUND
 @export var through = false
@@ -32,6 +31,12 @@ enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 @export var variable_value: int= -1
 @export var global_switch_001: String= EMPTY
 @export var global_switch_002: String= EMPTY
+@export var tags: String= "[implement this]"
+@export_group("")
+
+@export_group("debug")
+@export var force_active = false
+@export var force_disabled = false
 @export_group("")
 
 # TODO why we have to auto increment this...
@@ -57,6 +62,8 @@ func is_event_active(
     if OS.is_debug_build():
         if force_active:
             return true
+        elif force_disabled:
+            return false
             
     # print(global_switches)
     var conditions= [

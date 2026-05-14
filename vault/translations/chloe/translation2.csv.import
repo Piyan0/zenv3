@@ -6,10 +6,10 @@ uid="uid://dob2wetogge03"
 
 [deps]
 
-files=["res://vault/translations/chloe/translation2.en_US.translation", "res://vault/translations/chloe/translation2.fr_FR.translation"]
+files=["res://vault/translations/chloe/translation2. en.translation", "res://vault/translations/chloe/translation2. fr_FR.translation"]
 
 source_file="res://vault/translations/chloe/translation2.csv"
-dest_files=["res://vault/translations/chloe/translation2.en_US.translation", "res://vault/translations/chloe/translation2.fr_FR.translation"]
+dest_files=["res://vault/translations/chloe/translation2. en.translation", "res://vault/translations/chloe/translation2. fr_FR.translation"]
 
 [params]
 
