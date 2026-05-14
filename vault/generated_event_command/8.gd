@@ -12,6 +12,9 @@ func _get_commands_list():
                 push(["erase_item"])
                 push(["set_iswitch", "a"])    
                 push(["increment_var", "vaccine_placed"])
+                await push(["wait", 1.6])
+                await push(["goto", "map_level_03_04", 64, 128, "down"])
+                push(["set_switch", "chloe_session"])
         ])
         
     commands[2] = func():

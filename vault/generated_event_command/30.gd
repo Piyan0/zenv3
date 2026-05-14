@@ -7,25 +7,28 @@ func _get_commands_list():
     var commands = {}
     # start from index one.
     commands[1] = func():
-        await push(["fade_in"])
         push(["alpha", "player", false])
-        push(["transfer", "chloe", 192, 80])
-        push(["transfer", "fred", 96, 160])
-        await push(["fade_out"])
-        await push(["move", "fred", ["up", "up", "up", "up", "right", "right", "right", "up", "right", "right"]])
-        await push(["wait", 2])
-        await push(["fade_in", true])
-        await push(["narator", ["lv3_end00", "lv3_end01"]])
+        push(["move", "chloe", ["up", "up", "up", "up", "up"]])
+        await push(["wait", 0.1])
+        await push(["move", "fred", ["up", "up", "up", "up", "up"]])
+        push(["alpha", "fred", false])
+        push(["alpha", "chloe", false])
         push(["set_iswitch", "a"])
-        await push(["goto", "map_level4_1"])
-
-
+        await push(["goto", "map_level4_2"])
         
     commands[2] = func():
         await push([""])
         
     commands[3] = func():
-        await push([""])
+        push(["alpha", "player", false])
+        push(["transfer", "chloe", 160, 64])
+        push(["transfer", "fred", 144, 64])
+        push(["move", "chloe", ["down", "down", "down", "down", "down"]])
+        await push(["wait", 0.1])
+        await push(["move", "fred", ["down", "down", "down", "down", "down"]])
+        push(["alpha", "fred", false])
+        push(["alpha", "chloe", false])
+        await push(["goto", "map_level4_7", 208, 32, "down"])
 
     return commands
 

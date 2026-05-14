@@ -7,19 +7,16 @@ func _get_commands_list():
     var commands = {}
     # start from index one.
     commands[1] = func():
-        await push(["fade_in"])
-        push(["alpha", "player", false])
-        push(["transfer", "chloe", 192, 80])
-        push(["transfer", "fred", 96, 160])
-        await push(["fade_out"])
-        await push(["move", "fred", ["up", "up", "up", "up", "right", "right", "right", "up", "right", "right"]])
-        await push(["wait", 2])
-        await push(["fade_in", true])
-        await push(["narator", ["lv3_end00", "lv3_end01"]])
+        Player.instance.get_camera().enabled = false
+        # TODO reps of push, can we improve this?
+        push(["transfer", "player", 0, 160])
+        push(["look", "player", "right"])
+        await push(["move", "player", ["right", "right", "right", "right", "right", "up", "up", "up", "right", "right", "up", "up"]])
+        await push(["push_dialogue2", "ui_narator", ["lv4_end01"]])
+        push(["narator", ["lv4_end00", "lv4_end02"]])
         push(["set_iswitch", "a"])
-        await push(["goto", "map_level4_1"])
-
-
+        push(["set_switch", "going_home"])
+        # await push(["commands_id", "args1"])
         
     commands[2] = func():
         await push([""])

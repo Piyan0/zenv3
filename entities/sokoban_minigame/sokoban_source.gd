@@ -7,10 +7,16 @@ extends Node
 @export var switch = ""
 @export var switch_value = false
 
+static var instances = {}
 func _ready() -> void:
+    instances[name] = self
     for i in box_list.get_children():
         i.box_pushed.connect(_evaluate_puzzle)
         i.routes.assign(allowed_routes.get_children())
+
+
+func _exit_tree():
+    instances.erase(name)
 
 
 func _evaluate_puzzle():
@@ -28,3 +34,9 @@ func _is_all_box_placed():
             return false
     
     return true
+
+
+static func reset_pos(p_name):
+    var source = instances[p_name]
+    for i in source.box_list.get_children():
+        i.reset_pos()

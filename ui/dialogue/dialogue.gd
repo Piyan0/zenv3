@@ -19,6 +19,7 @@ func _ready() -> void:
     _split_text_autowrap(_test_msg)
     lb_msg.text = ""
     lb_name.text = ""
+    next_indicator.hide()
     # var x= await AnimateOpenCenter.spawn(bg, 0.4, func(): container.hide(), func(): container.show())
     _dialogue_base= DialogueBase.new() 
     _dialogue_base.on_progress= func(d, v, just_changed):

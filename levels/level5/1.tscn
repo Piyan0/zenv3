@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c0ejkue8tfa3k"]
+
+[ext_resource type="PackedScene" uid="uid://cn4a1buk2tejm" path="res://levels/map_base.tscn" id="1_7bkm3"]
+
+[node name="MapBase" unique_id=279109716 instance=ExtResource("1_7bkm3")]
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Control" parent_id_path=PackedInt32Array(809171734) index="1" unique_id=1823908107]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_top = -16.0
+offset_right = 16.0
+border_width = 2.0

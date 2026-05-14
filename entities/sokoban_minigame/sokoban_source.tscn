@@ -5,8 +5,26 @@
 [ext_resource type="PackedScene" uid="uid://b5io0t4608hun" path="res://entities/sokoban_minigame/sokoban_box.tscn" id="2_e7cin"]
 [ext_resource type="PackedScene" uid="uid://blivdvtexin0w" path="res://entities/sokoban_minigame/sokoban_route.tscn" id="2_gkc8a"]
 [ext_resource type="PackedScene" uid="uid://cdrxdj1givypk" path="res://entities/sokoban_minigame/sokoban_blockade.tscn" id="4_erurb"]
+[ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="6_vw8f0"]
+[ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="7_mlt22"]
+[ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="8_fcyd7"]
+[ext_resource type="Texture2D" uid="uid://d0jcwks58e6d7" path="res://assets/chloe/icon_questions.png" id="9_72kam"]
+[ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="9_c8u4g"]
+[ext_resource type="Script" uid="uid://dsocv2t3tw7bw" path="res://entities/sokoban_minigame/reset_event.gd" id="10_fcyd7"]
 
-[node name="SokobabSource" type="Node2D" unique_id=1603854147 node_paths=PackedStringArray("box_list", "destination_list", "allowed_routes")]
+[sub_resource type="Resource" id="Resource_c8u4g"]
+script = ExtResource("10_fcyd7")
+sokoban_source_name = "SokobanSource"
+metadata/_custom_type_script = "uid://bem3pvtqt554f"
+
+[sub_resource type="Resource" id="Resource_72kam"]
+script = ExtResource("7_mlt22")
+graphic = ExtResource("9_72kam")
+graphic_offset = Vector2(0, -16)
+static_command_list = Array[ExtResource("9_c8u4g")]([SubResource("Resource_c8u4g")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[node name="SokobanSource" type="Node2D" unique_id=1603854147 node_paths=PackedStringArray("box_list", "destination_list", "allowed_routes")]
 script = ExtResource("1_2m84a")
 box_list = NodePath("BoxList")
 destination_list = NodePath("DestinationList")
@@ -30,3 +48,8 @@ position = Vector2(80, 96)
 
 [node name="SokobanBox" parent="BoxList" unique_id=1868284286 instance=ExtResource("2_e7cin")]
 position = Vector2(48, 96)
+
+[node name="Reset" type="Node2D" parent="." unique_id=1467891621]
+
+[node name="ev000" parent="Reset" unique_id=1425815131 instance=ExtResource("6_vw8f0")]
+eventpages = Array[ExtResource("7_mlt22")]([SubResource("Resource_72kam")])

@@ -4,6 +4,7 @@ extends Node2D
 
 signal interact_finished()
 
+# TODO make position reference to be 1,1, instead 16,16, tile id
 @export var _commands_source : Script
 @export var eventpages: Array[EventPage]
 @export var area: Area2D
@@ -160,10 +161,10 @@ func _update_trigger_touch(player):
 func _active_event_changed(event_page: EventPage):
     event_page.event_commands = _commands.get_event_commands(event_page.event_commands_id)
     area.collision_layer = 0
-    # TODO play initial idle animation.
     spr.show()
     spr.texture= event_page.graphic
     spr.offset= event_page.graphic_offset
+    _play_initial_idle_animation(event_page)
     match event_page.placement:
         EventPage.Placement.BELOW_GROUND:
             area.set_collision_layer_value(1, true)
@@ -232,3 +233,23 @@ func _is_interact_below_or_above_ground(player, input_event):
             return true
     
     return false
+
+
+func _play_initial_idle_animation(evpage: EventPage):
+    var dir = evpage.direction
+    var anim_id = ""
+    if evpage.idle_animations:
+        var anims = evpage.idle_animations
+        match dir:
+            EventPage.Direction.UP:
+                anim_id = "idle_up"
+            EventPage.Direction.DOWN:
+                anim_id = "idle_down"
+            EventPage.Direction.LEFT:
+                anim_id = "idle_left"
+            EventPage.Direction.RIGHT:
+                anim_id = "idle_right"
+    
+        if !anim_id.is_empty():
+            play_animation(anim_id)
+    

@@ -5,6 +5,7 @@ extends Node
 @export var map_id= "map_id"
 @export var direction: MapManager.Direction
 
+# TODO to preview we have to change the map_id. isnt that suck
 # so maybe use this class only to start directly without using main menu screen.
 # on production, maybe we use MapManagaer:goto() to change into game map.
 func _ready():
@@ -12,5 +13,4 @@ func _ready():
     transfer_data.spawn_pos= spawn_pos
     transfer_data.map_id= map_id
     transfer_data.direction= direction
-    
     await Bootstrap.map_manager.goto(transfer_data)

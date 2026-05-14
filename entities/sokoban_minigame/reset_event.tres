@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://pmm05tbjmk3"]
+
+[ext_resource type="Script" uid="uid://dsocv2t3tw7bw" path="res://entities/sokoban_minigame/reset_event.gd" id="1_b7pff"]
+
+[resource]
+script = ExtResource("1_b7pff")
+metadata/_custom_type_script = "uid://bem3pvtqt554f"

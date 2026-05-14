@@ -6,9 +6,10 @@ class_name WanderingNode
 
 
 func _ready():
-    claim_tile_area.top_level= true
-    claim_tile_area.position= global_position
-    ray.add_exception(claim_tile_area)
+    if is_instance_valid(claim_tile_area):
+        claim_tile_area.top_level= true
+        claim_tile_area.position= global_position
+        ray.add_exception(claim_tile_area)
     
 
 func add_exception(node):

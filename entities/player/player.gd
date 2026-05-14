@@ -11,6 +11,7 @@ static var god_mode = false
 @export var animation_process: AnimationProcess
 @export var grid_mov: InputGridMovement
 @export var ray: RayCast2D
+@export var camera: Camera2D
 
 var last_direction
 var active_animation: PlayerAnimationCollection
@@ -119,6 +120,10 @@ func get_latest_collider():
 
 func is_moving():
     return grid_mov.is_moving()
+
+
+func get_camera():
+    return camera
 
 
 func _active_animation_changed(player_anim: PlayerAnimationCollection):

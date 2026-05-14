@@ -24,7 +24,6 @@ metadata/_custom_type_script = "uid://byidxrucavag5"
 script = ExtResource("4_lwbnj")
 trigger = 2
 global_switch_001 = "my_switch"
-global_switch_001_value = true
 static_command_list = Array[ExtResource("6_23vvl")]([SubResource("Resource_jnqve"), SubResource("Resource_abnp2")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
@@ -36,7 +35,7 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 [node name="DemoSokoban" type="Node2D" unique_id=1223978042]
 script = ExtResource("1_23vvl")
 
-[node name="SokobabSource" parent="." unique_id=1603854147 instance=ExtResource("1_gcrxh")]
+[node name="SokobanSource" parent="." unique_id=1603854147 instance=ExtResource("1_gcrxh")]
 position = Vector2(96, 16)
 switch = "my_switch"
 switch_value = true

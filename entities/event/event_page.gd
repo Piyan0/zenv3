@@ -3,6 +3,7 @@ extends Resource
 
 const EMPTY= "empty"
 
+enum Direction {UP, DOWN, LEFT, RIGHT}
 enum Trigger{ PLAYER_TOUCH, INTERACT_BUTTON, AUTORUN }
 enum InternalSwitch { NONE, A = 1, B = 2, C = 3, D = 4}
 enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
@@ -15,11 +16,13 @@ enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 @export_group("")
 
 @export_group("animations")
+@export var direction: Direction
 @export var walk_animations: WalkAnimationCollection
 @export var idle_animations: IdleAnimationCollection
 @export_group("")
 
 @export_group("conditions")
+@export var force_active = false
 @export var trigger: Trigger= Trigger.INTERACT_BUTTON
 @export var placement: Placement= Placement.GROUND
 @export var through = false
@@ -51,6 +54,10 @@ func is_event_active(
         variables,
         global_switches,
         ):
+    if OS.is_debug_build():
+        if force_active:
+            return true
+            
     # print(global_switches)
     var conditions= [
         _internal_switch_pass(internal_switches),

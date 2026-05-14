@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bif0kjrvojdb6"]
+
+[ext_resource type="PackedScene" uid="uid://cn4a1buk2tejm" path="res://levels/map_base.tscn" id="1_topti"]
+[ext_resource type="Texture2D" uid="uid://eaf4ti8bmmkc" path="res://assets/chloe/sheet_lv4.png" id="2_au8sd"]
+[ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="3_k6yg3"]
+[ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="4_y33ms"]
+[ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="5_8pupa"]
+[ext_resource type="Script" uid="uid://ck3brfw7p4exl" path="res://entities/event/traits/trait_touch.gd" id="6_880cu"]
+[ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="7_ajdgp"]
+[ext_resource type="Script" uid="uid://dtf5oetpcn15r" path="res://vault/static_event_commands/static_transfer_player.gd" id="8_qa5jv"]
+[ext_resource type="Script" uid="uid://cghequ0x24ql0" path="res://entities/event/traits/trait_wandering/trait_wandering.gd" id="9_sgypp"]
+[ext_resource type="Resource" uid="uid://40w6nk2wns08" path="res://vault/animation_data/monster/monster_right.tres" id="10_cmnj0"]
+[ext_resource type="Resource" uid="uid://b4mhrfxclu250" path="res://vault/animation_data/monster/monster_left.tres" id="11_xdwyw"]
+[ext_resource type="Texture2D" uid="uid://otoioodij3el" path="res://assets/16px.png" id="12_s7p3t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hobgn"]
+atlas = ExtResource("2_au8sd")
+region = Rect2(640, 180, 320, 180)
+
+[sub_resource type="Resource" id="Resource_m5yol"]
+script = ExtResource("8_qa5jv")
+transition = true
+
+[sub_resource type="Resource" id="Resource_ml1cu"]
+script = ExtResource("6_880cu")
+static_commands = Array[ExtResource("7_ajdgp")]([SubResource("Resource_m5yol")])
+touch_min_distance = 8
+metadata/_custom_type_script = "uid://ck3brfw7p4exl"
+
+[sub_resource type="Resource" id="Resource_s3tly"]
+script = ExtResource("9_sgypp")
+walk_up = ExtResource("10_cmnj0")
+walk_down = ExtResource("10_cmnj0")
+walk_left = ExtResource("11_xdwyw")
+walk_right = ExtResource("10_cmnj0")
+speed = 40
+routes = Array[int]([0, 2, 2, 2, 0, 0, 0, 0])
+repeat = true
+metadata/_custom_type_script = "uid://cghequ0x24ql0"
+
+[sub_resource type="Resource" id="Resource_0dyft"]
+script = ExtResource("4_y33ms")
+graphic = ExtResource("12_s7p3t")
+graphic_offset = Vector2(0, -16)
+through = true
+event_traits = Array[ExtResource("5_8pupa")]([SubResource("Resource_ml1cu"), SubResource("Resource_s3tly")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_k6yg3"]
+script = ExtResource("9_sgypp")
+walk_up = ExtResource("10_cmnj0")
+walk_down = ExtResource("10_cmnj0")
+walk_left = ExtResource("11_xdwyw")
+walk_right = ExtResource("10_cmnj0")
+speed = 40
+routes = Array[int]([2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 1])
+repeat = true
+metadata/_custom_type_script = "uid://cghequ0x24ql0"
+
+[sub_resource type="Resource" id="Resource_y33ms"]
+script = ExtResource("4_y33ms")
+graphic = ExtResource("12_s7p3t")
+graphic_offset = Vector2(0, -16)
+through = true
+event_traits = Array[ExtResource("5_8pupa")]([SubResource("Resource_ml1cu"), SubResource("Resource_k6yg3")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_8pupa"]
+script = ExtResource("9_sgypp")
+walk_up = ExtResource("10_cmnj0")
+walk_down = ExtResource("10_cmnj0")
+walk_left = ExtResource("11_xdwyw")
+walk_right = ExtResource("10_cmnj0")
+speed = 40
+routes = Array[int]([0, 2, 2, 0, 0, 3, 3, 3, 3, 0, 0])
+repeat = true
+metadata/_custom_type_script = "uid://cghequ0x24ql0"
+
+[sub_resource type="Resource" id="Resource_880cu"]
+script = ExtResource("4_y33ms")
+graphic = ExtResource("12_s7p3t")
+graphic_offset = Vector2(0, -16)
+through = true
+event_traits = Array[ExtResource("5_8pupa")]([SubResource("Resource_ml1cu"), SubResource("Resource_8pupa")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[node name="MapBase" unique_id=279109716 instance=ExtResource("1_topti")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1877365204]
+texture = SubResource("AtlasTexture_hobgn")
+
+[node name="ev000" parent="." index="3" unique_id=1425815131 instance=ExtResource("3_k6yg3")]
+position = Vector2(96, 144)
+eventpages = Array[ExtResource("4_y33ms")]([SubResource("Resource_0dyft")])
+
+[node name="ev001" parent="." index="4" unique_id=1214797619 instance=ExtResource("3_k6yg3")]
+position = Vector2(224, 128)
+eventpages = Array[ExtResource("4_y33ms")]([SubResource("Resource_y33ms")])
+
+[node name="ev002" parent="." index="5" unique_id=79191900 instance=ExtResource("3_k6yg3")]
+position = Vector2(176, 96)
+eventpages = Array[ExtResource("4_y33ms")]([SubResource("Resource_880cu")])

@@ -1,12 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bv6ixu8e4crfw"]
+[gd_scene format=3 uid="uid://bv6ixu8e4crfw"]
 
 [ext_resource type="Script" uid="uid://bv28mybx7o1mu" path="res://ui/hand_pointer/hand_pointer.gd" id="1_cri7h"]
 [ext_resource type="Texture2D" uid="uid://c3gduy5wogajy" path="res://assets/icons/icon_right.png" id="1_mrkp8"]
-[ext_resource type="LabelSettings" uid="uid://3wboop2jrvep" path="res://assets/styles/default.tres" id="2_cri7h"]
 [ext_resource type="Script" uid="uid://cimwh7dvhh4av" path="res://commons/ui/animate_offset_loop.gd" id="3_iry4c"]
+[ext_resource type="LabelSettings" uid="uid://bcaegaq2amce6" path="res://assets/styles/default2.tres" id="3_t3x6f"]
 [ext_resource type="Script" uid="uid://qqm40ogn6vp2" path="res://commons/ui/text_shadow.gd" id="5_iry4c"]
 
-[node name="HandPointer" type="HBoxContainer" node_paths=PackedStringArray("arrow", "lb_msg")]
+[node name="HandPointer" type="HBoxContainer" unique_id=384793180 node_paths=PackedStringArray("arrow", "lb_msg")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,11 +20,11 @@ arrow = NodePath("Control/TextureRect")
 lb_msg = NodePath("Label")
 msg = "Msg_here"
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=817001836]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1275982745]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -41,18 +41,18 @@ size_flags_vertical = 4
 texture = ExtResource("1_mrkp8")
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=2052290636]
 layout_mode = 2
 text = "<title>"
-label_settings = ExtResource("2_cri7h")
+label_settings = ExtResource("3_t3x6f")
 
-[node name="AnimateOffsetLoop" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="AnimateOffsetLoop" type="Node" parent="." unique_id=409278472 node_paths=PackedStringArray("target")]
 script = ExtResource("3_iry4c")
 target = NodePath("../Control/TextureRect")
 offset = Vector2(-3, 0)
 metadata/_custom_type_script = "uid://cimwh7dvhh4av"
 
-[node name="TextShadow" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="TextShadow" type="Node" parent="." unique_id=326715722 node_paths=PackedStringArray("target")]
 script = ExtResource("5_iry4c")
 target = NodePath("../Label")
 metadata/_custom_type_script = "uid://qqm40ogn6vp2"

@@ -225,7 +225,6 @@ static_command_list = Array[ExtResource("7_l7s86")]([SubResource("Resource_lwirr
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="MapBase" unique_id=279109716 instance=ExtResource("1_t5e44")]
-bgm = null
 map_display_name = null
 
 [node name="Sprite2D" parent="." index="0" unique_id=1877365204]
