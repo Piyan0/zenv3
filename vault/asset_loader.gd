@@ -8,6 +8,7 @@ func _init():
     _get_map_assets()
     _get_animation_data_assets()
     _get_script_assets()
+    _get_sound_assets()
 
 
 func get_asset(id):
@@ -80,3 +81,8 @@ func _get_script_assets():
     _assets["sc_pretzel_minigame"] = "res://ui/pretzel_minigame/pretzel_minigame.gd"
     _assets["sc_vault_puzzle"] = "res://ui/vault_puzzle/vault_puzzle.gd"
     _assets["sc_lv3_puzzle"] = "res://ui/lv3_puzzle/lv_3_puzzle.gd"
+
+
+func _get_sound_assets():
+    _assets["bgm1"] = "res://assets/sounds/bgm/03 - Definitely Our Town.mp3"
+    _assets["bgm2"] = "res://assets/sounds/bgm/07 - Port Town.mp3"

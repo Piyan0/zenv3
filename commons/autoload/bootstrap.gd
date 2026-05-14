@@ -8,13 +8,17 @@ var canvas
 var world_canvas
 var items_database: ItemsDatabase
 var save_system
+var audio_manager: AudioManager
+var input_filter: InputFilter
 
 func _enter_tree():
+    input_filter = InputFilter.new(); add_child(input_filter)
     canvas= _add_canvas()
     world_canvas = _add_world_canvas()
     _create_mobile_control()
     asset_loader = AssetLoader.new()
     event_manager= _create_event_manager()
+    audio_manager = _create_audio_manager()
 
     progression= _boot_progression()
     progression.entries_changed.connect(
@@ -43,7 +47,11 @@ func _enter_tree():
         RenderingServer.set_default_clear_color(Color.BLACK)
 
 
-
+func _create_audio_manager():
+    var am = AudioManager.new()
+    add_child(am)
+    return am
+    
 func _create_save_system():
     var sv = SaveSystem.new("res://user/save")
     sv.fields = {

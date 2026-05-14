@@ -288,6 +288,7 @@ graphic_offset = Vector2(0, -16)
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="MapBase" unique_id=279109716 instance=ExtResource("1_wwtre")]
+bgm_id = "bgm2"
 
 [node name="Sprite2D" parent="." index="0" unique_id=1877365204]
 texture = SubResource("AtlasTexture_77kvj")

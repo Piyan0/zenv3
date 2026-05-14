@@ -203,7 +203,16 @@ func _init() -> void:
     
     _actions["wait"] = func(second):
         await Engine.get_main_loop().create_timer(second).timeout
-            
+    
+    _actions["play_bgm"] = func(bgm_id):
+        var stream = Bootstrap.asset_loader.get_asset(bgm_id)
+        assert(stream is AudioStream, str(stream))
+        Bootstrap.audio_manager.play_bgm(stream)
+        
+    _actions["play_sfx"] = func(bgm_id):
+        var stream = Bootstrap.asset_loader.get_asset(bgm_id)
+        assert(stream is AudioStream, str(stream))
+        Bootstrap.audio_manager.play_sfx(stream)
 
 # first element (at index 0 should be the key of '_actions', rest is call arguments.)
 func push(args = []):

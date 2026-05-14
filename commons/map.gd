@@ -1,7 +1,7 @@
 class_name Map
 extends Node2D
 
-@export var bgm: AudioStream
+@export var bgm_id: String
 @export var map_display_name: String
 
 var map_id: String:
@@ -23,6 +23,10 @@ func _ready():
         progression_data[Progression.KEY_VARIABLES],
         progression_data[Progression.KEY_GLOBAL_SWITCHES],
     )
+    
+    if !bgm_id.is_empty():
+        var eva = EventPageActions.new()
+        eva.push(["play_bgm", bgm_id])
 
 
 func _add_event_id():
