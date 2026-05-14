@@ -22,6 +22,8 @@ func _init() -> void:
     # TODO simplify dialogue invoke.
     _actions["push_dialogue"] = _queue_dialogue_batch
 
+    _actions["push_dialogue2"] = _queue_dialogue_batch2
+
     _actions["start_dialogue"] = _start_dialogue
 
     _actions["choices"] = func(p_choices = [], on_end = func(choice_index): pass):
@@ -82,7 +84,7 @@ func _init() -> void:
             Bootstrap.progression.set_var(id, current_value + 1)
         
 
-    _actions["show_image"] = func(img_id):
+    _actions["show_image"] = func(img_id = "img_screen"):
         await DisplayImage.spawn(img_id)
     
     _actions["has_item"] = func(item_id):
@@ -232,6 +234,16 @@ func _queue_dialogue_batch(name = "Godot", msg = "<message here>"):
     d_batch.push_back(
         DialogueBase.DialogueNormal.new(name, tr(msg))
     )
+
+func _queue_dialogue_batch2(name = "Godot", msg_list = ["interact_empty"]):
+    if !"dialogue_batch" in _state:
+        _state["dialogue_batch"]= [] as Array[DialogueBase.DialogueNormal]
+    var d_batch = _state["dialogue_batch"]
+    for i in msg_list:
+        d_batch.push_back(
+            DialogueBase.DialogueNormal.new(name, tr(i))
+        )
+    await push(["start_dialogue"])
 
 
 func _start_dialogue():

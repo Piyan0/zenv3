@@ -1,7 +1,7 @@
 class_name ItemsDatabase
 extends Database
 
-
+# TODO implement hidden items
 func _title():
     return "inventory_items"
     

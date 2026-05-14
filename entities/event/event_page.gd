@@ -31,6 +31,7 @@ enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 @export var global_switch_002: String= EMPTY
 @export_group("")
 
+# TODO why we have to auto increment this...
 @export var event_commands_id : int = 1
 @export var event_traits: Array[EventTrait]
 @export var static_command_list: Array[StaticEventCommand] = [null, null]
