@@ -1,5 +1,74 @@
 [gd_scene format=3 uid="uid://clxjt4gooi7rq"]
 
 [ext_resource type="PackedScene" uid="uid://cn4a1buk2tejm" path="res://levels/map_base.tscn" id="1_ex65u"]
+[ext_resource type="Texture2D" uid="uid://ddtpepjtx54op" path="res://assets/chloe/sheet_lv5.png" id="2_rcv6p"]
+[ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="3_84h7h"]
+[ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="4_ref0v"]
+[ext_resource type="Script" uid="uid://dk4ji07dgft1x" path="res://vault/generated_event_command/36.gd" id="4_wpt2g"]
+[ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="5_wpt2g"]
+[ext_resource type="Resource" uid="uid://dmyp7mqew3sih" path="res://vault/animation_data/chloe/chloe_idle.tres" id="6_pokxf"]
+[ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="7_m785r"]
+[ext_resource type="Resource" uid="uid://dsa1cil121ey7" path="res://vault/animation_data/chloe/chloe_walk.tres" id="8_bfehd"]
+[ext_resource type="Script" uid="uid://udvneqyhy02s" path="res://vault/static_event_commands/StaticCommandDialogue.gd" id="10_pokxf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84h7h"]
+atlas = ExtResource("2_rcv6p")
+region = Rect2(0, 180, 320, 180)
+
+[sub_resource type="Resource" id="Resource_pokxf"]
+script = ExtResource("4_ref0v")
+trigger = 2
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_m785r"]
+script = ExtResource("4_ref0v")
+i_switch = 1
+event_commands_id = 2
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_27bwr"]
+script = ExtResource("4_ref0v")
+walk_animations = ExtResource("8_bfehd")
+idle_animations = ExtResource("6_pokxf")
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_bfehd"]
+script = ExtResource("10_pokxf")
+dialogue_list = Array[String](["lv1_sign$lv5_sign"])
+metadata/_custom_type_script = "uid://udvneqyhy02s"
+
+[sub_resource type="Resource" id="Resource_pooxx"]
+script = ExtResource("4_ref0v")
+static_command_list = Array[ExtResource("7_m785r")]([SubResource("Resource_bfehd"), null])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="MapBase" unique_id=279109716 instance=ExtResource("1_ex65u")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1877365204]
+texture = SubResource("AtlasTexture_84h7h")
+
+[node name="Control" parent="." index="2" unique_id=809171734]
+offset_left = 144.0
+offset_right = 144.0
+
+[node name="ev000" parent="." index="3" unique_id=1425815131 instance=ExtResource("3_84h7h")]
+position = Vector2(0, -16)
+_commands_source = ExtResource("4_wpt2g")
+eventpages = Array[ExtResource("4_ref0v")]([SubResource("Resource_pokxf"), SubResource("Resource_m785r")])
+
+[node name="chloe" parent="." index="4" unique_id=669010555 instance=ExtResource("3_84h7h")]
+position = Vector2(80, 64)
+eventpages = Array[ExtResource("4_ref0v")]([SubResource("Resource_27bwr"), null])
+
+[node name="ev001" parent="." index="5" unique_id=1596149378 instance=ExtResource("3_84h7h")]
+position = Vector2(96, 176)
+
+[node name="ev002" parent="." index="6" unique_id=559478054 instance=ExtResource("3_84h7h")]
+position = Vector2(256, 80)
+
+[node name="ev003" parent="." index="7" unique_id=929063662 instance=ExtResource("3_84h7h")]
+position = Vector2(208, 48)
+
+[node name="ev004" parent="." index="8" unique_id=464778206 instance=ExtResource("3_84h7h")]
+position = Vector2(112, 48)
+eventpages = Array[ExtResource("4_ref0v")]([SubResource("Resource_pooxx"), null])

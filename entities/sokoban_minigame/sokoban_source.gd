@@ -5,7 +5,7 @@ extends Node
 @export var destination_list: Node2D
 @export var allowed_routes: Node2D
 @export var switch = ""
-@export var switch_value = false
+@export var switch_value = true
 
 static var instances = {}
 func _ready() -> void:

@@ -78,6 +78,12 @@ func _get_map_assets():
     _assets["map_level4_5"] = map_base_path + "level_4/5.tscn"
     _assets["map_level4_6"] = map_base_path + "level_4/6.tscn"
     _assets["map_level4_7"] = map_base_path + "level_4/7.tscn"
+
+    _assets["map_level5_1"] = map_base_path + "level5/1.tscn"
+    _assets["map_level5_2"] = map_base_path + "level5/2.tscn"
+    _assets["map_level5_3"] = map_base_path + "level5/3.tscn"
+    _assets["map_level5_4"] = map_base_path + "level5/4.tscn"
+    _assets["map_level5_5"] = map_base_path + "level5/5.tscn"
     
 
 func _get_animation_data_assets():

@@ -90,9 +90,10 @@ func _start_move():
         _t.tween_property(target, "position", pos, _get_speed())
         
     await _t.finished
-    _handle_movement_finished()
     _invoke_direction_changed(Vector2.ZERO)
     _is_moving= false
+    _handle_movement_finished()
+    await get_tree().process_frame
         
 
 func _handle_movement_finished():
