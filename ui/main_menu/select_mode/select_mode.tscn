@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dxr3sm2tqhc10"]
+
+[ext_resource type="Texture2D" uid="uid://bdt2r42lma83f" path="res://assets/chloe/dialogue_rect.png" id="1_78tqo"]
+[ext_resource type="Script" uid="uid://bo5otmt3vjm3p" path="res://ui/main_menu/select_mode/select_mode.gd" id="1_v0gtu"]
+[ext_resource type="PackedScene" uid="uid://bv6ixu8e4crfw" path="res://ui/hand_pointer/hand_pointer.tscn" id="2_v0gtu"]
+
+[node name="SelectMode" type="Control" unique_id=1827143870 node_paths=PackedStringArray("btn_solo", "btn_multi")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_v0gtu")
+btn_solo = NodePath("MarginContainer/MarginContainer/VBoxContainer/HandPointer")
+btn_multi = NodePath("MarginContainer/MarginContainer/VBoxContainer/HandPointer2")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1192139579]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.0
+offset_right = 68.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=497918144]
+layout_mode = 2
+texture = ExtResource("1_78tqo")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=261043945]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer" unique_id=1377488793]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HandPointer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=384793180 instance=ExtResource("2_v0gtu")]
+layout_mode = 2
+msg = "ui_singleplayer"
+
+[node name="HandPointer2" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=659282090 instance=ExtResource("2_v0gtu")]
+layout_mode = 2
+msg = "ui_multiplayer"

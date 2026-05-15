@@ -1,8 +1,92 @@
 [gd_scene format=3 uid="uid://buxp0irvissen"]
 
 [ext_resource type="Script" uid="uid://dc4n7ur40241i" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
+[ext_resource type="Texture2D" uid="uid://cig6g885cgaec" path="res://assets/chloe/game_logo.png" id="2_mu8pm"]
+[ext_resource type="PackedScene" uid="uid://bv6ixu8e4crfw" path="res://ui/hand_pointer/hand_pointer.tscn" id="3_omy8q"]
 
-[node name="MainMenu" type="Control" unique_id=1795451437]
+[node name="MainMenu" type="Control" unique_id=1795451437 node_paths=PackedStringArray("play_button", "select_level_button", "select_language_button", "select_level_instance", "select_language_instance", "select_mode_instance")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_uhj5c")
+play_button = NodePath("VBoxContainer/Play")
+select_level_button = NodePath("VBoxContainer/SelectLevel")
+select_language_button = NodePath("VBoxContainer/SelectLanguage")
+select_level_instance = NodePath("SelectLevel")
+select_language_instance = NodePath("SelectLanguage")
+select_mode_instance = NodePath("SelectMode")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=957111589]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1507750316]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 40.0
+offset_right = 198.0
+offset_bottom = 86.0
+texture = ExtResource("2_mu8pm")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1274179043]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = 30.0
+offset_right = 27.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" parent="VBoxContainer" unique_id=384793180 instance=ExtResource("3_omy8q")]
+layout_mode = 2
+msg = "ui_play"
+
+[node name="SelectLevel" parent="VBoxContainer" unique_id=149961531 instance=ExtResource("3_omy8q")]
+layout_mode = 2
+msg = "ui_select_level"
+
+[node name="SelectLanguage" parent="VBoxContainer" unique_id=1931750272 instance=ExtResource("3_omy8q")]
+layout_mode = 2
+msg = "ui_select_language"
+
+[node name="SelectLevel" parent="." unique_id=62712966 instance_placeholder="res://ui/main_menu/select_level/select_level.tscn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -66.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SelectLanguage" parent="." unique_id=513334462 instance_placeholder="res://ui/main_menu/select_language/SelectLanguage.tscn"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+
+[node name="SelectMode" parent="." unique_id=1827143870 instance_placeholder="res://ui/main_menu/select_mode/select_mode.tscn"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 56.0
+offset_right = 160.0
+offset_bottom = 56.0

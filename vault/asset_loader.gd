@@ -1,6 +1,7 @@
 class_name AssetLoader
 
 var _assets= {}
+var _preloaded_asset = {}
 
 # TODO add convention for dir asset we dont have to add it to dict, so asset get based on folder structure, maybe add an alias.
 func _init():
@@ -10,9 +11,15 @@ func _init():
     _get_script_assets()
     _get_sound_assets()
 
+    _load_first("bgm")
+
 
 func get_asset(id):
     assert(id in _assets, id)
+    if id in _preloaded_asset:
+        # print("from asset")
+        return _preloaded_asset[id]
+
     return load(_assets[id])
 
 
@@ -109,5 +116,15 @@ func _get_script_assets():
 func _get_sound_assets():
     _assets["bgm1"] = "res://assets/sounds/bgm/03 - Definitely Our Town.mp3"
     _assets["bgm2"] = "res://assets/sounds/bgm/07 - Port Town.mp3"
+    _assets["bgm3"] = "res://assets/sounds/bgm/12 - Frozen Abyss.mp3"
+    _assets["bgm4"] = "res://assets/sounds/bgm/19 - Where The Winds Roam.ogg"
+    _assets["bgm_menu"] = "res://assets/sounds/bgm/Pixel 12.ogg"
 
     _assets["sfx_beep"] = "res://assets/sounds/beep.mp3"
+    _assets["sfx_break"] = "res://assets/sounds/dragon-studio-glass-breaking-504033.mp3"
+
+
+func _load_first(prefix):
+    for i: String in _assets.keys():
+        if i.begins_with(prefix):
+            _preloaded_asset[i] = load(_assets[i])

@@ -29,7 +29,6 @@ size = Vector2(16, 16)
 [sub_resource type="Resource" id="Resource_88t4m"]
 script = ExtResource("8_xqfgs")
 trigger = 2
-force_disabled = true
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_837ee"]
@@ -158,6 +157,8 @@ static_command_list = Array[ExtResource("10_ih8x4")]([SubResource("Resource_joc3
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="MapBase" unique_id=279109716 instance=ExtResource("1_wue6x")]
+bgm_id = "bgm3"
+default_spawn_pos = Vector2(144, 96)
 
 [node name="Sprite2D" parent="." index="0" unique_id=1877365204]
 texture = SubResource("AtlasTexture_14hew")
@@ -322,11 +323,11 @@ shape = SubResource("RectangleShape2D_fsu8c")
 position = Vector2(280, 136)
 shape = SubResource("RectangleShape2D_fsu8c")
 
-[node name="ReferenceRect" parent="Control" parent_id_path=PackedInt32Array(809171734) index="0" unique_id=187995610]
-offset_left = 272.0
-offset_top = 112.0
-offset_right = 288.0
-offset_bottom = 128.0
+[node name="Control" parent="." index="2" unique_id=809171734]
+offset_left = 144.0
+offset_top = 96.0
+offset_right = 144.0
+offset_bottom = 96.0
 
 [node name="microscope" type="Sprite2D" parent="." index="3" unique_id=2097828231]
 z_index = 10

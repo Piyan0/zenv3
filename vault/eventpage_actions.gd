@@ -5,7 +5,7 @@ enum Direction{
 }
 
 var _actions = {}
-var _state = {}
+static var _state = {}
 
 func _init() -> void:
     _actions["narator"] = func(msg_arr):
@@ -208,6 +208,11 @@ func _init() -> void:
         await Engine.get_main_loop().create_timer(second).timeout
     
     _actions["play_bgm"] = func(bgm_id):
+        if "playing_bgm_id" in _state:
+            if bgm_id == _state["playing_bgm_id"]:
+                return
+                
+        _state["playing_bgm_id"] = bgm_id
         var stream = Bootstrap.asset_loader.get_asset(bgm_id)
         assert(stream is AudioStream, str(stream))
         Bootstrap.audio_manager.play_bgm(stream)

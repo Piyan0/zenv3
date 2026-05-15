@@ -78,6 +78,7 @@ static_command_list = Array[ExtResource("8_6gasj")]([])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="MapBase" unique_id=279109716 instance=ExtResource("1_7bkm3")]
+bgm_id = "bgm1"
 default_spawn_pos = Vector2(192, 64)
 
 [node name="Sprite2D" parent="." index="0" unique_id=1877365204]

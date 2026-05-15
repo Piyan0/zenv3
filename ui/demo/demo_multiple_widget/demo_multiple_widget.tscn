@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx7ehh3eqn5ec"]
+[gd_scene format=3 uid="uid://dx7ehh3eqn5ec"]
 
 [ext_resource type="PackedScene" uid="uid://c4xqkgqq7mrqv" path="res://ui/widgets/widget_meter/widget_meter.tscn" id="1_1yplp"]
 [ext_resource type="PackedScene" uid="uid://b5c465p4c88tp" path="res://ui/widgets/widget_toggle/widget_toggle.tscn" id="2_0lgoo"]
 [ext_resource type="PackedScene" uid="uid://b07oxy6v8k0vr" path="res://ui/widgets/widget_options/widget_options.tscn" id="3_1sirt"]
 [ext_resource type="Script" uid="uid://58dtru2rub4o" path="res://ui/widgets/widget_group.gd" id="4_0lgoo"]
 
-[node name="DemoMultipleWidget" type="CanvasLayer"]
+[node name="DemoMultipleWidget" type="CanvasLayer" unique_id=1249475941]
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2100770495]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -18,29 +18,29 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="WidgetGroup" type="Node" parent="MarginContainer" node_paths=PackedStringArray("widgets")]
+[node name="WidgetGroup" type="Node" parent="MarginContainer" unique_id=1060262738 node_paths=PackedStringArray("widgets")]
 script = ExtResource("4_0lgoo")
 widgets = [NodePath("../VBoxContainer/WidgetMeter"), NodePath("../VBoxContainer/WidgetToggle"), NodePath("../VBoxContainer/WidgetOptions")]
 metadata/_custom_type_script = "uid://58dtru2rub4o"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1330626280]
 layout_mode = 2
 
-[node name="WidgetMeter" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_1yplp")]
+[node name="WidgetMeter" parent="MarginContainer/VBoxContainer" unique_id=1184539490 instance=ExtResource("1_1yplp")]
 layout_mode = 2
 title = "Option_01"
 
 [node name="HandPointer" parent="MarginContainer/VBoxContainer/WidgetMeter" index="0"]
 custom_minimum_size = Vector2(92, 0)
 
-[node name="WidgetToggle" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_0lgoo")]
+[node name="WidgetToggle" parent="MarginContainer/VBoxContainer" unique_id=1850191515 instance=ExtResource("2_0lgoo")]
 layout_mode = 2
 title = "Option_02"
 
 [node name="HandPointer" parent="MarginContainer/VBoxContainer/WidgetToggle" index="0"]
 custom_minimum_size = Vector2(92, 0)
 
-[node name="WidgetOptions" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_1sirt")]
+[node name="WidgetOptions" parent="MarginContainer/VBoxContainer" unique_id=1206840433 instance=ExtResource("3_1sirt")]
 layout_mode = 2
 options = Array[String](["Godot", "Unity", "Unreal", "RPG Maker"])
 title = "Option_03"

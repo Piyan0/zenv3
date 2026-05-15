@@ -32,9 +32,9 @@ metadata/_custom_type_script = "uid://udvneqyhy02s"
 
 [sub_resource type="Resource" id="Resource_lukhv"]
 script = ExtResource("5_xkodp")
-event_commands_id = 7
 graphic = SubResource("AtlasTexture_xkodp")
 graphic_offset = Vector2(0, -18)
+event_commands_id = 7
 static_command_list = Array[ExtResource("8_yee5q")]([SubResource("Resource_kcasg")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
@@ -120,7 +120,6 @@ script = ExtResource("5_xkodp")
 graphic = SubResource("AtlasTexture_kcasg")
 graphic_offset = Vector2(0, -18)
 global_switch_001 = "chloe_session"
-global_switch_001_value = true
 static_command_list = Array[ExtResource("8_yee5q")]([SubResource("Resource_bldm3"), SubResource("Resource_4mlkm")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
@@ -184,7 +183,6 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 script = ExtResource("5_xkodp")
 trigger = 2
 global_switch_001 = "chloe_session"
-global_switch_001_value = true
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_pt8es"]
@@ -194,7 +192,8 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="Level0101" type="Node2D" unique_id=873098189]
 script = ExtResource("1_w8nm1")
-map_id = "level_01_01"
+bgm_id = "bgm4"
+default_spawn_pos = Vector2(160, 64)
 metadata/_custom_type_script = "uid://cpuurkkj4ksm7"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=581643558]

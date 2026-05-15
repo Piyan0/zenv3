@@ -17,7 +17,7 @@ func play_sfx(sfx, custom_db = 0):
     _sfx_player.stream = sfx
     _sfx_player.play()
 
-func play_bgm(bgm, custom_db = 0):
+func play_bgm(bgm: AudioStream, custom_db = 0):
     var t = create_tween()
     t.tween_property(_bgm_player, "volume_db", -80, bgm_fade_dur)
     t.tween_callback(func():

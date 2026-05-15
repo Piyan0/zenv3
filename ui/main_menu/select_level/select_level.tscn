@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://b44c1q1hjf6qe"]
+
+[ext_resource type="Script" uid="uid://vmp8703bwd0a" path="res://ui/main_menu/select_level/select_level.gd" id="1_kjmak"]
+[ext_resource type="PackedScene" uid="uid://bv6ixu8e4crfw" path="res://ui/hand_pointer/hand_pointer.tscn" id="2_0lvce"]
+[ext_resource type="Texture2D" uid="uid://bdt2r42lma83f" path="res://assets/chloe/dialogue_rect.png" id="2_f6d87"]
+
+[node name="SelectLevel" type="Control" unique_id=62712966 node_paths=PackedStringArray("btn_level1", "btn_level2", "btn_level3", "btn_level4", "btn_level5")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_kjmak")
+btn_level1 = NodePath("MarginContainer/MarginContainer/VBoxContainer/HandPointer")
+btn_level2 = NodePath("MarginContainer/MarginContainer/VBoxContainer/HandPointer2")
+btn_level3 = NodePath("MarginContainer/MarginContainer/VBoxContainer/HandPointer3")
+btn_level4 = NodePath("MarginContainer/MarginContainer/VBoxContainer/HandPointer4")
+btn_level5 = NodePath("MarginContainer/MarginContainer/VBoxContainer/HandPointer5")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=474719581]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.0
+offset_right = 39.0
+offset_bottom = 120.0
+grow_horizontal = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=590927634]
+layout_mode = 2
+texture = ExtResource("2_f6d87")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=1023208265]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer" unique_id=1064293416]
+layout_mode = 2
+
+[node name="HandPointer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=384793180 instance=ExtResource("2_0lvce")]
+layout_mode = 2
+msg = "level_1"
+
+[node name="HandPointer2" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=567438828 instance=ExtResource("2_0lvce")]
+layout_mode = 2
+msg = "level_2"
+
+[node name="HandPointer3" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=193397543 instance=ExtResource("2_0lvce")]
+layout_mode = 2
+msg = "level_3"
+
+[node name="HandPointer4" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1568908738 instance=ExtResource("2_0lvce")]
+layout_mode = 2
+msg = "level_4"
+
+[node name="HandPointer5" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=601105154 instance=ExtResource("2_0lvce")]
+layout_mode = 2
+msg = "level_5"

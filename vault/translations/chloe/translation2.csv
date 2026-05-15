@@ -1,10 +1,15 @@
 keys,en_US,fr_FR
 ui_select_level,"Select Level","Sélectionner le niveau"
+ui_select_language,"Select Language","Choisir la langue"
+
 level_1,"Level 1","Niveau 1"
 level_2,"Level 2","Niveau 2"
 level_3,"Level 3","Niveau 3"
 level_4,"Level 4","Niveau 4"
 level_5,"Level 5","Niveau 5"
+ui_singleplayer,"Singleplayer","Solo"
+ui_multiplayer,"Multiplayer","Multijoueur"
+
 chloe_puzzle_hint00,"You might want to check this","Tu devrais peut-être vérifier ça"
 lv3_fred_hint,"But I have this for you!","Mais je peux te donner ça !"
 found_shovel,"Found [Shovel].","Pelle trouvée."

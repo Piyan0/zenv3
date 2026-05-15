@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cewl2tso4ihyi"]
+
+[ext_resource type="Script" uid="uid://c81s00r1yjp8i" path="res://ui/main_menu/select_language/select_language.gd" id="1_tnbgj"]
+[ext_resource type="Texture2D" uid="uid://bdt2r42lma83f" path="res://assets/chloe/dialogue_rect.png" id="2_7iqxv"]
+[ext_resource type="PackedScene" uid="uid://bv6ixu8e4crfw" path="res://ui/hand_pointer/hand_pointer.tscn" id="3_3dfu2"]
+
+[node name="SelectLanguage" type="Control" unique_id=513334462 node_paths=PackedStringArray("french_btn", "en_btn")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tnbgj")
+french_btn = NodePath("MarginContainer/MarginContainer/VBoxContainer/HandPointer")
+en_btn = NodePath("MarginContainer/MarginContainer/VBoxContainer/HandPointer2")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=474719581]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.0
+offset_right = 68.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=590927634]
+layout_mode = 2
+texture = ExtResource("2_7iqxv")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=1023208265]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer" unique_id=1302202641]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HandPointer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=384793180 instance=ExtResource("3_3dfu2")]
+layout_mode = 2
+msg = "French"
+
+[node name="HandPointer2" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=515887161 instance=ExtResource("3_3dfu2")]
+layout_mode = 2
+msg = "English"
