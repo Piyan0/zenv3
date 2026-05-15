@@ -16,6 +16,7 @@ func _get_commands_list():
         await push(["push_dialogue2", "fred", ["lv5_15"]])
         push(["set_iswitch", "a"])
         push(["set_switch", "fred_found_ring"])
+        push(["tag", "ring_found"])
         
     commands[3] = func():
         await push([""])
