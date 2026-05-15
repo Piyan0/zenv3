@@ -16,8 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://db7jci2tkcomp" path="res://assets/chloe/lv5_paper.png" id="13_ts554"]
 [ext_resource type="Script" uid="uid://xl00jil6ffns" path="res://vault/generated_event_command/42_sand_castle_correct.gd" id="14_h50s3"]
 [ext_resource type="Script" uid="uid://1wlht6qwel5g" path="res://vault/generated_event_command/46_gold_area_wrong.gd" id="18_l8myi"]
+[ext_resource type="Texture2D" uid="uid://dtxciw8723x3w" path="res://assets/chloe/icon_hand_pointer.png" id="19_1kq74"]
 [ext_resource type="Script" uid="uid://tbdh3e2vcfpm" path="res://vault/generated_event_command/48_gold_area_correct.gd" id="19_bi4j0"]
 [ext_resource type="Texture2D" uid="uid://cijcyb0vrmkk6" path="res://assets/chloe/x_sign.png" id="19_gx3b7"]
+[ext_resource type="Script" uid="uid://dnsyp670da8vl" path="res://vault/static_event_commands/static_tag.gd" id="19_sbd0m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gx3b7"]
 atlas = ExtResource("2_rcv6p")
@@ -167,6 +169,34 @@ graphic_offset = Vector2(0, -16)
 through = true
 i_switch = 1
 event_commands_id = 3
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_a44n5"]
+script = ExtResource("10_pokxf")
+metadata/_custom_type_script = "uid://udvneqyhy02s"
+
+[sub_resource type="Resource" id="Resource_wxg54"]
+script = ExtResource("19_sbd0m")
+tag = "salwa"
+metadata/_custom_type_script = "uid://dnsyp670da8vl"
+
+[sub_resource type="Resource" id="Resource_l8myi"]
+script = ExtResource("4_ref0v")
+static_command_list = Array[ExtResource("7_m785r")]([SubResource("Resource_a44n5"), SubResource("Resource_wxg54")])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_446xw"]
+script = ExtResource("19_sbd0m")
+tag = "salwa"
+operation = 1
+metadata/_custom_type_script = "uid://dnsyp670da8vl"
+
+[sub_resource type="Resource" id="Resource_c052u"]
+script = ExtResource("4_ref0v")
+graphic = ExtResource("19_1kq74")
+tags = "salwa"
+event_commands_id = 2
+static_command_list = Array[ExtResource("7_m785r")]([SubResource("Resource_446xw")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="MapBase" unique_id=279109716 instance=ExtResource("1_ex65u")]
@@ -348,3 +378,7 @@ eventpages = Array[ExtResource("4_ref0v")]([SubResource("Resource_7lvqr"), SubRe
 position = Vector2(160, 112)
 _commands_source = ExtResource("19_bi4j0")
 eventpages = Array[ExtResource("4_ref0v")]([SubResource("Resource_1pryn"), SubResource("Resource_gn0oo"), SubResource("Resource_oqs0q")])
+
+[node name="ev002" parent="." index="13" unique_id=2140960451 instance=ExtResource("3_84h7h")]
+position = Vector2(192, 112)
+eventpages = Array[ExtResource("4_ref0v")]([SubResource("Resource_l8myi"), SubResource("Resource_c052u")])

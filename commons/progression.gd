@@ -5,12 +5,14 @@ signal entries_changed(internal_switches, variables, global_switches)
 const KEY_INTERNAL_SWITCHES= "_internal_switches"
 const KEY_GLOBAL_SWITCHES= "_global_switches"
 const KEY_VARIABLES= "_variables"
+const KEY_TAG = "_tag_list"
 
 var variable_source: String
 var global_switch_source: String
 var _variables= {}
 var _global_switches= {}
 var _internal_switches= {}
+var _tag_list= ["tag", "tag2"]
 # TODO add internal switch here.
 
 func _init(p_var_source, p_switch_source):
@@ -31,13 +33,15 @@ func set_data(data):
     _variables= data[KEY_VARIABLES]
     _global_switches= data[KEY_GLOBAL_SWITCHES]
     _internal_switches= data[KEY_INTERNAL_SWITCHES]
+    _tag_list= data[KEY_TAG]
     
     
 func get_data():
     return {
-        KEY_VARIABLES: _variables,
-        KEY_GLOBAL_SWITCHES: _global_switches,
-        KEY_INTERNAL_SWITCHES: _internal_switches,
+        KEY_VARIABLES : _variables,
+        KEY_GLOBAL_SWITCHES : _global_switches,
+        KEY_INTERNAL_SWITCHES : _internal_switches,
+        KEY_TAG : _tag_list
     }
 
 
@@ -64,7 +68,7 @@ func has_internal_switch(key):
 func set_switch(key, value):
     _assert_key_exist(key, _global_switches, "_global_switches")
     _global_switches[key]= value
-    entries_changed.emit(_internal_switches, _variables, _global_switches)
+    entries_changed.emit(_internal_switches, _variables, _global_switches, _tag_list)
 
 
 func try_set_switch(key, value) -> Error:
@@ -83,7 +87,7 @@ func get_switch(key):
 func set_var(key, value):
     _assert_key_exist(key, _variables, "_variables")
     _variables[key]= value
-    entries_changed.emit(_internal_switches, _variables, _global_switches)
+    entries_changed.emit(_internal_switches, _variables, _global_switches, _tag_list)
 
 
 func try_set_var(key, value) -> Error:
@@ -108,7 +112,7 @@ func set_internal_switch(event_id, internal_switch_id, value):
     # printt(">>", event_id)
     _assert_key_exist(event_id, _internal_switches, "_internal_switches")
     _internal_switches[event_id][internal_switch_id]= value
-    entries_changed.emit(_internal_switches, _variables, _global_switches)
+    entries_changed.emit(_internal_switches, _variables, _global_switches, _tag_list)
 
 
 func add_internal_switch(id):
@@ -119,6 +123,16 @@ func add_internal_switch(id):
         str(EventPage.InternalSwitch.C): false,
         str(EventPage.InternalSwitch.D): false,
     }
+    
+    
+func add_tag(tag):
+    _tag_list.push_back(tag)
+    entries_changed.emit(_internal_switches, _variables, _global_switches, _tag_list)
+
+
+func remove_tag(tag):
+    _tag_list.erase(tag)
+    entries_changed.emit(_internal_switches, _variables, _global_switches, _tag_list)
     
     
 func _assert_key_exist(key, dict, dict_name):

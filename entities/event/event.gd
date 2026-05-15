@@ -136,7 +136,7 @@ func interact(player):
     is_interact_running= false
     
 
-func update_active_event(internal_switches, variables, global_switches):
+func update_active_event(internal_switches, variables, global_switches, tag_list):
     if active_event_page:
         for i in active_event_page.event_traits:
             i.exit(self)
@@ -145,7 +145,7 @@ func update_active_event(internal_switches, variables, global_switches):
     for i in reversed_event_pages:
         if i == null: continue
         # TODO return if event is the same, since everytime variable / switch is changed, it will be called.
-        if i.is_event_active(internal_switches[get_internal_switch_id()], variables, global_switches):
+        if i.is_event_active(internal_switches[get_internal_switch_id()], variables, global_switches, tag_list):
             if i == active_event_page:
                 # print("same")
                 return

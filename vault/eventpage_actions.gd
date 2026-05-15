@@ -215,6 +215,12 @@ func _init() -> void:
         var stream = Bootstrap.asset_loader.get_asset(bgm_id)
         assert(stream is AudioStream, str(stream))
         Bootstrap.audio_manager.play_sfx(stream)
+    
+    _actions["tag"] = func(tag):
+        Bootstrap.progression.add_tag(tag)
+    
+    _actions["rtag"] = func(tag):
+        Bootstrap.progression.remove_tag(tag)
 
 # first element (at index 0 should be the key of '_actions', rest is call arguments.)
 func push(args = []):

@@ -48,10 +48,10 @@ func _process(_delta):
             current_event_id = ""
 
 
-func refresh_map(internal_switches, variables, global_switches):
+func refresh_map(internal_switches, variables, global_switches, tag_list):
     var events= get_tree().get_nodes_in_group("events")
     for i: Event in events:
-        i.update_active_event(internal_switches, variables, global_switches)
+        i.update_active_event(internal_switches, variables, global_switches, tag_list)
     
     map_refreshed.emit(events)
     _reset()

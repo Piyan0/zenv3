@@ -22,9 +22,9 @@ func _enter_tree():
 
     progression= _boot_progression()
     progression.entries_changed.connect(
-        func(it_switch, vars, gb_switch):
+        func(it_switch, vars, gb_switch, tag_list):
             # print(gb_switch)
-            event_manager.refresh_map(it_switch, vars, gb_switch)
+            event_manager.refresh_map(it_switch, vars, gb_switch, tag_list)
             if Player.instance:
                 Player.instance.update_active_animation(gb_switch)
     )

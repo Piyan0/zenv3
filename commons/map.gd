@@ -29,6 +29,7 @@ func _ready():
         progression_data[Progression.KEY_INTERNAL_SWITCHES],
         progression_data[Progression.KEY_VARIABLES],
         progression_data[Progression.KEY_GLOBAL_SWITCHES],
+        progression_data[Progression.KEY_TAG],
     )
     
     if !bgm_id.is_empty():

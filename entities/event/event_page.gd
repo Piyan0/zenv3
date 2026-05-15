@@ -31,7 +31,7 @@ enum Placement { BELOW_GROUND=1, GROUND, ABOVE_GROUND }
 @export var variable_value: int= -1
 @export var global_switch_001: String= EMPTY
 @export var global_switch_002: String= EMPTY
-@export var tags: String= "[implement this]"
+@export var tags: String= EMPTY
 @export_group("")
 
 @export_group("debug")
@@ -58,6 +58,7 @@ func is_event_active(
         internal_switches,
         variables,
         global_switches,
+        tag_list
         ):
     if OS.is_debug_build():
         if force_active:
@@ -71,6 +72,7 @@ func is_event_active(
         _variable_pass(variables),
         _switch_pass(global_switch_001, global_switches),
         _switch_pass(global_switch_002, global_switches),
+        _tag_pass(tag_list),
     ]
     for i in conditions:
         if i == false:
@@ -94,3 +96,15 @@ func _variable_pass(variables):
 func _switch_pass(switch_name, switches):
     if switch_name == EMPTY: return true
     return switches[switch_name] == true
+
+
+func _tag_pass(tag_list: Array):
+    if tags == EMPTY:
+        return true
+    var tag_split = tags.split(",")
+    var is_passed = Array(tag_split).all(func(tag):
+        return tag in tag_list
+    )
+    #printt(is_passed, tag_split)
+    return is_passed
+    

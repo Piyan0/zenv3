@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bxxlmvxb1njx0"]
+[gd_scene format=3 uid="uid://bxxlmvxb1njx0"]
 
 [ext_resource type="Texture2D" uid="uid://gld400filib8" path="res://ui/mobile_control/gdb-switch-2.png" id="1_jc4dg"]
 [ext_resource type="Script" uid="uid://dckq246w3nkm7" path="res://ui/mobile_control/mobile_control.gd" id="1_v2ky5"]
@@ -37,8 +37,8 @@ region = Rect2(290, 418, 12, 12)
 atlas = ExtResource("1_jc4dg")
 region = Rect2(290, 434, 12, 12)
 
-[node name="MobileControl" type="CanvasLayer" node_paths=PackedStringArray("btn_toggle_control", "btn_hamburger", "dpad_container", "action_btn_contaienr")]
-layer = 10
+[node name="MobileControl" type="CanvasLayer" unique_id=1342344286 node_paths=PackedStringArray("btn_toggle_control", "btn_hamburger", "dpad_container", "action_btn_contaienr")]
+layer = 99
 script = ExtResource("1_v2ky5")
 img_button_enable = ExtResource("9_5vl16")
 img_button_disabled = ExtResource("3_u0yph")
@@ -47,7 +47,7 @@ btn_hamburger = NodePath("Option/Hamburger")
 dpad_container = NodePath("Dpad")
 action_btn_contaienr = NodePath("Action")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1487790672]
 visible = false
 offset_left = 10.0
 offset_top = 91.0
@@ -55,55 +55,55 @@ offset_right = 50.0
 offset_bottom = 131.0
 scale = Vector2(2, 2)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1177874484]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Control4" type="Control" parent="CenterContainer/VBoxContainer"]
+[node name="Control4" type="Control" parent="CenterContainer/VBoxContainer" unique_id=2068342632]
 custom_minimum_size = Vector2(12, 12)
 layout_mode = 2
 
-[node name="TouchScreenButton3" type="TouchScreenButton" parent="CenterContainer/VBoxContainer/Control4"]
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="CenterContainer/VBoxContainer/Control4" unique_id=1265827147]
 modulate = Color(1, 1, 1, 0.215686)
 texture_normal = SubResource("AtlasTexture_yjq75")
 passby_press = true
 action = "ui_up"
 
-[node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer" unique_id=1204004032]
 custom_minimum_size = Vector2(12, 12)
 layout_mode = 2
 
-[node name="TouchScreenButton6" type="TouchScreenButton" parent="CenterContainer/VBoxContainer/Control"]
+[node name="TouchScreenButton6" type="TouchScreenButton" parent="CenterContainer/VBoxContainer/Control" unique_id=618583261]
 modulate = Color(1, 1, 1, 0.215686)
 texture_normal = SubResource("AtlasTexture_ow6bc")
 passby_press = true
 action = "ui_down"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer" unique_id=1684928588]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Control3" type="Control" parent="CenterContainer/HBoxContainer"]
+[node name="Control3" type="Control" parent="CenterContainer/HBoxContainer" unique_id=1638643743]
 custom_minimum_size = Vector2(12, 12)
 layout_mode = 2
 
-[node name="TouchScreenButton4" type="TouchScreenButton" parent="CenterContainer/HBoxContainer/Control3"]
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="CenterContainer/HBoxContainer/Control3" unique_id=903905901]
 modulate = Color(1, 1, 1, 0.215686)
 texture_normal = SubResource("AtlasTexture_1oa1u")
 passby_press = true
 action = "ui_left"
 
-[node name="Control2" type="Control" parent="CenterContainer/HBoxContainer"]
+[node name="Control2" type="Control" parent="CenterContainer/HBoxContainer" unique_id=542120861]
 custom_minimum_size = Vector2(12, 12)
 layout_mode = 2
 
-[node name="TouchScreenButton5" type="TouchScreenButton" parent="CenterContainer/HBoxContainer/Control2"]
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="CenterContainer/HBoxContainer/Control2" unique_id=1269326105]
 modulate = Color(1, 1, 1, 0.215686)
 texture_normal = SubResource("AtlasTexture_kro4v")
 passby_press = true
 action = "ui_right"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=915974774]
 visible = false
 offset_left = 243.0
 offset_top = 112.0
@@ -111,85 +111,85 @@ offset_right = 271.0
 offset_bottom = 138.0
 scale = Vector2(2, 2)
 
-[node name="Control5" type="Control" parent="HBoxContainer2"]
+[node name="Control5" type="Control" parent="HBoxContainer2" unique_id=446523146]
 custom_minimum_size = Vector2(12, 12)
 layout_mode = 2
 
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="HBoxContainer2/Control5"]
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="HBoxContainer2/Control5" unique_id=1358832289]
 modulate = Color(1, 1, 1, 0.215686)
 texture_normal = SubResource("AtlasTexture_lv87s")
 action = "ui_cancel"
 
-[node name="Control6" type="Control" parent="HBoxContainer2"]
+[node name="Control6" type="Control" parent="HBoxContainer2" unique_id=1105775236]
 custom_minimum_size = Vector2(12, 12)
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer2/Control6"]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer2/Control6" unique_id=1824137950]
 modulate = Color(1, 1, 1, 0.215686)
 texture_normal = SubResource("AtlasTexture_eerth")
 action = "ui_accept"
 
-[node name="Dpad" type="Node2D" parent="."]
+[node name="Dpad" type="Node2D" parent="." unique_id=1514329356]
 modulate = Color(1, 1, 1, 0.3)
 position = Vector2(44, 91)
 
-[node name="DpaUp" type="TouchScreenButton" parent="Dpad"]
+[node name="DpaUp" type="TouchScreenButton" parent="Dpad" unique_id=752916658]
 texture_normal = ExtResource("2_eerth")
 passby_press = true
 action = "ui_up"
 script = ExtResource("4_5vl16")
 
-[node name="DpadDown" type="TouchScreenButton" parent="Dpad"]
+[node name="DpadDown" type="TouchScreenButton" parent="Dpad" unique_id=724626638]
 position = Vector2(0, 39)
 texture_normal = ExtResource("3_1oa1u")
 passby_press = true
 action = "ui_down"
 script = ExtResource("4_5vl16")
 
-[node name="DpadLeft" type="TouchScreenButton" parent="Dpad"]
+[node name="DpadLeft" type="TouchScreenButton" parent="Dpad" unique_id=302394663]
 position = Vector2(-28, 27)
 texture_normal = ExtResource("4_kro4v")
 passby_press = true
 action = "ui_left"
 script = ExtResource("4_5vl16")
 
-[node name="DpadRight" type="TouchScreenButton" parent="Dpad"]
+[node name="DpadRight" type="TouchScreenButton" parent="Dpad" unique_id=972846474]
 position = Vector2(13, 27)
 texture_normal = ExtResource("5_ow6bc")
 passby_press = true
 action = "ui_right"
 script = ExtResource("4_5vl16")
 
-[node name="Action" type="Node2D" parent="."]
+[node name="Action" type="Node2D" parent="." unique_id=578696539]
 modulate = Color(1, 1, 1, 0.3)
 position = Vector2(276, 138)
 
-[node name="ButtonA" type="TouchScreenButton" parent="Action"]
+[node name="ButtonA" type="TouchScreenButton" parent="Action" unique_id=822921140]
 texture_normal = ExtResource("6_kro4v")
 passby_press = true
 action = "ui_accept"
 script = ExtResource("4_5vl16")
 
-[node name="ButtonB" type="TouchScreenButton" parent="Action"]
+[node name="ButtonB" type="TouchScreenButton" parent="Action" unique_id=113824228]
 position = Vector2(-28, -28)
 texture_normal = ExtResource("7_5bki4")
 passby_press = true
 action = "ui_cancel"
 script = ExtResource("4_5vl16")
 
-[node name="Option" type="Node2D" parent="."]
+[node name="Option" type="Node2D" parent="." unique_id=24069443]
 modulate = Color(1, 1, 1, 0.3)
 position = Vector2(250, 7)
 
-[node name="Hamburger" type="TouchScreenButton" parent="Option"]
+[node name="Hamburger" type="TouchScreenButton" parent="Option" unique_id=476093945]
 position = Vector2(38, 5)
 texture_normal = ExtResource("8_v2ky5")
 passby_press = true
 action = "ui_cancel"
 script = ExtResource("4_5vl16")
 
-[node name="EnableButton" type="TouchScreenButton" parent="Option"]
+[node name="EnableButton" type="TouchScreenButton" parent="Option" unique_id=707910773]
 texture_normal = ExtResource("9_5vl16")
 passby_press = true
 action = "ui_cancel"
