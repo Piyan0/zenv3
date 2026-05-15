@@ -31,6 +31,12 @@ region = Rect2(290, 418, 12, 12)
 [sub_resource type="AtlasTexture" id="AtlasTexture_eerth"]
 region = Rect2(290, 434, 12, 12)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0yph"]
+radius = 12.81
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cw07a"]
+radius = 12.81
+
 [node name="MobileControl" type="CanvasLayer" unique_id=1342344286 node_paths=PackedStringArray("btn_toggle_control", "btn_hamburger", "dpad_container", "action_btn_contaienr")]
 layer = 99
 script = ExtResource("1_v2ky5")
@@ -166,6 +172,7 @@ position = Vector2(286, 141)
 [node name="ButtonA" type="TouchScreenButton" parent="Action" unique_id=822921140]
 position = Vector2(-29, -52)
 texture_normal = ExtResource("6_kro4v")
+shape = SubResource("CircleShape2D_u0yph")
 passby_press = true
 action = "ui_accept"
 script = ExtResource("4_5vl16")
@@ -173,6 +180,7 @@ script = ExtResource("4_5vl16")
 [node name="ButtonB" type="TouchScreenButton" parent="Action" unique_id=113824228]
 position = Vector2(-56, -23)
 texture_normal = ExtResource("7_5bki4")
+shape = SubResource("CircleShape2D_cw07a")
 passby_press = true
 action = "ui_cancel"
 script = ExtResource("4_5vl16")
