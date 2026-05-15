@@ -16,7 +16,7 @@ func _get_commands_list():
         push(["set_switch", "show_love_bubble"])
         push(["set_iswitch", "a"])
         await push(["wait", 2])
-        await push(["goto", "map_level_03_01", 144, 64])
+        await push(["goto", "map_level3_1"])
 
 
     commands[3] = func():

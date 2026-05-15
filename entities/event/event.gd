@@ -47,7 +47,8 @@ func _exit_tree() -> void:
 func _physics_process(delta):
     if !active_event_page: return
     for i in active_event_page.event_traits:
-        i.call_update(delta, self)
+        if is_instance_valid(i):
+            i.call_update(delta, self)
 
 
 func play_animation(anim_name):

@@ -512,11 +512,23 @@ shape = SubResource("RectangleShape2D_x3iqx")
 position = Vector2(40, 24)
 shape = SubResource("RectangleShape2D_x3iqx")
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="102" unique_id=552982494]
+[node name="CollisionShape2D105" type="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="102" unique_id=909196422]
+position = Vector2(40, 8)
+shape = SubResource("RectangleShape2D_x3iqx")
+
+[node name="CollisionShape2D106" type="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="103" unique_id=1591250222]
+position = Vector2(24, -8)
+shape = SubResource("RectangleShape2D_x3iqx")
+
+[node name="CollisionShape2D107" type="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="104" unique_id=1584326356]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_x3iqx")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="105" unique_id=552982494]
 position = Vector2(56, 24)
 shape = SubResource("RectangleShape2D_x3iqx")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="103" unique_id=1718388487]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="106" unique_id=1718388487]
 position = Vector2(24, 88)
 shape = SubResource("RectangleShape2D_x3iqx")
 

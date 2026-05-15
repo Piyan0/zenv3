@@ -359,8 +359,6 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 [sub_resource type="Resource" id="Resource_e5ths"]
 script = ExtResource("4_icf2u")
 graphic_offset = Vector2(0, -17)
-walk_animations = SubResource("Resource_nilbh")
-idle_animations = SubResource("Resource_yi1ht")
 through = true
 i_switch = 1
 event_commands_id = 3
@@ -470,13 +468,7 @@ position = Vector2(249, 89)
 texture = ExtResource("3_ugbfh")
 centered = false
 
-[node name="ReferenceRect" parent="." index="2" unique_id=187995610]
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 48.0
-offset_bottom = 32.0
-
-[node name="StaticBody2D" parent="." index="3" unique_id=679895113]
+[node name="StaticBody2D" parent="." index="2" unique_id=679895113]
 visible = false
 
 [node name="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=180166799]
@@ -697,6 +689,12 @@ shape = SubResource("RectangleShape2D_fsu8c")
 [node name="CollisionShape2D64" type="CollisionShape2D" parent="StaticBody2D" index="54" unique_id=848114840]
 position = Vector2(56, 136)
 shape = SubResource("RectangleShape2D_fsu8c")
+
+[node name="ReferenceRect" parent="Control" parent_id_path=PackedInt32Array(809171734) index="0" unique_id=187995610]
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 48.0
+offset_bottom = 32.0
 
 [node name="events" type="Node2D" parent="." index="4" unique_id=1306332747]
 position = Vector2(130.28572, 91.42857)

@@ -44,7 +44,7 @@ static_command_list = Array[ExtResource("6_3ifxq")]([SubResource("Resource_0e75e
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="MapBase" unique_id=279109716 instance=ExtResource("1_5c5vf")]
-map_id = "road_02"
+default_spawn_pos = Vector2(48, 112)
 metadata/_edit_vertical_guides_ = [240.0, 208.0, 208.0]
 metadata/_edit_horizontal_guides_ = [136.0, 136.0, 144.0]
 
@@ -57,12 +57,6 @@ z_index = 20
 texture = SubResource("AtlasTexture_0e75e")
 centered = false
 metadata/_edit_lock_ = true
-
-[node name="ReferenceRect" parent="." index="2" unique_id=187995610]
-offset_left = 224.0
-offset_top = 96.0
-offset_right = 240.0
-offset_bottom = 112.0
 
 [node name="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="0" unique_id=180166799]
 position = Vector2(40, 88)
@@ -190,6 +184,12 @@ shape = SubResource("RectangleShape2D_fsu8c")
 [node name="CollisionShape2D19" type="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="31" unique_id=1360537548]
 position = Vector2(280, 88)
 shape = SubResource("RectangleShape2D_fsu8c")
+
+[node name="Control" parent="." index="3" unique_id=809171734]
+offset_left = 48.0
+offset_top = 112.0
+offset_right = 48.0
+offset_bottom = 112.0
 
 [node name="ev000" parent="." index="4" unique_id=1425815131 instance=ExtResource("3_c5ph8")]
 position = Vector2(16, 112)

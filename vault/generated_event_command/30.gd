@@ -23,6 +23,8 @@ func _get_commands_list():
         await push(["goto", "map_level4_2", 32, 80, "right"])
  
     commands[3] = func():
+
+        Player.instance.get_camera().enabled = false
         push(["alpha", "player", false])
         push(["transfer", "chloe", 160, 64])
         push(["transfer", "fred", 144, 64])
@@ -31,7 +33,11 @@ func _get_commands_list():
         await push(["move", "fred", ["down", "down", "down", "down", "down"]])
         push(["alpha", "fred", false])
         push(["alpha", "chloe", false])
-        await push(["goto", "map_level4_7", 208, 32, "down"])
+        await push(["fade_in"])
+        await push(["wait", 2])
+        await push(["fade_out"])
+        await push(["goto", "map_level4_7", 208, 32, "down", true])
+        
 
     return commands
 

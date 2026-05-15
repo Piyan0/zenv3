@@ -6,9 +6,15 @@ extends Node2D
 @export var map_display_name: String
 @export var default_spawn_pos: Vector2 = Vector2.ZERO
 @export_tool_button("Copy Map ID") var _copy_map_id = _copy_map_id_action
+@export_tool_button("Set as starting scene") var _set_as_starting_map = _set_as_starting_map_action
 
 func _copy_map_id_action():
     DisplayServer.clipboard_set(map_id)
+    print(map_id)
+
+func _set_as_starting_map_action():
+    SceneMap.set_starting_scene(map_id)
+    print("Set {map_id} as starting scene.".format(self))
 
 var map_id: String:
     get():

@@ -108,11 +108,14 @@ func _enter(event):
     
     
 func _exit(event):
-    _wandering_node.queue_free()
+    if is_instance_valid(_wandering_node):
+        _wandering_node.queue_free()
     _walk_anim_process.queue_free()
     
 
 func _update(delta, event):
+    if !is_instance_valid(_walk_anim_process):
+        return
     _grid_mov.update(delta)
     if event.is_interact_running:
         _walk_anim_process.pause= true
