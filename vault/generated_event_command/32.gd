@@ -13,10 +13,11 @@ func _get_commands_list():
         push(["look", "player", "right"])
         await push(["move", "player", ["right", "right", "right", "right", "right", "up", "up", "up", "right", "right", "up", "up"]])
         await push(["push_dialogue2", "ui_narator", ["lv4_end01"]])
-        push(["narator", ["lv4_end00", "lv4_end02"]])
+        await push(["narator", ["lv4_end00", "lv4_end02"]])
         push(["set_iswitch", "a"])
         push(["set_switch", "going_home"])
-        # await push(["commands_id", "args1"])
+        push(["set_switch", "chloe_session", false])
+        await push(["goto", "map_level4_7", 192, 144, "up", true])
         
     commands[2] = func():
         await push([""])

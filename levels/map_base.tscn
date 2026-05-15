@@ -9,6 +9,7 @@ size = Vector2(16, 16)
 script = ExtResource("1_tud3c")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1877365204]
+modulate = Color(0.47137535, 0.4713753, 0.4713753, 1)
 centered = false
 metadata/_edit_lock_ = true
 

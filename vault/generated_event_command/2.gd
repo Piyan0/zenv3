@@ -14,6 +14,7 @@ func _get_commands_list():
             if item_id == 3:
                 push(["erase_item"])
                 push(["push_dialogue", "fred", "lv3_battery_placed"])
+                push(["set_switch", "fred_got_key"])
                 await push(["start_dialogue"])
                 push(["set_iswitch", "a"])
         ])

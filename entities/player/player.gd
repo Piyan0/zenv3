@@ -87,7 +87,10 @@ func update_active_animation(global_switches):
     anims_reversed.reverse()
     for i in anims_reversed:
         if i.is_active(global_switches):
+            if i == active_animation:
+                return
             active_animation = i
+            print(active_animation)
             _active_animation_changed(i)
             return
     

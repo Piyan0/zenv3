@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bt831svdm2vef"]
+
+[ext_resource type="PackedScene" uid="uid://cn4a1buk2tejm" path="res://levels/map_base.tscn" id="1_x6mca"]
+[ext_resource type="Texture2D" uid="uid://42xj72jlxoed" path="res://assets/chloe/sheet_lv3_chloe.png" id="2_c643m"]
+[ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="3_3cihn"]
+[ext_resource type="Script" uid="uid://dloekx8d4lyfn" path="res://vault/generated_event_command/26.gd" id="4_qmut1"]
+[ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="5_23olm"]
+[ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="6_ascq1"]
+[ext_resource type="Texture2D" uid="uid://v8duw7tegkvo" path="res://assets/chloe/lv3_fred_hint.png" id="7_vicll"]
+[ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="8_krpqr"]
+[ext_resource type="Script" uid="uid://8v1xdhfvcvkk" path="res://vault/static_event_commands/StaticGoto.gd" id="9_qmut1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cihn"]
+atlas = ExtResource("2_c643m")
+region = Rect2(0, 180, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41fqt"]
+atlas = ExtResource("7_vicll")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_33bp1"]
+script = ExtResource("5_23olm")
+graphic = SubResource("AtlasTexture_41fqt")
+graphic_offset = Vector2(0, -16)
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_6plf7"]
+script = ExtResource("5_23olm")
+graphic = SubResource("AtlasTexture_41fqt")
+graphic_offset = Vector2(0, -16)
+global_switch_001 = "got_flower"
+event_commands_id = 2
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_qqcox"]
+script = ExtResource("5_23olm")
+graphic = SubResource("AtlasTexture_41fqt")
+graphic_offset = Vector2(0, -16)
+i_switch = 1
+event_commands_id = 3
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_g0qaj"]
+script = ExtResource("9_qmut1")
+map_id = "map_level3_7"
+spawn_pos = Vector2(32, 144)
+direction = 3
+metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
+
+[sub_resource type="Resource" id="Resource_qfrjy"]
+script = ExtResource("5_23olm")
+trigger = 0
+static_command_list = Array[ExtResource("8_krpqr")]([SubResource("Resource_g0qaj"), null])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[node name="MapBase" unique_id=279109716 instance=ExtResource("1_x6mca")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1877365204]
+texture = SubResource("AtlasTexture_3cihn")
+
+[node name="Control" parent="." index="2" unique_id=809171734]
+offset_left = 256.0
+offset_top = 80.0
+offset_right = 256.0
+offset_bottom = 80.0
+
+[node name="ev009" parent="." index="3" unique_id=1425815131 instance=ExtResource("3_3cihn")]
+position = Vector2(80, 80)
+_commands_source = ExtResource("4_qmut1")
+eventpages = Array[ExtResource("5_23olm")]([SubResource("Resource_33bp1"), SubResource("Resource_6plf7"), SubResource("Resource_qqcox")])
+
+[node name="door" parent="." index="4" unique_id=1615284571 instance=ExtResource("3_3cihn")]
+position = Vector2(272, 80)
+eventpages = Array[ExtResource("5_23olm")]([SubResource("Resource_qfrjy")])

@@ -10,10 +10,14 @@ func _get_commands_list():
         pass
 
     commands[2] = func():
-        await push(["push_dialogue2", "fred", ["chloe_sleep01"]])
+        await push([""])
         
     commands[3] = func():
-        await push([""])
+        await push(["push_dialogue2", "fred", ["chloe_sleep00"]])
+
+    commands[4] = func():
+        await push(["push_dialogue2", "fred", ["chloe_sleep01"]])
+        push(["tag", "chloe_awake"])
 
     return commands
 

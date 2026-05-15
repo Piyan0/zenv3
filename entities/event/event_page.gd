@@ -105,6 +105,6 @@ func _tag_pass(tag_list: Array):
     var is_passed = Array(tag_split).all(func(tag):
         return tag in tag_list
     )
-    #printt(is_passed, tag_split)
+    # printt(is_passed, tag_split, tag_list)
     return is_passed
     

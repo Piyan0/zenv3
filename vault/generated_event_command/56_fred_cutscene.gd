@@ -7,23 +7,16 @@ func _get_commands_list():
     var commands = {}
     # start from index one.
     commands[1] = func():
-        await push(["push_dialogue", "chloe", "lv3_fred_vault00"])
-        await push(["start_dialogue"])
+        await push([""])
         
     commands[2] = func():
-        await Bootstrap.asset_loader.get_asset("sc_vault_puzzle").spawn([9, 2, 4, 1], "", func(is_correct):
-            if is_correct:
-                await push(["push_dialogue", "chloe", "got_item"])
-                await push(["start_dialogue"])
-                push(["set_switch", "chloe_got_key"])
-                push(["add_item", 4]) 
-                push(["add_item", 1]) 
-                push(["set_iswitch", "a"])
-        )
+        push(["transfer", "player", 160, 80])
+        push(["transfer", "look", "down"])
+        await push(["push_dialogue2", "fred", ["lv5_fred_awake0"]])
+        push(["rtag", "fred_awake"])
         
     commands[3] = func():
-        push(["push_dialogue", "chloe", "interact_empty"])
-        await push(["start_dialogue"])
+        await push([""])
 
     return commands
 

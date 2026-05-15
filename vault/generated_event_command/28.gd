@@ -16,7 +16,7 @@ func _get_commands_list():
             if id == 5:
                 push(["set_iswitch", "a"])
                 push(["erase_item"]) 
-                await push(["show_image"])   
+                await push(["show_image", "img_lv3_hint4"])   
                 await push(["push_dialogue2", "chloe", ["lv3_chloe05", "lv3_chloe06"]])
 
         ])
@@ -28,7 +28,7 @@ func _get_commands_list():
                     if s:
                         push(["erase_item"])
                         push(["increment_var", "glass_box_item_used_count"])    
-                        await push(["show_image"])
+                        await push(["show_image", "img_lv3_hint3"])
                         push(["set_switch", "chloe_got_hint"])
                     else:
                         await push(["push_dialogue2", "chloe", ["lv3_chloe09"]])
@@ -41,7 +41,7 @@ func _get_commands_list():
         ])
     
     commands[4] = func():
-        await push(["show_image"])
+        await push(["show_image", "img_lv3_hint3"])
 
     commands[5] = func():
         pass

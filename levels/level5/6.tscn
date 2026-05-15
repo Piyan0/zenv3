@@ -49,7 +49,7 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_qlm3w"]
 script = ExtResource("11_56lrd")
-map_id = "map_level5_7"
+map_id = "map_level5_5"
 spawn_pos = Vector2(240, 80)
 direction = 2
 metadata/_custom_type_script = "uid://8v1xdhfvcvkk"

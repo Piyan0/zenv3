@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://dropt6wfprlrn"]
+
+[ext_resource type="PackedScene" uid="uid://cn4a1buk2tejm" path="res://levels/map_base.tscn" id="1_yhbte"]
+[ext_resource type="Texture2D" uid="uid://42xj72jlxoed" path="res://assets/chloe/sheet_lv3_chloe.png" id="2_37wvs"]
+[ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="3_lc3gm"]
+[ext_resource type="Script" uid="uid://cef0jab5jqmx5" path="res://vault/generated_event_command/28.gd" id="4_tnu4e"]
+[ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="5_spmy0"]
+[ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="6_wpciv"]
+[ext_resource type="Texture2D" uid="uid://dhc0ejxgkssky" path="res://assets/chloe/sheet_lv3_obj.png" id="7_bvhyp"]
+[ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="8_5yk1m"]
+[ext_resource type="Script" uid="uid://c10g7t6i4clny" path="res://vault/generated_event_command/24.gd" id="9_spmy0"]
+[ext_resource type="Texture2D" uid="uid://bqw6yaq4x6eeb" path="res://assets/chloe/lv3_items.png" id="10_wpciv"]
+[ext_resource type="Script" uid="uid://8v1xdhfvcvkk" path="res://vault/static_event_commands/StaticGoto.gd" id="11_wpciv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk4ag"]
+atlas = ExtResource("2_37wvs")
+region = Rect2(640, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybrs8"]
+atlas = ExtResource("7_bvhyp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_a1dja"]
+script = ExtResource("5_spmy0")
+graphic = SubResource("AtlasTexture_ybrs8")
+graphic_offset = Vector2(0, -16)
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov6bn"]
+atlas = ExtResource("7_bvhyp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_kvrhd"]
+script = ExtResource("5_spmy0")
+graphic = SubResource("AtlasTexture_ov6bn")
+graphic_offset = Vector2(0, -16)
+tags = "baseball_bat"
+event_commands_id = 2
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pty8h"]
+atlas = ExtResource("7_bvhyp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_ayjhy"]
+script = ExtResource("5_spmy0")
+graphic = SubResource("AtlasTexture_pty8h")
+graphic_offset = Vector2(0, -16)
+i_switch = 1
+event_commands_id = 3
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_2jjfv"]
+script = ExtResource("5_spmy0")
+graphic = SubResource("AtlasTexture_pty8h")
+graphic_offset = Vector2(0, -16)
+variable = "glass_box_item_used_count"
+variable_value = 2
+event_commands_id = 4
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lntm"]
+atlas = ExtResource("10_wpciv")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="Resource" id="Resource_kmt1q"]
+script = ExtResource("5_spmy0")
+graphic = SubResource("AtlasTexture_0lntm")
+graphic_offset = Vector2(0, -16)
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_h0vfk"]
+script = ExtResource("5_spmy0")
+graphic = SubResource("AtlasTexture_0lntm")
+graphic_offset = Vector2(0, -16)
+global_switch_001 = "got_watering_can"
+event_commands_id = 2
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_yr7e2"]
+script = ExtResource("5_spmy0")
+graphic = SubResource("AtlasTexture_0lntm")
+graphic_offset = Vector2(0, -16)
+i_switch = 1
+event_commands_id = 3
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_g0qaj"]
+script = ExtResource("11_wpciv")
+map_id = "map_level3_5"
+spawn_pos = Vector2(272, 144)
+direction = 2
+metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
+
+[sub_resource type="Resource" id="Resource_qfrjy"]
+script = ExtResource("5_spmy0")
+trigger = 0
+static_command_list = Array[ExtResource("8_5yk1m")]([SubResource("Resource_g0qaj"), null])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_wpciv"]
+script = ExtResource("11_wpciv")
+map_id = "map_level3_7"
+spawn_pos = Vector2(240, 32)
+direction = 1
+metadata/_custom_type_script = "uid://8v1xdhfvcvkk"
+
+[sub_resource type="Resource" id="Resource_bvhyp"]
+script = ExtResource("5_spmy0")
+trigger = 0
+static_command_list = Array[ExtResource("8_5yk1m")]([SubResource("Resource_wpciv"), null])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[node name="MapBase" unique_id=279109716 instance=ExtResource("1_yhbte")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1877365204]
+texture = SubResource("AtlasTexture_tk4ag")
+
+[node name="Control" parent="." index="2" unique_id=809171734]
+offset_left = 240.0
+offset_top = 144.0
+offset_right = 240.0
+offset_bottom = 144.0
+
+[node name="ev010" parent="." index="3" unique_id=1425815131 instance=ExtResource("3_lc3gm")]
+position = Vector2(144, 96)
+_commands_source = ExtResource("4_tnu4e")
+eventpages = Array[ExtResource("5_spmy0")]([SubResource("Resource_a1dja"), SubResource("Resource_kvrhd"), SubResource("Resource_ayjhy"), SubResource("Resource_2jjfv")])
+
+[node name="ev007" parent="." index="4" unique_id=874304271 instance=ExtResource("3_lc3gm")]
+position = Vector2(256, 80)
+_commands_source = ExtResource("9_spmy0")
+eventpages = Array[ExtResource("5_spmy0")]([SubResource("Resource_kmt1q"), SubResource("Resource_h0vfk"), SubResource("Resource_yr7e2")])
+
+[node name="door" parent="." index="5" unique_id=273393535 instance=ExtResource("3_lc3gm")]
+position = Vector2(16, 112)
+eventpages = Array[ExtResource("5_spmy0")]([SubResource("Resource_qfrjy")])
+
+[node name="door2" parent="." index="6" unique_id=78424040 instance=ExtResource("3_lc3gm")]
+position = Vector2(240, 160)
+eventpages = Array[ExtResource("5_spmy0")]([SubResource("Resource_bvhyp")])

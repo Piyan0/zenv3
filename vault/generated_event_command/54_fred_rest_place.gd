@@ -7,21 +7,29 @@ func _get_commands_list():
     var commands = {}
     # start from index one.
     commands[1] = func():
+        await push(["push_dialogue2", "fred", ["lv5_06"]])
         await push(["fade_in"])
-        push(["alpha", "player", false])
-        push(["transfer", "chloe", 192, 80])
-        push(["transfer", "fred", 96, 160])
-        await push(["fade_out"])
-        await push(["move", "fred", ["up", "up", "up", "up", "right", "right", "right", "up", "right", "right"]])
+        push(["transfer", "player", 160, 80])
+        push(["look", "player", "down"])
         await push(["wait", 2])
-        await push(["fade_in", true])
-        await push(["narator", ["lv3_end00", "lv3_end01"]])
+        await push(["fade_out"])
+        await push(["narator", ["lv5_07"]])
+        await push(["move", "player", ["down"]])
+        await push(["push_dialogue2", "fred", ["lv5_08", "lv5_09", "lv5_10"]])
+        await push(["move", "player", ["right"]])
+        await push(["look", "player", "up"])
+        await push(["wait", 0.3])
+        await push(["look", "player", "left"])
+        await push(["wait", 0.3])
+        await push(["look", "player", "down"])
+        await push(["wait", 0.3])
+        await push(["move", "player", ["right", "left", "left"]])
+        await push(["look", "player", "down"])
+        await push(["push_dialogue2", "fred", ["lv5_11", "lv5_12"]])
+        push(["tag", "chloe_sleep"])
         push(["set_iswitch", "a"])
-        push(["tag", "go_vacation"])
-        await push(["goto", "map_level4_1", 0, 0 , "down", true])
+        push(["set_switch", "fred_dreaming"])
 
-
-        
     commands[2] = func():
         await push([""])
         

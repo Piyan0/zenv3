@@ -26,6 +26,7 @@ func _get_commands_list():
                 push(["push_dialogue", "name_blob", "lv3_extra_26"])
                 push(["push_dialogue", "chloe", "got_item"])
                 push(["add_item", 5])
+                push(["tag", "baseball_bat"])
                 await push(["start_dialogue"])
                 push(["set_iswitch", "b"])
         ])

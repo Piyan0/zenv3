@@ -7,6 +7,10 @@ func _get_commands_list():
     var commands = {}
     # start from index one.
     commands[1] = func():
+        pass
+
+    commands[2] = func():
+        Player.instance.get_camera().enabled = false
         push(["alpha", "player", false])
         push(["move", "chloe", ["up", "up", "up", "up", "up"]])
         await push(["wait", 0.1])
@@ -14,11 +18,10 @@ func _get_commands_list():
         push(["alpha", "fred", false])
         push(["alpha", "chloe", false])
         push(["set_iswitch", "a"])
-        await push(["goto", "map_level4_2"])
-        
-    commands[2] = func():
-        await push([""])
-        
+        push(["set_switch", "chloe_session", false])
+        push(["rtag", "go_vacation"])
+        await push(["goto", "map_level4_2", 32, 80, "right"])
+ 
     commands[3] = func():
         push(["alpha", "player", false])
         push(["transfer", "chloe", 160, 64])

@@ -4,6 +4,7 @@ extends Node2D
 
 @export var bgm_id: String
 @export var map_display_name: String
+@export var default_spawn_pos: Vector2 = Vector2.ZERO
 @export_tool_button("Copy Map ID") var _copy_map_id = _copy_map_id_action
 
 func _copy_map_id_action():

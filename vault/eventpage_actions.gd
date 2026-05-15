@@ -148,7 +148,7 @@ func _init() -> void:
                 instance.get_meta(meta_key).call(is_transparent)
     
 
-    _actions["move"] = func(target: String, arr_dir: Array, speed = 30):
+    _actions["move"] = func(target: String, arr_dir: Array, speed = 30, on_arrived = func(): pass):
         var instance = Event.get_by_id(target)
         if target == "player":
             instance = Player.instance
@@ -171,6 +171,7 @@ func _init() -> void:
             var mk_set_routes = "set_routes"
             if instance.has_meta(mk_set_routes):
                 await instance.get_meta(mk_set_routes).call(parse_dir.call(), speed)
+                await on_arrived.call()
     
     _actions["fade_in"] = func(free_at_end = false):
         var fade = await TransitionBlack.spawn()

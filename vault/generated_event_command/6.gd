@@ -15,7 +15,7 @@ func _get_commands_list():
             if id == 4:
                 push(["erase_item"])
                 push(["set_iswitch", "a"])    
-                push(["increment_var", "vaccine_placed"])
+                push(["tag", "both_vaccine_placed"])
         ])
         
     commands[3] = func():

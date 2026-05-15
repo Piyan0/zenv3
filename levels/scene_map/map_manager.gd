@@ -15,6 +15,10 @@ func goto(transfer_data: PlayerTransferData, start_from_black = false):
     prev_transfer_data = transfer_data
     var fade= await TransitionBlack.spawn(start_from_black, Color.BLACK, 0.3)
     var scene= Bootstrap.asset_loader.get_asset(transfer_data.map_id)
+    if transfer_data.spawn_pos == Vector2.ZERO:
+        var ins = scene.instantiate() as Map
+        transfer_data.spawn_pos = ins.default_spawn_pos
+        ins.free()
     await get_tree().process_frame
     get_tree().change_scene_to_packed(scene)
     await get_tree().process_frame

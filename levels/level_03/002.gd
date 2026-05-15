@@ -14,6 +14,7 @@ func _get_commands_list():
         await push(["open_inventory", func(item):
             if item == 2:
                 push(["erase_item"])
+                push(["set_switch", "fred_got_hint"])
                 await push(["show_image", "img_lv3_hint1"])
                 await push(["set_iswitch", "a", true])
         ])

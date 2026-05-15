@@ -179,4 +179,14 @@ func _init():
             ,
     }
 
+    sub_commands["tag"] = {
+        dk_DOCS : "Add a tag.",
+        dk_ACTION : func(args):
+            var tag = args[0]
+            var eva = EventPageActions.new()
+            eva.push(["tag", tag])
+            ,
+  
+    }
+
     _dump()

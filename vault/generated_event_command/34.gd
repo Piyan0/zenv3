@@ -7,9 +7,9 @@ func _get_commands_list():
     var commands = {}
     # start from index one.
     commands[1] = func():
+        push(["set_switch", "chloe_session", false])
         push(["transfer", "player", 96, 128])
         push(["move", "player", ["right", "right", "right", "right", "right", "right", "right", "right"]])
-        await push(["wait", 0.6])
         await push(["move", "chloe", ["right", "right", "right", "right", "right", "right", "right", "right", "right"]])
         push(["alpha", "chloe", false])
         await push(["move", "player", ["up", "right"]])

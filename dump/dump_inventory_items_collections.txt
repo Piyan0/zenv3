@@ -11,3 +11,4 @@
 (11) item_drawing.
 (12) item_flower.
 (13) item_watering_can.
+(14) item_ring.

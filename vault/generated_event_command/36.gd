@@ -6,7 +6,7 @@ extends EventCommands
 func _get_commands_list():
     var commands = {}
     # start from index one.
-    commands[1] = func():
+    commands[2] = func():
         push(["alpha", "player", false])
         push(["transfer", "player", 80, 64])
         await push(["move", "chloe", ["right", "right"]])
@@ -16,14 +16,31 @@ func _get_commands_list():
         await push(["move", "player", ["right"]])
         # TODO add cb when move is finished.
         await push(["move", "chloe", ["down", "down", "right", "right", "up"]])
-        push(["look", "chloe", "down"])
+        push(["alpha", "chloe", false])
+        push(["transfer", "chloe", INF, INF])
+        push(["tag", "chloe_sit"])
         push(["set_iswitch", "a"])
-        
-    commands[2] = func():
-        await push([""])
         
     commands[3] = func():
         await push([""])
+        
+    commands[4] = func():
+        await push(["fade_in"])
+        await push(["fade_out"])
+        push(["transfer", "player", 96, 112])
+        await push(["move", "player", ["down"]])
+        push(["look", "player", "right"])
+        await push(["wait", 0.2])
+        push(["look", "player", "up"])
+        await push(["move", "chloe_sit", ["down", "left", "left", "left", "down"]])
+        push(["move", "player", ["down", "down"], 30, func():
+            push(["alpha", "player", false])    
+        ])
+        await push(["move", "chloe_sit", ["down", "down", "down"], 30, func():
+            push(["alpha", "chloe_sit", false])
+        ])
+        push(["rtag", "chloe_awake"])
+        await push(["goto", "map_level5_11", 32, 176, "up"])
 
     return commands
 

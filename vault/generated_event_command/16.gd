@@ -14,7 +14,7 @@ func _get_commands_list():
         await push(["open_inventory", func(id):
             if id == 1:
                 push(["erase_item"])
-                await push(["goto", "map_level_03_03", 208, 160, "up"])
+                await push(["goto", "map_level3_4", 208, 160, "up"])
         ])
         
     commands[3] = func():

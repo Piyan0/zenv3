@@ -24,21 +24,21 @@ walk_animations = ExtResource("11_uwr2e")
 idle_animations = ExtResource("10_bhx3t")
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
+[sub_resource type="Resource" id="Resource_eip4d"]
+script = ExtResource("4_hx5xx")
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
 [sub_resource type="Resource" id="Resource_k1hp3"]
 script = ExtResource("4_hx5xx")
 trigger = 2
-metadata/_custom_type_script = "uid://c3bjilqd18jq"
-
-[sub_resource type="Resource" id="Resource_eip4d"]
-script = ExtResource("4_hx5xx")
-i_switch = 1
+tags = "go_vacation"
 event_commands_id = 2
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_7bene"]
 script = ExtResource("4_hx5xx")
 trigger = 2
-global_switch_001 = "going_home"
+tags = "go_home"
 event_commands_id = 3
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
@@ -64,4 +64,4 @@ eventpages = Array[ExtResource("4_hx5xx")]([SubResource("Resource_27bwr"), null]
 [node name="cutscene" parent="." index="5" unique_id=666599925 instance=ExtResource("3_fxqm2")]
 position = Vector2(0, -16)
 _commands_source = ExtResource("11_eip4d")
-eventpages = Array[ExtResource("4_hx5xx")]([SubResource("Resource_k1hp3"), SubResource("Resource_eip4d"), SubResource("Resource_7bene")])
+eventpages = Array[ExtResource("4_hx5xx")]([SubResource("Resource_eip4d"), SubResource("Resource_k1hp3"), SubResource("Resource_7bene")])

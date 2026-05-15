@@ -139,4 +139,14 @@ func _get_test_items(items):
         "is_key_item" : true,
     })
     
+    # TODO having to add id is probably suck.
+    items.push_back({
+        "id" : 14,
+        "name" : "item_ring",
+        "description": "no_desc",
+        "icon_path" : "res://assets/chloe/items/item_ring.png",
+        "is_consumable" : false,
+        "is_key_item" : true,
+    })
+    
     

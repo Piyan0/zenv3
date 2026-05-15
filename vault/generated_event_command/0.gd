@@ -12,7 +12,9 @@ func _get_commands_list():
     commands[2] = func():
         await Bootstrap.asset_loader.get_asset("sc_vault_puzzle").new().spawn([3, 7, 8, 1], "", func(is_correct):
             if is_correct:
-                push(["push_dialogue", "fred", "anjay"])
+                push(["push_dialogue", "fred", "got_item"])
+                push(["set_switch", "got_battery"])
+                push(["add_item", 3])
                 await push(["start_dialogue"])
                 push(["set_iswitch", "a"])
         )

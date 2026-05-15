@@ -2,7 +2,7 @@ class_name AssetLoader
 
 var _assets= {}
 
-# TODO add convention for dir asset we dont have to add it to dict.
+# TODO add convention for dir asset we dont have to add it to dict, so asset get based on folder structure, maybe add an alias.
 func _init():
     _get_image_assets()
     _get_map_assets()
@@ -44,6 +44,7 @@ func _get_image_assets():
     _assets["img_lv3_hint1"] = "res://assets/chloe/lv3_hint_01.png"
     _assets["img_lv3_hint2"] = "res://assets/chloe/lv3_hint_02.png"
     _assets["img_lv3_hint3"] = "res://assets/chloe/lv3_hint_03.png"
+    _assets["img_lv3_hint4"] = "res://assets/chloe/lv3_hint_04.png"
     _assets["img_reds_drawing"] = "res://assets/chloe/red_glob_drawing.png"
 
 
@@ -64,12 +65,14 @@ func _get_map_assets():
     _assets["map_road_02"] = map_base_path + "level_02/road_02/map.tscn"
     _assets["map_bar"] = map_base_path + "level_02/bar/map_base.tscn"
 
-    _assets["map_level_03_01"] = map_base_path + "level_03/01.tscn"
-    _assets["map_level_03_02"] = map_base_path + "level_03/02.tscn"
-    _assets["map_level_03_03"] = map_base_path + "level_03/03.tscn"
-    _assets["map_level_03_04"] = map_base_path + "level_03/04.tscn"
-    _assets["map_level_03_05"] = map_base_path + "level_03/05.tscn"
-    _assets["map_level_03_06"] = map_base_path + "level_03/06.tscn"
+    _assets["map_level3_1"] = map_base_path + "level_03/1.tscn"
+    _assets["map_level3_2"] = map_base_path + "level_03/2.tscn"
+    _assets["map_level3_3"] = map_base_path + "level_03/3.tscn"
+    _assets["map_level3_4"] = map_base_path + "level_03/4.tscn"
+    _assets["map_level3_5"] = map_base_path + "level_03/5.tscn"
+    _assets["map_level3_6"] = map_base_path + "level_03/6.tscn"
+    _assets["map_level3_7"] = map_base_path + "level_03/7.tscn"
+    _assets["map_level3_8"] = map_base_path + "level_03/8.tscn"
 
     _assets["map_level4_1"] = map_base_path + "level_4/1.tscn"
     _assets["map_level4_2"] = map_base_path + "level_4/2.tscn"
