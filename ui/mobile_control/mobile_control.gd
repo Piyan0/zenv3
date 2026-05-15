@@ -29,7 +29,5 @@ func _ready():
 
 
 static func spawn():
-    if OS.get_name() == "Android" or OS.get_name() == "iOS":
-        var instance = load("uid://bxxlmvxb1njx0").instantiate()
-        return instance
-    return null
+    var instance = load("uid://bxxlmvxb1njx0").instantiate()
+    return instance

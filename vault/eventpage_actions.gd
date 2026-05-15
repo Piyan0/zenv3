@@ -207,7 +207,7 @@ func _init() -> void:
     _actions["wait"] = func(second):
         await Engine.get_main_loop().create_timer(second).timeout
     
-    _actions["play_bgm"] = func(bgm_id):
+    _actions["play_bgm"] = func(bgm_id, custom_db = 0):
         if "playing_bgm_id" in _state:
             if bgm_id == _state["playing_bgm_id"]:
                 return
@@ -215,7 +215,7 @@ func _init() -> void:
         _state["playing_bgm_id"] = bgm_id
         var stream = Bootstrap.asset_loader.get_asset(bgm_id)
         assert(stream is AudioStream, str(stream))
-        Bootstrap.audio_manager.play_bgm(stream)
+        Bootstrap.audio_manager.play_bgm(stream, custom_db)
         
     _actions["play_sfx"] = func(bgm_id):
         var stream = Bootstrap.asset_loader.get_asset(bgm_id)

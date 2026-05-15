@@ -10,6 +10,12 @@ extends Control
 
 func _ready() -> void:
     var eva_menu = EventPageActions.new()
+    for i in Bootstrap.asset_loader.get_keys("bgm"):
+        eva_menu.push(["play_bgm", i, -80])
+        await get_tree().process_frame
+        await get_tree().process_frame
+        EventPageActions._state["playing_bgm_id" ] = ""
+
     eva_menu.push(["play_bgm", "bgm_menu"])
     var select = ListSelect.new(self, [play_button, select_level_button, select_language_button], 0, VERTICAL)
     select.on_select_end = func(s, a):
