@@ -4,5 +4,5 @@
 
 [node name="SceneMap" type="Node" unique_id=1781906236]
 script = ExtResource("1_jdh4r")
-map_id = "map_level5_5"
+map_id = "map_level5_4"
 direction = 1

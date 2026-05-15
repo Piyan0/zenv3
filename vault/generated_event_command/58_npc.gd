@@ -2,21 +2,15 @@
 
 extends EventCommands
 
-# TODO use string comparison on item, not id.
 
 func _get_commands_list():
     var commands = {}
     # start from index one.
     commands[1] = func():
-        await push(["push_dialogue2", "fred", ["lv3_fred_vault00"]])
+        await push(["push_dialogue2", "ui_man", ["lv5_npc1"]])
         
     commands[2] = func():
-        await Bootstrap.asset_loader.get_asset("sc_vault_puzzle").spawn([2, 4, 8, 1], "", func(is_correct):
-            if is_correct:
-                push(["set_iswitch", "a"])
-                push(["set_switch", "has_gold_finder"])
-                await push(["push_dialogue2", "fred", ["lv5_extra_01"]])    
-        )
+        await push(["push_dialogue2", "ui_man", ["lv5_npc2"]])
         
     commands[3] = func():
         await push([""])

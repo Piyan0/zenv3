@@ -17,10 +17,11 @@ func _init(p_owner):
     name= "EventManager"
     
     
-func _input(event):
+func _unhandled_input(event):
     if !can_process_interact.call():
         return
-    if event is InputEventAction || event is InputEventKey:
+    if event is InputEventAction || event is InputEventKey || event is InputEventJoypadButton:
+        # print(event.device)
         _current_input= event
 
 

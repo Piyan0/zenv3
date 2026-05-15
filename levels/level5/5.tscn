@@ -17,7 +17,6 @@
 [ext_resource type="Script" uid="uid://xl00jil6ffns" path="res://vault/generated_event_command/42_sand_castle_correct.gd" id="14_h50s3"]
 [ext_resource type="Script" uid="uid://n0p5gypyusvb" path="res://vault/generated_event_command/54_fred_rest_place.gd" id="16_bi4j0"]
 [ext_resource type="Script" uid="uid://1wlht6qwel5g" path="res://vault/generated_event_command/46_gold_area_wrong.gd" id="18_l8myi"]
-[ext_resource type="Script" uid="uid://tbdh3e2vcfpm" path="res://vault/generated_event_command/48_gold_area_correct.gd" id="19_bi4j0"]
 [ext_resource type="Texture2D" uid="uid://cijcyb0vrmkk6" path="res://assets/chloe/x_sign.png" id="19_gx3b7"]
 [ext_resource type="Script" uid="uid://cim3wgyrcxi5o" path="res://vault/generated_event_command/56_fred_cutscene.gd" id="20_gx3b7"]
 
@@ -35,7 +34,6 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 [sub_resource type="Resource" id="Resource_pokxf"]
 script = ExtResource("4_ref0v")
 trigger = 2
-force_disabled = true
 event_commands_id = 2
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
@@ -57,6 +55,12 @@ script = ExtResource("4_ref0v")
 walk_animations = ExtResource("8_bfehd")
 idle_animations = ExtResource("6_pokxf")
 through = true
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_gn0oo"]
+script = ExtResource("4_ref0v")
+through = true
+tags = "chloe_sit"
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_bi4j0"]
@@ -83,6 +87,11 @@ trigger = 0
 global_switch_001 = "fred_dreaming"
 event_commands_id = 2
 static_command_list = Array[ExtResource("7_m785r")]([SubResource("Resource_udgwt"), null])
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_1pryn"]
+script = ExtResource("4_ref0v")
+tags = "ring_found"
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_1kq74"]
@@ -179,28 +188,6 @@ event_commands_id = 2
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_58436"]
-script = ExtResource("4_ref0v")
-graphic = ExtResource("19_gx3b7")
-graphic_offset = Vector2(0, -16)
-through = true
-i_switch = 1
-event_commands_id = 3
-metadata/_custom_type_script = "uid://c3bjilqd18jq"
-
-[sub_resource type="Resource" id="Resource_1pryn"]
-script = ExtResource("4_ref0v")
-through = true
-metadata/_custom_type_script = "uid://c3bjilqd18jq"
-
-[sub_resource type="Resource" id="Resource_gn0oo"]
-script = ExtResource("4_ref0v")
-trigger = 0
-placement = 1
-global_switch_001 = "has_gold_finder"
-event_commands_id = 2
-metadata/_custom_type_script = "uid://c3bjilqd18jq"
-
-[sub_resource type="Resource" id="Resource_oqs0q"]
 script = ExtResource("4_ref0v")
 graphic = ExtResource("19_gx3b7")
 graphic_offset = Vector2(0, -16)
@@ -364,14 +351,14 @@ eventpages = Array[ExtResource("4_ref0v")]([SubResource("Resource_g463j"), SubRe
 
 [node name="chloe" parent="." index="4" unique_id=669010555 instance=ExtResource("3_84h7h")]
 position = Vector2(80, 64)
-eventpages = Array[ExtResource("4_ref0v")]([SubResource("Resource_27bwr"), null])
+eventpages = Array[ExtResource("4_ref0v")]([SubResource("Resource_27bwr"), SubResource("Resource_gn0oo")])
 
 [node name="ev001" parent="." index="5" unique_id=1596149378 instance=ExtResource("3_84h7h")]
 position = Vector2(96, 176)
 
 [node name="door01" parent="." index="6" unique_id=559478054 instance=ExtResource("3_84h7h")]
 position = Vector2(256, 80)
-eventpages = Array[ExtResource("4_ref0v")]([SubResource("Resource_62ksx"), SubResource("Resource_t37yq")])
+eventpages = Array[ExtResource("4_ref0v")]([SubResource("Resource_62ksx"), SubResource("Resource_t37yq"), SubResource("Resource_1pryn")])
 
 [node name="sand_castle_correct" parent="." index="7" unique_id=623372425 instance=ExtResource("3_84h7h")]
 position = Vector2(208, 48)
@@ -393,16 +380,11 @@ _commands_source = ExtResource("16_bi4j0")
 eventpages = Array[ExtResource("4_ref0v")]([SubResource("Resource_l8myi"), SubResource("Resource_446xw")])
 
 [node name="gold_area_wrong" parent="." index="11" unique_id=1256543529 instance=ExtResource("3_84h7h")]
-position = Vector2(128, 112)
+position = Vector2(96, -48)
 _commands_source = ExtResource("18_l8myi")
 eventpages = Array[ExtResource("4_ref0v")]([SubResource("Resource_7lvqr"), SubResource("Resource_vwc53"), SubResource("Resource_58436")])
 
-[node name="gold_area_correct" parent="." index="12" unique_id=420224497 instance=ExtResource("3_84h7h")]
-position = Vector2(160, 112)
-_commands_source = ExtResource("19_bi4j0")
-eventpages = Array[ExtResource("4_ref0v")]([SubResource("Resource_1pryn"), SubResource("Resource_gn0oo"), SubResource("Resource_oqs0q")])
-
-[node name="fred_cutscene" parent="." index="13" unique_id=512537072 instance=ExtResource("3_84h7h")]
+[node name="fred_cutscene" parent="." index="12" unique_id=512537072 instance=ExtResource("3_84h7h")]
 position = Vector2(32, -16)
 _commands_source = ExtResource("20_gx3b7")
 eventpages = Array[ExtResource("4_ref0v")]([SubResource("Resource_c052u"), SubResource("Resource_a44n5")])

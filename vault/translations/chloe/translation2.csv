@@ -69,3 +69,6 @@ ui_retry,"Retry","Réessayer"
 
 lv5_extra_01,"There's gold detector inside, I should walk around and find the ring with this gold detector.","Il y a un détecteur d'or à l'intérieur, je devrais faire le tour des environs et trouver la bague avec cet appareil."
 lv5_fred_awake0,"Oh, am I dreaming?","Oh, est-ce que je rêve ?"
+"lv5_npc1","Ring? I haven't seen any...but I can sense the present of ring around here. But you might need some sort of detector to find it, It's hard to find gold in this desert area.","Une bague ? Je n'en ai pas vu... mais je peux sentir la présence d'une bague par ici. Mais vous aurez peut-être besoin d'une sorte de détecteur pour la trouver. C'est difficile de trouver de l'or dans cette zone désertique."
+"lv5_npc2","I see you bring yourself a gold detector, you just have to walk around and it'll beep when it land on the ring. It's just about time before you find it.","Je vois que vous avez apporté un détecteur d'or. Ce n'est plus qu'une question de temps avant que vous ne la trouviez."
+"lv5_found_shovel","Oh a shovel, this should come in handy!","Oh, une pelle ! Ça devrait s'avérer utile !"

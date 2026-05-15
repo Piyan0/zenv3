@@ -90,7 +90,7 @@ func update_active_animation(global_switches):
             if i == active_animation:
                 return
             active_animation = i
-            print(active_animation)
+            # print(active_animation)
             _active_animation_changed(i)
             return
     

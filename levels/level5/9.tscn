@@ -4,9 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://ddtpepjtx54op" path="res://assets/chloe/sheet_lv5.png" id="2_4qjx6"]
 [ext_resource type="PackedScene" uid="uid://cbukaldu4q8gj" path="res://entities/event/event.tscn" id="3_4qjx6"]
 [ext_resource type="Script" uid="uid://c3bjilqd18jq" path="res://entities/event/event_page.gd" id="4_k72gw"]
+[ext_resource type="Script" uid="uid://0ecbmv7iv4hw" path="res://vault/generated_event_command/58_npc.gd" id="4_plhha"]
 [ext_resource type="Script" uid="uid://dth0j1qqlqe57" path="res://entities/event/event_trait.gd" id="5_2w8hq"]
 [ext_resource type="Script" uid="uid://bem3pvtqt554f" path="res://entities/event/static_event_command.gd" id="6_b7ydh"]
 [ext_resource type="Script" uid="uid://8v1xdhfvcvkk" path="res://vault/static_event_commands/StaticGoto.gd" id="7_plhha"]
+[ext_resource type="Script" uid="uid://tbdh3e2vcfpm" path="res://vault/generated_event_command/48_gold_area_correct.gd" id="8_b7ydh"]
+[ext_resource type="Texture2D" uid="uid://cijcyb0vrmkk6" path="res://assets/chloe/x_sign.png" id="9_plhha"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_inrwf"]
 atlas = ExtResource("2_4qjx6")
@@ -14,6 +17,16 @@ region = Rect2(0, 360, 320, 180)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsu8c"]
 size = Vector2(16, 16)
+
+[sub_resource type="Resource" id="Resource_gkwpq"]
+script = ExtResource("4_k72gw")
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_bvqtn"]
+script = ExtResource("4_k72gw")
+global_switch_001 = "has_gold_finder"
+event_commands_id = 2
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [sub_resource type="Resource" id="Resource_k72gw"]
 script = ExtResource("7_plhha")
@@ -41,7 +54,30 @@ trigger = 0
 static_command_list = Array[ExtResource("6_b7ydh")]([SubResource("Resource_b7ydh"), null])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
+[sub_resource type="Resource" id="Resource_1pryn"]
+script = ExtResource("4_k72gw")
+through = true
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_gn0oo"]
+script = ExtResource("4_k72gw")
+trigger = 0
+placement = 1
+global_switch_001 = "has_gold_finder"
+event_commands_id = 2
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
+[sub_resource type="Resource" id="Resource_oqs0q"]
+script = ExtResource("4_k72gw")
+graphic = ExtResource("9_plhha")
+graphic_offset = Vector2(0, -16)
+through = true
+i_switch = 1
+event_commands_id = 3
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
 [node name="MapBase" unique_id=279109716 instance=ExtResource("1_inrwf")]
+default_spawn_pos = Vector2(160, 80)
 
 [node name="Sprite2D" parent="." index="0" unique_id=1877365204]
 texture = SubResource("AtlasTexture_inrwf")
@@ -210,13 +246,15 @@ position = Vector2(264, 120)
 shape = SubResource("RectangleShape2D_fsu8c")
 
 [node name="Control" parent="." index="2" unique_id=809171734]
-offset_left = 16.0
+offset_left = 160.0
 offset_top = 80.0
-offset_right = 16.0
+offset_right = 160.0
 offset_bottom = 80.0
 
-[node name="ev000" parent="." index="3" unique_id=1425815131 instance=ExtResource("3_4qjx6")]
+[node name="npc" parent="." index="3" unique_id=1425815131 instance=ExtResource("3_4qjx6")]
 position = Vector2(80, 64)
+_commands_source = ExtResource("4_plhha")
+eventpages = Array[ExtResource("4_k72gw")]([SubResource("Resource_gkwpq"), SubResource("Resource_bvqtn")])
 
 [node name="ev001" parent="." index="4" unique_id=931458740 instance=ExtResource("3_4qjx6")]
 position = Vector2(128, 192)
@@ -225,3 +263,8 @@ eventpages = Array[ExtResource("4_k72gw")]([SubResource("Resource_2w8hq"), null]
 [node name="ev002" parent="." index="5" unique_id=11138305 instance=ExtResource("3_4qjx6")]
 position = Vector2(16, 80)
 eventpages = Array[ExtResource("4_k72gw")]([SubResource("Resource_plhha"), null])
+
+[node name="gold_area_correct" parent="." index="6" unique_id=158300603 instance=ExtResource("3_4qjx6")]
+position = Vector2(240, 128)
+_commands_source = ExtResource("8_b7ydh")
+eventpages = Array[ExtResource("4_k72gw")]([SubResource("Resource_1pryn"), SubResource("Resource_gn0oo"), SubResource("Resource_oqs0q")])

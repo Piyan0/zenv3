@@ -17,6 +17,11 @@ func _get_commands_list():
         push(["set_iswitch", "a"])
         push(["set_switch", "fred_found_ring"])
         push(["tag", "ring_found"])
+        push(["tag", "fred_awake"])
+        await push(["fade_in"])
+        await push(["wait", 2])
+        await push(["fade_out"])
+        await push(["goto", "map_level5_5", 0, 0, "down", true])
         
     commands[3] = func():
         await push([""])
