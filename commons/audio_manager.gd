@@ -8,6 +8,8 @@ var bgm_fade_dur = 0.5
 func _ready():
     _bgm_player = AudioStreamPlayer.new()
     _sfx_player = AudioStreamPlayer.new()
+    _bgm_player.playback_type = AudioServer.PLAYBACK_TYPE_SAMPLE
+    _sfx_player.playback_type = AudioServer.PLAYBACK_TYPE_SAMPLE
     add_child(_bgm_player)
     add_child(_sfx_player)
 

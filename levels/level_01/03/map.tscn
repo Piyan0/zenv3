@@ -40,7 +40,6 @@ metadata/_custom_type_script = "uid://udvneqyhy02s"
 [sub_resource type="Resource" id="Resource_l2pf0"]
 script = ExtResource("4_nn5i4")
 global_switch_001 = "chloe_session"
-global_switch_001_value = true
 static_command_list = Array[ExtResource("6_4qdch")]([SubResource("Resource_ttdcf")])
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
@@ -76,11 +75,11 @@ metadata/_custom_type_script = "uid://c3bjilqd18jq"
 size = Vector2(64, 16)
 
 [node name="MapBase" unique_id=985451661 instance=ExtResource("1_0o1eh")]
-map_id = "level_01_03"
 metadata/_edit_vertical_guides_ = [128.0, 120.0, 256.0, 472.0, 504.0]
 metadata/_edit_horizontal_guides_ = [64.0, 40.0, 200.0, 152.0, 144.0]
 
 [node name="Sprite2D" parent="." index="0" unique_id=1877365204]
+modulate = Color(1, 1, 1, 1)
 texture = SubResource("AtlasTexture_7f811")
 
 [node name="CollisionShape2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(679895113) index="0" unique_id=180166799]
