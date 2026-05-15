@@ -14,15 +14,12 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="zenv3"
+config/name="Du Jeu Au Nous"
 run/main_scene="uid://buxp0irvissen"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
-
-[audio]
-
-general/default_playback_type=1
-driver/output_latency.web=100
 
 [autoload]
 

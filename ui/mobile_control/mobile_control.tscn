@@ -1,40 +1,34 @@
 [gd_scene format=3 uid="uid://bxxlmvxb1njx0"]
 
-[ext_resource type="Texture2D" uid="uid://gld400filib8" path="res://ui/mobile_control/gdb-switch-2.png" id="1_jc4dg"]
 [ext_resource type="Script" uid="uid://dckq246w3nkm7" path="res://ui/mobile_control/mobile_control.gd" id="1_v2ky5"]
-[ext_resource type="Texture2D" uid="uid://d1f1cec51a4on" path="res://ui/mobile_control/dpad_up.png" id="2_eerth"]
-[ext_resource type="Texture2D" uid="uid://b3pwugbq28o0i" path="res://ui/mobile_control/dpad_down.png" id="3_1oa1u"]
+[ext_resource type="Texture2D" uid="uid://bqnqei10dvgd7" path="res://ui/mobile_control/dpad_up.png" id="2_eerth"]
+[ext_resource type="Texture2D" uid="uid://b2h0bssqsertx" path="res://ui/mobile_control/dpad_down.png" id="3_1oa1u"]
 [ext_resource type="Texture2D" uid="uid://c58k0p5rpvu3a" path="res://ui/mobile_control/button_disable_control.png" id="3_u0yph"]
 [ext_resource type="Script" uid="uid://bn6c7x6aercwc" path="res://ui/mobile_control/button_press.gd" id="4_5vl16"]
-[ext_resource type="Texture2D" uid="uid://d1vcd4m0fxawr" path="res://ui/mobile_control/dpad_left.png" id="4_kro4v"]
-[ext_resource type="Texture2D" uid="uid://cyi433kqrixf3" path="res://ui/mobile_control/dpad_right.png" id="5_ow6bc"]
+[ext_resource type="Texture2D" uid="uid://c2va02chg5425" path="res://ui/mobile_control/dpad_left.png" id="4_kro4v"]
+[ext_resource type="Texture2D" uid="uid://cfciqx8jax7ak" path="res://ui/mobile_control/dpad_shadow.png" id="4_u0yph"]
+[ext_resource type="Texture2D" uid="uid://xyc7svsl53vh" path="res://ui/mobile_control/dpad_right.png" id="5_ow6bc"]
 [ext_resource type="Texture2D" uid="uid://bon4d1vjq0s81" path="res://ui/mobile_control/button_a.png" id="6_kro4v"]
 [ext_resource type="Texture2D" uid="uid://br8o8idnvddjt" path="res://ui/mobile_control/button_b.png" id="7_5bki4"]
 [ext_resource type="Texture2D" uid="uid://mdkave6mp1g" path="res://ui/mobile_control/hamburger.png" id="8_v2ky5"]
 [ext_resource type="Texture2D" uid="uid://ipijsk13lg7s" path="res://ui/mobile_control/button_enable_control.png" id="9_5vl16"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjq75"]
-atlas = ExtResource("1_jc4dg")
 region = Rect2(242, 418, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ow6bc"]
-atlas = ExtResource("1_jc4dg")
 region = Rect2(242, 450, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1oa1u"]
-atlas = ExtResource("1_jc4dg")
 region = Rect2(242, 466, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kro4v"]
-atlas = ExtResource("1_jc4dg")
 region = Rect2(242, 434, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lv87s"]
-atlas = ExtResource("1_jc4dg")
 region = Rect2(290, 418, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eerth"]
-atlas = ExtResource("1_jc4dg")
 region = Rect2(290, 434, 12, 12)
 
 [node name="MobileControl" type="CanvasLayer" unique_id=1342344286 node_paths=PackedStringArray("btn_toggle_control", "btn_hamburger", "dpad_container", "action_btn_contaienr")]
@@ -131,8 +125,12 @@ texture_normal = SubResource("AtlasTexture_eerth")
 action = "ui_accept"
 
 [node name="Dpad" type="Node2D" parent="." unique_id=1514329356]
-modulate = Color(1, 1, 1, 0.3)
+modulate = Color(1, 1, 1, 0.61300004)
 position = Vector2(44, 91)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dpad" unique_id=1057072195]
+position = Vector2(10, 34)
+texture = ExtResource("4_u0yph")
 
 [node name="DpaUp" type="TouchScreenButton" parent="Dpad" unique_id=752916658]
 texture_normal = ExtResource("2_eerth")
@@ -162,17 +160,18 @@ action = "ui_right"
 script = ExtResource("4_5vl16")
 
 [node name="Action" type="Node2D" parent="." unique_id=578696539]
-modulate = Color(1, 1, 1, 0.3)
-position = Vector2(276, 138)
+modulate = Color(1, 1, 1, 0.61300004)
+position = Vector2(286, 141)
 
 [node name="ButtonA" type="TouchScreenButton" parent="Action" unique_id=822921140]
+position = Vector2(-29, -52)
 texture_normal = ExtResource("6_kro4v")
 passby_press = true
 action = "ui_accept"
 script = ExtResource("4_5vl16")
 
 [node name="ButtonB" type="TouchScreenButton" parent="Action" unique_id=113824228]
-position = Vector2(-28, -28)
+position = Vector2(-56, -23)
 texture_normal = ExtResource("7_5bki4")
 passby_press = true
 action = "ui_cancel"
@@ -180,9 +179,10 @@ script = ExtResource("4_5vl16")
 
 [node name="Option" type="Node2D" parent="." unique_id=24069443]
 modulate = Color(1, 1, 1, 0.3)
-position = Vector2(250, 7)
+position = Vector2(265, 1)
 
 [node name="Hamburger" type="TouchScreenButton" parent="Option" unique_id=476093945]
+visible = false
 position = Vector2(38, 5)
 texture_normal = ExtResource("8_v2ky5")
 passby_press = true
@@ -190,6 +190,7 @@ action = "ui_cancel"
 script = ExtResource("4_5vl16")
 
 [node name="EnableButton" type="TouchScreenButton" parent="Option" unique_id=707910773]
+position = Vector2(30, -5)
 texture_normal = ExtResource("9_5vl16")
 passby_press = true
 action = "ui_cancel"
