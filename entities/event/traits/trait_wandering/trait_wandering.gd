@@ -109,8 +109,11 @@ func _enter(event):
     
 func _exit(event):
     if is_instance_valid(_wandering_node):
-        _wandering_node.queue_free()
-    _walk_anim_process.queue_free()
+        _wandering_node.free()
+    if is_instance_valid(_walk_anim_process):
+        _walk_anim_process.free()
+    if is_instance_valid(_grid_mov):
+        _grid_mov.free()
     
 
 func _update(delta, event):

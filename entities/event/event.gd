@@ -138,9 +138,7 @@ func interact(player):
     
 
 func update_active_event(internal_switches, variables, global_switches, tag_list):
-    if active_event_page:
-        for i in active_event_page.event_traits:
-            i.exit(self)
+
     var reversed_event_pages= eventpages.duplicate()
     reversed_event_pages.reverse()
     for i in reversed_event_pages:
@@ -148,8 +146,11 @@ func update_active_event(internal_switches, variables, global_switches, tag_list
         # TODO return if event is the same, since everytime variable / switch is changed, it will be called.
         if i.is_event_active(internal_switches[get_internal_switch_id()], variables, global_switches, tag_list):
             if i == active_event_page:
-                # print("same")
                 return
+            if active_event_page:
+                for j in active_event_page.event_traits:
+                    j.exit(self)
+
             active_event_page= i
             _active_event_changed(i)
 

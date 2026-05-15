@@ -111,7 +111,14 @@ script = ExtResource("4_y33ms")
 trigger = 2
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
+[sub_resource type="Resource" id="Resource_s7p3t"]
+script = ExtResource("4_y33ms")
+i_switch = 1
+event_commands_id = 2
+metadata/_custom_type_script = "uid://c3bjilqd18jq"
+
 [node name="MapBase" unique_id=279109716 instance=ExtResource("1_topti")]
+default_spawn_pos = Vector2(16, 64)
 
 [node name="Sprite2D" parent="." index="0" unique_id=1877365204]
 texture = SubResource("AtlasTexture_hobgn")
@@ -500,7 +507,9 @@ position = Vector2(168, 136)
 shape = SubResource("RectangleShape2D_y33ms")
 
 [node name="Control" parent="." index="2" unique_id=809171734]
+offset_left = 16.0
 offset_top = 64.0
+offset_right = 16.0
 offset_bottom = 64.0
 
 [node name="ev000" parent="." index="3" unique_id=1425815131 instance=ExtResource("3_k6yg3")]
@@ -522,4 +531,4 @@ eventpages = Array[ExtResource("4_y33ms")]([SubResource("Resource_qa5jv")])
 [node name="auto" parent="." index="7" unique_id=979786678 instance=ExtResource("3_k6yg3")]
 position = Vector2(0, -16)
 _commands_source = ExtResource("14_8pupa")
-eventpages = Array[ExtResource("4_y33ms")]([SubResource("Resource_xdwyw"), null])
+eventpages = Array[ExtResource("4_y33ms")]([SubResource("Resource_xdwyw"), SubResource("Resource_s7p3t")])
