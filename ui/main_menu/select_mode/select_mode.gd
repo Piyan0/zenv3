@@ -14,3 +14,9 @@ func _ready() -> void:
             mode_selected.emit(false)
         elif s == btn_multi:
             mode_selected.emit(true)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+    if event.is_action_pressed("ui_cancel"):
+        queue_free()
+        mode_selected.emit(null)

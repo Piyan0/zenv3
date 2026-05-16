@@ -8,7 +8,9 @@ func _get_commands_list():
         pass
 
     commands[2] = func():
+        push(["alpha", event, false])
         await push(["fade_in"])
+        push(["alpha", event, true])
         push(["transfer", "player", 192, 48])
         push(["look", "player", "down"])
         push(["fade_out"])

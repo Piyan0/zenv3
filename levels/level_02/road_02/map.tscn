@@ -44,6 +44,7 @@ static_command_list = Array[ExtResource("6_3ifxq")]([SubResource("Resource_0e75e
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="MapBase" unique_id=279109716 instance=ExtResource("1_5c5vf")]
+position = Vector2(1, 0)
 default_spawn_pos = Vector2(48, 112)
 metadata/_edit_vertical_guides_ = [240.0, 208.0, 208.0]
 metadata/_edit_horizontal_guides_ = [136.0, 136.0, 144.0]

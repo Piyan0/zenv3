@@ -9,7 +9,7 @@ func _ready() -> void:
 
 
 func get_rect():
-    return Rect2(position, Vector2(7,7))
+    return Rect2(global_position, Vector2(7,7))
 
 
 func flash():

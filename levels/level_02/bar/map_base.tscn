@@ -457,6 +457,7 @@ global_switch_001 = "show_love_bubble"
 metadata/_custom_type_script = "uid://c3bjilqd18jq"
 
 [node name="MapBase" unique_id=279109716 instance=ExtResource("1_yx5tg")]
+default_spawn_pos = Vector2(96, 80)
 metadata/_edit_vertical_guides_ = [248.0, 320.0, 336.0]
 metadata/_edit_horizontal_guides_ = [176.0, 112.0, 128.0]
 
@@ -690,7 +691,13 @@ shape = SubResource("RectangleShape2D_fsu8c")
 position = Vector2(56, 136)
 shape = SubResource("RectangleShape2D_fsu8c")
 
-[node name="ReferenceRect" parent="Control" parent_id_path=PackedInt32Array(809171734) index="0" unique_id=187995610]
+[node name="Control" parent="." index="3" unique_id=809171734]
+offset_left = 96.0
+offset_top = 80.0
+offset_right = 96.0
+offset_bottom = 80.0
+
+[node name="ReferenceRect" parent="Control" index="0" unique_id=187995610]
 offset_left = 32.0
 offset_top = 16.0
 offset_right = 48.0

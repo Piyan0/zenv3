@@ -42,6 +42,14 @@ func _ready():
     if !bgm_id.is_empty():
         var eva = EventPageActions.new()
         eva.push(["play_bgm", bgm_id])
+    
+    if Bootstrap.input_filter.is_multiplayer:
+        var gb_switch = progression_data[Progression.KEY_GLOBAL_SWITCHES]
+        var chloe_session = gb_switch["chloe_session"]
+        if chloe_session:
+            Bootstrap.input_filter.set_allow_input("player_1")
+        else:
+            Bootstrap.input_filter.set_allow_input("player_2")
 
 
 func _add_event_id():

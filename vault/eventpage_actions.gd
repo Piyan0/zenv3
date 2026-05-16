@@ -189,6 +189,7 @@ func _init() -> void:
                 await _state["fade"].confirm()
             else:
                 _state["fade"].confirm()
+            _state.erase("fade")
         else:
             var fade = await TransitionBlack.spawn(true)
             await fade.confirm()

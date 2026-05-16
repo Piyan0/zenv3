@@ -27,7 +27,17 @@ func _get_commands_list():
         await push(["start_dialogue"])
         await push(["fade_in"])
         push(["fade_out"])
-        await Bootstrap.asset_loader.get_asset("sc_pretzel_minigame").spawn()
+        var minigame = await Bootstrap.asset_loader.get_asset("sc_pretzel_minigame").spawn(
+            func(player_id):
+                if Bootstrap.input_filter.is_multiplayer:
+                    match player_id:
+                        0:
+                            Bootstrap.input_filter.set_allow_input("player_1")
+                        1:
+                            Bootstrap.input_filter.set_allow_input("player_2")
+        )
+        if Bootstrap.input_filter.is_multiplayer:
+            Bootstrap.input_filter.set_allow_input("player_2")
 
         push(["set_iswitch", "a", true])
         push(["set_switch", "bar_kiss"])

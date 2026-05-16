@@ -13,7 +13,7 @@ signal player_changed(id)
 @export var hit_spot_list: Array[Node2D]
 @export var img_pretzel_state_list: Array[Texture2D]
 @export var img_pretzel_flash: Texture2D
-@export var spr_hit_state: Sprite2D
+@export var spr_hit_state: TextureRect
 @export var hit_state = 0:
     set(value):
         hit_state = min(value, img_pretzel_state_list.size() - 1)
@@ -28,12 +28,11 @@ var _health
 
 func _ready() -> void:
     if Engine.is_editor_hint(): return 
+    get_window().size_changed.connect(func():
+        _sync_hit_spot()  
+    )
     _setup()
-    # game_over.connect(func():
-    #     var eva = EventPageActions.new()
-    #     eva.push(["goto", "map_level_01_01", 0,0, "down", true])
-    # )
-
+ 
 
 func _setup():
     for i in health_container.get_children():
@@ -50,8 +49,9 @@ func _unhandled_input(event: InputEvent) -> void:
         _try_hit()
 
 
-static func spawn():
+static func spawn(on_player_changed_cb):
     var ins = load("uid://bathporo7b0oe").instantiate()
+    ins.player_changed.connect(on_player_changed_cb)
     Bootstrap.canvas.add_child(ins)
     await ins.game_over
     
@@ -77,7 +77,9 @@ func _try_hit():
     if !_can_hit():
         if _health.is_empty():
             game_over_text.show()
-            var choice = await Choice.spawn(Vector2(160, 96), ["ui_retry", "ui_close"] as Array[String], true)
+            var x = get_viewport().get_visible_rect().size.x/2
+            # print(x)
+            var choice = await Choice.spawn(Vector2(x, 96), ["ui_retry", "ui_close"] as Array[String], true)
             if choice == 0:
                 game_over_text.hide()
                 _setup()
@@ -121,7 +123,7 @@ func _sync_hit_spot():
         return
     var spot = hit_spot_list[hit_state]
     spot.show()
-    mark.move_mark(spot.position)
+    mark.move_mark(spot.global_position)
     return spot
 
 

@@ -19,6 +19,9 @@ func _get_commands_list():
                 push(["tag", "love_bubble"])
                 await push(["wait", 1])
                 await push(["fade_in"])
+                await push(["fade_out"])
+
+                Engine.get_main_loop().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
         ])
         
     commands[2] = func():

@@ -27,124 +27,175 @@ number_preview = [NodePath("Index0"), NodePath("Index1"), NodePath("Index2"), No
 number_container = NodePath("NumberList")
 lb_hint = NodePath("DebugLabel")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1510674838]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1090959596]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("AtlasTexture_vurv5")
 
 [node name="Index0" type="Label" parent="." unique_id=604459628]
-layout_mode = 0
-offset_left = 131.0
-offset_top = 42.0
-offset_right = 171.0
-offset_bottom = 68.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -48.0
+offset_right = 6.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "8"
 label_settings = SubResource("LabelSettings_pobwf")
 
 [node name="Index1" type="Label" parent="." unique_id=1722416604]
 modulate = Color(0.9441816, 0.94418156, 0.94418156, 1)
-layout_mode = 0
-offset_left = 151.0
-offset_top = 43.0
-offset_right = 191.0
-offset_bottom = 69.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -49.0
+offset_right = 27.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "8"
 label_settings = SubResource("LabelSettings_pobwf")
 
 [node name="Index2" type="Label" parent="." unique_id=635686426]
-layout_mode = 0
-offset_left = 170.0
-offset_top = 43.0
-offset_right = 210.0
-offset_bottom = 69.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 11.0
+offset_top = -48.0
+offset_right = 51.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "8"
 label_settings = SubResource("LabelSettings_pobwf")
 
 [node name="Index3" type="Label" parent="." unique_id=526006459]
-layout_mode = 0
-offset_left = 188.0
-offset_top = 44.0
-offset_right = 228.0
-offset_bottom = 70.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -46.0
+offset_right = 73.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "8"
 label_settings = SubResource("LabelSettings_pobwf")
 
 [node name="NumberList" type="Control" parent="." unique_id=1575091979]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Number" parent="NumberList" unique_id=252918482 instance=ExtResource("4_pobwf")]
 layout_mode = 0
-offset_left = 116.0
-offset_top = 85.0
-offset_right = 116.0
-offset_bottom = 85.0
+offset_left = -44.0
+offset_top = -5.0
+offset_right = -44.0
+offset_bottom = -5.0
 id = 1
 
 [node name="Number2" parent="NumberList" unique_id=144025748 instance=ExtResource("4_pobwf")]
 layout_mode = 0
-offset_left = 148.0
-offset_top = 85.0
-offset_right = 148.0
-offset_bottom = 85.0
+offset_left = -12.0
+offset_top = -5.0
+offset_right = -12.0
+offset_bottom = -5.0
 id = 2
 
 [node name="Number3" parent="NumberList" unique_id=1360867067 instance=ExtResource("4_pobwf")]
 layout_mode = 0
-offset_left = 178.0
-offset_top = 85.0
-offset_right = 178.0
-offset_bottom = 85.0
+offset_left = 18.0
+offset_top = -5.0
+offset_right = 18.0
+offset_bottom = -5.0
 id = 3
 
 [node name="Number4" parent="NumberList" unique_id=1136650159 instance=ExtResource("4_pobwf")]
 layout_mode = 0
-offset_left = 116.0
-offset_top = 108.0
-offset_right = 116.0
-offset_bottom = 108.0
+offset_left = -44.0
+offset_top = 18.0
+offset_right = -44.0
+offset_bottom = 18.0
 id = 4
 
 [node name="Number5" parent="NumberList" unique_id=112511013 instance=ExtResource("4_pobwf")]
 layout_mode = 0
-offset_left = 146.0
-offset_top = 109.0
-offset_right = 146.0
-offset_bottom = 109.0
+offset_left = -14.0
+offset_top = 19.0
+offset_right = -14.0
+offset_bottom = 19.0
 id = 5
 
 [node name="Number6" parent="NumberList" unique_id=294701645 instance=ExtResource("4_pobwf")]
 layout_mode = 0
-offset_left = 180.0
-offset_top = 109.0
-offset_right = 180.0
-offset_bottom = 109.0
+offset_left = 20.0
+offset_top = 19.0
+offset_right = 20.0
+offset_bottom = 19.0
 id = 6
 
 [node name="Number7" parent="NumberList" unique_id=2058836620 instance=ExtResource("4_pobwf")]
 layout_mode = 0
-offset_left = 115.0
-offset_top = 130.0
-offset_right = 115.0
-offset_bottom = 130.0
+offset_left = -45.0
+offset_top = 40.0
+offset_right = -45.0
+offset_bottom = 40.0
 id = 7
 
 [node name="Number8" parent="NumberList" unique_id=10517181 instance=ExtResource("4_pobwf")]
 layout_mode = 0
-offset_left = 147.0
-offset_top = 132.0
-offset_right = 147.0
-offset_bottom = 132.0
+offset_left = -13.0
+offset_top = 42.0
+offset_right = -13.0
+offset_bottom = 42.0
 id = 8
 
 [node name="Number9" parent="NumberList" unique_id=559610492 instance=ExtResource("4_pobwf")]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 133.0
-offset_right = 176.0
-offset_bottom = 133.0
+offset_left = 16.0
+offset_top = 43.0
+offset_right = 16.0
+offset_bottom = 43.0
 id = 9
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=38004577]

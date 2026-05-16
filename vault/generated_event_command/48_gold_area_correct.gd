@@ -10,6 +10,7 @@ func _get_commands_list():
         pass
         
     commands[2] = func():
+        push(["add_item", 14])
         push(["play_sfx", "sfx_beep"])
         await push(["wait", 0.3])
         push(["play_sfx", "sfx_beep"])

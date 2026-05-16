@@ -14,8 +14,9 @@ func _get_commands_list():
         await push(["push_dialogue2", "chloe", ["lv3_chloe03"]])
         await push(["open_inventory", func(id):
             if id == 5:
-                push(["play_sfx", "sfx_break"])
                 push(["set_iswitch", "a"])
+                push(["play_sfx", "sfx_break"])
+                await push(["wait", 0.6])
                 push(["erase_item"]) 
                 await push(["show_image", "img_lv3_hint4"])   
                 await push(["push_dialogue2", "chloe", ["lv3_chloe05", "lv3_chloe06"]])

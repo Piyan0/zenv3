@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cig6g885cgaec" path="res://assets/chloe/game_logo.png" id="2_mu8pm"]
 [ext_resource type="PackedScene" uid="uid://bv6ixu8e4crfw" path="res://ui/hand_pointer/hand_pointer.tscn" id="3_omy8q"]
 
-[node name="MainMenu" type="Control" unique_id=1795451437 node_paths=PackedStringArray("play_button", "select_level_button", "select_language_button", "select_level_instance", "select_language_instance", "select_mode_instance")]
+[node name="MainMenu" type="Control" unique_id=1795451437 node_paths=PackedStringArray("play_button", "select_level_button", "select_language_button", "select_level_instance", "select_language_instance", "select_mode_instance", "player_assign_instance")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +18,7 @@ select_language_button = NodePath("VBoxContainer/SelectLanguage")
 select_level_instance = NodePath("SelectLevel")
 select_language_instance = NodePath("SelectLanguage")
 select_mode_instance = NodePath("SelectMode")
+player_assign_instance = NodePath("PlayerAssign")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=957111589]
 layout_mode = 1
@@ -100,5 +101,17 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_top = -34.0
 offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerAssign" parent="." unique_id=664959366 instance_placeholder="res://ui/main_menu/player_assign/player_assign.tscn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -69.0
+offset_bottom = -69.0
 grow_horizontal = 2
 grow_vertical = 2

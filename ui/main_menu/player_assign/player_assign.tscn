@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://bjdea86ou4nk8"]
+
+[ext_resource type="Script" uid="uid://dmmrk77xhudqt" path="res://ui/main_menu/player_assign/player_assign.gd" id="1_at11i"]
+[ext_resource type="Texture2D" uid="uid://bogthprsmtqtm" path="res://assets/chloe/avatar_chloe.png" id="1_yyh0u"]
+[ext_resource type="Texture2D" uid="uid://clxd1wui4k52g" path="res://assets/chloe/avatar_fred.png" id="2_4b4w3"]
+[ext_resource type="Texture2D" uid="uid://bdt2r42lma83f" path="res://assets/chloe/dialogue_rect.png" id="2_r8g40"]
+[ext_resource type="Texture2D" uid="uid://fecqygfk768i" path="res://assets/chloe/icon_controller.png" id="3_4b4w3"]
+[ext_resource type="LabelSettings" uid="uid://bcaegaq2amce6" path="res://assets/styles/default2.tres" id="3_at11i"]
+[ext_resource type="Script" uid="uid://cimwh7dvhh4av" path="res://commons/ui/animate_offset_loop.gd" id="7_h8xvm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8xvm"]
+atlas = ExtResource("3_4b4w3")
+region = Rect2(0, 0, 20, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at11i"]
+atlas = ExtResource("3_4b4w3")
+region = Rect2(22, 0, 20, 18)
+
+[node name="PlayerAssign" type="Control" unique_id=664959366 node_paths=PackedStringArray("player1_avatar", "player2_avatar", "lb_hint", "tr_controller")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_at11i")
+player1_avatar = NodePath("MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer/TextureRect2")
+player2_avatar = NodePath("MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer/TextureRect")
+lb_hint = NodePath("MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer2/Label")
+img_controller_flash = SubResource("AtlasTexture_h8xvm")
+tr_controller = NodePath("MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect")
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=765421478]
+custom_minimum_size = Vector2(175, 118)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.5
+offset_right = 87.5
+offset_bottom = 118.0
+grow_horizontal = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer2" unique_id=1843950916]
+layout_mode = 2
+texture = ExtResource("2_r8g40")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2" unique_id=2034232381]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/MarginContainer" unique_id=802438696]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/MarginContainer/VBoxContainer" unique_id=957970116]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=774045658]
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("1_yyh0u")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1233666466]
+layout_mode = 2
+texture = ExtResource("2_4b4w3")
+flip_h = true
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="MarginContainer2/MarginContainer/VBoxContainer" unique_id=572965091]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=230754179]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_at11i")
+
+[node name="Label" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=409972715]
+layout_mode = 2
+size_flags_vertical = 10
+text = "ui_press_start_1p"
+label_settings = ExtResource("3_at11i")
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer2/MarginContainer/VBoxContainer" unique_id=114863952]
+modulate = Color(0.37254903, 0.37254903, 0.58431375, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=483117951]
+layout_mode = 2
+text = "[X]"
+label_settings = ExtResource("3_at11i")
+
+[node name="Label2" type="Label" parent="MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=864460404]
+layout_mode = 2
+text = "ui_close"
+label_settings = ExtResource("3_at11i")
+
+[node name="AnimateOffsetLoop" type="Node" parent="." unique_id=1210062809 node_paths=PackedStringArray("target")]
+script = ExtResource("7_h8xvm")
+target = NodePath("../MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect")
+offset = Vector2(0, -3)
+metadata/_custom_type_script = "uid://cimwh7dvhh4av"

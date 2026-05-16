@@ -133,120 +133,135 @@ game_over_text = NodePath("GameOverText")
 player_01_avatar = NodePath("TextureRect")
 player_02_avatar = NodePath("TextureRect2")
 health_container = NodePath("HBoxContainer")
-mark = NodePath("HitMark")
-hit_spot_list = [NodePath("HitSpotList/Hitspot"), NodePath("HitSpotList/Hitspot2"), NodePath("HitSpotList/Hitspot3"), NodePath("HitSpotList/Hitspot4"), NodePath("HitSpotList/Hitspot5"), NodePath("HitSpotList/Hitspot6"), NodePath("HitSpotList/Hitspot7"), NodePath("HitSpotList/Hitspot8"), NodePath("HitSpotList/Hitspot9"), NodePath("HitSpotList/Hitspot10"), NodePath("HitSpotList/Hitspot11"), NodePath("HitSpotList/Hitspot12"), NodePath("HitSpotList/Hitspot13"), NodePath("HitSpotList/Hitspot14"), NodePath("HitSpotList/Hitspot15"), NodePath("HitSpotList/Hitspot16"), NodePath("HitSpotList/Hitspot17"), NodePath("HitSpotList/Hitspot18"), NodePath("HitSpotList/Hitspot19"), NodePath("HitSpotList/Hitspot20"), NodePath("HitSpotList/Hitspot21"), NodePath("HitSpotList/Hitspot22"), NodePath("HitSpotList/Hitspot23"), NodePath("HitSpotList/Hitspot24")]
+mark = NodePath("Control/HitMark")
+hit_spot_list = [NodePath("Control/HitSpotList/Hitspot"), NodePath("Control/HitSpotList/Hitspot2"), NodePath("Control/HitSpotList/Hitspot3"), NodePath("Control/HitSpotList/Hitspot4"), NodePath("Control/HitSpotList/Hitspot5"), NodePath("Control/HitSpotList/Hitspot6"), NodePath("Control/HitSpotList/Hitspot7"), NodePath("Control/HitSpotList/Hitspot8"), NodePath("Control/HitSpotList/Hitspot9"), NodePath("Control/HitSpotList/Hitspot10"), NodePath("Control/HitSpotList/Hitspot11"), NodePath("Control/HitSpotList/Hitspot12"), NodePath("Control/HitSpotList/Hitspot13"), NodePath("Control/HitSpotList/Hitspot14"), NodePath("Control/HitSpotList/Hitspot15"), NodePath("Control/HitSpotList/Hitspot16"), NodePath("Control/HitSpotList/Hitspot17"), NodePath("Control/HitSpotList/Hitspot18"), NodePath("Control/HitSpotList/Hitspot19"), NodePath("Control/HitSpotList/Hitspot20"), NodePath("Control/HitSpotList/Hitspot21"), NodePath("Control/HitSpotList/Hitspot22"), NodePath("Control/HitSpotList/Hitspot23"), NodePath("Control/HitSpotList/Hitspot24")]
 img_pretzel_state_list = Array[Texture2D]([SubResource("AtlasTexture_sp22k"), SubResource("AtlasTexture_nbg16"), SubResource("AtlasTexture_gw88e"), SubResource("AtlasTexture_g10ri"), SubResource("AtlasTexture_iw4f7"), SubResource("AtlasTexture_q1jpw"), SubResource("AtlasTexture_w1w0i"), SubResource("AtlasTexture_ea103"), SubResource("AtlasTexture_xid35"), SubResource("AtlasTexture_7kix7"), SubResource("AtlasTexture_q52g7"), SubResource("AtlasTexture_xafye"), SubResource("AtlasTexture_3rfra"), SubResource("AtlasTexture_dcybh"), SubResource("AtlasTexture_lpebh"), SubResource("AtlasTexture_cglx5"), SubResource("AtlasTexture_3vrsm"), SubResource("AtlasTexture_jques"), SubResource("AtlasTexture_gj1fn"), SubResource("AtlasTexture_sh6vs"), SubResource("AtlasTexture_trcxc"), SubResource("AtlasTexture_7pveh"), SubResource("AtlasTexture_jnm7a"), SubResource("AtlasTexture_q56nw"), SubResource("AtlasTexture_qt6hk")])
 img_pretzel_flash = SubResource("AtlasTexture_72dmw")
 spr_hit_state = NodePath("Sprite2D")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=671989774]
-texture = SubResource("AtlasTexture_ycio0")
-centered = false
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2104799685]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1002647093]
-position = Vector2(160, 80)
+[node name="Sprite2D2" type="TextureRect" parent="." unique_id=2011974755]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_ycio0")
+
+[node name="Sprite2D" type="TextureRect" parent="." unique_id=2065176933]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -60.0
+offset_right = 65.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("AtlasTexture_sp22k")
 
-[node name="HitSpotList" type="Node2D" parent="." unique_id=1860740577]
+[node name="Control" type="Control" parent="." unique_id=652176655]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Hitspot" parent="HitSpotList" unique_id=1917365890 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(168, 73)
+[node name="HitSpotList" type="Node2D" parent="Control" unique_id=1860740577]
+position = Vector2(-159, -89)
 
-[node name="Hitspot2" parent="HitSpotList" unique_id=1227827954 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(146, 80)
+[node name="Hitspot" parent="Control/HitSpotList" unique_id=1917365890 instance=ExtResource("2_keu58")]
+position = Vector2(167, 72)
 
-[node name="Hitspot3" parent="HitSpotList" unique_id=1106089655 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(141, 62)
+[node name="Hitspot2" parent="Control/HitSpotList" unique_id=1227827954 instance=ExtResource("2_keu58")]
+position = Vector2(145, 79)
 
-[node name="Hitspot4" parent="HitSpotList" unique_id=477515041 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(160, 64)
+[node name="Hitspot3" parent="Control/HitSpotList" unique_id=1106089655 instance=ExtResource("2_keu58")]
+position = Vector2(140, 61)
 
-[node name="Hitspot5" parent="HitSpotList" unique_id=799870009 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(165, 96)
+[node name="Hitspot4" parent="Control/HitSpotList" unique_id=477515041 instance=ExtResource("2_keu58")]
+position = Vector2(159, 63)
 
-[node name="Hitspot6" parent="HitSpotList" unique_id=1561347413 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(148, 97)
+[node name="Hitspot5" parent="Control/HitSpotList" unique_id=799870009 instance=ExtResource("2_keu58")]
+position = Vector2(164, 95)
 
-[node name="Hitspot7" parent="HitSpotList" unique_id=1921011390 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(137, 91)
+[node name="Hitspot6" parent="Control/HitSpotList" unique_id=1561347413 instance=ExtResource("2_keu58")]
+position = Vector2(147, 96)
 
-[node name="Hitspot8" parent="HitSpotList" unique_id=318421014 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(170, 87)
+[node name="Hitspot7" parent="Control/HitSpotList" unique_id=1921011390 instance=ExtResource("2_keu58")]
+position = Vector2(136, 90)
 
-[node name="Hitspot9" parent="HitSpotList" unique_id=261780015 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(169, 62)
+[node name="Hitspot8" parent="Control/HitSpotList" unique_id=318421014 instance=ExtResource("2_keu58")]
+position = Vector2(169, 86)
 
-[node name="Hitspot10" parent="HitSpotList" unique_id=818713496 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(149, 70)
+[node name="Hitspot9" parent="Control/HitSpotList" unique_id=261780015 instance=ExtResource("2_keu58")]
+position = Vector2(168, 61)
 
-[node name="Hitspot11" parent="HitSpotList" unique_id=634460918 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(143, 55)
+[node name="Hitspot10" parent="Control/HitSpotList" unique_id=818713496 instance=ExtResource("2_keu58")]
+position = Vector2(148, 69)
 
-[node name="Hitspot12" parent="HitSpotList" unique_id=485064600 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(162, 77)
+[node name="Hitspot11" parent="Control/HitSpotList" unique_id=634460918 instance=ExtResource("2_keu58")]
+position = Vector2(142, 54)
 
-[node name="Hitspot13" parent="HitSpotList" unique_id=823088197 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(181, 95)
+[node name="Hitspot12" parent="Control/HitSpotList" unique_id=485064600 instance=ExtResource("2_keu58")]
+position = Vector2(161, 76)
 
-[node name="Hitspot14" parent="HitSpotList" unique_id=1135958591 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(156, 89)
+[node name="Hitspot13" parent="Control/HitSpotList" unique_id=823088197 instance=ExtResource("2_keu58")]
+position = Vector2(180, 94)
 
-[node name="Hitspot15" parent="HitSpotList" unique_id=2119046834 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(163, 87)
+[node name="Hitspot14" parent="Control/HitSpotList" unique_id=1135958591 instance=ExtResource("2_keu58")]
+position = Vector2(155, 88)
 
-[node name="Hitspot16" parent="HitSpotList" unique_id=1464558577 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(169, 56)
+[node name="Hitspot15" parent="Control/HitSpotList" unique_id=2119046834 instance=ExtResource("2_keu58")]
+position = Vector2(162, 86)
 
-[node name="Hitspot17" parent="HitSpotList" unique_id=429801309 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(155, 73)
+[node name="Hitspot16" parent="Control/HitSpotList" unique_id=1464558577 instance=ExtResource("2_keu58")]
+position = Vector2(168, 55)
 
-[node name="Hitspot18" parent="HitSpotList" unique_id=977398877 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(147, 86)
+[node name="Hitspot17" parent="Control/HitSpotList" unique_id=429801309 instance=ExtResource("2_keu58")]
+position = Vector2(154, 72)
 
-[node name="Hitspot19" parent="HitSpotList" unique_id=1541841334 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(174, 97)
+[node name="Hitspot18" parent="Control/HitSpotList" unique_id=977398877 instance=ExtResource("2_keu58")]
+position = Vector2(146, 85)
 
-[node name="Hitspot20" parent="HitSpotList" unique_id=1789074645 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(138, 97)
+[node name="Hitspot19" parent="Control/HitSpotList" unique_id=1541841334 instance=ExtResource("2_keu58")]
+position = Vector2(173, 96)
 
-[node name="Hitspot21" parent="HitSpotList" unique_id=1741903863 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(178, 100)
+[node name="Hitspot20" parent="Control/HitSpotList" unique_id=1789074645 instance=ExtResource("2_keu58")]
+position = Vector2(137, 96)
 
-[node name="Hitspot22" parent="HitSpotList" unique_id=1441030851 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(153, 57)
+[node name="Hitspot21" parent="Control/HitSpotList" unique_id=1741903863 instance=ExtResource("2_keu58")]
+position = Vector2(177, 99)
 
-[node name="Hitspot23" parent="HitSpotList" unique_id=1018646629 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(136, 100)
+[node name="Hitspot22" parent="Control/HitSpotList" unique_id=1441030851 instance=ExtResource("2_keu58")]
+position = Vector2(152, 56)
 
-[node name="Hitspot24" parent="HitSpotList" unique_id=299663624 instance=ExtResource("2_keu58")]
-top_level = true
-position = Vector2(164, 55)
+[node name="Hitspot23" parent="Control/HitSpotList" unique_id=1018646629 instance=ExtResource("2_keu58")]
+position = Vector2(135, 99)
 
-[node name="HitMark" parent="." unique_id=663579984 instance=ExtResource("4_sp22k")]
-position = Vector2(64, 80)
+[node name="Hitspot24" parent="Control/HitSpotList" unique_id=299663624 instance=ExtResource("2_keu58")]
+position = Vector2(163, 54)
+
+[node name="HitMark" parent="Control" unique_id=663579984 instance=ExtResource("4_sp22k")]
+position = Vector2(-6, -18)
 mark_speed = 90
 offset_from_target = 40
 
@@ -328,10 +343,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -55.0
-offset_top = -56.0
-offset_right = 57.0
-offset_bottom = -40.0
+offset_left = -56.0
+offset_top = -63.0
+offset_right = 56.0
+offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_n74ho")

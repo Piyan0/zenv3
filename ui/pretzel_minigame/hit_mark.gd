@@ -20,8 +20,8 @@ func move_mark(pos: Vector2):
     if _t:
         if _t.is_valid():
             _t.kill()
-
-    var dir = (pos - position).normalized()
+    # 7,7 is hit spot so it is be center, and 12, 12 is self size so that is use center.
+    var dir = ((pos + Vector2(7,7)) - (global_position - Vector2(12, 12))).normalized()
     var a_offset = dir * offset_from_target
     var b_offset = (dir * offset_from_target) * -1
     
@@ -37,8 +37,8 @@ func move_mark(pos: Vector2):
     _t.tween_callback(func():
         _is_moving = true
     )
-    _t.tween_property(self, "position", start_pos, get_time.call(pos.distance_to(start_pos)))
-    _t.tween_property(self, "position", end_pos, get_time.call(pos.distance_to(end_pos)))
+    _t.tween_property(self, "global_position", start_pos, get_time.call(pos.distance_to(start_pos)))
+    _t.tween_property(self, "global_position", end_pos, get_time.call(pos.distance_to(end_pos)))
     _t.tween_callback(func():
         _is_moving = false
         move_finished.emit()    
@@ -46,5 +46,5 @@ func move_mark(pos: Vector2):
 
 
 func is_hit(target_rect: Rect2):
-    var self_rect = Rect2(position, mark_size)
+    var self_rect = Rect2(global_position, mark_size)
     return target_rect.intersects(self_rect)
