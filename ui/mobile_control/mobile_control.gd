@@ -14,7 +14,24 @@ var _is_control_enabled = true
 
 func _ready():
     btn_hamburger.pressed.connect(func():
-        on_hamburger_clicked.emit()    
+        on_hamburger_clicked.emit()
+        var player = Player.instance
+        if !(get_tree().current_scene is Map) || Player.instance.lock_counter > 0:
+            return
+
+        print(Player.instance.lock_counter)
+        if player != null:
+            player.lock_counter += 1
+        var inven = load("uid://c1148pqf8xuv8").instantiate()
+        inven.items_id = Bootstrap.save_system.fields["items_id"]
+        #print(inven.items_id)
+        inven.inventory_closed.connect(func(items_used):
+            if player:
+                player.lock_counter -= 1
+            for i in items_used:
+                Bootstrap.save_system.fields["items_id"].erase(i)
+        )
+        Bootstrap.canvas.add_child(inven)
     )
     
     btn_toggle_control.pressed.connect(func():

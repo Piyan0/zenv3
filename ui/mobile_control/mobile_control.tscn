@@ -209,16 +209,14 @@ modulate = Color(1, 1, 1, 0.3)
 position = Vector2(-54, -179)
 
 [node name="Hamburger" type="TouchScreenButton" parent="Control2/Option" unique_id=476093945]
-visible = false
-position = Vector2(38, 5)
+position = Vector2(33, 64)
 texture_normal = ExtResource("8_v2ky5")
 passby_press = true
 action = "ui_cancel"
 script = ExtResource("4_5vl16")
 
 [node name="EnableButton" type="TouchScreenButton" parent="Control2/Option" unique_id=707910773]
-position = Vector2(30, -5)
+position = Vector2(25, 73)
 texture_normal = ExtResource("9_5vl16")
 passby_press = true
-action = "ui_cancel"
 script = ExtResource("4_5vl16")

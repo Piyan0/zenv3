@@ -116,8 +116,8 @@ func _create_event_manager():
     
     
 func _create_mobile_control():
-    if OS.get_name() == "Windows":
-        return
+    # if OS.get_name() == "Windows" && OS.is_debug_build():
+        # return
         
     var mobile_control = MobileControl.spawn()
     if mobile_control != null:
